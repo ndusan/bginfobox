@@ -1,0 +1,49 @@
+<?php
+//Site
+define('SITE', 'http://bginfobox.localhost');
+
+define('IN_DEV', true);
+
+//DB params
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'bginfobox');
+define('DB_USER', 'root');
+define('DB_PASS', 'root');
+
+define('BASE_PATH', SITE.DS);
+
+//Cookie life (by default 15min)
+define('COOKIE_LIFE', 15*60*60);
+
+//Paths
+define('CONTROLLER_PATH', 'app'.DS.'controllers'.DS);
+define('MODEL_PATH', 'app'.DS.'models'.DS);
+define('VIEW_PATH', 'app'.DS.'views'.DS);
+define('LAYOUT_PATH', $_SERVER['DOCUMENT_ROOT'].DS.'app'.DS.'views'.DS.'layout'.DS);
+
+//Logs
+define('LOG_PATH', ROOT.DS.'tmp'.DS.'logs'.DS);
+
+//Public paths
+define('IMAGE_PATH', DS.'public'.DS.'images'.DS);
+define('CSS_PATH', DS.'public'.DS.'css'.DS);
+define('JS_PATH', 'public'.DS.'js'.DS);
+
+//Assets
+define('ASSETS_CSS_PATH', DS.'public'.DS.'assets'.DS.'css'.DS);
+define('ASSETS_JS_PATH', DS.'public'.DS.'assets'.DS.'js'.DS);
+
+//Uploads 
+define('UPLOAD_PATH', $_SERVER['DOCUMENT_ROOT'].'public'.DS.'uploads'.DS);
+
+//Cache properties
+define('TIME_TO_LIVE_CACHE', 60);
+define('CACHE_PATH', 'tmp'.DS.'cache'.DS);
+
+//Mail
+define('MAIL_FROM', 'noreply@bginfobox.com');
+define('MAIL_TO', 'info@bginfobox.com');
+
+//Pagination
+define('RANGE', '3');//range of num links to show
+define('PER_PAGE', '1');// number of rows to show per page
