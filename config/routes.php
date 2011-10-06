@@ -6,6 +6,12 @@ $routes = array(
             'action'     => 'index', 
             'layout'     => 'default'
     ),
+    //404
+    array(  'url'        => '/^404\/?$/', 
+            'controller' => 'home', 
+            'action'     => 'noPageFound', 
+            'layout'     => 'default'
+    ),
     //Static pages
     array(  'url'        => '/^(?P<page>(news))\/?$/', 
             'controller' => 'home', 

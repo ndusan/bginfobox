@@ -107,7 +107,7 @@ function routing($routes){
         //If there is no route founded
         if(!$foundRoute){
                 //This should be reported!!!
-                header("Location: ".BASE_PATH);
+                header("Location: ".BASE_PATH.'404');
                 exit;
         }
         
