@@ -47,3 +47,7 @@ define('MAIL_TO', 'info@bginfobox.com');
 //Pagination
 define('RANGE', '3');//range of num links to show
 define('PER_PAGE', '1');// number of rows to show per page
+
+//Possible languages on frontend
+define('LANG', 'srb|en');
+define('DEFAULT_LANG', 'srb');
