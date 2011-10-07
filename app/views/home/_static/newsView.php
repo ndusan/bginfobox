@@ -1,2 +1,2 @@
-#no page found - 404
+#news
 <? print_r($params);?>

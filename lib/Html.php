@@ -137,4 +137,41 @@ class HTML
                     }(document, "script", "facebook-jssdk"));</script>
                     <div class="fb-like" data-href="'.$link.'" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false" data-font="arial"></div>';
         }
+        
+        
+        function formatNews($news=array(), $dynamic=false)
+        {
+            $html = '<div class="news">';
+            
+            if(empty($news)){
+                $html.= 'No news added';
+            }else{
+                foreach($news as $n){
+                    $html.= '<h3>'.$n['title'].'</h3>';
+                    $html.= '<span>'.$n['date'].'</span>';
+                    $html.= '<div class="news_content">'.$n['headings'].'</div>';
+                    $html.= '<span><a href="/news/'.$n['id'].'/'.$n['title'].'" >read more...</a></span>';
+                }
+            }
+
+            $html.= '</div>';
+            
+            return $html;
+        }
+        
+        
+        function formatCalendar($calendar)
+        {
+            $html = '<div class="calendar">';
+            
+            if(empty($calendar)){
+                $html.= 'To be done';
+            }else{
+                
+            }
+            
+            $html.= '</div>';
+            
+            return $html;
+        }
 }

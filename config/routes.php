@@ -1,7 +1,7 @@
 <?php
 $routes = array(
     //Home page
-    array(  'url'        => '/^\/?$/', 
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/?$/', 
             'controller' => 'home', 
             'action'     => 'index', 
             'layout'     => 'default'
@@ -10,12 +10,30 @@ $routes = array(
     array(  'url'        => '/^404\/?$/', 
             'controller' => 'home', 
             'action'     => 'noPageFound', 
-            'layout'     => 'default'
+            'layout'     => '404'
     ),
     //Static pages
-    array(  'url'        => '/^(?P<page>(news))\/?$/', 
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/(?P<page>(about-us|our-clients|archive|gallery|ads|contact))\/?$/', 
             'controller' => 'home', 
-            'action'     => 'page', 
+            'action'     => 'staticPages', 
+            'layout'     => 'default'
+    ),
+    //Static page - calendar
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/(?P<page>(calendar))\/?(?P<event_id>\d+)*$/', 
+            'controller' => 'home', 
+            'action'     => 'staticPages', 
+            'layout'     => 'default'
+    ),
+    //Static page - news
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/(?P<page>(news))\/?((?P<news_id>\d+)\/[a-zA-Z0-9\/#&@\-+_]+)*$/', 
+            'controller' => 'home', 
+            'action'     => 'staticPages', 
+            'layout'     => 'default'
+    ),
+    //Dynamic pages
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/(?P<page>([a-zA-Z0-9\/#&@\-+_]+))\/?$/', 
+            'controller' => 'home', 
+            'action'     => 'dynamicPages', 
             'layout'     => 'default'
     ),
     //Login page

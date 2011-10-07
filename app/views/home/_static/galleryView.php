@@ -1,2 +1,2 @@
-#no page found - 404
+#gallery
 <? print_r($params);?>

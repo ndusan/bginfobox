@@ -1,2 +1,2 @@
-#no page found - 404
+#about us
 <? print_r($params);?>

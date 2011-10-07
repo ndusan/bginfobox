@@ -96,6 +96,13 @@ function routing($routes){
         $url = str_replace('?'.$_SERVER['QUERY_STRING'], '', $url);
         $foundRoute = false;
         
+        //Check if it has langage
+        if(!preg_match('/^[(?P<lang>('.LANG.'))|404][a-zA-Z0-9\/#&@\-+_]*\/?$/', $url)){
+            header("Location: ".BASE_PATH.DEFAULT_LANG);
+            exit;
+        }
+        
+        //Check routing
         foreach($routes as $urls => $route){
                 if(preg_match($route['url'], $url, $matches)){
                         $params = array_merge($params, $matches);

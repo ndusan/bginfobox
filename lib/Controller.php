@@ -156,7 +156,10 @@ class Controller
         
         
         public function beforeAction($params){}
-        public function afterAction($params){}
+        public function afterAction($params){
+            
+            $this->set('params', $params);
+        }
         
         
         public function uploadImage($imageName, $image, $folder)

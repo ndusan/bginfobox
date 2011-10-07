@@ -1,2 +1,2 @@
-#no page found - 404
+#ads
 <? print_r($params);?>
