@@ -37,9 +37,12 @@
                         <li><a href="#" class="youtube">Youtube</a></li>
                     </ul>
                     <ul class="lang">
-                        <li><a class="active" href="#">SR</a></li>
+                        <li><a <?=($params['lang'] == DEFAULT_LANG ? 'class="active"':'');?> href="<?=DS.DEFAULT_LANG.(isset($params['page'])?DS.$params['page']:'');?>">SR</a></li>
                         <li>/</li>
-                        <li><a href="#">EN</a></li>
+                        <li>
+                            <? $allLang = explode('|',LANG);?>
+                            <a <?=($params['lang'] == $allLang[1] ? 'class="active"':'');?> href="<?=DS.$allLang[1].(isset($params['page'])?DS.$params['page']:'');?>">EN</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -47,15 +50,15 @@
                 <div class="header">
 
                     <ul class="mainNav">
-                        <li><a href="#">O nama</a></li>
-                        <li><a href="#">Naši klijenti</a></li>
-                        <li><a href="#">Arhiva izdana</a></li>
-                        <li><a href="#">Foto galerija</a></li>
-                        <li><a href="#">Oglašavanje</a></li>
-                        <li><a href="#">Kontakt</a></li>
+                        <li><a href="<?=DS.$params['lang'].DS.'about-us';?>">O nama</a></li>
+                        <li><a href="<?=DS.$params['lang'].DS.'our-clients';?>">Naši klijenti</a></li>
+                        <li><a href="<?=DS.$params['lang'].DS.'archive';?>">Arhiva izdana</a></li>
+                        <li><a href="<?=DS.$params['lang'].DS.'gallery';?>">Foto galerija</a></li>
+                        <li><a href="<?=DS.$params['lang'].DS.'ads';?>">Oglašavanje</a></li>
+                        <li><a href="<?=DS.$params['lang'].DS.'contact';?>">Kontakt</a></li>
                         <li><a href="#">VODIČ KROZ BEOGRAD</a></li>
                     </ul>
-                    <a href="#" class="logo">
+                    <a href="<?=$params['lang'];?>" class="logo">
                         <img src="<?= IMAGE_PATH . 'logo.png'; ?>" />
                     </a>
                     <div class="banner">
