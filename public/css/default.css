@@ -125,3 +125,13 @@ ul.soc  li {float:left; margin-left:20px;}
 .galleryAll li span {display:block; text-align:center; font-size:11px; line-height:20px;}
 .zoom {width:30px; height:30px; display:block; position:absolute; bottom:30px; right:10px; background:transparent url(../images/zoom_bg.png) scroll no-repeat 0 0;}
 .zoom:hover {background-position:0 -30px;}
+
+.contact {padding:15px; overflow:hidden;}
+.contactInfo {float:left; width:180px;}
+.contactMap {padding:0 15px 15px;}
+.contactForm {float:right; width:340px;}
+.contactForm td {padding:5px;}
+input[type=text], textarea {padding:5px; background-color:#FDFDFD; border: 1px solid #D6D6D6; font-family: Arial,Helvetica,sans-serif; font-size:13px; width: 200px; box-shadow: 1px 1px 2px rgba(200, 200, 200, 0.3) inset;}
+input[type=text]:focus, textarea:focus {background-color:#FFF;}
+input[type=submit] {padding:5px 15px; background-color:#FDFDFD; border: 1px solid #D6D6D6; font-family: Arial,Helvetica,sans-serif; font-size:13px; box-shadow: 1px 1px 2px rgba(200, 200, 200, 0.3);}
+input[type=submit]:hover {color:#f0397b; border-color:#C6C6C6; cursor:pointer;}
