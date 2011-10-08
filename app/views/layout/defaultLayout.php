@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en-US" xml:lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <title>BGinfo Boxgiot</title>
+        <title>BGInfoBox</title>
         <link rel="shortcut icon" href="<?= IMAGE_PATH . 'favicon.ico'; ?>" type="image/x-icon" />
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="Description" content="" />
@@ -18,12 +18,9 @@
         <?=$html->allCustomJs(JS_PATH.'default'.DS);?>
         
         <!-- Load all custom css -->
-        <?=$html->css('default' ,CSS_PATH);?>
+        <?=$html->css('default', CSS_PATH);?>
     </head>
     <body data-controller="<?= $this->_controller; ?>" data-method="<?= $this->_action; ?>">
-
-
-
         <body>
             <div class="topNavW">
                 <div class="topNav">
@@ -50,12 +47,12 @@
                 <div class="header">
 
                     <ul class="mainNav">
-                        <li><a href="<?=DS.$params['lang'].DS.'about-us';?>">O nama</a></li>
-                        <li><a href="<?=DS.$params['lang'].DS.'our-clients';?>">Naši klijenti</a></li>
-                        <li><a href="<?=DS.$params['lang'].DS.'archive';?>">Arhiva izdana</a></li>
-                        <li><a href="<?=DS.$params['lang'].DS.'gallery';?>">Foto galerija</a></li>
-                        <li><a href="<?=DS.$params['lang'].DS.'ads';?>">Oglašavanje</a></li>
-                        <li><a href="<?=DS.$params['lang'].DS.'contact';?>">Kontakt</a></li>
+                        <li><a href="<?=DS.$params['lang'].DS.'about-us';?>" <?=(isset($params['page']) && 'about-us' == $params['page'] ? 'class="active"':'');?>>O nama</a></li>
+                        <li><a href="<?=DS.$params['lang'].DS.'our-clients';?>" <?=(isset($params['page']) && 'our-clients' == $params['page'] ? 'class="active"':'');?>>Naši klijenti</a></li>
+                        <li><a href="<?=DS.$params['lang'].DS.'archive';?>" <?=(isset($params['page']) && 'archive' == $params['page'] ? 'class="active"':'');?>>Arhiva izdana</a></li>
+                        <li><a href="<?=DS.$params['lang'].DS.'gallery';?>" <?=(isset($params['page']) && 'gallery' == $params['page'] ? 'class="active"':'');?>>Foto galerija</a></li>
+                        <li><a href="<?=DS.$params['lang'].DS.'ads';?>" <?=(isset($params['page']) && 'ads' == $params['page'] ? 'class="active"':'');?>>Oglašavanje</a></li>
+                        <li><a href="<?=DS.$params['lang'].DS.'contact';?>" <?=(isset($params['page']) && 'contact' == $params['page'] ? 'class="active"':'');?>>Kontakt</a></li>
                         <li><a href="#">VODIČ KROZ BEOGRAD</a></li>
                     </ul>
                     <a href="<?=$params['lang'];?>" class="logo">

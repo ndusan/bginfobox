@@ -7,11 +7,15 @@
         <meta name="Description" content="" />
         <meta name="Keywords" content="" />
         <meta http-equiv="X-UA-Compatible" content="IE=7" />
-        <?=$html->assetsJs('jquery-1.6.3.min');?>
-        <?=$html->assetsJs('app');?>
-        <?=$html->customJs(); ?>
-        <?=$html->css('cms'); ?>
-        <?=$html->customCss($this->_css);?>
+        <!-- Load all assets (js + css) -->
+        <?=$html->assetsJs('jquery-1.6.4.min', ASSETS_JS_PATH);?>
+        <?=$html->assetsJs('app', ASSETS_JS_PATH);?>
+        
+        <!-- Load all custom js -->
+        <?=$html->js('app.login', JS_PATH);?>
+        
+        <!-- Load all custom css -->
+        <?=$html->css('default' ,CSS_PATH);?>
     </head>
     <body data-controller="<?= $this->_controller; ?>" data-method="<?= $this->_action; ?>">
 

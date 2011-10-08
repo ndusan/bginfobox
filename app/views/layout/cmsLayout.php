@@ -7,6 +7,17 @@
         <meta name="Description" content="" />
         <meta name="Keywords" content="" />
         <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <!-- Load all assets (js + css) -->
+        <?=$html->assetsJs('jquery-1.6.4.min', ASSETS_JS_PATH);?>
+        <?=$html->assetsJs('app', ASSETS_JS_PATH);?>
+        <?=$html->assetsCss('default', ASSETS_CSS_PATH);?>
+        
+        <!-- Load all custom js -->
+        <?=$html->js('app', JS_PATH);?>
+        <?=$html->allCustomJs(JS_PATH.'cms'.DS);?>
+        
+        <!-- Load all custom css -->
+        <?=$html->css('cms', CSS_PATH);?>
     </head>
     <body data-controller="<?= $this->_controller; ?>" data-method="<?= $this->_action; ?>">
                 <!-- This is a content that will be included on page inside of this layout -->
