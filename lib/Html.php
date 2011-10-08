@@ -6,36 +6,34 @@
  */
 class HTML
 {
-        
+    
         /**
          * Custom made css
          * @param array $array
          * @return string
          */
-        function customCss($array)
-        {
-                $string = "";
-                if(isset($array) && !empty($array))
-                for($i=0; $i<count($array); $i++){
-                        $string .= $this->css($array[$i]);
-                }
-                
-                return $string;
-        }
-        
-        /**
-         * Include JS
-         * @param $fileName
-         * @return string
-         */
-        function customJs($needle=null)
+        function allCustomCss($path)
         {
                 $string = '';
-                foreach (glob(JS_PATH.'*.js') as $fileName)
+                foreach (glob($path.'*.css') as $fileName)
                 {
-                    if(null == $needle || null == strpos($fileName, $needle)){
-                        $string .= "<script src='/".$fileName."' type='text/javascript'></script>\n";
-                    }
+                    $string .= "<link href='/".$fileName."' rel='stylesheet' type='text/css' />\n";
+                }
+
+                return $string;
+        }
+        
+        /**
+         * Include JS
+         * @param $fileName
+         * @return string
+         */
+        function allCustomJs($path)
+        {
+                $string = '';
+                foreach (glob($path.'*.js') as $fileName)
+                {
+                    $string .= "<script src='/".$fileName."' type='text/javascript'></script>\n";
                 }
 
                 return $string;
@@ -47,9 +45,9 @@ class HTML
          * @param $fileName
          * @return string
          */
-        function css($fileName) 
+        function css($fileName, $path) 
         {
-                $data = "<link href='".CSS_PATH.$fileName.".css' rel='stylesheet' type='text/css'/>\n";
+                $data = "<link href='".$path.$fileName.".css' rel='stylesheet' type='text/css'/>\n";
                 
                 return $data;
         }
@@ -59,9 +57,9 @@ class HTML
          * @param $fileName
          * @return string
          */
-        function js($fileName) 
+        function js($fileName, $path) 
         {
-                $data = "<script src='".JS_PATH.$fileName.".js' type='text/javascript'></script>\n";
+                $data = "<script src='".$path.$fileName.".js' type='text/javascript'></script>\n";
                 
                 return $data;
         }
@@ -71,9 +69,9 @@ class HTML
          * @param $fileName
          * @return string
          */
-        function assetsJs($fileName) 
+        function assetsJs($fileName, $path) 
         {
-                $data = "<script src='".ASSETS_JS_PATH.$fileName.".js' type='text/javascript'></script>\n";
+                $data = "<script src='".$path.$fileName.".js' type='text/javascript'></script>\n";
                 
                 return $data;
         }
@@ -83,9 +81,9 @@ class HTML
          * @param $fileName
          * @return string
          */
-        function assetsCss($fileName) 
+        function assetsCss($fileName, $path) 
         {
-                $data = "<link href='".ASSETS_CSS_PATH.$fileName.".css' rel='stylesheet' type='text/css'/>\n";
+                $data = "<link href='".$path.$fileName.".css' rel='stylesheet' type='text/css'/>\n";
                 
                 return $data;
         }

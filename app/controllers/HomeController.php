@@ -34,8 +34,8 @@ class HomeController extends Controller
             case 'archive': break;
             case 'gallery': break;
             case 'ads': break;
-            case 'contact':break;
-            case 'news': break;
+            case 'contact': $this->contactPage($params); break;
+            case 'news':  break;
             case 'calendar': break;
             default: //error
         }
@@ -45,6 +45,19 @@ class HomeController extends Controller
     }
     
     
+    private function contactPage($params)
+    {
+        
+        if(isset($params['submit'])){
+            
+            //Send
+            if(parent::sendMail(MAIL_TO, 'Contact form', $params['form'], MAIL_FROM)){
+                parent::set('sent', 'success');
+            }else{
+                parent::set('sent', 'error');
+            }
+        }
+    }
    
     
     

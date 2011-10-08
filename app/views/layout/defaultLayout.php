@@ -7,18 +7,17 @@
         <meta name="Description" content="" />
         <meta name="Keywords" content="" />
         <meta http-equiv="X-UA-Compatible" content="IE=7" />
-        <link href="<?= CSS_PATH . 'default.css'; ?>" rel="stylesheet" type="text/css" />
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-        <script src="<?= JS_PATH . 'slides.min.jquery.js'; ?>"></script>
-        <script>
-            $(function(){
-                $("#slides").slides({
-                    pagination: true,
-                    effect: 'fade',
-                    play: 5000
-                });
-            });
-        </script>
+        <!-- Load all assets (js + css) -->
+        <?=$html->assetsJs('jquery-1.6.4.min', ASSETS_JS_PATH);?>
+        <?=$html->assetsJs('slides.min.jquery', ASSETS_JS_PATH);?>
+        <?=$html->assetsJs('app', ASSETS_JS_PATH);?>
+        <?=$html->assetsCss('default', ASSETS_CSS_PATH);?>
+        
+        <!-- Load all custom js -->
+        <?=$html->allCustomJs(JS_PATH.'default'.DS);?>
+        
+        <!-- Load all custom css -->
+        <?=$html->css('default' ,CSS_PATH);?>
     </head>
     <body data-controller="<?= $this->_controller; ?>" data-method="<?= $this->_action; ?>">
 

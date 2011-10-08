@@ -9,59 +9,66 @@
                     Nam adipiscing, lacus id congue auctor, sem augue sodales nisl, nec egestas quam lorem et odio. Nulla facilisi.
                 </p>
             </div>
+            <? if(!empty($params['sent'])):?>
+                <? if('success' == $params['sent']):?>
+                Sent ok!
+                <? else: ?>
+                Error in sending
+                <? endif;?>
+            <? endif;?>
             <div class="contactForm">
-                <form>
+                <form action="<?=DS.$params['lang'].DS.'contact';?>">
                 <table cellpadding="0" cellspacing="0" width="0">
                     <tr>
-                        <td width="100" align="right">
-                            <label>Naslov Poruke</label>
+                        <td align="right">
+                            <label for="form_title">Naslov poruke</label>
                         </td>
                         <td>
-                            <input type="text" name="" value="" />
+                            <input type="text" name="form[title]" id="form_name" class="jr" value="" />
                         </td>
                     </tr>
                     <tr>
                         <td align="right">
-                            <label>Ime i prezime</label>
+                            <label for="form_name">Ime i prezime</label>
                         </td>
                         <td>
-                            <input type="text" name="" value="" />
+                            <input type="text" name="form[name]" id="form_name" class="jr" value="" />
                         </td>
                     </tr>
                     <tr>
                         <td align="right">
-                            <label>Firma</label>
+                            <label for="form_company">Firma</label>
                         </td>
                         <td>
-                            <input type="text" name="" value="" />
+                            <input type="text" name="form[company]" id="form_company" class="jr" value="" />
                         </td>
                     </tr>
                     <tr>
                         <td align="right">
-                            <label>Kontakt email</label>
+                            <label for="form_email">Kontakt email</label>
                         </td>
                         <td>
-                            <input type="text" name="" value="" />
+                            <input type="text" name="form[email]" id="form_email" class="jr" value="" />
                         </td>
                     </tr>
                     <tr>
                         <td align="right">
-                            <label>Telefon</label>
+                            <label for="form_phone">Telefon</label>
                         </td>
                         <td>
-                            <input type="text" name="" value="" />
+                            <input type="text" name="form[phone]" id="form_phone" class="jr" value="" />
                         </td>
                     </tr>
                     <tr>
                         <td align="right" valign="top">
-                            <label>Poruka</label>
+                            <label for="form_message">Poruka</label>
                         </td>
                         <td>
-                            <textarea name="" rows="4" cols="20"></textarea>
+                            <textarea name="form[message]" id="form_message" class="jr" rows="4" cols="20"></textarea>
                         </td>
                     </tr>
                     <tr align="right">
-                        <td colspan="2"><input type="submit" value="posalji" /></td>
+                        <td colspan="2"><input type="submit" name="submit" value="posalji" /></td>
                     </tr>
                 </table>
                 </form>

@@ -203,4 +203,74 @@ class Controller
                 return false;
             }
         }
+        
+        
+        public function sendEmail($to, $subject, $message, $from, $files=null)
+        {
+            
+            //Header
+            $headers = 'From:'.$from;
+ 
+            //boundary 
+            $semi_rand = md5(time()); 
+            $mime_boundary = "==Multipart_Boundary_x{$semi_rand}x"; 
+ 
+            // headers for attachment 
+            $headers .= "\nMIME-Version: 1.0\n" . "Content-Type: multipart/mixed;\n" . " boundary=\"{$mime_boundary}\""; 
+ 
+            //Build html for message
+            $messageHtml = '';
+            if(!empty($message)){
+                $messageHtml = '<html>
+                                    <head>
+                                      <title>'.$subject.'</title>
+                                    </head>
+                                    <body>
+                                      <table>';
+                foreach($message as $key=>$val){
+                    $messageHtml.= '<tr>
+                                        <th>'.$key.'</th>
+                                        <td>'.$val.'</td>';
+                }
+                $messageHtml.= '</body>
+                                    </html>';
+            }
+            
+            // multipart boundary 
+            $messageCollection = "--{$mime_boundary}\n" . "Content-Type: text/plain; charset=\"utf-8\"\n" .
+            "Content-Transfer-Encoding: 7bit\n\n" . $messageHtml . "\n\n"; 
+ 
+            // preparing attachments
+            if(!empty($files)){
+                try{
+                    for($i=0;$i<count($files);$i++){
+                        if(is_file($files[$i])){
+                            $messageCollection .= "--{$mime_boundary}\n";
+                            $fp = @fopen($files[$i],"rb");
+                            $data = @fread($fp,filesize($files[$i]));
+                            @fclose($fp);
+                            $data = chunk_split(base64_encode($data));
+                            $messageCollection .= "Content-Type: application/octet-stream; name=\"".basename($files[$i])."\"\n" . 
+                                                  "Content-Description: ".basename($files[$i])."\n" .
+                                                  "Content-Disposition: attachment;\n" . " filename=\"".basename($files[$i])."\"; size=".filesize($files[$i]).";\n" . 
+                                                  "Content-Transfer-Encoding: base64\n\n" . $data . "\n\n";
+                        }
+                    }
+                }catch(Exception $e){
+                   
+                    return false;
+                }
+            }
+            
+            $messageCollection .= "--{$mime_boundary}--";
+            $returnpath = "-f" . $to;
+            
+            if(mail($to, $subject, $messageCollection, $headers, $returnpath)){
+                
+                return true;
+            }else{
+                
+                return false;
+            }
+        }
 }
