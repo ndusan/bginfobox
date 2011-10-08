@@ -14,6 +14,7 @@
         <?=$html->assetsCss('default', ASSETS_CSS_PATH);?>
         
         <!-- Load all custom js -->
+        <?=$html->js('app', JS_PATH);?>
         <?=$html->allCustomJs(JS_PATH.'default'.DS);?>
         
         <!-- Load all custom css -->

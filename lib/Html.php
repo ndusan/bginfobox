@@ -17,7 +17,7 @@ class HTML
                 $string = '';
                 foreach (glob($path.'*.css') as $fileName)
                 {
-                    $string .= "<link href='/".$fileName."' rel='stylesheet' type='text/css' />\n";
+                    $string .= "<link href='".DS.$fileName."' rel='stylesheet' type='text/css' />\n";
                 }
 
                 return $string;
@@ -33,7 +33,7 @@ class HTML
                 $string = '';
                 foreach (glob($path.'*.js') as $fileName)
                 {
-                    $string .= "<script src='/".$fileName."' type='text/javascript'></script>\n";
+                    $string .= "<script src='".DS.$fileName."' type='text/javascript'></script>\n";
                 }
 
                 return $string;
@@ -47,7 +47,7 @@ class HTML
          */
         function css($fileName, $path) 
         {
-                $data = "<link href='".$path.$fileName.".css' rel='stylesheet' type='text/css'/>\n";
+                $data = "<link href='".DS.$path.$fileName.".css' rel='stylesheet' type='text/css'/>\n";
                 
                 return $data;
         }
@@ -59,7 +59,7 @@ class HTML
          */
         function js($fileName, $path) 
         {
-                $data = "<script src='".$path.$fileName.".js' type='text/javascript'></script>\n";
+                $data = "<script src='".DS.$path.$fileName.".js' type='text/javascript'></script>\n";
                 
                 return $data;
         }
@@ -71,7 +71,7 @@ class HTML
          */
         function assetsJs($fileName, $path) 
         {
-                $data = "<script src='".$path.$fileName.".js' type='text/javascript'></script>\n";
+                $data = "<script src='".DS.$path.$fileName.".js' type='text/javascript'></script>\n";
                 
                 return $data;
         }
@@ -83,7 +83,7 @@ class HTML
          */
         function assetsCss($fileName, $path) 
         {
-                $data = "<link href='".$path.$fileName.".css' rel='stylesheet' type='text/css'/>\n";
+                $data = "<link href='".DS.$path.$fileName.".css' rel='stylesheet' type='text/css'/>\n";
                 
                 return $data;
         }
