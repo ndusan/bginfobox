@@ -26,12 +26,12 @@ define('LOG_PATH', ROOT.DS.'tmp'.DS.'logs'.DS);
 
 //Public paths
 define('IMAGE_PATH', DS.'public'.DS.'images'.DS);
-define('CSS_PATH', DS.'public'.DS.'css'.DS);
+define('CSS_PATH', 'public'.DS.'css'.DS);
 define('JS_PATH', 'public'.DS.'js'.DS);
 
 //Assets
-define('ASSETS_CSS_PATH', DS.'public'.DS.'assets'.DS.'css'.DS);
-define('ASSETS_JS_PATH', DS.'public'.DS.'assets'.DS.'js'.DS);
+define('ASSETS_CSS_PATH', 'public'.DS.'assets'.DS.'css'.DS);
+define('ASSETS_JS_PATH', 'public'.DS.'assets'.DS.'js'.DS);
 
 //Uploads 
 define('UPLOAD_PATH', $_SERVER['DOCUMENT_ROOT'].'public'.DS.'uploads'.DS);
@@ -49,5 +49,5 @@ define('RANGE', '3');//range of num links to show
 define('PER_PAGE', '1');// number of rows to show per page
 
 //Possible languages on frontend
-define('LANG', 'srb|en');
-define('DEFAULT_LANG', 'srb');
+define('LANG', 'sr|en');
+define('DEFAULT_LANG', 'sr');
