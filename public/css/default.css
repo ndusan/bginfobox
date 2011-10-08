@@ -1,17 +1,127 @@
-/* 
-    Document   : default
-    Created on : Oct 5, 2011, 1:26:27 PM
-    Author     : dusan
-    Description:
-        Purpose of the stylesheet follows.
-*/
+@charset "UTF-8";
 
-/* 
-   TODO customize this sample style
-   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
-*/
+/*RESET*/
+html {height:100%;}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td {margin:0; padding:0;}
+table {border-collapse:separate;}
+fieldset,img {border:0;}
+address,caption,cite,code,dfn,th,var {font-style:normal; font-weight:normal;}
+em,strong{}
+ol,ul {list-style:none;}
+caption {text-align:center;}
+th {text-align:left;}
+h1,h2,h3,h4,h5,h6 {font-size:100%; margin:0; padding:0;}
+q:before,q:after {content:'';}
+abbr,acronym { border:0;}
 
-root { 
-    display: block;
-}
+/*MAIN*/
+body {font-size:12px; color:#555; font-family:arial,sans-serif; }
+a {color:#cd090f; outline:none; text-decoration:none;}
+a:hover {color:#333;}
+img {border: none; vertical-align: middle;}
+p {padding:0;}
+.cl {clear:both; line-height:0;}
+.fl {float:left;}
+.fr {float:right;}
 
+
+/*SPRITE*/
+
+/*ICONS*/
+.twitter, .facebook, .youtube {color:#777; line-height:25px; display:block; padding:0 0 0 30px; background-image:url(../images/socIcons.png); background-repeat:no-repeat;}
+.twitter {background-position: 0 -100px}
+.facebook {background-position: 0 -50px;}
+.youtube {background-position:0 0;}
+.twitter:hover {background-position: 0 -125px; color:#FFF;}
+.facebook:hover {background-position: 0 -75px; color:#FFF;}
+.youtube:hover {background-position:0 -25px; color:#FFF;}
+
+
+.icoMail, .icoPdf {padding-left:35px !important;}
+.icoMail {background:transparent url(../images/icoMail.png) scroll no-repeat 5px 50%;}
+.icoPdf {background:transparent url(../images/icoPdf.png) scroll no-repeat 5px 50%;}
+
+/*BUILD*/
+.topNavW {background-color:#111;}
+.topNav {width:980px; margin:0 auto; overflow:hidden; background-color:#222;}
+
+.headerW {background-image:url(../images/header_bg.png); border-top:solid 1px #222;}
+.header {width:980px; margin:0 auto; padding:10px 0; height:280px; overflow:hidden; position:relative;}
+.logo {position:absolute; top:10px; left:0;}
+.banner {height:280px; width:770px; float:right;}
+
+ul.mainNav {overflow:hidden; width:200px; position:absolute; left:0; bottom:10px;}
+ul.mainNav li {display:block; background-color:#999; margin:1px 0 0;}
+ul.mainNav li a {display:block; font-size:14px; font-weight:bold; line-height:19px; color:#FFF; padding:5px 15px; text-shadow:1px 1px 1px #777;}
+ul.mainNav li a:hover {background:#9c1006 url(../images/grad2.png) scroll repeat-x 0 0;}
+
+.slides_container {width:770px; height:280px;} 
+.slides_container p {padding:10px 0; color:#FFF;}
+.slides_container .slide {width:770px; height:280px; display:block;}
+.slides_container .desc {padding:0 200px 0 20px; position:absolute; right:0; bottom:0; width:550px; background-image:url(images/mask.png);}
+
+.pagination {position:absolute; right:10px; bottom:15px;}
+.pagination li {float:left; margin:0 5px;}
+.pagination li a {background:transparent url("../images/pagination.png") scroll no-repeat 0 0; display:block; float:left; height:0; overflow:hidden; padding-top:22px; width:19px;}
+.pagination li.current a {background-position:0 -22px;}
+
+.containerW {padding:10px 0; background-image: url(../images/body_bg.png);}
+.container {overflow:hidden; width:980px; margin:0 auto;}
+.sidebarL {width:200px; float:left;}
+.sidebarR {width:200px; float:right;}
+.main {float:left; margin:0 0 0 10px; width:560px;}
+
+.sidebarBox {padding:0 0 15px; background:transparent url(../images/shadow.png) scroll no-repeat 0 100%;}
+.sidebarBox .boxTitle {background:#9a9a9a url(../images/grad1.png) scroll repeat-x 0 0; text-align:center; padding:10px 0;}
+.sidebarBox .boxTitle h2 {color:#444; font-size:14px; text-shadow:0 1px 1px #CCC;}
+.sidebarBox .boxContent {border:solid 1px #dfdfdf; border-top:none; border-bottom:none; background-color:#efefef;}
+
+.mainBox {background-color:#efefef; margin:0 0 10px;}
+.mainBox .boxTitle {background:#9c1006 url(../images/grad2.png) scroll repeat-x 0 0; padding:10px 15px; position:relative;}
+.mainBox .boxTitle span {position:absolute; right:20px; bottom:5px;}
+.mainBox .boxTitle h1 {color:#FFF; font-size:20px; text-shadow:0 -1px 1px #69140e;}
+.mainBox .boxContent {padding:15px;}
+.mainBox .boxContent p {padding:5px 0;}
+
+ul.boxExtra {float:right; width:200px; font-size:14px; margin:0 0 5px 5px;}
+ul.boxExtra span {font-size:11px; display:block;}
+ul.boxExtra li {line-height:20px; padding:5px 10px; margin:0 0 1px 0; background-color:#CCC;}
+ul.boxExtra li a {color:#333;}
+ul.boxExtra li a:hover {color:#cd090f;}
+
+ul.news {overflow:hidden; }
+ul.news li {padding:10px 15px; border-bottom:solid 1px #dfdfdf;}
+ul.news li span {padding:0 0 5px; display:block; font-weight:bold;}
+
+.bottomW {background-color:#e1e1e1; padding:20px 0; border-top:solid 1px #DDD;}
+ul.bottomLinks {overflow:hidden; margin:0 auto; width:980px; color:#777; text-shadow:0 1px 1px #F5F5F5;}
+ul.bottomLinks > li {float:left; width:196px;}
+ul.bottomLinks ul {padding:30px 0 0;}
+ul.bottomLinks li a {color:#999;}
+ul.bottomLinks li a:hover {text-decoration:underline; color:#333;}
+
+ul.banners {overflow:hidden;}
+ul.banners li {padding:0 0 15px; background:transparent url(../images/shadow.png) scroll no-repeat 0 100%;}
+
+ul.lang {padding:0 0 0 15px; overflow:hidden; background:transparent url(../images/lang_bg.jpg) scroll no-repeat 0 0;}
+ul.lang li {float:left; line-height:25px; }
+ul.lang li a {color:#777; width:30px;display:block; text-align:center;}
+ul.lang li a:hover {color:#FFF;}
+ul.lang .active {color:#FFF;}
+
+ul.soc {float:right; padding:0 30px 0 0; overflow:hidden; background:transparent url(../images/soc_bg.jpg) scroll no-repeat 100% 0;}
+ul.soc  li {float:left; margin-left:20px;}
+
+.footerW {color:#FFF; border-top:solid 1px #EEE; text-align:center; font-size:11px; padding:30px 0; background:transparent url(../images/footer_bg.jpg) scroll repeat-x 0 0;}
+
+.archiveAll {overflow:hidden; padding:15px;}
+.archiveAll > li {padding:5px 0;}
+.archiveAll ul {overflow:hidden;}
+.archiveAll ul li {float:left; margin:0 10px 0 0; line-height:20px;}
+.archiveAll ul .last {padding:80px 0 0;}
+
+.galleryAll {overflow:hidden; padding:15px 10px;}
+.galleryAll li {float:left; margin:5px; position:relative;}
+.galleryAll li span {display:block; text-align:center; font-size:11px; line-height:20px;}
+.zoom {width:30px; height:30px; display:block; position:absolute; bottom:30px; right:10px; background:transparent url(../images/zoom_bg.png) scroll no-repeat 0 0;}
+.zoom:hover {background-position:0 -30px;}
