@@ -15,7 +15,7 @@
         <?=$html->js('app.login', JS_PATH);?>
         
         <!-- Load all custom css -->
-        <?=$html->css('default' ,CSS_PATH);?>
+        <?=$html->css('cms' ,CSS_PATH);?>
     </head>
     <body data-controller="<?= $this->_controller; ?>" data-method="<?= $this->_action; ?>">
 
