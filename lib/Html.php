@@ -165,7 +165,7 @@ class HTML
 	 * @return String
 	 */
 	function loadCalendar($setTime = null, $events = null){
-
+            
             //check if time is set in the URL
             if(isset($setTime)) $time = $setTime;
             else $time = time();
@@ -221,9 +221,9 @@ class HTML
             $cal .="
                 <tfoot>
                     <tr>
-                        <td abbr='".$previous_month_text."' colspan='3' id='prev'><a href='javascript:;' onclick='javascript: loadCalendar(\"".$previous_month."\")' title=''>&laquo; ".$previous_month_text."</a></td>
+                        <td abbr='".$previous_month_text."' colspan='3' id='prev'><a href='#' class='loadCalendar' title='".$previous_month."'>&laquo; ".$previous_month_text."</a></td>
                         <td>&nbsp;</td>
-                        <td abbr='".$next_month_text."' colspan='3' id='next'><a href='javascript:;' onclick='javascript: loadCalendar(\"".$next_month."\")' title=''>".$next_month_text." &raquo;</a></td>
+                        <td abbr='".$next_month_text."' colspan='3' id='next'><a href='#' class='loadCalendar' title='".$next_month."'>".$next_month_text." &raquo;</a></td>
                     </tr>
                 </tfoot>
             <tr>";

@@ -8,7 +8,7 @@ class HomeController extends Controller
     {
      
         parent::set('news', $this->news($params));
-        parent::set('calendar', $this->calendar($params));
+        parent::set('calendar', $this->loadCalendarAction($params));
     }
     
     
@@ -18,10 +18,12 @@ class HomeController extends Controller
         return null;
     }
     
-    private function calendar($params)
+    
+    
+    public function loadCalendarAction($params)
     {
         
-        return null;
+        parent::set('month', isset($params['month'])?$params['month']:null);
     }
    
     
@@ -41,7 +43,7 @@ class HomeController extends Controller
         }
         
         parent::set('news', $this->news($params));
-        parent::set('calendar', $this->calendar($params));
+        parent::set('calendar', $this->loadCalendarAction($params));
     }
     
     
@@ -71,7 +73,7 @@ class HomeController extends Controller
         }
         
         parent::set('news', $this->news($params));
-        parent::set('calendar', $this->calendar($params));
+        parent::set('calendar', $this->loadCalendarAction($params));
     }
     
     

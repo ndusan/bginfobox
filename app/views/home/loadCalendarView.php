@@ -1,0 +1,1 @@
+<?= $html->loadCalendar($month); ?>

@@ -109,8 +109,7 @@
                             <div class="boxTitle">
                                 <h2>Kalendar dešavanja</h2>
                             </div>
-                            <div class="boxContent">
-                                <? // Code is in lib/Html.php ?>
+                            <div class="boxContent" id="calendar">
                                 <?= $html->loadCalendar(); ?>
                             </div>
                         </div>

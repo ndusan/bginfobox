@@ -73,9 +73,8 @@ class Template
                 require_once 'lib'.DS.'Html.php';
                 $html = new HTML;
             }
-
             extract($this->variables);
-
+            
             if(file_exists(LAYOUT_PATH.$this->_layout.'Layout.php') && $renderHTML){
                 include (LAYOUT_PATH.$this->_layout.'Layout.php');
             }else{

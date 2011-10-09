@@ -19,6 +19,11 @@ $routes = array(
             'layout'     => 'default'
     ),
     //Static page - calendar
+    array(  'url'        => '/^calendar\/?$/', 
+            'controller' => 'home', 
+            'action'     => 'loadCalendar', 
+            'layout'     => 'ajax'
+    ),
     array(  'url'        => '/^(?P<lang>('.LANG.'))\/(?P<page>(calendar))\/?(?P<event_id>\d+)*$/', 
             'controller' => 'home', 
             'action'     => 'staticPages', 

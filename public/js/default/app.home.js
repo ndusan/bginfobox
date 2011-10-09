@@ -7,8 +7,28 @@ var App = App || {};
                 effect: 'fade',
                 play: 5000
             });
+            
+            //Load calendar
+            $('body').delegate('.loadCalendar', 'click', function(e){
+                e.preventDefault();
+                
+                App.Home.loadCalendar($(this).attr('title'));
+            });
+            
         },
-        contact: function() {}
+        contact: function() {},
+        
+        loadCalendar: function(month){
+            
+            $.ajax({
+               type: 'GET',
+               url:  '/calendar',
+               data: 'month='+month,
+               success: function(msg){
+                 $('#calendar').html(msg);
+               } 
+            });
+        }
 
     };
 })(this.jQuery)
