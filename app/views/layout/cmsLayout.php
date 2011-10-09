@@ -10,7 +10,9 @@
         <!-- Load all assets (js + css) -->
         <?=$html->assetsJs('jquery-1.6.4.min', ASSETS_JS_PATH);?>
         <?=$html->assetsJs('app', ASSETS_JS_PATH);?>
+        <?=$html->assetsJs('jquery.dataTables.min', ASSETS_JS_PATH);?>
         <?=$html->assetsCss('default', ASSETS_CSS_PATH);?>
+        <?=$html->assetsCss('demo_table', ASSETS_CSS_PATH);?>
         
         <!-- Load all custom js -->
         <?=$html->js('app', JS_PATH);?>
@@ -20,9 +22,17 @@
         <?=$html->css('cms', CSS_PATH);?>
     </head>
     <body data-controller="<?= $this->_controller; ?>" data-method="<?= $this->_action; ?>">
-                <!-- This is a content that will be included on page inside of this layout -->
-                <?php if (file_exists(VIEW_PATH . $this->_controller . DS . $this->_action . 'View.php'))
-                    include (VIEW_PATH . $this->_controller . DS . $this->_action . 'View.php'); ?>
+        <ul>
+            <li><a href="<?=DS.'cms';?>">Home</a></li>
+            <li><a href="<?=DS.'cms'.DS.'users';?>">Users</a></li>
+            <li><a href="<?=DS.'cms'.DS.'news';?>">News</a></li>
+            <li><a href="<?=DS.'cms'.DS.'events';?>">Events</a></li>
+            <li><a href="<?=DS.'cms'.DS.'logout';?>">Logout</a></li>
+        </ul>
+        
+        <!-- This is a content that will be included on page inside of this layout -->
+        <?php if (file_exists(VIEW_PATH . $this->_controller . DS . $this->_action . 'View.php'))
+            include (VIEW_PATH . $this->_controller . DS . $this->_action . 'View.php'); ?>
             
             
             

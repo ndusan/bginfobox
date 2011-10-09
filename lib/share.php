@@ -97,7 +97,7 @@ function routing($routes){
         $foundRoute = false;
         
         //Check if it has langage
-        if(!preg_match('/^[(?P<lang>('.LANG.'))|404][a-zA-Z0-9\/#&@\-+_]*\/?$/', $url)){
+        if(!preg_match('/^[(?P<lang>('.LANG.'))|404|cms][a-zA-Z0-9\/#&@\-+_]*\/?$/', $url)){
             header("Location: ".BASE_PATH.DEFAULT_LANG);
             exit;
         }

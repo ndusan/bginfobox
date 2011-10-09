@@ -52,7 +52,7 @@ class Controller
         public function userInfoAndSession()
         {
             if(!isset($_SESSION['cms'])){
-                $this->redirect(BASE_PATH.'login'.DS, '');
+                $this->redirect('login', 'credits');
             }
             
         }

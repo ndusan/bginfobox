@@ -28,7 +28,8 @@
         switch($_GET['q']){
             case 'error': $status = 'error'; $jmsg = 'There has been error in your request. Please, try again.'; break;
             case 'success': $status = 'success'; $jmsg = 'Your request has been processed successfully.'; break;
-            case 'welcom': $status = 'success'; $jmsg = 'Welcome to admin CMS.'; break;
+            case 'welcome': $status = 'success'; $jmsg = 'Welcome to admin CMS.'; break;
+            case 'credits': $status = 'credits'; $jmsg = 'Please, enter your credentials to verify identity'; break;
             default: $status = ''; $jmsg = ''; //error
         }
         ?>
