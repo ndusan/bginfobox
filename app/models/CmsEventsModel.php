@@ -108,4 +108,39 @@ class CmsEventsModel extends Model
             return false;
         }
     } 
+    
+    
+    public function getImageName($id)
+    {
+        
+        try{
+            $query = sprintf("SELECT `image_name` FROM %s WHERE `id`=:id", $this->tableEvents);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+
+            return $stmt->fetch();
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    public function setImageName($id, $imageName)
+    {
+        try{
+            $query = sprintf("UPDATE %s SET `image_name`=:imageName WHERE `id`=:id", $this->tableEvents);
+            $stmt = $this->dbh->prepare($query);
+            
+            $stmt->bindParam(':imageName', $imageName, PDO::PARAM_STR);
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+            
+            return true;
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
 }

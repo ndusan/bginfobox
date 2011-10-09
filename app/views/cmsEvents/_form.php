@@ -43,6 +43,16 @@
                                 </td>
                             </tr>
                             <tr>
+                                <td>Image:</td>
+                                <td>
+                                    <input type="file" name="image" value=""/>
+                                    <? if(isset($event['id']) && !empty($event['image_name'])):?>
+                                        <a href="<?=DS.'public'.DS.'uploads'.DS.'event'.DS.$event['image_name'];?>" target="_blank"><?=$event['image_name'];?></a>
+                                        [<a href="/cms/event/delete/image/<?=$event['id'];?>">Delete</a>]
+                                    <? endif; ?>
+                                </td>
+                            </tr>
+                            <tr>
                                 <td colspan="2" align="center">
                                     <input type="hidden" name="event[id]" value="<?= @$event['id']; ?>" />
                                     <input type="submit" value="Submit" name="submit" />
