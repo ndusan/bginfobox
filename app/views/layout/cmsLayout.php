@@ -11,8 +11,11 @@
         <?=$html->assetsJs('jquery-1.6.4.min', ASSETS_JS_PATH);?>
         <?=$html->assetsJs('app', ASSETS_JS_PATH);?>
         <?=$html->assetsJs('jquery.dataTables.min', ASSETS_JS_PATH);?>
+        <?=$html->assetsJs('jquery-ui-1.8.16.custom.min', ASSETS_JS_PATH);?>
         <?=$html->assetsCss('default', ASSETS_CSS_PATH);?>
         <?=$html->assetsCss('demo_table', ASSETS_CSS_PATH);?>
+        <?=$html->assetsCss('jquery-ui-1.8.16.custom', ASSETS_CSS_PATH);?>
+        
         
         <!-- Load all custom js -->
         <?=$html->js('app', JS_PATH);?>
@@ -27,7 +30,7 @@
             <li><a href="<?=DS.'cms'.DS.'users';?>">Users</a></li>
             <li><a href="<?=DS.'cms'.DS.'news';?>">News</a></li>
             <li><a href="<?=DS.'cms'.DS.'events';?>">Events</a></li>
-            <li><a href="<?=DS.'cms'.DS.'logout';?>">Logout</a></li>
+            <li><a href="<?=DS.'logout';?>">Logout</a></li>
         </ul>
         
         <!-- This is a content that will be included on page inside of this layout -->

@@ -111,7 +111,7 @@
                             </div>
                             <div class="boxContent">
                                 <? // Code is in lib/Html.php ?>
-                                <?= $html->formatCalendar($calendar); ?>
+                                <?= $html->loadCalendar(); ?>
                             </div>
                         </div>
                         <div class="sidebarBox">
