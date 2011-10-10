@@ -155,7 +155,9 @@ class Controller
         }
         
         
-        public function beforeAction($params){}
+        public function beforeAction($params, $_t){
+            $this->set('_t', $_t);
+        }
         public function afterAction($params){
             
             $this->set('params', $params);
