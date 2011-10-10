@@ -60,7 +60,17 @@ class HomeModel extends Model
         $stmt->bindParam(':end', $end, PDO::PARAM_STR);
         $stmt->execute();
 
-        return $stmt->fetchAll();
+        $results = $stmt->fetchAll();
+        $output = array();
+        
+        if(!empty($results)){
+            foreach($results as $r){
+                $array = explode('-', $r['date_start']);
+                $output[$array[2]][] = $r; 
+            }
+        }
+        
+        return $output;
     }
     
 }

@@ -35,9 +35,7 @@ $next_year_text = date("F Y", $next_year);
 
 $previous_year = mktime(0, 0, 0, $current_month, 1, $current_year-1);
 $previous_year_text = date("F Y", $previous_year);
-?>
 
-<?
 //Language translation
 $cal_name = array('en' => array('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'),
                   'sr' => array('Ponedeljak', 'Utorak', 'Sreda', 'Četvrtak', 'Petak', 'Subota', 'Nedelja'));
@@ -58,9 +56,17 @@ $cal_name = array('en' => array('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'F
     </thead>
     <tfoot>
         <tr>
-            <td abbr='<?=$previous_month_text;?>' colspan='3' id='prev'><a href='#' class='loadCalendar' title='<?=$previous_month;?>'>&laquo; <?=$previous_month_text;?></a></td>
+            <td abbr='<?=$previous_month_text;?>' colspan='3' id='prev'>
+                <a href='#' class='loadCalendar' cal-time='<?=$previous_month;?>' cal-year="<?=($current_month-1)<=0?($current_year-1):$current_year;?>" cal-month="<?=($current_month-1)<=0?12:($current_month-1);?>">
+                    &laquo; <?=$previous_month_text;?>
+                </a>
+            </td>
             <td>&nbsp;</td>
-            <td abbr='<?=$next_month_text;?>' colspan='3' id='next'><a href='#' class='loadCalendar' title='<?=$next_month;?>'><?=$next_month_text;?> &raquo;</a></td>
+            <td abbr='<?=$next_month_text;?>' colspan='3' id='next'>
+                <a href='#' class='loadCalendar' cal-time='<?=$next_month;?>' cal-year="<?=($current_month+1)>12?($current_year+1):$current_year;?>" cal-month="<?=($current_month+1)>12?1:($current_month+1);?>">
+                    <?=$next_month_text;?> &raquo;
+                </a>
+            </td>
         </tr>
     </tfoot>
 <tr>
@@ -80,13 +86,10 @@ for($i=0; $i<$total_rows; $i++){
             ///check if any event stored for this date in $events array
             if(array_key_exists($day, $events)){
                 //adding the date_has_event class to the <td> and close it
-                $cal .= " class='eventDay ";
-                //IF THIS IS EVENT IN CURRENT POSSITION
-                if($events[$day]['currentEvent']) $cal .= " current";
-                $cal .= "'> ";
+                $cal .= " class='eventDay'> ";
 
                 //adding the eventTitle and eventContent wrapped with <span> and <li> to <ul>
-                $cal .= "<a href='#' onclick='javascript: showEventDetails(\"".$events[$day]['date']."\", \"".$events[$day]['project_id']."\");' >";
+                $cal .= "<a href='".DS.$params['lang'].DS."calendar".DS.date('Y-m').'-'.$day."' >";
                 $cal .= $day;
                 $cal .= "</a>";
             }else{
