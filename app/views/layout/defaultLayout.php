@@ -146,7 +146,6 @@
                             </div>
                             <div class="boxContent loader" id="calendar">
                                 <!-- Load -->
-                                <?= $calendar; ?>
                             </div>
                         </div>
                         <div class="sidebarBox">
