@@ -29,7 +29,7 @@
                 <span class="date"><?= $news['created']; ?></span>
                 <p><?= $news['heading_' . $params['lang']]; ?></p>
                 <? if (!empty($news['image_name'])): ?>
-                <img src="<?= UPLOAD_PATH . 'news' . DS . $news['image_name']; ?>" alt="" title="" width="100" height="100"/>
+                <img src="<?= DS. 'public' . DS . 'uploads' . DS . 'news' . DS . $news['image_name']; ?>" alt="" title="" width="100" height="100"/>
                 <? endif; ?>
                 <?= $news['content_' . $params['lang']]; ?>
             </div>

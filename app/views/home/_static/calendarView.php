@@ -24,7 +24,7 @@
                 <h2><?= $calendar['title_' . $params['lang']]; ?> </h2>
                 <span class="date"><?= $calendar['created']; ?></span>
                 <? if (!empty($calendar['image_name'])): ?>
-                <img src="<?= UPLOAD_PATH . 'calendar' . DS . $calendar['image_name']; ?>" alt="" title="" width="100" height="100" />
+                <img src="<?= DS. 'public' . DS . 'uploads' . DS . 'calendar' . DS . $calendar['image_name']; ?>" alt="" title="" width="100" height="100" />
                 <? endif; ?>
                 <?= $calendar['content_' . $params['lang']]; ?>
             </div>
