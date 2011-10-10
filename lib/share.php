@@ -129,7 +129,7 @@ function routing($routes){
  * @param $default
  * @return none
  */
-function hook($routes){
+function hook($routes, $translate){
         
         $url = routing($routes);
         
@@ -150,7 +150,7 @@ function hook($routes){
         
         //Check if exitsts
         if((int)method_exists($controllerName, $action)){
-            call_user_func_array(array($dispacher,"beforeAction"), array('params' => $url['params']));
+            call_user_func_array(array($dispacher,"beforeAction"), array('params' => $url['params'], '_t'=>$translate));
             call_user_func_array(array($dispacher, $action), array('params' => $url['params'])); 
             call_user_func_array(array($dispacher,"afterAction"), array('params' => $url['params']));
         }
@@ -195,4 +195,4 @@ gzipOutput() || ob_start("ob_gzhandler");
 //Call functions 
 setReports();
 unregisterGlobals();
-hook($routes);
+hook($routes, $translate);

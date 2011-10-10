@@ -47,13 +47,40 @@
                 <div class="header">
 
                     <ul class="mainNav">
-                        <li><a href="<?= DS . $params['lang'] . DS . 'about-us'; ?>" <?= (isset($params['page']) && 'about-us' == $params['page'] ? 'class="active"' : ''); ?>>O nama</a></li>
-                        <li><a href="<?= DS . $params['lang'] . DS . 'our-clients'; ?>" <?= (isset($params['page']) && 'our-clients' == $params['page'] ? 'class="active"' : ''); ?>>Naši klijenti</a></li>
-                        <li><a href="<?= DS . $params['lang'] . DS . 'archive'; ?>" <?= (isset($params['page']) && 'archive' == $params['page'] ? 'class="active"' : ''); ?>>Arhiva izdana</a></li>
-                        <li><a href="<?= DS . $params['lang'] . DS . 'gallery'; ?>" <?= (isset($params['page']) && 'gallery' == $params['page'] ? 'class="active"' : ''); ?>>Foto galerija</a></li>
-                        <li><a href="<?= DS . $params['lang'] . DS . 'ads'; ?>" <?= (isset($params['page']) && 'ads' == $params['page'] ? 'class="active"' : ''); ?>>Oglašavanje</a></li>
-                        <li><a href="<?= DS . $params['lang'] . DS . 'contact'; ?>" <?= (isset($params['page']) && 'contact' == $params['page'] ? 'class="active"' : ''); ?>>Kontakt</a></li>
-                        <li><a href="#">VODIČ KROZ BEOGRAD</a></li>
+                        <li>
+                            <a href="<?= DS . $params['lang'] . DS . 'about-us'; ?>" <?= (isset($params['page']) && 'about-us' == $params['page'] ? 'class="active"' : ''); ?>>
+                                <?=$_t['menu.about-us'][$params['lang']];?>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?= DS . $params['lang'] . DS . 'our-clients'; ?>" <?= (isset($params['page']) && 'our-clients' == $params['page'] ? 'class="active"' : ''); ?>>
+                                <?=$_t['menu.our-clients'][$params['lang']];?>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?= DS . $params['lang'] . DS . 'archive'; ?>" <?= (isset($params['page']) && 'archive' == $params['page'] ? 'class="active"' : ''); ?>>
+                                <?=$_t['menu.archive'][$params['lang']];?>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?= DS . $params['lang'] . DS . 'gallery'; ?>" <?= (isset($params['page']) && 'gallery' == $params['page'] ? 'class="active"' : ''); ?>>
+                                <?=$_t['menu.gallery'][$params['lang']];?>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?= DS . $params['lang'] . DS . 'ads'; ?>" <?= (isset($params['page']) && 'ads' == $params['page'] ? 'class="active"' : ''); ?>>
+                                <?=$_t['menu.ads'][$params['lang']];?>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?= DS . $params['lang'] . DS . 'contact'; ?>" <?= (isset($params['page']) && 'contact' == $params['page'] ? 'class="active"' : ''); ?>>
+                                <?=$_t['menu.contact'][$params['lang']];?>
+                            </a>
+                        </li>
+                        <li><a href="#">
+                                <?=$_t['menu.guide'][$params['lang']];?>
+                            </a>
+                        </li>
                     </ul>
                     <a href="<?= DS.$params['lang']; ?>" class="logo">
                         <img src="<?= IMAGE_PATH . 'logo.png'; ?>" />
@@ -90,42 +117,44 @@
                     <div class="sidebarL">
                         <div class="sidebarBox">
                             <div class="boxTitle">
-                                <h2>Vesti</h2>
+                                <h2><?=$_t['news.title'][$params['lang']];?></h2>
                             </div>
                             <div class="boxContent">
                                 <ul class="news">
                                 <? if(empty($freshNews)):?>
-                                    <li>No news added</li>
+                                    <li><?=$_t['news.no_news'][$params['lang']];?></li>
                                 <? else:?>
                                 <? foreach($freshNews as $n):?>
                                     <li>
                                         <span><?=$n['created'].' - '.$n['title_'.$params['lang']];?></span>
                                         <div><?=$n['heading_'.$params['lang']];?></div>
-                                        <a href="<?=DS.$params['lang'].DS.'news'.DS.$n['id'].DS.$n['title_'.$params['lang']];?>">read more...</a>
+                                        <a href="<?=DS.$params['lang'].DS.'news'.DS.$n['id'].DS.$n['title_'.$params['lang']];?>">
+                                            <?=$_t['news.read_more'][$params['lang']];?>...
+                                        </a>
                                     </li>
                                 <? endforeach; ?>
                                 <? endif;?>
                                 </ul>
                             </div>
                             <div class="boxFooter">
-                                <a href="<?=DS.$params['lang'].DS.'news';?>">Sve vesti &raquo;</a>
+                                <a href="<?=DS.$params['lang'].DS.'news';?>"><?=$_t['news.all_news'][$params['lang']];?> &raquo;</a>
                             </div>
                         </div>
                         <div class="sidebarBox">
                             <div class="boxTitle">
-                                <h2>Kalendar dešavanja</h2>
+                                <h2><?=$_t['cal.title'][$params['lang']];?></h2>
                             </div>
                             <div class="boxContent loader" id="calendar">
                                 <!-- Load -->
                                 <?= $calendar; ?>
                             </div>
                             <div class="boxFooter">
-                                <a href="#">Sva dešavanja &raquo;</a>
+                                <a href="#"><?=$_t['cal.all_events'][$params['lang']];?> &raquo;</a>
                             </div>
                         </div>
                         <div class="sidebarBox">
                             <div class="boxTitle">
-                                <h2>Vreme u Beogradu</h2>
+                                <h2><?=$_t['weather.title'][$params['lang']];?></h2>
                             </div>
                             <div class="boxContent">
                                 Vreme TBD
@@ -133,7 +162,7 @@
                         </div>
                         <div class="sidebarBox">
                             <div class="boxTitle">
-                                <h2>Kursna lista</h2>
+                                <h2><?=$_t['exchange.title'][$params['lang']];?></h2>
                             </div>
                             <div class="boxContent">
                                 Kursna TBD
