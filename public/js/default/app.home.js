@@ -8,9 +8,16 @@ var App = App || {};
                 play: 5000
             });
             
-            //Load calendar
+            $('#calendar').load(
+               '/calendar',
+               function(){
+                   $('#calendar').removeClass('loader');
+            });
+            
+            //Load calendar or request
             $('body').delegate('.loadCalendar', 'click', function(e){
                 e.preventDefault();
+                $('#calendar').addClass('loader')
                 
                 App.Home.loadCalendar($(this).attr('title'));
             });
@@ -25,7 +32,7 @@ var App = App || {};
                url:  '/calendar',
                data: 'month='+month,
                success: function(msg){
-                 $('#calendar').html(msg);
+                 $('#calendar').removeClass('loader').html(msg);
                } 
             });
         }

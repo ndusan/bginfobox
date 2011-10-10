@@ -43,7 +43,7 @@ class HomeController extends Controller
         }
         
         parent::set('news', $this->news($params));
-        parent::set('calendar', $this->loadCalendarAction($params));
+        
     }
     
     
@@ -73,7 +73,6 @@ class HomeController extends Controller
         }
         
         parent::set('news', $this->news($params));
-        parent::set('calendar', $this->loadCalendarAction($params));
     }
     
     

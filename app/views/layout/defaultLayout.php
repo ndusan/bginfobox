@@ -109,8 +109,9 @@
                             <div class="boxTitle">
                                 <h2>Kalendar dešavanja</h2>
                             </div>
-                            <div class="boxContent" id="calendar">
-                                <?= $html->loadCalendar(); ?>
+                            <div class="boxContent loader" id="calendar">
+                                <!-- Load -->
+                                <?=$calendar;?>
                             </div>
                         </div>
                         <div class="sidebarBox">
