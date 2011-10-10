@@ -93,7 +93,19 @@
                                 <h2>Vesti</h2>
                             </div>
                             <div class="boxContent">
-                                <?= $html->formatNews($freshNews, $params['lang']); ?>
+                                <ul class="news">
+                                <? if(empty($freshNews)):?>
+                                    <li>No news added</li>
+                                <? else:?>
+                                <? foreach($freshNews as $n):?>
+                                    <li>
+                                        <span><?=$n['created'].' - '.$n['title_'.$params['lang']];?></span>
+                                        <div><?=$n['heading_'.$params['lang']];?></div>
+                                        <a href="<?=DS.$params['lang'].DS.'news'.DS.$n['id'].DS.$n['title_'.$params['lang']];?>">read more...</a>
+                                    </li>
+                                <? endforeach; ?>
+                                <? endif;?>
+                                </ul>
                             </div>
                             <div class="boxFooter">
                                 <a href="<?=DS.$params['lang'].DS.'news';?>">Sve vesti &raquo;</a>
