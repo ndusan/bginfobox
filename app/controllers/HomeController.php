@@ -19,8 +19,9 @@ class HomeController extends Controller
             
             parent::set('news', $this->db->getNews($params['news_id']));
         }else{
-
-            parent::set('newsCollection', $this->db->getAllNews());
+            
+            parent::set('newsCollectionPerMonth', $this->db->getAllNewsPerMonth());
+            parent::set('newsCollection', $this->db->getAllNews(isset($params['date'])?$params['date']:null));
         }
     }
     

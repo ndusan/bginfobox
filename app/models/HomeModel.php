@@ -23,11 +23,22 @@ class HomeModel extends Model
         return $stmt->fetchAll();
     }
     
-    public function getAllNews()
+    public function getAllNews($date=null)
     {
         
-        $query = sprintf('SELECT * FROM %s ORDER BY `id` DESC', $this->tblNews);
-        $stmt = $this->dbh->prepare($query);
+        if(null == $date){
+            $query = sprintf('SELECT * FROM %s ORDER BY `id` DESC', $this->tblNews);
+            $stmt = $this->dbh->prepare($query);
+        }else{
+            $query = sprintf('SELECT * FROM %s WHERE `created` BETWEEN :start AND :end ORDER BY `id` DESC', $this->tblNews);
+            $stmt = $this->dbh->prepare($query);
+            
+            $start = $date.'-01 00:00:00';
+            $end = $date.'-31 23:59:59';
+            
+            $stmt->bindParam(':start', $start, PDO::PARAM_INT);
+            $stmt->bindParam(':end', $end, PDO::PARAM_INT);
+        }
         
         $stmt->execute();
 
@@ -45,6 +56,28 @@ class HomeModel extends Model
         $stmt->execute();
 
         return $stmt->fetch();
+    }
+    
+    
+    public function getAllNewsPerMonth()
+    {
+        $query = sprintf('SELECT * FROM %s ORDER BY `id` DESC', $this->tblNews);
+        $stmt = $this->dbh->prepare($query);
+        
+        $stmt->execute();
+
+        $results = $stmt->fetchAll();
+        $output = array(); 
+        
+        if(!empty($results)){
+            foreach($results as $r){
+                $all = explode(' ', $r['created']);
+                $array = explode('-', $all[0]);
+                $output[$array[0].'-'.$array[1]] = array('month'=>$array[1], 'year'=>$array[0]); 
+            }
+        }
+        
+        return $output;
     }
     
     public function getEventsByTime($year, $month)

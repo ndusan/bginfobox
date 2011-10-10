@@ -5,10 +5,13 @@
             <div class="boxTitle">
                 <h2>Sve vesti</h2>
             </div>
+            <? if($newsCollectionPerMonth):?>
             <ul class="boxExtra">
-                <li><a href="#">Oktobar</a></li>
-                <li><a href="#">Septembar</a></li>
+                <? foreach ($newsCollectionPerMonth as $key=>$date):?>
+                <li><a href="<?=DS.$params['lang'].DS.'news?date='.$key;?>"><?=$_t['months'][$params['lang']][$date['month']].' '.$date['year'];?></a></li>
+                <? endforeach; ?>
             </ul>
+            <? endif;?>
             <ul class="newsAll">
                 <? foreach ($newsCollection as $n): ?>
                     <li>
