@@ -26,7 +26,7 @@ var App = App || {};
 
             $.ajax({
                type: 'GET',
-               url:  '/calendar',
+               url:  '/load-calendar',
                data: month ? 'lang='+lang+'&month='+month : 'lang='+lang,
                success: function(msg){
                  $('#calendar').removeClass('loader').html(msg);

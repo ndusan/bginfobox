@@ -137,22 +137,23 @@ class HTML
         }
         
         
-        function formatNews($news=array(), $dynamic=false)
+        function formatNews($news=array(), $lang)
         {
-            $html = '<div class="news">';
+            $html = '<ul class="news">';
             
             if(empty($news)){
                 $html.= 'No news added';
             }else{
+                
                 foreach($news as $n){
-                    $html.= '<h3>'.$n['title'].'</h3>';
-                    $html.= '<span>'.$n['date'].'</span>';
-                    $html.= '<div class="news_content">'.$n['headings'].'</div>';
-                    $html.= '<span><a href="/news/'.$n['id'].'/'.$n['title'].'" >read more...</a></span>';
+                    $html.= '<li>';
+                    $html.= '<span>'.$n['created'].' - '.$n['title_'.$lang].'</span>';
+                    $html.= '<div>'.$n['heading_'.$lang].'</div>';
+                    $html.= '<a href="/'.$lang.'/news/'.$n['id'].'/'.$n['title_'.$lang].'" >read more...</a>';
+                    $html.= '</li>';
                 }
             }
-
-            $html.= '</div>';
+            $html.= '</ul>';
             
             return $html;
         }

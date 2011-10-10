@@ -7,15 +7,21 @@ class HomeController extends Controller
     public function indexAction($params)
     {
      
-        parent::set('news', $this->news($params));
+        parent::set('freshNews', $this->db->getFreshNews($params));
         parent::set('calendar', $this->loadCalendarAction($params));
     }
     
     
-    private function news($params)
+    private function newsPage($params)
     {
-        
-        return null;
+        if(isset($params['news_id'])){
+            //Get only one news
+            
+            parent::set('news', $this->db->getNews($params['news_id']));
+        }else{
+
+            parent::set('newsCollection', $this->db->getAllNews());
+        }
     }
     
     
@@ -30,6 +36,9 @@ class HomeController extends Controller
     
     public function staticPagesAction($params)
     {
+
+        parent::set('freshNews', $this->db->getFreshNews($params));
+        
         switch($params['page']){
             case 'about-us':break;
             case 'our-clients': break;
@@ -37,12 +46,10 @@ class HomeController extends Controller
             case 'gallery': break;
             case 'ads': break;
             case 'contact': $this->contactPage($params); break;
-            case 'news':  break;
+            case 'news':  $this->newsPage($params); break;
             case 'calendar': break;
             default: //error
         }
-        
-        parent::set('news', $this->news($params));
         
     }
     
@@ -66,13 +73,14 @@ class HomeController extends Controller
     public function dynamicPagesAction($params)
     {
         
+        parent::set('freshNews', $this->db->getFreshNews($params));
+        
         $settings = $this->db->getDynamicPageSettings($params);
+
         if(null == $settings){
             //Dynamic page not found
             parent::redirect('404', '');
         }
-        
-        parent::set('news', $this->news($params));
     }
     
     

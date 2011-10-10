@@ -55,7 +55,7 @@
                         <li><a href="<?= DS . $params['lang'] . DS . 'contact'; ?>" <?= (isset($params['page']) && 'contact' == $params['page'] ? 'class="active"' : ''); ?>>Kontakt</a></li>
                         <li><a href="#">VODIČ KROZ BEOGRAD</a></li>
                     </ul>
-                    <a href="<?= $params['lang']; ?>" class="logo">
+                    <a href="<?= DS.$params['lang']; ?>" class="logo">
                         <img src="<?= IMAGE_PATH . 'logo.png'; ?>" />
                     </a>
                     <div class="banner">
@@ -93,19 +93,10 @@
                                 <h2>Vesti</h2>
                             </div>
                             <div class="boxContent">
-                                <ul class="news">
-                                    <li>
-                                        <span>04.08.2011. - Naslov vesti u dva reda</span>
-                                        <p>
-                                            <? // Code is in lib/Html.php ?>
-                                            <?= $html->formatNews($news); ?>
-                                        </p>
-                                    </li>
-
-                                </ul>
+                                <?= $html->formatNews($freshNews, $params['lang']); ?>
                             </div>
                             <div class="boxFooter">
-                                <a href="#">Sve vesti &raquo;</a>
+                                <a href="<?=DS.$params['lang'].DS.'news';?>">Sve vesti &raquo;</a>
                             </div>
                         </div>
                         <div class="sidebarBox">

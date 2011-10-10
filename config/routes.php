@@ -19,7 +19,7 @@ $routes = array(
             'layout'     => 'default'
     ),
     //Static page - calendar
-    array(  'url'        => '/^calendar\/?$/', 
+    array(  'url'        => '/^load-calendar\/?$/', 
             'controller' => 'home', 
             'action'     => 'loadCalendar', 
             'layout'     => 'ajax'
