@@ -18,7 +18,7 @@ abbr,acronym { border:0;}
 body {font-size:12px; color:#555; font-family:arial,sans-serif; }
 a {color:#cd090f; outline:none; text-decoration:none;}
 a:hover {color:#333;}
-img {border: none; vertical-align: middle;}
+img {border: none; vertical-align:top;}
 p {padding:0;}
 .cl {clear:both; line-height:0;}
 .fl {float:left;}
@@ -173,9 +173,8 @@ input[type=submit]:hover {color:#f0397b; border-color:#C6C6C6; cursor:pointer;}
 #calendar caption {padding:5px 0; font-weight:bold;}
 #calendar table {width:100%;}
 #calendar table td {line-height:20px; text-align:center; background-color:#E6E6E6;}
-#calendar .todayDay {background-color:#CCC;}
-#calendar .eventDay {background-color:#cd090f;}
-#calendar .eventDay:hover {background-color:#900;}
-#calendar .eventDay a {color:#FFF;}
+#calendar .todayDay {background-color:#CCC; box-shadow:0 1px 3px #CCC inset;}
+#calendar .eventDay {background-image:url(../images/event_bg.png); background-position:100% 100%; background-repeat:no-repeat;}
+#calendar .eventDay a {color:#333;}
 .mainBig  table th {padding:5px; color:#FFF; font-size:11px; text-align:center; background:#9a9a9a url(../images/grad1.png) scroll repeat-x 0 0;}
 .mainBig  table td {padding:5px; background-color:#E6E6E6;}

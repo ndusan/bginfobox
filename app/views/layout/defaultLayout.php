@@ -148,9 +148,6 @@
                                 <!-- Load -->
                                 <?= $calendar; ?>
                             </div>
-                            <div class="boxFooter">
-                                <a href="#"><?=$_t['cal.all_events'][$params['lang']];?> &raquo;</a>
-                            </div>
                         </div>
                         <div class="sidebarBox">
                             <div class="boxTitle">
