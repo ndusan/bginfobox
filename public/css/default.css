@@ -101,7 +101,7 @@ ul.news {overflow:hidden; }
 ul.news li {padding:10px 15px; border-bottom:solid 1px #dfdfdf;}
 ul.news li span {padding:0 0 5px; display:block; font-weight:bold;}
 
-ul.newsAll {overflow:hidden; padding:0 15px 15px;}
+ul.newsAll {overflow:hidden; padding:0 10px 15px 15px;}
 ul.newsAll li {padding:15px 0; border-bottom:solid 1px #dfdfdf;}
 ul.newsAll h2 {font-size:14px; margin:0 0 10px;}
 ul.newsAll .date {font-size:11px; color:#999;}
@@ -110,6 +110,16 @@ ul.newsAll .date {font-size:11px; color:#999;}
 .newsOne .date {font-size:11px; color:#999;}
 .newsOne h2 {font-size:14px; margin:0 0 10px;}
 .newsOne p {padding:5px 0;}
+
+ul.calendarAll {overflow:hidden; padding:0 10px 15px 15px;}
+ul.calendarAll li {padding:15px 0; border-bottom:solid 1px #dfdfdf;}
+ul.calendarAll h2 {font-size:14px; margin:0 0 10px;}
+ul.calendarAll .date {font-size:11px; color:#999;}
+
+.calendarOne {overflow:hidden; padding:15px;}
+.calendarOne .date {font-size:11px; color:#999;}
+.calendarOne h2 {font-size:14px; margin:0 0 10px;}
+.calendarOne p {padding:5px 0;}
 
 .bottomW {background-color:#e1e1e1; padding:20px 0; border-top:solid 1px #DDD;}
 ul.bottomLinks {overflow:hidden; margin:0 auto; width:980px; color:#777; text-shadow:0 1px 1px #F5F5F5;}
