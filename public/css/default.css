@@ -75,6 +75,7 @@ ul.mainNav li a:hover {background:#9c1006 url(../images/grad2.png) scroll repeat
 .sidebarBox .boxTitle {background:#9a9a9a url(../images/grad1.png) scroll repeat-x 0 0; text-align:center; padding:10px 0;}
 .sidebarBox .boxTitle h2 {color:#444; font-size:14px; text-shadow:0 1px 1px #CCC;}
 .sidebarBox .boxContent {border:solid 1px #dfdfdf; border-top:none; border-bottom:none; background-color:#efefef;}
+.sidebarBox .boxFooter {border:solid 1px #dfdfdf; border-top:none; background-color:#efefef; padding:5px 15px; font-size:11px;}
 
 .mainBox {background-color:#efefef; margin:0 0 10px;}
 .mainBox .boxTitle {background:#9c1006 url(../images/grad2.png) scroll repeat-x 0 0; padding:10px 15px; position:relative;}
@@ -135,3 +136,8 @@ input[type=text], textarea {padding:5px; background-color:#FDFDFD; border: 1px s
 input[type=text]:focus, textarea:focus {background-color:#FFF;}
 input[type=submit] {padding:5px 15px; background-color:#FDFDFD; border: 1px solid #D6D6D6; font-family: Arial,Helvetica,sans-serif; font-size:13px; box-shadow: 1px 1px 2px rgba(200, 200, 200, 0.3);}
 input[type=submit]:hover {color:#f0397b; border-color:#C6C6C6; cursor:pointer;}
+
+#calendar {border-bottom:1px solid #D6D6D6;}
+#calendar caption {padding:5px 0;}
+#calendar table {width:100%; padding:5px 15px;}
+#calendar table td {line-height:20px; text-align:center; background-color:#f5f5f5;}
