@@ -137,12 +137,12 @@ class HTML
         }
         
         
-        function formatNews($news=array(), $lang)
+        function formatNews($news=array(), $lang=null)
         {
             $html = '<ul class="news">';
             
             if(empty($news)){
-                $html.= 'No news added';
+                $html.= '<li>No news added</li>';
             }else{
                 
                 foreach($news as $n){
