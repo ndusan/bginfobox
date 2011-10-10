@@ -5,7 +5,10 @@
             <div class="boxTitle">
                 <h2>Sve vesti</h2>
             </div>
-
+            <ul class="boxExtra">
+                <li><a href="#">Oktobar</a></li>
+                <li><a href="#">Septembar</a></li>
+            </ul>
             <ul class="newsAll">
                 <? foreach ($newsCollection as $n): ?>
                     <li>
