@@ -34,7 +34,7 @@ class HomeController extends Controller
             parent::set('calendar', $this->db->getCalendar($params['calendar_id']));
         }else{
             
-            parent::set('calendarCollection', $this->db->getCalendarByStartDate($params['start_date']));
+            parent::set('calendarCollection', $this->db->getCalendarByStartDate(isset($params['start_date'])?$params['start_date']:date('Y-m-d')));
         }
     }
     

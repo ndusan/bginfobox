@@ -107,8 +107,10 @@ class HomeModel extends Model
     }
     
     
-    public function getCalendarByStartDate($startDate)
+    public function getCalendarByStartDate($startDate=null)
     {
+        
+        if(null == $startDate) return false;
         
         $query = sprintf('SELECT * FROM %s WHERE `date_start`=:startDate ORDER BY `id` DESC', $this->tblEvents);
         $stmt = $this->dbh->prepare($query);
