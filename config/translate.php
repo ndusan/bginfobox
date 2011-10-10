@@ -16,6 +16,7 @@ $translate = array(
     //Calendar
     'cal.title'=>array('sr'=>'Kalendar dešavanja', 'en'=>'Calendar events'),
     'cal.all_events'=>array('sr'=>'Sva dešavanja', 'en'=>'All events'),
+    'cal.read_more'=>array('sr'=>'detaljnije', 'en'=>'read more'),
     //Weather
     'weather.title'=>array('sr'=>'Vreme u Beogradu', 'en'=>'Weather in Belgrade'),
     //Exchange rate

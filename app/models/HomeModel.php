@@ -73,4 +73,30 @@ class HomeModel extends Model
         return $output;
     }
     
+    
+    public function getCalendarByStartDate($startDate)
+    {
+        
+        $query = sprintf('SELECT * FROM %s WHERE `date_start`=:startDate ORDER BY `id` DESC', $this->tblEvents);
+        $stmt = $this->dbh->prepare($query);
+        
+        $stmt->bindParam(':startDate', $startDate, PDO::PARAM_STR);
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+    }
+    
+    
+    public function getCalendar($id)
+    {
+        
+        $query = sprintf('SELECT * FROM %s WHERE `id`=:id', $this->tblEvents);
+        $stmt = $this->dbh->prepare($query);
+        
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        return $stmt->fetch();
+    }
+    
 }

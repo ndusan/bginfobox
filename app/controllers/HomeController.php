@@ -25,6 +25,19 @@ class HomeController extends Controller
     }
     
     
+    private function calendarPage($params)
+    {
+        if(isset($params['calendar_id'])){
+            //Get only one news
+            
+            parent::set('calendar', $this->db->getCalendar($params['calendar_id']));
+        }else{
+            
+            parent::set('calendarCollection', $this->db->getCalendarByStartDate($params['start_date']));
+        }
+    }
+    
+    
     
     public function loadCalendarAction($params)
     {   
@@ -48,7 +61,7 @@ class HomeController extends Controller
             case 'ads': break;
             case 'contact': $this->contactPage($params); break;
             case 'news':  $this->newsPage($params); break;
-            case 'calendar': break;
+            case 'calendar': $this->calendarPage($params); break;
             default: //error
         }
         
