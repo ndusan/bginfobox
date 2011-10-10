@@ -82,19 +82,21 @@ for($i=0; $i<$total_rows; $i++){
             $cal .= "<td";
 
             //check if the date is today
-            if($date_form == $today) $cal .= " class='todayDay'";
+            if($date_form == $today) $cal .= " class='todayDay";
             ///check if any event stored for this date in $events array
-            if(array_key_exists($day, $events)){
+            if(array_key_exists($day<10?'0'.$day:$day, $events)){
                 //adding the date_has_event class to the <td> and close it
-                $cal .= " class='eventDay'> ";
+                if($date_form == $today) $cal .= " eventDay'>";
+                else $cal .= " class='eventDay'>";
 
                 //adding the eventTitle and eventContent wrapped with <span> and <li> to <ul>
-                $cal .= "<a href='".DS.$params['lang'].DS."calendar".DS.date('Y-m').'-'.$day."' >";
+                $cal .= "<a href='".DS.$params['lang'].DS."calendar".DS.date('Y-m').'-'.($day<10?'0'.$day:$day)."' >";
                 $cal .= $day;
                 $cal .= "</a>";
             }else{
                 //if there is not event on that date then just close the <td> tag
-                $cal .= "> ".$day;
+                if($date_form == $today) $cal .= " '>".$day;
+                else $cal .= "> ".$day;
             }
             $cal .= "</td>";
         }else{

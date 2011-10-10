@@ -98,8 +98,8 @@ class HomeModel extends Model
         
         if(!empty($results)){
             foreach($results as $r){
-                $array = explode('-', $r['date_start']);
-                $output[$array[2]][] = $r; 
+                $startDate = explode('-', $r['date_start']);
+                $output[$startDate[2]][] = $r; 
             }
         }
         
