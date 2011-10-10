@@ -190,6 +190,9 @@
             <div class="footerW">
                 ©2011 BG Info box. All rights reserved
             </div>
+            <script type="text/javascript">
+                var lang = '<?=$params['lang'];?>';
+            </script>
         </body>
 
     </body>

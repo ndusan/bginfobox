@@ -1,4 +1,4 @@
-<?
+<? 
 //check if time is set in the URL
 if(isset($month)) $time = $month;
 else $time = time();
@@ -37,18 +37,23 @@ $previous_year = mktime(0, 0, 0, $current_month, 1, $current_year-1);
 $previous_year_text = date("F Y", $previous_year);
 ?>
 
+<?
+//Language translation
+$cal_name = array('en' => array('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'),
+                  'sr' => array('Ponedeljak', 'Utorak', 'Sreda', 'Četvrtak', 'Petak', 'Subota', 'Nedelja'));
+?>
 
 <table summary='Calendar'>
     <caption><?=$current_month_text;?></caption>
     <thead>
         <tr>
-            <th abbr='Monday' scope='col' title='Monday'>M</th>
-            <th abbr='Tuesday' scope='col' title='Tuesday'>T</th>
-            <th abbr='Wednesday' scope='col' title='Wednesday'>O</th>
-            <th abbr='Thursday' scope='col' title='Thursday''>T</th>
-            <th abbr='Friday' scope='col' title='Friday'>F</th>
-            <th abbr='Saturday' scope='col' title='Saturday'>L</th>
-            <th abbr='Sunday' scope='col' title='Sunday'>S</th>
+            <th abbr='<?=$cal_name[$params['lang']][0];?>' scope='col' title='<?=$cal_name[$params['lang']][0];?>'><?=substr($cal_name[$params['lang']][0], 0, 3);?></th>
+            <th abbr='<?=$cal_name[$params['lang']][1];?>' scope='col' title='<?=$cal_name[$params['lang']][1];?>'><?=substr($cal_name[$params['lang']][1], 0, 3);?></th>
+            <th abbr='<?=$cal_name[$params['lang']][2];?>' scope='col' title='<?=$cal_name[$params['lang']][2];?>'><?=substr($cal_name[$params['lang']][2], 0, 3);?></th>
+            <th abbr='<?=$cal_name[$params['lang']][3];?>' scope='col' title='<?=$cal_name[$params['lang']][3];?>'><?=substr($cal_name[$params['lang']][3], 0, 4);?></th>
+            <th abbr='<?=$cal_name[$params['lang']][4];?>' scope='col' title='<?=$cal_name[$params['lang']][4];?>'><?=substr($cal_name[$params['lang']][4], 0, 3);?></th>
+            <th abbr='<?=$cal_name[$params['lang']][5];?>' scope='col' title='<?=$cal_name[$params['lang']][5];?>'><?=substr($cal_name[$params['lang']][5], 0, 3);?></th>
+            <th abbr='<?=$cal_name[$params['lang']][6];?>' scope='col' title='<?=$cal_name[$params['lang']][6];?>'><?=substr($cal_name[$params['lang']][6], 0, 3);?></th>
         </tr>
     </thead>
     <tfoot>

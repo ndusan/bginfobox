@@ -8,11 +8,8 @@ var App = App || {};
                 play: 5000
             });
             
-            $('#calendar').load(
-               '/calendar',
-               function(){
-                   $('#calendar').removeClass('loader');
-            });
+            //on load
+            App.Home.loadCalendar();
             
             //Load calendar or request
             $('body').delegate('.loadCalendar', 'click', function(e){
@@ -26,11 +23,11 @@ var App = App || {};
         contact: function() {},
         
         loadCalendar: function(month){
-            
+
             $.ajax({
                type: 'GET',
                url:  '/calendar',
-               data: 'month='+month,
+               data: month ? 'lang='+lang+'&month='+month : 'lang='+lang,
                success: function(msg){
                  $('#calendar').removeClass('loader').html(msg);
                } 
