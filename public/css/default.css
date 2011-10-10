@@ -43,6 +43,9 @@ p {padding:0;}
 .icoDoc {background:transparent url(../images/icoDoc.png) scroll no-repeat 5px 50%;}
 .infoExtra {font-size:12px;}
 
+/*WYS RESETING*/
+.wys {}
+
 /*BUILD*/
 .topNavW {background-color:#111;}
 .topNav {width:980px; margin:0 auto; overflow:hidden; background-color:#222;}
@@ -97,6 +100,16 @@ ul.boxExtra li a:hover {color:#cd090f;}
 ul.news {overflow:hidden; }
 ul.news li {padding:10px 15px; border-bottom:solid 1px #dfdfdf;}
 ul.news li span {padding:0 0 5px; display:block; font-weight:bold;}
+
+ul.newsAll {overflow:hidden; padding:0 15px 15px;}
+ul.newsAll li {padding:15px 0; border-bottom:solid 1px #dfdfdf;}
+ul.newsAll h2 {font-size:14px; margin:0 0 10px;}
+ul.newsAll .date {font-size:11px; color:#999;}
+
+.newsOne {overflow:hidden; padding:15px;}
+.newsOne .date {font-size:11px; color:#999;}
+.newsOne h2 {font-size:14px; margin:0 0 10px;}
+.newsOne p {padding:5px 0;}
 
 .bottomW {background-color:#e1e1e1; padding:20px 0; border-top:solid 1px #DDD;}
 ul.bottomLinks {overflow:hidden; margin:0 auto; width:980px; color:#777; text-shadow:0 1px 1px #F5F5F5;}
