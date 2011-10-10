@@ -16,18 +16,23 @@ var App = App || {};
                 e.preventDefault();
                 $('#calendar').addClass('loader')
                 
-                App.Home.loadCalendar($(this).attr('title'));
+                App.Home.loadCalendar($(this).attr('cal-time'), $(this).attr('cal-year'), $(this).attr('cal-month'));
             });
             
         },
         contact: function() {},
         
-        loadCalendar: function(month){
+        loadCalendar: function(time, year, month){
 
+            var url = '';
+            if(time) url+= '&currTime=' + time;
+            if(year) url+= '&year=' + year;
+            if(month) url+= '&month=' + month;
+            
             $.ajax({
                type: 'GET',
                url:  '/load-calendar',
-               data: month ? 'lang='+lang+'&month='+month : 'lang='+lang,
+               data: 'lang=' + lang + url,
                success: function(msg){
                  $('#calendar').removeClass('loader').html(msg);
                } 
