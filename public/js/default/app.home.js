@@ -22,12 +22,12 @@ var App = App || {};
         },
         contact: function() {},
         
-        loadCalendar: function(month){
+        loadCalendar: function(time){
 
             $.ajax({
                type: 'GET',
                url:  '/load-calendar',
-               data: month ? 'lang='+lang+'&month='+month : 'lang='+lang,
+               data: time ? 'lang='+lang+'&currTime='+time : 'lang='+lang,
                success: function(msg){
                  $('#calendar').removeClass('loader').html(msg);
                } 

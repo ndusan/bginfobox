@@ -3,6 +3,7 @@
 class HomeModel extends Model
 {
     private $tblNews = 'news';
+    private $tblEvents = 'events';
 
     public function getDynamicPageSettings($params)
     {
@@ -44,6 +45,22 @@ class HomeModel extends Model
         $stmt->execute();
 
         return $stmt->fetch();
+    }
+    
+    public function getEventsByTime($year, $month)
+    {
+        
+        $query = sprintf('SELECT * FROM %s WHERE `date_start` BETWEEN :start AND :end', $this->tblEvents);
+        $stmt = $this->dbh->prepare($query);
+        
+        $start = $year.'-'.$month.'-01';
+        $end = $year.'-'.$month.'-31';
+        
+        $stmt->bindParam(':start', $start, PDO::PARAM_STR);
+        $stmt->bindParam(':end', $end, PDO::PARAM_STR);
+        $stmt->execute();
+
+        return $stmt->fetchAll();
     }
     
 }

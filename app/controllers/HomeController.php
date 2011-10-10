@@ -28,8 +28,8 @@ class HomeController extends Controller
     
     public function loadCalendarAction($params)
     {
-        
-        parent::set('month', isset($params['month'])?$params['month']:null);
+        parent::set('eventCollection', $this->db->getEventsByTime(isset($params['year'])?$params['year']:date('Y'), isset($params['month'])?$params['month']:date('m')));
+        parent::set('currTime', isset($params['currTime'])?$params['currTime']: time());
     }
    
     

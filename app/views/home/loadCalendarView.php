@@ -1,6 +1,6 @@
 <? 
 //check if time is set in the URL
-if(isset($month)) $time = $month;
+if(isset($currTime)) $time = $currTime;
 else $time = time();
 
 $today = date("Y/n/j", time());
@@ -11,7 +11,7 @@ $current_month_text = date("F Y", $time);
 
 $total_days_of_current_month = date("t", $time);
 
-$events = array();
+$events = isset($eventCollection) ? $eventCollection : array();
 
 $first_day_of_month = mktime(0, 0, 0, $current_month, 1, $current_year);
 
