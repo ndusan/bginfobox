@@ -24,4 +24,7 @@ $translate = array(
     //Months
     'months'=>array('sr'=>array('1'=>'Januar','2'=>'Februar','3'=>'Mart','4'=>'April','5'=>'Maj','6'=>'Jun','7'=>'Jul','8'=>'Avgust','9'=>'Septembar','10'=>'Oktobar','11'=>'Novembar','12'=>'Decembar'),
                     'en'=>array('1'=>'January','2'=>'February','3'=>'March','4'=>'April','5'=>'May','6'=>'June','7'=>'July','8'=>'August','9'=>'September','10'=>'October','11'=>'November','12'=>'December')),
+    //Days
+    'days'=>array('sr'=>array('Ponedeljak', 'Utorak', 'Sreda', 'Četvrtak', 'Petak', 'Subota', 'Nedelja'),
+                  'en'=>array('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday')),
 );

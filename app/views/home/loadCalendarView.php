@@ -36,22 +36,19 @@ $next_year_text = date("F Y", $next_year);
 $previous_year = mktime(0, 0, 0, $current_month, 1, $current_year-1);
 $previous_year_text = date("F Y", $previous_year);
 
-//Language translation
-$cal_name = array('en' => array('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'),
-                  'sr' => array('Ponedeljak', 'Utorak', 'Sreda', 'Četvrtak', 'Petak', 'Subota', 'Nedelja'));
 ?>
 
 <table summary='Calendar'>
-    <caption><?=$current_month_text;?></caption>
+    <caption><?=$_t['months'][$params['lang']][$current_month];?></caption>
     <thead>
         <tr>
-            <th abbr='<?=$cal_name[$params['lang']][0];?>' scope='col' title='<?=$cal_name[$params['lang']][0];?>'><?=substr($cal_name[$params['lang']][0], 0, 3);?></th>
-            <th abbr='<?=$cal_name[$params['lang']][1];?>' scope='col' title='<?=$cal_name[$params['lang']][1];?>'><?=substr($cal_name[$params['lang']][1], 0, 3);?></th>
-            <th abbr='<?=$cal_name[$params['lang']][2];?>' scope='col' title='<?=$cal_name[$params['lang']][2];?>'><?=substr($cal_name[$params['lang']][2], 0, 3);?></th>
-            <th abbr='<?=$cal_name[$params['lang']][3];?>' scope='col' title='<?=$cal_name[$params['lang']][3];?>'><?=substr($cal_name[$params['lang']][3], 0, 4);?></th>
-            <th abbr='<?=$cal_name[$params['lang']][4];?>' scope='col' title='<?=$cal_name[$params['lang']][4];?>'><?=substr($cal_name[$params['lang']][4], 0, 3);?></th>
-            <th abbr='<?=$cal_name[$params['lang']][5];?>' scope='col' title='<?=$cal_name[$params['lang']][5];?>'><?=substr($cal_name[$params['lang']][5], 0, 3);?></th>
-            <th abbr='<?=$cal_name[$params['lang']][6];?>' scope='col' title='<?=$cal_name[$params['lang']][6];?>'><?=substr($cal_name[$params['lang']][6], 0, 3);?></th>
+            <th abbr='<?=$_t['days'][$params['lang']][0];?>' scope='col' title='<?=$_t['days'][$params['lang']][0];?>'><?=substr($_t['days'][$params['lang']][0], 0, 3);?></th>
+            <th abbr='<?=$_t['days'][$params['lang']][1];?>' scope='col' title='<?=$_t['days'][$params['lang']][1];?>'><?=substr($_t['days'][$params['lang']][1], 0, 3);?></th>
+            <th abbr='<?=$_t['days'][$params['lang']][2];?>' scope='col' title='<?=$_t['days'][$params['lang']][2];?>'><?=substr($_t['days'][$params['lang']][2], 0, 3);?></th>
+            <th abbr='<?=$_t['days'][$params['lang']][3];?>' scope='col' title='<?=$_t['days'][$params['lang']][3];?>'><?=substr($_t['days'][$params['lang']][3], 0, 4);?></th>
+            <th abbr='<?=$_t['days'][$params['lang']][4];?>' scope='col' title='<?=$_t['days'][$params['lang']][4];?>'><?=substr($_t['days'][$params['lang']][4], 0, 3);?></th>
+            <th abbr='<?=$_t['days'][$params['lang']][5];?>' scope='col' title='<?=$_t['days'][$params['lang']][5];?>'><?=substr($_t['days'][$params['lang']][5], 0, 3);?></th>
+            <th abbr='<?=$_t['days'][$params['lang']][6];?>' scope='col' title='<?=$_t['days'][$params['lang']][6];?>'><?=substr($_t['days'][$params['lang']][6], 0, 3);?></th>
         </tr>
     </thead>
     <tfoot>
