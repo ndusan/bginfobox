@@ -76,11 +76,11 @@ for($i=0; $i<$total_rows; $i++){
             $cal .= "<td";
 
             //check if the date is today
-            if($date_form == $today) $cal .= " class='today'";
+            if($date_form == $today) $cal .= " class='todayDay'";
             ///check if any event stored for this date in $events array
             if(array_key_exists($day, $events)){
                 //adding the date_has_event class to the <td> and close it
-                $cal .= " class='date_has_event ";
+                $cal .= " class='eventDay ";
                 //IF THIS IS EVENT IN CURRENT POSSITION
                 if($events[$day]['currentEvent']) $cal .= " current";
                 $cal .= "'> ";

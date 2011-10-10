@@ -84,6 +84,7 @@ ul.mainNav li a:hover {background:#9c1006 url(../images/grad2.png) scroll repeat
 .mainBox .boxTitle {background:#9c1006 url(../images/grad2.png) scroll repeat-x 0 0; padding:10px 15px; position:relative;}
 .mainBox .boxTitle span {position:absolute; right:20px; bottom:5px;}
 .mainBox .boxTitle h1 {color:#FFF; font-size:20px; text-shadow:0 -1px 1px #69140e;}
+.mainBox .boxTitle h2 {color:#FFF; font-size:16px; text-shadow:0 -1px 1px #69140e;}
 .mainBox .boxContent {padding:15px;}
 .mainBox .boxContent p {padding:5px 0;}
 
@@ -147,8 +148,11 @@ input[type=submit]:hover {color:#f0397b; border-color:#C6C6C6; cursor:pointer;}
 
 #calendar {border-bottom:1px solid #D6D6D6;}
 #calendar caption {padding:5px 0; font-weight:bold;}
-#calendar table {width:100%; padding:5px;}
+#calendar table {width:100%;}
 #calendar table td {line-height:20px; text-align:center; background-color:#E6E6E6;}
-
+#calendar .todayDay {background-color:#CCC;}
+#calendar .eventDay {background-color:#cd090f;}
+#calendar .eventDay:hover {background-color:#900;}
+#calendar .eventDay a {color:#FFF;}
 .mainBig  table th {padding:5px; color:#FFF; font-size:11px; text-align:center; background:#9a9a9a url(../images/grad1.png) scroll repeat-x 0 0;}
 .mainBig  table td {padding:5px; background-color:#E6E6E6;}
