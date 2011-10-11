@@ -37,7 +37,7 @@
             <div class="sidebar">
                 <ul class="mainNav">
                     <li><a href="<?= DS . 'cms'; ?>">Dashboard</a></li>
-                    <li><a href="<?= DS . 'cms' . DS . 'users'; ?>">Users</a></li>
+                    <li><a class="active" href="<?= DS . 'cms' . DS . 'users'; ?>">Users</a></li>
                     <li><a href="<?= DS . 'cms' . DS . 'news'; ?>">News</a></li>
                     <li><a href="<?= DS . 'cms' . DS . 'events'; ?>">Events</a></li>
                     <li><a href="<?= DS . 'cms' . DS . 'banners'; ?>">Banners</a></li>

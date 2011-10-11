@@ -17,11 +17,11 @@
                 <tr> 
                     <td><?=$event['title_sr'];?></td>
                     <td><?=$event['created'];?></td>
-                    <td align="center" valign="top">
+                    <td align="center">
                         <!--Edit-->
-                        <a href="/cms/event/edit/<?= $event['id']; ?>"><img src="#" /></a>
+                        <a class="cmsEdit" href="/cms/event/edit/<?= $event['id']; ?>"><img src="#" /></a>
                         <!--Delete-->
-                        <a href="/cms/event/delete/<?= $event['id']; ?>" class="jw"><img src="#" /></a>
+                        <a class="jw cmsDelete" href="/cms/event/delete/<?= $event['id']; ?>" ><img src="#" /></a>
                     </td> 
           </tr> 
             <? endforeach; ?>

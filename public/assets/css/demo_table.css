@@ -125,26 +125,25 @@ table.display {
 	 * If you want that effect I'd suggest setting a border-top/left on th/td's and 
 	 * then filling in the gaps with other borders.
 	 */
-	border: 1px solid #CCCCCC; border-bottom:none; border-right:none;
+	border: 1px solid #BAD4E3; border-bottom:none; border-right:none;
 }
 
 table.display thead th {
     padding: 10px 18px 10px 10px;
-    border: 1px solid #D6D6D6;
+    border: 1px solid #BAD4E3;
     border-left:none;
+    font-size:14px;
     border-top:none;
-    background-color:#c7dff4;
-    font-weight: bold;
+    background-color:#d2e3eb;
     cursor: pointer;
     
 }
 
 table.display tfoot th {
     padding: 10px 18px 10px 10px;
-    border: 1px solid #D6D6D6;
+    border: 1px solid #BAD4E3;
     border-left:none;
-    font-weight: bold;
-    background-color:#c7dff4;
+    background-color:#d2e3eb;
 }
 
 table.display tr.heading2 td {
@@ -153,14 +152,7 @@ table.display tr.heading2 td {
 
 table.display td {
     padding: 5px 10px;
-    border-right: 1px solid #D6D6D6;
-}
-
-table.display td a{
-	padding-left:10px;
-	padding-bottom:5px;
-	padding-top:10px;
-	clear: both;
+    border-right: 1px solid #BAD4E3;
 }
 
 table.display td.center {
@@ -244,7 +236,7 @@ table.display tr.even.gradeU {
 
 
 tr.odd {
-    background-color: #EEE;
+    background-color: #F5F5F5;
 }
 
 tr.even {

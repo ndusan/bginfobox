@@ -19,11 +19,11 @@
                     <td><?=$news['title_sr'];?></td>
                     <td><?=$news['heading_sr'];?></td>
                     <td><?=$news['created'];?></td>
-                    <td align="center" valign="top">
+                    <td align="center">
                         <!--Edit-->
-                        <a href="/cms/news/edit/<?= $news['id']; ?>"><img src="#" /></a>
+                        <a title="Edit" class="cmsEdit" href="/cms/news/edit/<?= $news['id']; ?>"></a>
                         <!--Delete-->
-                        <a href="/cms/news/delete/<?= $news['id']; ?>" class="jw"><img src="#" /></a>
+                        <a title="Delete" class="jw cmsDelete" href="/cms/news/delete/<?= $news['id']; ?>"></a>
                     </td> 
           </tr> 
             <? endforeach; ?>

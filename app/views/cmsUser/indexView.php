@@ -21,12 +21,12 @@
                     <td><?= $user['lastname']; ?></td> 
                     <td><?= $user['email']; ?></td> 
                     <td><?= $user['created'] ?></td> 
-                    <td>
+                    <td align="center">
                         <!--Edit-->
-                        <a href="/cms/user/edit/<?= $user['id']; ?>"><img src="#" /></a>
+                        <a class="cmsEdit" href="/cms/user/edit/<?= $user['id']; ?>"><img src="#" /></a>
                         <!--Delete-->
                         <? if ($user['id'] !== $_SESSION['cms']['id']): ?>
-                            <a href="/cms/user/delete/<?= $user['id']; ?>" class="jw"><img src="#" /></a>
+                            <a class="jw cmsDelete" href="/cms/user/delete/<?= $user['id']; ?>" ><img src="#" /></a>
                         <? endif; ?>
                     </td> 
                 </tr> 

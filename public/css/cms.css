@@ -27,11 +27,18 @@ p {padding:0;}
 .jnotif {position:fixed; top:0; left:50%; width:300px; text-align:center; padding:20px; margin:0 0 0 -170px; border-radius:0 0 5px 5px;}
 #jerror {background-color:red; color:#FFF;}
 #jsuccess {background-color:green; color:#FFF;}
+.noResults {background-color:#bae6fa; font-size:14px; padding:20px; border-bottom:solid 1px #BAD4E3; text-align:center;}
+
 h1 {font-size:18px; color:#eee; line-height:20px;}
+
 /*SPRITE*/
+.cmsEdit, .cmsDelete {width:20px; height:20px; display:inline-block; background-image: url(../images/cmsIcos.png);}
+.cmsEdit {background-position:-20px 0;}
+.cmsEdit:hover  {background-position:-20px -20px;}
+.cmsDelete {background-position:0 0;}
+.cmsDelete:hover {background-position:0 -20px;}
 
 /*FORMS*/
-
 input[type=text], input[type=password], textarea {padding:5px; background-color:#FDFDFD; border: 1px solid #D6D6D6; font-family: Arial,Helvetica,sans-serif; font-size:13px; width: 200px; box-shadow: 1px 1px 2px rgba(200, 200, 200, 0.3) inset;}
 input[type=text]:focus, input[type=password]:focus, textarea:focus {background-color:#FFF;}
 
@@ -49,12 +56,13 @@ input[type=submit]:hover {color:#3399cc; border-color:#BBB; cursor:pointer;}
 .header {background-color:#333; padding:20px 50px 20px 220px;}
 .wrapper {padding:0 50px 50px 0;}
 .sidebar {width:200px; float:left;}
-.content {background-color:#FFF; margin:0 0 0 200px; border:solid 1px #bad4e3; border-top:none; min-width:780px;}
+.content {background-color:#FFF; margin:0 0 0 200px; border:solid 1px #bad4e3; border-top:none; min-width:780px; min-height:350px;}
 
 .mainNav {overflow:hidden;}
 .mainNav li {border-bottom:solid 1px #bad4e3; text-align:right;}
-.mainNav li a {display:block; color:#555; font-size:14px; padding:10px;}
+.mainNav li a {display:block; color:#555; font-size:14px; padding:10px 15px 10px 10px;}
 .mainNav li a:hover {color:#333;}
+.mainNav li .active {color:#333; background:transparent url(../images/navActive.png) scroll no-repeat 100% 50%;}
 .headerNav {overflow:hidden; float:right;}
 .headerNav li {float:left; border-left:solid 1px #555; padding:0 20px;}
 .headerNav li a {display:block; color:#3399cc; font-size:14px; line-height:20px;}
