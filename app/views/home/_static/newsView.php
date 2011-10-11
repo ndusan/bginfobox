@@ -30,9 +30,9 @@
             <div class="newsOne wys">
                 <h2><?= $news['title_' . $params['lang']]; ?> </h2>
                 <span class="date"><?= $news['created']; ?></span>
-                <p><?= $news['heading_' . $params['lang']]; ?></p>
+                <p class="highlight"><?= $news['heading_' . $params['lang']]; ?></p>
                 <? if (!empty($news['image_name'])): ?>
-                <img src="<?= DS. 'public' . DS . 'uploads' . DS . 'news' . DS . $news['image_name']; ?>" alt="" title="" width="100" height="100"/>
+                <img src="<?= DS. 'public' . DS . 'uploads' . DS . 'news' . DS . $news['image_name']; ?>" alt="<?= $news['title_' . $params['lang']]; ?>" title="<?= $news['title_' . $params['lang']]; ?>" />
                 <? endif; ?>
                 <?= $news['content_' . $params['lang']]; ?>
             </div>

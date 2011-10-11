@@ -33,9 +33,9 @@
 .dataTables_wrapper {
     position: relative;
     min-height: 302px;
-    clear: both;
     _height: 302px;
     overflow:hidden;
+    padding:20px;
     zoom: 1; /* Feeling sorry for IE */
 }
 
@@ -58,12 +58,14 @@
 .dataTables_length {
     width: 40%;
     float: left;
+    padding:20px 0;
 }
 
 .dataTables_filter {
     width: 50%;
     float: right;
     text-align: right;
+    padding:20px 0;
 }
 
 .dataTables_info {
@@ -123,7 +125,7 @@ table.display {
 	 * If you want that effect I'd suggest setting a border-top/left on th/td's and 
 	 * then filling in the gaps with other borders.
 	 */
-	border: 1px solid #CCCCCC;
+	border: 1px solid #CCCCCC; border-bottom:none; border-right:none;
 }
 
 table.display thead th {

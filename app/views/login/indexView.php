@@ -1,6 +1,6 @@
 <div class="login">
     <form action="<?=DS.'login';?>" method="post">
-        <table width="500" cellpadding="0" cellspacing="0">
+        <table width="100%" cellpadding="0" cellspacing="0">
             <tbody>
                 <tr>
                     <td align="right" valign="middle">
