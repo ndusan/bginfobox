@@ -41,6 +41,7 @@
                     <li><a href="<?= DS . 'cms' . DS . 'news'; ?>">News</a></li>
                     <li><a href="<?= DS . 'cms' . DS . 'events'; ?>">Events</a></li>
                     <li><a href="<?= DS . 'cms' . DS . 'banners'; ?>">Banners</a></li>
+                    <li><a href="<?= DS . 'cms' . DS . 'gallery'; ?>">Gallery</a></li>
                 </ul>
             </div>
             <div class="content">

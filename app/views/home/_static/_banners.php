@@ -1,16 +1,13 @@
+<? if(!empty($bannerCollection)):?>
 <div class="sidebarR">
     <ul class="banners">
+        <? foreach($bannerCollection as $b):?>
         <li>
-            <img src="<?= IMAGE_PATH . 'baner.jpg'; ?>" />
+            <a href="<?=$b['link'];?>" target="_blank">
+                <img title="<?=$b['title'];?>" alt="<?=$b['title'];?>" src="<?=DS.'public'.DS.'uploads'.DS.'banners'.DS.$b['image_name'];?>" width="200"/>
+            </a>
         </li>
-        <li>
-            <img src="<?= IMAGE_PATH . 'baner.jpg'; ?>" />
-        </li>
-        <li>
-            <img src="<?= IMAGE_PATH . 'baner.jpg'; ?>" />
-        </li>
-        <li>
-            <img src="<?= IMAGE_PATH . 'baner.jpg'; ?>" />
-        </li>
+        <? endforeach;?>
     </ul>
 </div>
+<? endif;?>

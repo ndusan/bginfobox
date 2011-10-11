@@ -38,6 +38,12 @@ class HomeController extends Controller
         }
     }
     
+    private function galleryPage($params)
+    {
+        
+        parent::set('galleryCollection', $this->db->getAllGallery());
+    }
+    
     
     
     public function loadCalendarAction($params)
@@ -53,12 +59,13 @@ class HomeController extends Controller
     {
 
         parent::set('freshNews', $this->db->getFreshNews($params));
+        parent::set('bannerCollection', $this->db->getAllBanners());
         
         switch($params['page']){
             case 'about-us':break;
             case 'our-clients': break;
             case 'archive': break;
-            case 'gallery': break;
+            case 'gallery': $this->galleryPage($params); break;
             case 'ads': break;
             case 'contact': $this->contactPage($params); break;
             case 'news':  $this->newsPage($params); break;

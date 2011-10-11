@@ -153,4 +153,26 @@ $routes = array(
             'action'     => 'delete', 
             'layout'     => 'empty'
     ),
+    
+    //CMS gallery page
+    array(  'url'        => '/^cms\/gallery\/?$/', 
+            'controller' => 'cmsGallery', 
+            'action'     => 'index', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/gallery\/add\/?$/', 
+            'controller' => 'cmsGallery', 
+            'action'     => 'add', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/gallery\/edit\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsGallery', 
+            'action'     => 'edit', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/gallery\/delete\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsGallery', 
+            'action'     => 'delete', 
+            'layout'     => 'empty'
+    ),
 );
