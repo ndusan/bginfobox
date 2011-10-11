@@ -29,6 +29,11 @@ p {padding:0;}
 #jsuccess {background-color:green; color:#FFF;}
 h1 {font-size:18px; color:#eee; line-height:20px;}
 /*SPRITE*/
+.cmsEdit, .cmsDelete {width:20px; height:20px; display:block; background-image: url(../images/cmsIcos.png);}
+.cmsEdit {background-position:-20px 0;}
+.cmsEdit:hover  {background-position:-20px -20px;}
+.cmsDelete {background-position:0 0;}
+.cmsDelete:hover {background-position:0 -20px;}
 
 /*FORMS*/
 
@@ -53,8 +58,9 @@ input[type=submit]:hover {color:#3399cc; border-color:#BBB; cursor:pointer;}
 
 .mainNav {overflow:hidden;}
 .mainNav li {border-bottom:solid 1px #bad4e3; text-align:right;}
-.mainNav li a {display:block; color:#555; font-size:14px; padding:10px;}
+.mainNav li a {display:block; color:#555; font-size:14px; padding:10px 15px 10px 10px;}
 .mainNav li a:hover {color:#333;}
+.mainNav li .active {color:#333; background:transparent url(../images/navActive.png) scroll no-repeat 100% 50%;}
 .headerNav {overflow:hidden; float:right;}
 .headerNav li {float:left; border-left:solid 1px #555; padding:0 20px;}
 .headerNav li a {display:block; color:#3399cc; font-size:14px; line-height:20px;}
