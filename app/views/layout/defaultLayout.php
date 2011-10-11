@@ -128,7 +128,7 @@
                                     <li>
                                         <span><?=$n['created'].' - '.$n['title_'.$params['lang']];?></span>
                                         <div><?=$n['heading_'.$params['lang']];?></div>
-                                        <a href="<?=DS.$params['lang'].DS.'news'.DS.$n['id'].DS.urlencode(str_replace(array('š','đ','č','ć','ž','Š','Đ','Č','Ć','Ž'),array('s','d','c','c','z','s','d','c','c','z'),$n['title_'.$params['lang']]));?>">
+                                        <a href="<?=DS.$params['lang'].DS.'news'.DS.$n['id'].DS.urlencode(str_replace(array('š','đ','č','ć','ž','Š','Đ','Č','Ć','Ž','?','!',',','.'),array('s','d','c','c','z','s','d','c','c','z','','','',''),$n['title_'.$params['lang']]));?>">
                                             <?=$_t['news.read_more'][$params['lang']];?>...
                                         </a>
                                     </li>
