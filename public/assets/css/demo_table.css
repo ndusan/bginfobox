@@ -155,13 +155,6 @@ table.display td {
     border-right: 1px solid #BAD4E3;
 }
 
-table.display td a{
-	padding-left:10px;
-	padding-bottom:5px;
-	padding-top:10px;
-	clear: both;
-}
-
 table.display td.center {
     text-align: center;
 }
