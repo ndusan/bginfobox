@@ -50,4 +50,3 @@
         </div>
     </div>
 </div>
-<? print_r($params);?>
