@@ -115,7 +115,7 @@ class CmsBannersModel extends Model
     }
     
     
-    public function deleteBanners($params)
+    public function deleteBanner($params)
     {
         
         try{
