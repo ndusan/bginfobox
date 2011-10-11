@@ -53,10 +53,10 @@ input[type=submit]:hover {color:#3399cc; border-color:#BBB; cursor:pointer;}
 .login {width:340px; padding:30px; background-color:#FFF; border:solid 1px #BAD4E3; box-shadow:0 0 2px #CCC; position:fixed; top:150px; left:50%; margin:0 0 0 -200px;}
 .login td {padding:5px;}
 
-.header {background-color:#333; padding:20px 50px 20px 220px;}
+.header {background-color:#333; padding:20px 50px 19px 220px; position:relative; border-bottom:solid 1px #111;}
 .wrapper {padding:0 50px 50px 0;}
 .sidebar {width:200px; float:left;}
-.content {background-color:#FFF; margin:0 0 0 200px; border:solid 1px #bad4e3; border-top:none; min-width:780px; min-height:350px;}
+.content {background-color:#FFF; margin:0 0 0 200px; border:solid 1px #bad4e3; border-top:none; min-width:780px; min-height:350px; box-shadow:0 0 5px #CCC;}
 
 .mainNav {overflow:hidden;}
 .mainNav li {border-bottom:solid 1px #bad4e3; text-align:right;}
