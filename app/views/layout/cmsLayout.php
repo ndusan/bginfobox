@@ -19,6 +19,7 @@
         
         <!-- Load all custom js -->
         <?=$html->js('app', JS_PATH);?>
+        <?=$html->js('tiny_mce', MCE_PATH);?>
         <?=$html->allCustomJs(JS_PATH.'cms'.DS);?>
         
         <!-- Load all custom css -->

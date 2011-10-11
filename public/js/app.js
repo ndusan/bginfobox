@@ -31,6 +31,21 @@ var App = App || {};
                 if(!allOk) return false;
             });
             
+        },
+        mce: function() {
+            tinyMCE.init({
+                    theme : "advanced",
+                    mode : "textareas",
+                    plugins : "fullpage",
+                    theme_advanced_buttons3_add : "fullpage"
+            });
+        },
+        datepicker: function() {
+            
+            $('.datepicker').datepicker({
+                firstDay: 1,
+                dateFormat: 'yy-mm-dd'
+            });
         }
     };
 })(this.jQuery);

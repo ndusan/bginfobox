@@ -11,18 +11,13 @@ var App = App || {};
         },
         add: function() {
             
-            App.CmsEvents.datepicker();
+            App.Common.datepicker();
+            App.Common.mce();
         },
         edit: function() {
             
-            App.CmsEvents.datepicker();
-        },
-        datepicker: function() {
-            
-            $('.datepicker').datepicker({
-                firstDay: 1,
-                dateFormat: 'yy-mm-dd'
-            });
+            App.Common.datepicker();
+            App.Common.mce();
         }
     };
 })(this.jQuery);
