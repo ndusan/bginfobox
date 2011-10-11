@@ -22,7 +22,7 @@ define('VIEW_PATH', 'app'.DS.'views'.DS);
 define('LAYOUT_PATH', $_SERVER['DOCUMENT_ROOT'].DS.'app'.DS.'views'.DS.'layout'.DS);
 
 //Logs
-define('LOG_PATH', ROOT.DS.'tmp'.DS.'logs'.DS);
+define('LOG_PATH', $_SERVER['DOCUMENT_ROOT'].DS.'tmp'.DS.'logs'.DS);
 
 //Public paths
 define('IMAGE_PATH', DS.'public'.DS.'images'.DS);
@@ -34,7 +34,7 @@ define('ASSETS_CSS_PATH', 'public'.DS.'assets'.DS.'css'.DS);
 define('ASSETS_JS_PATH', 'public'.DS.'assets'.DS.'js'.DS);
 
 //Uploads 
-define('UPLOAD_PATH', $_SERVER['DOCUMENT_ROOT'].'public'.DS.'uploads'.DS);
+define('UPLOAD_PATH', $_SERVER['DOCUMENT_ROOT'].DS.'public'.DS.'uploads'.DS);
 
 //Cache properties
 define('TIME_TO_LIVE_CACHE', 60);
@@ -51,3 +51,6 @@ define('PER_PAGE', '1');// number of rows to show per page
 //Possible languages on frontend
 define('LANG', 'sr|en');
 define('DEFAULT_LANG', 'sr');
+
+//TinyMCE
+define('MCE_PATH', 'public'.DS.'tiny_mce'.DS);
