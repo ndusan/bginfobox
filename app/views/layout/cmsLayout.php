@@ -36,13 +36,13 @@
         <div class="wrapper">
             <div class="sidebar">
                 <ul class="mainNav">
-                    <li><a href="<?= DS . 'cms'; ?>">Dashboard</a></li>
-                    <li><a class="active" href="<?= DS . 'cms' . DS . 'users'; ?>">Users</a></li>
-                    <li><a href="<?= DS . 'cms' . DS . 'news'; ?>">News</a></li>
-                    <li><a href="<?= DS . 'cms' . DS . 'events'; ?>">Events</a></li>
-                    <li><a href="<?= DS . 'cms' . DS . 'banners'; ?>">Banners</a></li>
-                    <li><a href="<?= DS . 'cms' . DS . 'gallery'; ?>">Gallery</a></li>
-                    <li><a href="<?= DS . 'cms' . DS . 'carousel'; ?>">Carousel</a></li>
+                    <li><a <?= $this->_controller=='cmsHome'?'class="active"':''; ?> href="<?= DS . 'cms'; ?>">Dashboard</a></li>
+                    <li><a <?= $this->_controller=='cmsUser'?'class="active"':''; ?> href="<?= DS . 'cms' . DS . 'users'; ?>">Users</a></li>
+                    <li><a <?= $this->_controller=='cmsNews'?'class="active"':''; ?> href="<?= DS . 'cms' . DS . 'news'; ?>">News</a></li>
+                    <li><a <?= $this->_controller=='cmsEvents'?'class="active"':''; ?> href="<?= DS . 'cms' . DS . 'events'; ?>">Events</a></li>
+                    <li><a <?= $this->_controller=='cmsBanners'?'class="active"':''; ?> href="<?= DS . 'cms' . DS . 'banners'; ?>">Banners</a></li>
+                    <li><a <?= $this->_controller=='cmsGallery'?'class="active"':''; ?> href="<?= DS . 'cms' . DS . 'gallery'; ?>">Gallery</a></li>
+                    <li><a <?= $this->_controller=='cmsCarousel'?'class="active"':''; ?> href="<?= DS . 'cms' . DS . 'carousel'; ?>">Carousel</a></li>
                 </ul>
             </div>
             <div class="content">
