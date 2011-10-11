@@ -4,6 +4,8 @@ class HomeModel extends Model
 {
     private $tblNews = 'news';
     private $tblEvents = 'events';
+    private $tblBanners = 'banners';
+    private $tblGallery = 'gallery';
 
     public function getDynamicPageSettings($params)
     {
@@ -132,6 +134,31 @@ class HomeModel extends Model
         $stmt->execute();
 
         return $stmt->fetch();
+    }
+    
+    
+    
+    public function getAllBanners()
+    {
+        
+        $query = sprintf('SELECT * FROM %s ORDER BY `id` DESC', $this->tblBanners);
+        $stmt = $this->dbh->prepare($query);
+        
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+    }
+    
+    
+    public function getAllGallery()
+    {
+        
+        $query = sprintf('SELECT * FROM %s ORDER BY `id` DESC', $this->tblGallery);
+        $stmt = $this->dbh->prepare($query);
+        
+        $stmt->execute();
+
+        return $stmt->fetchAll();
     }
     
 }

@@ -3,43 +3,17 @@
         <div class="boxTitle">
             <h1>Galerija</h1>
         </div>
+        <? if(!empty($galleryCollection)):?>
         <ul class="galleryAll">
+            <? foreach($galleryCollection as $g):?>
             <li>
-                <img width="170" height="120" src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" />
-                <span>1024x768px / 123kb <a href="#">preuzmi</a></span>
+                <img width="170" height="120" src="<?=DS.'public'.DS.'uploads'.DS.'gallery'.DS.$g['image_name'];?>" />
+                <span><?=$g['ratio'];?> / <?=$g['size'];?> <a href="<?=DS.'public'.DS.'uploads'.DS.'gallery'.DS.$g['image_name'];?>" target="_blank">preuzmi</a></span>
                 <a class="zoom" href="#"></a>
             </li>
-            <li>
-                <img width="170" height="120" src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" />
-                <span>1024x768px / 123kb <a href="#">preuzmi</a></span>
-                <a class="zoom" href="#"></a>
-            </li>
-            <li>
-                <img width="170" height="120" src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" />
-                <span>1024x768px / 123kb <a href="#">preuzmi</a></span>
-                <a class="zoom" href="#"></a>
-            </li>
-            <li>
-                <img width="170" height="120" src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" />
-                <span>1024x768px / 123kb <a href="#">preuzmi</a></span>
-                <a class="zoom" href="#"></a>
-            </li>
-            <li>
-                <img width="170" height="120" src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" />
-                <span>1024x768px / 123kb <a href="#">preuzmi</a></span>
-                <a class="zoom" href="#"></a>
-            </li>
-            <li>
-                <img width="170" height="120" src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" />
-                <span>1024x768px / 123kb <a href="#">preuzmi</a></span>
-                <a class="zoom" href="#"></a>
-            </li>
-            <li>
-                <img width="170" height="120" src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" />
-                <span>1024x768px / 123kb <a href="#">preuzmi</a></span>
-                <a class="zoom" href="#"></a>
-            </li>
+            <? endforeach;?>
         </ul>
+        <? endif; ?>
     </div>
     <div class="mainBox">
         <div class="boxTitle">
