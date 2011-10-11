@@ -56,13 +56,13 @@ input[type=submit]:hover {color:#3399cc; border-color:#BBB; cursor:pointer;}
 .header {background-color:#333; padding:20px 50px 19px 220px; position:relative; border-bottom:solid 1px #111;}
 .wrapper {padding:0 50px 50px 0;}
 .sidebar {width:200px; float:left;}
-.content {background-color:#FFF; margin:0 0 0 200px; border:solid 1px #bad4e3; border-top:none; min-width:780px; min-height:350px; box-shadow:0 0 5px #CCC;}
+.content {background-color:#FFF; margin:0 0 0 200px; border:solid 1px #bad4e3; border-top:none; min-width:780px; min-height:350px; position:relative; box-shadow:0 0 5px #CCC;}
 
 .mainNav {overflow:hidden;}
 .mainNav li {border-bottom:solid 1px #bad4e3; text-align:right;}
 .mainNav li a {display:block; color:#555; font-size:14px; padding:10px 15px 10px 10px;}
-.mainNav li a:hover {color:#333;}
-.mainNav li .active {color:#333; background:transparent url(../images/navActive.png) scroll no-repeat 100% 50%;}
+.mainNav li a:hover {color:#333; background-color:#eef4f5;}
+.mainNav li .active {color:#333; background:#eef4f5 url(../images/navActive.png) scroll no-repeat 100% 50%;}
 .headerNav {overflow:hidden; float:right;}
 .headerNav li {float:left; border-left:solid 1px #555; padding:0 20px;}
 .headerNav li a {display:block; color:#3399cc; font-size:14px; line-height:20px;}
