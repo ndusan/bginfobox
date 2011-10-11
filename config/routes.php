@@ -24,13 +24,13 @@ $routes = array(
             'action'     => 'loadCalendar', 
             'layout'     => 'ajax'
     ),
-    array(  'url'        => '/^(?P<lang>('.LANG.'))\/(?P<page>(calendar))\/?(?P<start_date>([0-9-]+))*(\/(?P<calendar_id>\d+)\/[a-zA-Z0-9\/#&@\-+_]+)*$/', 
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/(?P<page>(calendar))\/?(?P<start_date>([0-9-]+))*(\/(?P<calendar_id>\d+)\/[a-zA-Z0-9\/#&@\-+_?,.]+)*$/', 
             'controller' => 'home', 
             'action'     => 'staticPages', 
             'layout'     => 'default'
     ),
     //Static page - news
-    array(  'url'        => '/^(?P<lang>('.LANG.'))\/(?P<page>(news))\/?((?P<news_id>\d+)*(\/[a-zA-Z0-9\/#&@\-+_]+))*$/', 
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/(?P<page>(news))\/?((?P<news_id>\d+)*(\/[a-zA-Z0-9\/#&@\-+_?,.]+))*$/', 
             'controller' => 'home', 
             'action'     => 'staticPages', 
             'layout'     => 'default'

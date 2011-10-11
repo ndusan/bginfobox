@@ -8,7 +8,6 @@
         <thead> 
             <tr> 
                 <th>Title</th>
-                <th>Content</th> 
                 <th>Created</th> 
                 <th width="100px">Action</th>
           </tr> 
@@ -17,7 +16,6 @@
             <? foreach ($eventsCollection as $event): ?>
                 <tr> 
                     <td><?=$event['title_sr'];?></td>
-                    <td><?=$event['content_sr'];?></td> 
                     <td><?=$event['created'];?></td>
                     <td align="center" valign="top">
                         <!--Edit-->
@@ -30,7 +28,6 @@
         <tfoot> 
             <tr> 
                 <th>Title</th>
-                <th>Content</th> 
                 <th>Created</th> 
                 <th>Action</th> 
             </tr> 

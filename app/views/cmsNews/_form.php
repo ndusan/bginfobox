@@ -25,6 +25,12 @@
                                 </td>
                             </tr>
                             <tr>
+                                <td>Show eng page:</td>
+                                <td>
+                                    <input type="checkbox" name="news[show_en]" value="1" <?=@$news['show_en']?"checked='checked'":"";?> />
+                                </td>
+                            </tr>
+                            <tr>
                                 <td>Title en:</td>
                                 <td>
                                     <input type="text" name="news[title_en]" value="<?=@$news['title_en'];?>"/>

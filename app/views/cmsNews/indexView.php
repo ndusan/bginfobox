@@ -9,7 +9,6 @@
             <tr> 
                 <th>Title</th>
                 <th>Heading</th>
-                <th>Content</th> 
                 <th>Created</th> 
                 <th width="100px">Action</th>
           </tr> 
@@ -19,7 +18,6 @@
                 <tr> 
                     <td><?=$news['title_sr'];?></td>
                     <td><?=$news['heading_sr'];?></td>
-                    <td><?=$news['content_sr'];?></td> 
                     <td><?=$news['created'];?></td>
                     <td align="center" valign="top">
                         <!--Edit-->
@@ -33,7 +31,6 @@
             <tr> 
                 <th>Title</th>
                 <th>Heading</th>
-                <th>Content</th> 
                 <th>Created</th> 
                 <th>Action</th> 
             </tr> 
