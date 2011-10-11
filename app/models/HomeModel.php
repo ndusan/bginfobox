@@ -6,6 +6,7 @@ class HomeModel extends Model
     private $tblEvents = 'events';
     private $tblBanners = 'banners';
     private $tblGallery = 'gallery';
+    private $tblCarousel = 'carousel';
 
     public function getDynamicPageSettings($params)
     {
@@ -154,6 +155,18 @@ class HomeModel extends Model
     {
         
         $query = sprintf('SELECT * FROM %s ORDER BY `id` DESC', $this->tblGallery);
+        $stmt = $this->dbh->prepare($query);
+        
+        $stmt->execute();
+
+        return $stmt->fetchAll();
+    }
+    
+    
+    public function getAllCarousel()
+    {
+        
+        $query = sprintf('SELECT * FROM %s ORDER BY `id` DESC', $this->tblCarousel);
         $stmt = $this->dbh->prepare($query);
         
         $stmt->execute();

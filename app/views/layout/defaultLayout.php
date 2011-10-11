@@ -91,7 +91,7 @@
                             <div class="slides_container">
                                 <? foreach($carouselCollection as $cc):?>
                                 <div class="slide">
-                                    <img src="<?=DS.'public'.DS.'uploads'.DS.'carousel'.$cc['image_name'];?>" />
+                                    <img src="<?=DS.'public'.DS.'uploads'.DS.'carousel'.DS.$cc['image_name'];?>" />
                                     <div class="desc">
                                         <p><?=$cc['content_'.$params['lang']];?></p>
                                     </div>
