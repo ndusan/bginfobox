@@ -2,3 +2,4 @@ nbproject/
 config/config.php
 public/uploads/news/*
 public/uploads/events/*
+public/uploads/banners/*

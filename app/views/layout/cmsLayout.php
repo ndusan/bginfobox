@@ -40,6 +40,7 @@
                     <li><a class="active" href="<?= DS . 'cms' . DS . 'users'; ?>">Users</a></li>
                     <li><a href="<?= DS . 'cms' . DS . 'news'; ?>">News</a></li>
                     <li><a href="<?= DS . 'cms' . DS . 'events'; ?>">Events</a></li>
+                    <li><a href="<?= DS . 'cms' . DS . 'banners'; ?>">Banners</a></li>
                 </ul>
             </div>
             <div class="content">

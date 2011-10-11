@@ -131,4 +131,26 @@ $routes = array(
             'action'     => 'delete', 
             'layout'     => 'empty'
     ),
+    
+    //CMS banners page
+    array(  'url'        => '/^cms\/banners\/?$/', 
+            'controller' => 'cmsBanners', 
+            'action'     => 'index', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/banner\/add\/?$/', 
+            'controller' => 'cmsBanners', 
+            'action'     => 'add', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/banner\/edit\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsBanners', 
+            'action'     => 'edit', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/banner\/delete\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsBanners', 
+            'action'     => 'delete', 
+            'layout'     => 'empty'
+    ),
 );
