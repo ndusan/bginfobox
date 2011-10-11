@@ -86,28 +86,20 @@
                         <img src="<?= IMAGE_PATH . 'logo.png'; ?>" />
                     </a>
                     <div class="banner">
+                        <? if(!empty($carouselCollection)):?>
                         <div id="slides">
                             <div class="slides_container">
+                                <? foreach($carouselCollection as $cc):?>
                                 <div class="slide">
-                                    <img src="<?= IMAGE_PATH . 'slide1.jpg'; ?>" />
+                                    <img src="<?=DS.'public'.DS.'uploads'.DS.'carousel'.$cc['image_name'];?>" />
                                     <div class="desc">
-                                        <p>Neizbežno pitаnje nа početku rаzgovorа sа predsednikom Ujedinjenih regionа.</p>
+                                        <p><?=$cc['content_'.$params['lang']];?></p>
                                     </div>
                                 </div>
-                                <div class="slide">
-                                    <img src="<?= IMAGE_PATH . 'slide1.jpg'; ?>" />
-                                    <div class="desc">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                    </div>
-                                </div>
-                                <div class="slide">
-                                    <img src="<?= IMAGE_PATH . 'slide1.jpg'; ?>" />
-                                    <div class="desc">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                    </div>
-                                </div>
+                                <? endforeach;?>
                             </div>
                         </div>
+                        <? endif;?>
                     </div>
                 </div>
             </div>
