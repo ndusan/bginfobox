@@ -10,8 +10,10 @@
         <!-- Load all assets (js + css) -->
         <?= $html->assetsJs('jquery-1.6.4.min', ASSETS_JS_PATH); ?>
         <?= $html->assetsJs('slides.min.jquery', ASSETS_JS_PATH); ?>
+        <?= $html->assetsJs('jquery.lightbox-0.5.min', ASSETS_JS_PATH); ?>
         <?= $html->assetsJs('app', ASSETS_JS_PATH); ?>
         <?= $html->assetsCss('default', ASSETS_CSS_PATH); ?>
+        <?= $html->assetsCss('jquery.lightbox-0.5', ASSETS_CSS_PATH); ?>
 
         <!-- Load all custom js -->
         <?= $html->js('app', JS_PATH); ?>

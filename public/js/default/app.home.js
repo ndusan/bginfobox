@@ -18,9 +18,12 @@ var App = App || {};
                 
                 App.Home.loadCalendar($(this).attr('cal-time'), $(this).attr('cal-year'), $(this).attr('cal-month'));
             });
-            
+
+            //Lightbox
+            $('a.lightbox').lightBox();  
         },
         contact: function() {},
+        
         
         loadCalendar: function(time, year, month){
 

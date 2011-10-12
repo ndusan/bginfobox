@@ -148,6 +148,8 @@ function hook($routes, $translate){
         
         $dispacher = new $controllerName($controller, $action, $layout);
         
+        spl_autoload_register('\imagineLoader');
+        
         //Check if exitsts
         if((int)method_exists($controllerName, $action)){
             call_user_func_array(array($dispacher,"beforeAction"), array('params' => $url['params'], '_t'=>$translate));
@@ -187,12 +189,21 @@ function gzipOutput() {
     );
 }
 
+function imagineLoader($class) {
+    $path = $class;
+    $path = str_replace('\\', DIRECTORY_SEPARATOR, $path) . '.php';
+
+    if (file_exists(__DIR__.'/'.$path)) {
+        include __DIR__.'/'.$path;
+    }
+}
+
 /** Get Required Files **/
 
 gzipOutput() || ob_start("ob_gzhandler");
 
-
 //Call functions 
 setReports();
 unregisterGlobals();
+
 hook($routes, $translate);

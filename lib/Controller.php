@@ -183,6 +183,34 @@ class Controller {
             return false;
         }
     }
+    
+    public function createThumbImage($imageName, $folder, $width, $height=null) {
+        
+        if (file_exists(UPLOAD_PATH . $folder . DS . $imageName)) {
+            
+            //Calculate heigth
+            list($currWidth, $currHeight) = getimagesize(UPLOAD_PATH . $folder . DS . $imageName);
+            
+            try{
+                $newHeight = $currHeight * ($width / $currWidth);
+            }catch(Exception $e){
+                $newHeight = 0;
+            }
+            
+            $imagine = new \Imagine\Gd\Imagine();
+            
+            $image = $imagine->open(UPLOAD_PATH . $folder . DS . $imageName);
+            $thumbnail = $image->thumbnail(new Imagine\Image\Box($width, $newHeight));
+            $thumbnail->save(UPLOAD_PATH . $folder . DS . 'thumb-'. $imageName);
+            
+            return true;
+        } else {
+
+            return false;
+        }
+        
+        
+    }
 
     public function sendEmail($to, $subject, $message, $from, $files=null) {
 
