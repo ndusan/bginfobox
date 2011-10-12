@@ -19,8 +19,10 @@ class CmsGalleryController extends Controller
                     
                     $newImageName = $id.'-'.$params['image']['name'];
                     $this->db->setImageName($id, $newImageName);
-                    $this->uploadImage($newImageName, $params['image'], 'gallery');
-                    
+                    $info = $this->uploadImage($newImageName, $params['image'], 'gallery');
+                    if($info){
+                        $this->db->updateImageInfo($id, $info);
+                    }
                     //Create thumb
                     $this->createThumbImage($newImageName, 'gallery', 170, 120);
                 }
@@ -52,9 +54,13 @@ class CmsGalleryController extends Controller
                     $oldThumbImageName = 'thumb-'.$oldImageName;
                     
                     $this->deleteImage($oldThumbImageName, 'gallery');
-                    $this->reUploadImage($oldImageName, $newImageName, $params['image'], 'gallery');
+                    $info = $this->reUploadImage($oldImageName, $newImageName, $params['image'], 'gallery');
+                    if($info){
+                        $this->db->updateImageInfo($params['gallery']['id'], $info);
+                    }
                     //Create thumb
                     $this->createThumbImage($newImageName, 'gallery', 170, 120);
+                    
                 }
                 parent::redirect ('cms'.DS.'gallery', 'success');
             }else{

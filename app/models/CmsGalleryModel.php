@@ -42,12 +42,10 @@ class CmsGalleryModel extends Model
     {
         
         try{
-            $query = sprintf("UPDATE %s SET `title`=:title, `ratio`=:ratio, `size`=:size WHERE `id`=:id", $this->tableGallery);
+            $query = sprintf("UPDATE %s SET `title`=:title WHERE `id`=:id", $this->tableGallery);
             $stmt = $this->dbh->prepare($query);
             
             $stmt->bindParam(':title', $params['title'], PDO::PARAM_STR);
-            $stmt->bindParam(':ratio', $params['ratio'], PDO::PARAM_STR);
-            $stmt->bindParam(':size', $params['size'], PDO::PARAM_STR);
             $stmt->bindParam(':id', $params['id'], PDO::PARAM_INT);
             $stmt->execute();
 
@@ -83,12 +81,10 @@ class CmsGalleryModel extends Model
         
         try{
             
-            $query = sprintf("INSERT INTO %s SET `title`=:title, `ratio`=:ratio, `size`=:size", $this->tableGallery);
+            $query = sprintf("INSERT INTO %s SET `title`=:title", $this->tableGallery);
             $stmt = $this->dbh->prepare($query);
             
             $stmt->bindParam(':title', $params['title'], PDO::PARAM_STR);
-            $stmt->bindParam(':ratio', $params['ratio'], PDO::PARAM_STR);
-            $stmt->bindParam(':size', $params['size'], PDO::PARAM_STR);
             $stmt->execute();
             
             return $this->dbh->lastInsertId();
@@ -133,4 +129,25 @@ class CmsGalleryModel extends Model
             return false;
         }
     } 
+    
+    
+    public function updateImageInfo($id, $array)
+    {
+        
+       try{
+            $query = sprintf("UPDATE %s SET `ratio`=:ratio, `size`=:size WHERE `id`=:id", $this->tableGallery);
+            $stmt = $this->dbh->prepare($query);
+            
+            $ratio = $array['width'].'x'.$array['height'];
+            $stmt->bindParam(':ratio', $ratio, PDO::PARAM_STR);
+            $stmt->bindParam(':size', $array['size'], PDO::PARAM_STR);
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+            
+            return true;
+        }catch(Exception $e){
+            
+            return false;
+        } 
+    }
 }

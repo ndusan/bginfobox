@@ -10,18 +10,6 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Ratio:</td>
-                    <td>
-                        <input type="text" name="gallery[ratio]" value="<?= @$gallery['ratio']; ?>" class="jr"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Size(in kB):</td>
-                    <td>
-                        <input type="text" name="gallery[size]" value="<?= @$gallery['size']; ?>" class="jr"/>
-                    </td>
-                </tr>
-                <tr>
                     <td>Image:</td>
                     <td>
                         <input type="file" name="image" value="" class="jr"/>

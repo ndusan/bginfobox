@@ -7,8 +7,10 @@
         <ul class="galleryAll">
             <? foreach($galleryCollection as $g):?>
             <li>
-                <img width="170" height="120" src="<?=DS.'public'.DS.'uploads'.DS.'gallery'.DS.'thumb-'.$g['image_name'];?>" />
-                <span><?=$g['ratio'];?> / <?=$g['size'];?> <a href="<?=DS.'public'.DS.'uploads'.DS.'gallery'.DS.$g['image_name'];?>" target="_blank">preuzmi</a></span>
+                <span class="image_crop">
+                <img src="<?=DS.'public'.DS.'uploads'.DS.'gallery'.DS.'thumb-'.$g['image_name'];?>" />
+                </span>
+                <span><?=$g['ratio'];?> / <?=  number_format($g['size']/1024, 2);?>kB <a href="<?=DS.'public'.DS.'uploads'.DS.'gallery'.DS.$g['image_name'];?>" target="_blank">preuzmi</a></span>
                 <a class="zoom lightbox" href="<?=DS.'public'.DS.'uploads'.DS.'gallery'.DS.$g['image_name'];?>"></a>
             </li>
             <? endforeach;?>

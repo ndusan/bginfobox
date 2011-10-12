@@ -151,8 +151,11 @@ class Controller {
     public function uploadImage($imageName, $image, $folder) {
 
         if (move_uploaded_file($image["tmp_name"], UPLOAD_PATH . $folder . DS . $imageName)) {
-
-            return true;
+            
+            list($width, $height) = getimagesize(UPLOAD_PATH . $folder . DS . $imageName);
+            $size = filesize(UPLOAD_PATH . $folder . DS . $imageName);
+            
+            return array('width'=>$width, 'height'=>$height, 'size'=>$size);
         } else {
 
             return false;
@@ -166,8 +169,12 @@ class Controller {
         }
 
         if (move_uploaded_file($image["tmp_name"], UPLOAD_PATH . $folder . DS . $newImage)) {
-            return true;
+            list($width, $height) = getimagesize(UPLOAD_PATH . $folder . DS . $imageName);
+            $size = filesize(UPLOAD_PATH . $folder . DS . $imageName);
+            
+            return array('width'=>$width, 'height'=>$height, 'size'=>$size);
         } else {
+            
             return false;
         }
     }
