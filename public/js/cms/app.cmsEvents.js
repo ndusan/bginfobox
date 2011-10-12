@@ -13,11 +13,13 @@ var App = App || {};
             
             App.Common.datepicker();
             App.Common.mce();
+            App.Common.tabs();
         },
         edit: function() {
             
             App.Common.datepicker();
             App.Common.mce();
+            App.Common.tabs();
         }
     };
 })(this.jQuery);

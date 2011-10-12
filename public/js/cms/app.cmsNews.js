@@ -11,9 +11,11 @@ var App = App || {};
         },
         add: function(){
             App.Common.mce();
+            App.Common.tabs();
         }, 
         edit: function(){
             App.Common.mce();
+            App.Common.tabs();
         }
     };
 })(this.jQuery);

@@ -46,6 +46,10 @@ var App = App || {};
                 firstDay: 1,
                 dateFormat: 'yy-mm-dd'
             });
+        },
+        tabs: function() {
+            
+            $('.tabs').tabs();
         }
     };
 })(this.jQuery);

@@ -8,6 +8,12 @@ var App = App || {};
             
             //Set datatable
             $('#dataTable').dataTable();
-        }
+       },
+       add: function() {
+           App.Common.tabs();
+       },
+       edit: function() {
+           App.Common.tabs();
+       }
     };
 })(this.jQuery);
