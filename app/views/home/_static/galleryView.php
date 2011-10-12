@@ -7,9 +7,9 @@
         <ul class="galleryAll">
             <? foreach($galleryCollection as $g):?>
             <li>
-                <img width="170" height="120" src="<?=DS.'public'.DS.'uploads'.DS.'gallery'.DS.$g['image_name'];?>" />
+                <img width="170" height="120" src="<?=DS.'public'.DS.'uploads'.DS.'gallery'.DS.'thumb-'.$g['image_name'];?>" />
                 <span><?=$g['ratio'];?> / <?=$g['size'];?> <a href="<?=DS.'public'.DS.'uploads'.DS.'gallery'.DS.$g['image_name'];?>" target="_blank">preuzmi</a></span>
-                <a class="zoom" href="#"></a>
+                <a class="zoom lightbox" href="<?=DS.'public'.DS.'uploads'.DS.'gallery'.DS.$g['image_name'];?>"></a>
             </li>
             <? endforeach;?>
         </ul>
