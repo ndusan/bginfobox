@@ -83,7 +83,8 @@ ul.addTop li a {line-height:20px; font-size:14px; display:block;}
 
 ul.ui-tabs-nav {background-color:#EEF4F5; padding:20px 20px 0; height:37px;}
 ul.ui-tabs-nav li {float:left; }
-ul.ui-tabs-nav li a {padding:10px 40px; color:#333; display:block; line-height:20px;}
+ul.ui-tabs-nav li a {padding:10px 40px; color:#555; display:block; line-height:20px;}
+ul.ui-tabs-nav li a:hover {color:#333;}
 ul.ui-tabs-nav li.ui-state-active a {line-height:18px; padding:10px 39px 9px; background-color:#FFF; border:solid 1px #BAD4E3; border-bottom:none; position:relative;}
 .ui-tabs-panel {border-top:solid 1px #BAD4E3;}
 .ui-tabs-hide {display:none;}
