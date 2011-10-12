@@ -19,9 +19,9 @@
                     <td><?=$banner['created'];?></td>
                     <td align="center" valign="top">
                         <!--Edit-->
-                        <a href="/cms/banner/edit/<?= $banner['id']; ?>"><img src="#" /></a>
+                        <a class="cmsEdit" title="Edit" href="/cms/banner/edit/<?= $banner['id']; ?>"></a>
                         <!--Delete-->
-                        <a href="/cms/banner/delete/<?= $banner['id']; ?>" class="jw"><img src="#" /></a>
+                        <a class="jw cmsDelete" title="Delete" href="/cms/banner/delete/<?= $banner['id']; ?>" ></a>
                     </td> 
           </tr> 
             <? endforeach; ?>

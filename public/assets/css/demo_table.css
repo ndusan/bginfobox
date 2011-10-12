@@ -90,19 +90,19 @@
 }
 
 .paginate_disabled_previous {
-    background-image: url('../images/back_disabled.jpg');
+    background-image: url('../images/datatable/back_disabled.jpg');
 }
 
 .paginate_enabled_previous {
-    background-image: url('../images/back_enabled.jpg');
+    background-image: url('../images/datatable/back_enabled.jpg');
 }
 
 .paginate_disabled_next {
-    background-image: url('../images/forward_disabled.jpg');
+    background-image: url('../images/datatable/forward_disabled.jpg');
 }
 
 .paginate_enabled_next {
-    background-image: url('../images/forward_enabled.jpg');
+    background-image: url('../images/datatable/forward_enabled.jpg');
 }
 
 
@@ -166,31 +166,31 @@ table.display td.center {
 */
 
 .sorting_asc {
-	background-image: url(../../images/sort_asc.png);
+	background-image: url(../images/datatable/sort_asc.png);
 	background-repeat: no-repeat;
 	background-position: right center;
 }
 
 .sorting_desc {
-	background-image: url(../../images/sort_desc.png);
+	background-image: url(../images/datatable/sort_desc.png);
 	background-repeat: no-repeat;
 	background-position: right center;
 }
 
 .sorting {
-	background-image: url(../../images/sort_both.png);
+	background-image: url(../images/datatable/sort_both.png);
 	background-repeat: no-repeat;
 	background-position: right center;
 }
 
 .sorting_asc_disabled {
-	background-image: url(../../images/sort_asc_disabled.png);
+	background-image: url(../images/datatable/sort_asc_disabled.png);
 	background-repeat: no-repeat;
 	background-position: right center;
 }
 
 .sorting_desc_disabled {
-	background-image: url(../../images/sort_desc_disabled.png);
+	background-image: url(../images/datatable/sort_desc_disabled.png);
 	background-repeat: no-repeat;
 	background-position: right center;
 }
@@ -592,7 +592,7 @@ div.box {
 /* Interaction states
 ----------------------------------*/
 .ui-state-default, .ui-widget-content .ui-state-default {
-	background-image: url(../images/studio_submenu.jpg); border: 0;
+	background-image: url(../images/datatable/studio_submenu.jpg); border: 0;
 	background-repeat: no-repeat;
 	background-position: 0px 0px;
 	width: 940px;
@@ -603,7 +603,7 @@ div.box {
 .ui-state-hover, .ui-widget-content .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus { outline: none; }
 .ui-state-hover a, .ui-state-hover a:hover { color: #ffffff; text-decoration: none; outline: none; }
 .ui-state-active, .ui-widget-content .ui-state-active {
-	background-image: url(../images/studio_submenu.jpg);
+	background-image: url(../images/datatable/studio_submenu.jpg);
 	background-repeat: no-repeat;
 	background-position: 0px -40px;   padding-left: 10px; border: 0;
 }

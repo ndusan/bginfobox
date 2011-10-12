@@ -23,10 +23,10 @@
                     <td><?= $user['created'] ?></td> 
                     <td align="center">
                         <!--Edit-->
-                        <a class="cmsEdit" href="/cms/user/edit/<?= $user['id']; ?>"><img src="#" /></a>
+                        <a class="cmsEdit" title="Edit" href="/cms/user/edit/<?= $user['id']; ?>"></a>
                         <!--Delete-->
                         <? if ($user['id'] !== $_SESSION['cms']['id']): ?>
-                            <a class="jw cmsDelete" href="/cms/user/delete/<?= $user['id']; ?>" ><img src="#" /></a>
+                        <a class="jw cmsDelete" title="Delete" href="/cms/user/delete/<?= $user['id']; ?>" ><</a>
                         <? endif; ?>
                     </td> 
                 </tr> 

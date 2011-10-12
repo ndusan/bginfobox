@@ -19,9 +19,9 @@
                     <td><?=$carousel['created'];?></td>
                     <td align="center" valign="top">
                         <!--Edit-->
-                        <a href="/cms/carousel/edit/<?= $carousel['id']; ?>"><img src="#" /></a>
+                        <a class="cmsEdit" title="Edit" href="/cms/carousel/edit/<?= $carousel['id']; ?>"></a>
                         <!--Delete-->
-                        <a href="/cms/carousel/delete/<?= $carousel['id']; ?>" class="jw"><img src="#" /></a>
+                        <a class="jw cmsDelete" title="Delete" href="/cms/carousel/delete/<?= $carousel['id']; ?>" ></a>
                     </td> 
           </tr> 
             <? endforeach; ?>

@@ -19,9 +19,9 @@
                     <td><?=$event['created'];?></td>
                     <td align="center">
                         <!--Edit-->
-                        <a class="cmsEdit" href="/cms/event/edit/<?= $event['id']; ?>"><img src="#" /></a>
+                        <a class="cmsEdit" title="Edit" href="/cms/event/edit/<?= $event['id']; ?>"></a>
                         <!--Delete-->
-                        <a class="jw cmsDelete" href="/cms/event/delete/<?= $event['id']; ?>" ><img src="#" /></a>
+                        <a class="jw cmsDelete" title="Delete" href="/cms/event/delete/<?= $event['id']; ?>" ></a>
                     </td> 
           </tr> 
             <? endforeach; ?>

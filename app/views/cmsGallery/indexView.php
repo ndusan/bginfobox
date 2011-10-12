@@ -19,9 +19,9 @@
                     <td><?=$gallery['created'];?></td>
                     <td align="center" valign="top">
                         <!--Edit-->
-                        <a href="/cms/gallery/edit/<?= $gallery['id']; ?>"><img src="#" /></a>
+                        <a class="cmsEdit" title="Edit" href="/cms/gallery/edit/<?= $gallery['id']; ?>"></a>
                         <!--Delete-->
-                        <a href="/cms/gallery/delete/<?= $gallery['id']; ?>" class="jw"><img src="#" /></a>
+                        <a class="jw cmsDelete" title="Delete" href="/cms/gallery/delete/<?= $gallery['id']; ?>" ></a>
                     </td> 
           </tr> 
             <? endforeach; ?>
