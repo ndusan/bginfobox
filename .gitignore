@@ -1,4 +1,5 @@
 nbproject/
+config/config.php.dist
 config/config.php
 public/uploads/news/*
 public/uploads/events/*
