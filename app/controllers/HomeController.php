@@ -9,6 +9,8 @@ class HomeController extends Controller
      
         parent::set('freshNews', $this->db->getFreshNews($params));
         parent::set('calendar', $this->loadCalendarAction($params));
+        parent::set('bannerCollection', $this->db->getAllBanners());
+        parent::set('carouselCollection', $this->db->getAllCarousel());
     }
     
     
