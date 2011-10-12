@@ -29,7 +29,8 @@ p {padding:0;}
 #jsuccess {background-color:green; color:#FFF;}
 .noResults {background-color:#bae6fa; font-size:14px; padding:20px; border-bottom:solid 1px #BAD4E3; text-align:center;}
 
-h1 {font-size:18px; color:#eee; line-height:20px;}
+h1 {font-size:16px; font-weight:normal; color:#eee; line-height:20px; }
+h1 span {text-transform:uppercase; font-weight:bold; color:#BAD4E3; padding:0 20px 0 0; margin:0 20px 0 0 ; border-right:solid 1px #555;}
 
 /*SPRITE*/
 .cmsEdit, .cmsDelete {width:22px; height:22px; display:inline-block; background-image: url(../images/cmsIcos.png);}
@@ -53,7 +54,7 @@ input[type=submit]:hover {color:#3399cc; border-color:#BBB; cursor:pointer;}
 .login {width:340px; padding:30px; background-color:#FFF; border:solid 1px #BAD4E3; box-shadow:0 0 2px #CCC; position:fixed; top:150px; left:50%; margin:0 0 0 -200px;}
 .login td {padding:5px;}
 
-.header {background-color:#333; padding:20px 50px 19px 220px; position:relative; border-bottom:solid 1px #111;}
+.header {background-color:#333; padding:20px 50px 19px 220px; min-width:760px; position:relative; border-bottom:solid 1px #111;}
 .wrapper {padding:0 50px 50px 0; overflow:hidden;}
 .sidebar {width:200px; float:left;}
 .content {background-color:#FFF; margin:0 0 0 200px; border:solid 1px #bad4e3; border-top:none; min-width:780px; min-height:350px; position:relative; box-shadow:0 0 5px #CCC;}
@@ -65,8 +66,8 @@ input[type=submit]:hover {color:#3399cc; border-color:#BBB; cursor:pointer;}
 .mainNav li .active {color:#333; background:#eef4f5 url(../images/navActive.png) scroll no-repeat 100% 50%;}
 
 .headerNav {overflow:hidden; float:right;}
-.headerNav li {float:left; border-left:solid 1px #555; padding:0 20px;}
-.headerNav li a {display:block; color:#BAD4E3; font-size:14px; line-height:20px;}
+.headerNav li {float:left; font-size:14px; color:#FFF; border-left:solid 1px #555; padding:0 20px;}
+.headerNav li a {display:block; color:#BAD4E3;  line-height:20px;}
 .headerNav li a:hover {color:#FFF;}
 .headerNav li.first {border:none;}
 
