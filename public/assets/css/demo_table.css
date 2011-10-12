@@ -579,7 +579,7 @@ div.box {
 
 
 /* Component containers
-----------------------------------*/
+----------------------------------
 .ui-widget {   }
 .ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button { }
 .ui-widget-content { width:920px; padding-left: 10px; padding-right: 10px; border-bottom-width: 1px;
@@ -590,23 +590,10 @@ div.box {
 .ui-widget-header a { color: #ffffff; }
 
 /* Interaction states
-----------------------------------*/
-.ui-state-default, .ui-widget-content .ui-state-default {
-	background-image: url(../images/datatable/studio_submenu.jpg); border: 0;
-	background-repeat: no-repeat;
-	background-position: 0px 0px;
-	width: 940px;
-	height: 10px;
-        padding-left: 10px;
-}
+----------------------------------
 .ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited { color: #ffffff; text-decoration: none; outline: none; }
 .ui-state-hover, .ui-widget-content .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus { outline: none; }
 .ui-state-hover a, .ui-state-hover a:hover { color: #ffffff; text-decoration: none; outline: none; }
-.ui-state-active, .ui-widget-content .ui-state-active {
-	background-image: url(../images/datatable/studio_submenu.jpg);
-	background-repeat: no-repeat;
-	background-position: 0px -40px;   padding-left: 10px; border: 0;
-}
 .ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited { color: #ffffff; outline: none; text-decoration: none; }
 
 /* Interaction Cues
