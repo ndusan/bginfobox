@@ -151,8 +151,11 @@ class Controller {
     public function uploadImage($imageName, $image, $folder) {
 
         if (move_uploaded_file($image["tmp_name"], UPLOAD_PATH . $folder . DS . $imageName)) {
-
-            return true;
+            
+            list($width, $height) = getimagesize(UPLOAD_PATH . $folder . DS . $imageName);
+            $size = filesize(UPLOAD_PATH . $folder . DS . $imageName);
+            
+            return array('width'=>$width, 'height'=>$height, 'size'=>$size);
         } else {
 
             return false;
@@ -166,8 +169,12 @@ class Controller {
         }
 
         if (move_uploaded_file($image["tmp_name"], UPLOAD_PATH . $folder . DS . $newImage)) {
-            return true;
+            list($width, $height) = getimagesize(UPLOAD_PATH . $folder . DS . $imageName);
+            $size = filesize(UPLOAD_PATH . $folder . DS . $imageName);
+            
+            return array('width'=>$width, 'height'=>$height, 'size'=>$size);
         } else {
+            
             return false;
         }
     }
@@ -184,23 +191,30 @@ class Controller {
         }
     }
     
-    public function createThumbImage($imageName, $folder, $width, $height=null) {
+    public function createThumbImage($imageName, $folder, $thumb_width, $thumb_height) {
         
         if (file_exists(UPLOAD_PATH . $folder . DS . $imageName)) {
             
             //Calculate heigth
             list($currWidth, $currHeight) = getimagesize(UPLOAD_PATH . $folder . DS . $imageName);
             
-            try{
-                $newHeight = $currHeight * ($width / $currWidth);
-            }catch(Exception $e){
-                $newHeight = 0;
+            $original_aspect = $currWidth / $currHeight;
+            $thumb_aspect = $thumb_width / $thumb_height;
+
+            if($original_aspect >= $thumb_aspect) {
+               // If image is wider than thumbnail (in aspect ratio sense)
+               $new_height = $thumb_height;
+               $new_width = $currWidth / ($currHeight / $thumb_height);
+            } else {
+               // If the thumbnail is wider than the image
+               $new_width = $thumb_width;
+               $new_height = $currHeight / ($currWidth / $thumb_width);
             }
             
             $imagine = new \Imagine\Gd\Imagine();
             
             $image = $imagine->open(UPLOAD_PATH . $folder . DS . $imageName);
-            $thumbnail = $image->thumbnail(new Imagine\Image\Box($width, $newHeight));
+            $thumbnail = $image->thumbnail(new Imagine\Image\Box($new_width, $new_height));
             $thumbnail->save(UPLOAD_PATH . $folder . DS . 'thumb-'. $imageName);
             
             return true;

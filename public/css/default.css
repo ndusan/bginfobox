@@ -182,3 +182,5 @@ ul.soc  li {float:left; margin-left:20px;}
 #calendar .eventDay a {color:#333;}
 .mainBig  table th {padding:5px; color:#FFF; font-size:11px; text-align:center; background:#9a9a9a url(../images/grad1.png) scroll repeat-x 0 0;}
 .mainBig  table td {padding:5px; background-color:#E6E6E6;}
+
+.image_crop{ width: 170px; height: 120px; overflow: hidden;}
