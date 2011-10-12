@@ -28,7 +28,7 @@
     <body data-controller="<?= $this->_controller; ?>" data-method="<?= $this->_action; ?>">
         <div class="header">
             <ul class="headerNav">
-                <li class="first">Hello, joe@doe.com</li>
+                <li class="first">Hello, <?=$_SESSION['cms']['email'];?></li>
                 <li><a href="#">Settings</a></li>
                 <li><a href="<?= DS . 'logout'; ?>">Logout</a></li>
             </ul>
