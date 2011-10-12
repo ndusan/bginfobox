@@ -1,5 +1,8 @@
+<div class="headerLogin">
+    <h1><span>Admin panel</span>BG Info Box</h1>
+</div>
 <div class="login">
-    <form action="<?=DS.'login';?>" method="post">
+    <form action="<?= DS . 'login'; ?>" method="post">
         <table width="100%" cellpadding="0" cellspacing="0">
             <tbody>
                 <tr>
@@ -25,5 +28,5 @@
                 </tr>
             </tbody>
         </table>
-  </form>
+    </form>
 </div>
