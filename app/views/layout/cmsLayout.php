@@ -12,6 +12,7 @@
         <?= $html->assetsJs('app', ASSETS_JS_PATH); ?>
         <?= $html->assetsJs('jquery.dataTables.min', ASSETS_JS_PATH); ?>
         <?= $html->assetsJs('jquery-ui-1.8.16.custom.min', ASSETS_JS_PATH); ?>
+        <?= $html->assetsJs('jquery.thead-1.1.min', ASSETS_JS_PATH); ?>
         <?= $html->assetsCss('default', ASSETS_CSS_PATH); ?>
         <?= $html->assetsCss('demo_table', ASSETS_CSS_PATH); ?>
         <?//= $html->assetsCss('jquery-ui-1.8.16.custom', ASSETS_CSS_PATH); ?>
@@ -21,6 +22,11 @@
         <?= $html->js('app', JS_PATH); ?>
         <?= $html->js('tiny_mce', MCE_PATH); ?>
         <?= $html->allCustomJs(JS_PATH . 'cms' . DS); ?>
+        <script type="text/javascript">
+            $(function() {
+                $('.display').thead();
+            });
+        </script>
 
         <!-- Load all custom css -->
         <?= $html->css('cms', CSS_PATH); ?>
