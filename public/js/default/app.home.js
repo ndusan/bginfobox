@@ -14,7 +14,7 @@ var App = App || {};
             //Load calendar or request
             $('body').delegate('.loadCalendar', 'click', function(e){
                 e.preventDefault();
-                $('#calendar').addClass('loader')
+                $('#loader').addClass('loader')
                 
                 App.Home.loadCalendar($(this).attr('cal-time'), $(this).attr('cal-year'), $(this).attr('cal-month'));
             });
@@ -37,7 +37,8 @@ var App = App || {};
                url:  '/load-calendar',
                data: 'lang=' + lang + url,
                success: function(msg){
-                 $('#calendar').removeClass('loader').html(msg);
+                   $('#calendar').html(msg);
+                   $('#loader').removeClass('loader');
                } 
             });
         }

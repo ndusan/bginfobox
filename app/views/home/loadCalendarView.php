@@ -104,5 +104,6 @@ for($i=0; $i<$total_rows; $i++){
     $cal .= "</tr>";
     if(($i+1)<$total_rows) $cal .= "<tr>";
 }
+$cal.= '<div id="loader" ></div>';
 echo $cal;
 ?>

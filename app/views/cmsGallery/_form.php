@@ -15,9 +15,12 @@
                 <tr>
                     <td>Image:</td>
                     <td>
-                        <input type="file" name="image" value="" class="jr"/>
+                        
                         <? if (isset($gallery['id']) && !empty($gallery['image_name'])): ?>
+                            <input type="file" name="image" value=""/>
                             <a href="<?= DS . 'public' . DS . 'uploads' . DS . 'gallery' . DS . $gallery['image_name']; ?>" target="_blank"><?= $gallery['image_name']; ?></a>
+                        <? else: ?>
+                            <input type="file" name="image" value="" class="jr"/>
                         <? endif; ?>
                     </td>
                 </tr>

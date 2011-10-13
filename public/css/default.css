@@ -23,7 +23,7 @@ p {padding:0;}
 .cl {clear:both; line-height:0;}
 .fl {float:left;}
 .fr {float:right;}
-.loader {height:190px; background:transparent url(../images/loader.gif) scroll no-repeat 50% 50%;}
+.loader {background:transparent url(../images/loader.gif) scroll no-repeat 50% 50%; position: absolute; width: 100%; height: 100%; display: block;}
 
 /*SPRITE*/
 
@@ -173,7 +173,7 @@ ul.soc  li {float:left; margin-left:20px;}
 
 
 
-#calendar {border-bottom:1px solid #D6D6D6;}
+#calendar {border-bottom:1px solid #D6D6D6;position: relative;}
 #calendar caption {padding:5px 0; font-weight:bold;}
 #calendar table {width:100%;}
 #calendar table td {line-height:25px; text-align:center; background-color:#E6E6E6;}

@@ -8,7 +8,7 @@
             <? foreach($galleryCollection as $g):?>
             <li>
                 <span class="image_crop">
-                <img src="<?=DS.'public'.DS.'uploads'.DS.'gallery'.DS.'thumb-'.$g['image_name'];?>" />
+                <img src="<?=DS.'public'.DS.'uploads'.DS.'gallery'.DS.'thumb-'.$g['image_name'];?>" title="<?=$g['title'];?>" alt="<?=$g['title'];?>"/>
                 </span>
                 <span><?=$g['ratio'];?> / <?=  number_format($g['size']/1024, 2);?>kB <a href="<?=DS.'public'.DS.'uploads'.DS.'gallery'.DS.$g['image_name'];?>" target="_blank">preuzmi</a></span>
                 <a class="zoom lightbox" href="<?=DS.'public'.DS.'uploads'.DS.'gallery'.DS.$g['image_name'];?>"></a>
