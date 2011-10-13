@@ -138,7 +138,7 @@
                             <div class="boxTitle">
                                 <h2><?=$_t['cal.title'][$params['lang']];?></h2>
                             </div>
-                            <div class="boxContent loader" id="calendar">
+                            <div class="boxContent" id="calendar">
                                 <!-- Load -->
                             </div>
                         </div>
