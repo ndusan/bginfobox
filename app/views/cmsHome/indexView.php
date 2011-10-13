@@ -1,4 +1,8 @@
-<h3>Settings :</h3>
+<ul class="addTop">
+    <li><a href="/cms" >Dashboard</a></li>
+    <li><h3>/ Settings :</h3></li>
+</ul>
+
 <div class="tabs">
     <ul>
         <li><a href="#fragment-1">Language settings</a></li>
@@ -32,7 +36,7 @@
                 </tbody>
             </table>
         </div>
-        <div id="fragment-1" class="addContent">
+        <div id="fragment-2" class="addContent">
             About
         </div>
     </form>
