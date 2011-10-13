@@ -179,8 +179,8 @@ ul.soc  li {float:left; margin-left:20px;}
 #calendar table td {line-height:25px; text-align:center; background-color:#E6E6E6;}
 #calendar .todayDay {background-color:#CCC; box-shadow:0 1px 3px #CCC inset;}
 #calendar .eventDay {background-image:url(../images/event_bg.png); background-position:100% 100%; background-repeat:no-repeat;}
-#calendar .eventDay a {color:#333;}
+#calendar .eventDay a {padding:0 5px; line-height:25px; color:#333; font-weight:bold; display:block;}
 .mainBig  table th {padding:5px; color:#FFF; font-size:11px; text-align:center; background:#9a9a9a url(../images/grad1.png) scroll repeat-x 0 0;}
-.mainBig  table td {padding:5px; background-color:#E6E6E6;}
+.mainBig  table td { background-color:#E6E6E6;}
 
 .image_crop{ width: 170px; height: 120px; overflow: hidden;}

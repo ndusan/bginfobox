@@ -1,5 +1,5 @@
 <ul class="addTop">
-    <li><a href="/cms/event/add" >Add new event</a></li>
+    <li><a class="cmsAdd" href="/cms/event/add" >Add new event</a></li>
 </ul>
 
 
