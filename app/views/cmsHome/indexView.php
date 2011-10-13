@@ -4,7 +4,7 @@
         <li><a href="#fragment-1">Language settings</a></li>
         <li><a href="#fragment-2">About CMS</a></li>
     </ul>
-    <form action="/cms/news/<?= $news['formAction']; ?>" method="post" enctype="multipart/form-data">
+    <form method="post">
         <div id="fragment-1" class="addContent">
             <table cellpadding="0" cellspacing="0">
                 <tbody>
@@ -25,7 +25,7 @@
                     </tr>
                     <tr>
                         <td colspan="2" align="center">
-                            <input type="hidden" name="news[id]" value="<?= @$news['id']; ?>" />
+                            <input type="hidden" name="" value="" />
                             <input type="submit" value="Submit" name="submit" />
                         </td>
                     </tr>
