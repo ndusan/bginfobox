@@ -1,5 +1,5 @@
 <ul class="addTop">
-    <li><a href="/cms/carousel/add" >Add new carousel</a></li>
+    <li><a class="cmsAdd" href="/cms/carousel/add" >Add new carousel</a></li>
 </ul>
 
 

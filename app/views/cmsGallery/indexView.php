@@ -1,5 +1,5 @@
 <ul class="addTop">
-    <li><a href="/cms/gallery/add" >Add new gallery</a></li>
+    <li><a class="cmsAdd" href="/cms/gallery/add" >Add new image</a></li>
 </ul>
 
 

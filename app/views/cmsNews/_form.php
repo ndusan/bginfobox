@@ -1,8 +1,8 @@
 <h3>Add news :</h3>
 <div class="tabs">
     <ul>
-        <li><a href="#fragment-1">Sr</a></li>
-        <li><a href="#fragment-2">En</a></li>
+        <li><a href="#fragment-1">Serbian</a></li>
+        <li><a href="#fragment-2">English (optional)</a></li>
     </ul>
     <form action="/cms/news/<?= $news['formAction']; ?>" method="post" enctype="multipart/form-data">
         <div id="fragment-1" class="addContent">

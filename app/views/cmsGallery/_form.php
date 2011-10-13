@@ -1,4 +1,4 @@
-<h3>Add gallery :</h3>
+<h3>Add image :</h3>
 <div class="addContent">
     <form action="/cms/gallery/<?= $gallery['formAction']; ?>" method="post" enctype="multipart/form-data">
         <table cellpadding="0" cellspacing="0">
