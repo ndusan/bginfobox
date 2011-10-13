@@ -1,4 +1,7 @@
-<h3>Add image :</h3>
+<ul class="addTop">
+    <li><a href="/cms/gallery">Gallery</a></li>
+    <li><h3>/ Add image</h3></li>
+</ul>
 <div class="addContent">
     <form action="/cms/gallery/<?= $gallery['formAction']; ?>" method="post" enctype="multipart/form-data">
         <table cellpadding="0" cellspacing="0">

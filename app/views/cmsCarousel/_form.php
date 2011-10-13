@@ -1,4 +1,7 @@
-<h3>Add carousel :</h3>
+<ul class="addTop">
+    <li><a href="/cms/carousel">Carousel</a></li>
+    <li><h3>/ Add carousel</h3></li>
+</ul>
 <div class="tabs">
     <ul>
         <li><a href="#fragment-1">Serbian</a></li>

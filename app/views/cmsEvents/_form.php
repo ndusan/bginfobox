@@ -1,4 +1,7 @@
-<h3>Add event :</h3>
+<ul class="addTop">
+    <li><a href="/cms/events">Events</a></li>
+    <li><h3>/ Add event</h3></li>
+</ul>
 <div class="tabs">
     <ul>
         <li><a href="#fragment-1">Serbian</a></li>

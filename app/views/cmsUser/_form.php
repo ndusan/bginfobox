@@ -1,4 +1,7 @@
-<h3>Add user :</h3>
+<ul class="addTop">
+    <li><a href="/cms/users" >Users</a></li>
+    <li><h3>/ Add user</h3></li>
+</ul>
 <div class="addContent">
     <form action="/cms/user/<?= $user['formAction']; ?>" method="post">
         <table cellpadding="0" cellspacing="0">

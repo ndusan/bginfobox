@@ -1,4 +1,7 @@
-<h3>Add news :</h3>
+<ul class="addTop">
+    <li><a href="/cms/news">News</a></li>
+    <li><h3>/ Add news</h3></li>
+</ul>
 <div class="tabs">
     <ul>
         <li><a href="#fragment-1">Serbian</a></li>

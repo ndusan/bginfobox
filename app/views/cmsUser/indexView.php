@@ -1,5 +1,5 @@
 <ul class="addTop">
-    <li><a class="cmsAdd" class="cmsAdd" href="/cms/user/add" >Add new user</a></li>
+    <li><a class="cmsAdd" href="/cms/user/add" >Add new user</a></li>
 </ul>
 
 
