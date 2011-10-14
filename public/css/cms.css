@@ -25,8 +25,8 @@ p {padding:0;}
 .fr {float:right;}
 .loader {height:190px; background:transparent url(../images/loader.gif) scroll no-repeat 50% 50%;}
 .jnotif {position:fixed; top:0; left:50%; width:300px; text-align:center; padding:20px; margin:0 0 0 -170px; border-radius:0 0 5px 5px;}
-#jerror {background-color:red; color:#FFF;}
-#jsuccess {background-color:green; color:#FFF;}
+#jerror {background-color:#cd3c3c; color:#FFF;}
+#jsuccess {background-color:#8dc73f; color:#FFF;}
 .noResults {background-color:#eef4f5; font-size:14px; padding:20px; border-bottom:solid 1px #BAD4E3; text-align:center;}
 
 h1 {font-size:16px; font-weight:normal; color:#eee; line-height:20px; }
@@ -37,7 +37,7 @@ h3 {font-size:14px; line-height:20px;}
 /*SPRITE*/
 .cmsAdd {padding:0 0 0 25px; background:transparent url(../images/LinkIcos.png) scroll no-repeat 0 0;}
 .cmsAdd:hover {background-position:0 -20px;}
-.cmsEdit, .cmsDelete {width:22px; height:22px; display:inline-block; background-image: url(../images/cmsIcos.png);}
+.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next, .cmsEdit, .cmsDelete {width:22px; height:22px; display:inline-block; background-image: url(../images/cmsIcos.png);}
 .cmsEdit {background-position:-22px 0;}
 .cmsEdit:hover  {background-position:-22px -22px;}
 .cmsDelete {background-position:0 0;}
@@ -90,3 +90,22 @@ ul.ui-tabs-nav li a:hover {color:#333;}
 ul.ui-tabs-nav li.ui-state-active a {line-height:18px; padding:10px 39px 9px; background-color:#FFF; border:solid 1px #BAD4E3; border-bottom:none; position:relative;}
 .ui-tabs-panel {border-top:solid 1px #BAD4E3;}
 .ui-tabs-hide {display:none;}
+
+.ui-datepicker {overflow:hidden; background-color:#f5f9fa; box-shadow:0 0 5px #CCC;}
+.ui-datepicker table {border-collapse:collapse; border:solid 1px #BAD4E3; border-bottom:none; border-right:none;}
+.ui-datepicker th {border:solid 1px #BAD4E3; border-top:none; border-left:none;}
+.ui-datepicker th span {display:block; width:30px; line-height:25px; text-align:center;}
+.ui-datepicker td {border:solid 1px #BAD4E3; border-top:none; border-left:none;}
+.ui-datepicker td a {display:block; color:#555; width:30px; line-height:30px; text-align:center;}
+.ui-datepicker td .ui-state-hover {background-color:#FFF; color:#333;}
+.ui-datepicker td .ui-state-highlight {background-color:#D2E3EB;}
+.ui-datepicker td .ui-state-active {background-color:#8dc73f; color:#FFF;}
+.ui-datepicker .ui-datepicker-header {border:solid 1px #BAD4E3; border-bottom:none; background-color:#D2E3EB; position:relative;}
+.ui-datepicker .ui-datepicker-title {text-align:center; line-height:22px;}
+
+.ui-datepicker .ui-datepicker-next {background-position:0 -44px; right:0;}
+.ui-datepicker .ui-datepicker-next:hover {background-position:-22px -44px;}
+.ui-datepicker .ui-datepicker-prev {background-position:0 -66px; left:0;}
+.ui-datepicker .ui-datepicker-prev:hover {background-position:-22px -66px;}
+.ui-datepicker .ui-datepicker-next, .ui-datepicker .ui-datepicker-prev {position:absolute; top:0; cursor:pointer;}
+.ui-datepicker .ui-datepicker-next span, .ui-datepicker .ui-datepicker-prev span {display:none;}

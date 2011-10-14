@@ -43,10 +43,11 @@ input[type=submit]:hover {color:#f0397b; border-color:#C6C6C6; cursor:pointer;}
 .facebook:hover {background-position: 0 -75px; color:#FFF;}
 .youtube:hover {background-position:0 -25px; color:#FFF;}
 
-.icoMail, .icoPdf, .icoDoc {padding-left:35px !important;}
+.icoMail, .icoPdf, .icoDoc, .icoDld {padding-left:35px !important;}
 .icoMail {background:transparent url(../images/icoMail.png) scroll no-repeat 5px 50%;}
 .icoPdf {background:transparent url(../images/icoPdf.png) scroll no-repeat 5px 50%;}
 .icoDoc {background:transparent url(../images/icoDoc.png) scroll no-repeat 5px 50%;}
+.icoDld {background:transparent url(../images/icoDld.png) scroll no-repeat 5px 50%;}
 .infoExtra {font-size:12px;}
 
 /*WYS RESETING*/
@@ -60,6 +61,7 @@ input[type=submit]:hover {color:#f0397b; border-color:#C6C6C6; cursor:pointer;}
 .header {width:980px; margin:0 auto; padding:10px 0; height:280px; overflow:hidden; position:relative;}
 .logo {position:absolute; top:10px; left:0;}
 .banner {height:280px; width:770px; float:right;}
+.404page {position:absolute; top:50%; left:50%; margin:-250px 0 0 -400px; width:800px;}
 
 ul.mainNav {overflow:hidden; width:200px; position:absolute; left:0; bottom:10px;}
 ul.mainNav li {display:block; background-color:#999; margin:1px 0 0;}

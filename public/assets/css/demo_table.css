@@ -584,8 +584,8 @@ div.box {
 	border-bottom-style: dotted;
 	border-bottom-color: #cccccc; margin-bottom: 10px;}
 .ui-widget-content a { color: #333333; }
-/*.ui-widget-header { border: 1px solid #e78f08; background: #f6a828 url(../images/?new=f6a828&w=500&h=100&f=png&q=100&fltr[]=over|textures/12_gloss_wave.png|0|0|35) 50% 50% repeat-x; color: #ffffff; font-weight: bold; }*/
-.ui-widget-header a { color: #ffffff; }
+/*.ui-widget-header { border: 1px solid #e78f08; background: #f6a828 url(../images/?new=f6a828&w=500&h=100&f=png&q=100&fltr[]=over|textures/12_gloss_wave.png|0|0|35) 50% 50% repeat-x; color: #ffffff; font-weight: bold; }
+.ui-widget-header a { color: #ffffff; }*/
 
 /* Interaction states
 ----------------------------------
