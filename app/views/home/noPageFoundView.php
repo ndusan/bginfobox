@@ -1,4 +1,4 @@
-<div class="404page">
+<div class="page404">
     <table width="100%">
         <tbody
             <tr>

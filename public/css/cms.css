@@ -109,3 +109,10 @@ ul.ui-tabs-nav li.ui-state-active a {line-height:18px; padding:10px 39px 9px; ba
 .ui-datepicker .ui-datepicker-prev:hover {background-position:-22px -66px;}
 .ui-datepicker .ui-datepicker-next, .ui-datepicker .ui-datepicker-prev {position:absolute; top:0; cursor:pointer;}
 .ui-datepicker .ui-datepicker-next span, .ui-datepicker .ui-datepicker-prev span {display:none;}
+
+.statistics {border-bottom:solid 1px #BAD4E3; padding:15px 0; height:140px}
+ul.stats {overflow:hidden; padding:15px; width:350px; float:left; line-height:20px;}
+ul.stats > li {font-size:22px; font-weight:bold; padding:5px 0; overflow:hidden;}
+ul.stats > li span {font-size:14px; padding:3px 0 0; border-top:solid 2px #009dd7; display:block; color:#AAA; text-transform:uppercase;}
+ul.stats ul > li {float:left; margin-right:30px; font-size:14px; width:160px;}
+ul.stats ul > li.last {margin:0; width:160px;}
