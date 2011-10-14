@@ -1,4 +1,8 @@
 <ul class="addTop">
+    <li><h3>Dashboard</h3></li>
+</ul>
+
+<ul class="addTop">
     <li><a href="/cms" >Dashboard</a></li>
     <li><h3>/ Settings :</h3></li>
 </ul>
