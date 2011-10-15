@@ -11,18 +11,18 @@
         <div class="statistics">
             <ul class="stats">
                 <li>
-                    933277
-                    <span>total visits</span>
+                    <span class="statsVis">933277</span>
+                    total visits
                 </li>
                 <li>
                     <ul>
                         <li>
-                            113
-                            <span>visits today</span>
+                            <span class="statsVis">113</span>
+                            visits today
                         </li>
                         <li class="last">
-                            2468
-                            <span>page views</span>
+                            <span class="statsVie">2468</span>
+                            page views
                         </li>
                     </ul>
                 </li>
@@ -31,24 +31,24 @@
                 <li>
                     <ul>
                         <li>
-                            113
-                            <span>visits today</span>
+                            <span class="statsVis">13</span>
+                            visits today
                         </li>
                         <li class="last">
-                            2468
-                            <span>page views</span>
+                            <span class="statsVie">2468</span>
+                            page views
                         </li>
                     </ul>
                 </li>
                 <li>
                     <ul>
                         <li>
-                            113
-                            <span>visits today</span>
+                            <span class="statsVis">113</span>
+                            visits today
                         </li>
                         <li class="last">
-                            2468
-                            <span>downloads</span>
+                            <span class="statsDow">2468</span>
+                            downloads
                         </li>
                     </ul>
                 </li>
@@ -61,24 +61,24 @@
                 <li>
                     <ul>
                         <li>
-                            113
-                            <span>visits today</span>
+                            <span>113</span>
+                            visits today
                         </li>
                         <li class="last">
-                            2468
-                            <span>page views</span>
+                            <span>2468</span>
+                            page views
                         </li>
                     </ul>
                 </li>
                 <li>
                     <ul>
                         <li>
-                            113
-                            <span>visits today</span>
+                            <span>113</span>
+                            visits today
                         </li>
                         <li class="last">
-                            2468
-                            <span>downloads</span>
+                            <span>2468</span>
+                            downloads
                         </li>
                     </ul>
                 </li>
@@ -87,24 +87,24 @@
                 <li>
                     <ul>
                         <li>
-                            113
-                            <span>visits today</span>
+                            <span>113</span>
+                            visits today
                         </li>
                         <li class="last">
-                            2468
-                            <span>page views</span>
+                            <span>2468</span>
+                            page views
                         </li>
                     </ul>
                 </li>
                 <li>
                     <ul>
                         <li>
-                            113
-                            <span>visits today</span>
+                            <span>113</span>
+                            visits today
                         </li>
                         <li class="last">
-                            2468
-                            <span>downloads</span>
+                            <span>2468</span>
+                            downloads
                         </li>
                     </ul>
                 </li>
@@ -113,10 +113,10 @@
     </div>
 
 
-<ul class="addTop">
-    <li><a href="/cms" >Dashboard</a></li>
-    <li><h3>/ Settings :</h3></li>
-</ul>
+    <ul class="addTop">
+        <li><a href="/cms" >Dashboard</a></li>
+        <li><h3>/ Settings :</h3></li>
+    </ul>
     <div class="tabs">
         <ul>
             <li><a href="#fragment-1">Language settings</a></li>
@@ -127,19 +127,19 @@
                 <table cellpadding="0" cellspacing="0">
                     <tbody>
                         <tr>
-                            <td colspan="2">Enabled language :</td>
+                            <td colspan="4">Enabled language :</td>
                         </tr>
-                        <tr>
-                            <td>Serbian:</td>
+                        <tr class="trSpec">
                             <td>
                                 <input type="checkbox" name="" value="ON" checked="checked" disabled="disabled" />
                             </td>
+                            <td>Serbian</td>
                         </tr>
-                        <tr>
-                            <td>English:</td>
+                        <tr class="trSpec">
                             <td>
                                 <input type="checkbox" name="" value="OFF" />
                             </td>
+                            <td>English</td>
                         </tr>
                         <tr>
                             <td colspan="2" align="center">
