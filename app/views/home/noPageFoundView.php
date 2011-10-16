@@ -15,4 +15,3 @@
         </tbody>
     </table>
 </div>
-<? print_r($params); ?>
