@@ -18,7 +18,7 @@
                 <tr> 
                     <td><?=$news['title_sr'];?></td>
                     <td><?=$news['heading_sr'];?></td>
-                    <td><?=$news['created'];?></td>
+                    <td><?=$html->convertDate($news['created'], true);?></td>
                     <td align="center">
                         <!--Edit-->
                         <a title="Edit" class="cmsEdit" href="/cms/news/edit/<?= $news['id']; ?>"></a>

@@ -20,7 +20,7 @@
                     <td><?= $user['firstname']; ?></td> 
                     <td><?= $user['lastname']; ?></td> 
                     <td><?= $user['email']; ?></td> 
-                    <td><?= $user['created'] ?></td> 
+                    <td><?= $html->convertDate($user['created'], true); ?></td> 
                     <td align="center">
                         <!--Edit-->
                         <a class="cmsEdit" title="Edit" href="/cms/user/edit/<?= $user['id']; ?>"></a>

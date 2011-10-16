@@ -16,7 +16,7 @@
             <? foreach ($bannerCollection as $banner): ?>
                 <tr> 
                     <td><?=$banner['title'];?></td>
-                    <td><?=$banner['created'];?></td>
+                    <td><?=$html->convertDate($banner['created'], true);?></td>
                     <td align="center" valign="top">
                         <!--Edit-->
                         <a class="cmsEdit" title="Edit" href="/cms/banner/edit/<?= $banner['id']; ?>"></a>

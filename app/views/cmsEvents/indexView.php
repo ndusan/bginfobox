@@ -16,7 +16,7 @@
             <? foreach ($eventsCollection as $event): ?>
                 <tr> 
                     <td><?=$event['title_sr'];?></td>
-                    <td><?=$event['created'];?></td>
+                    <td><?=$html->convertDate($event['created'], true);?></td>
                     <td align="center">
                         <!--Edit-->
                         <a class="cmsEdit" title="Edit" href="/cms/event/edit/<?= $event['id']; ?>"></a>

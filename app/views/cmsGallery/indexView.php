@@ -16,7 +16,7 @@
             <? foreach ($galleryCollection as $gallery): ?>
                 <tr> 
                     <td><?=$gallery['title'];?></td>
-                    <td><?=$gallery['created'];?></td>
+                    <td><?=$html->convertDate($gallery['created'], true);?></td>
                     <td align="center" valign="top">
                         <!--Edit-->
                         <a class="cmsEdit" title="Edit" href="/cms/gallery/edit/<?= $gallery['id']; ?>"></a>

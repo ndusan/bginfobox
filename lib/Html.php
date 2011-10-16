@@ -155,7 +155,7 @@ class HTML
 
             $result = $oldDate[2].'-'.$oldDate[1].'-'.$oldDate[0];
             
-            if($includeTime) $result.= $tmp[1];
+            if($includeTime) $result.= ' '.$tmp[1];
             
             return $result;
         }

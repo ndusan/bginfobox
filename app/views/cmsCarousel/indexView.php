@@ -16,7 +16,7 @@
             <? foreach ($carouselCollection as $carousel): ?>
                 <tr> 
                     <td><?=$carousel['content_sr'];?></td>
-                    <td><?=$carousel['created'];?></td>
+                    <td><?=$html->convertDate($carousel['created'], true);?></td>
                     <td align="center" valign="top">
                         <!--Edit-->
                         <a class="cmsEdit" title="Edit" href="/cms/carousel/edit/<?= $carousel['id']; ?>"></a>
