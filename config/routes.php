@@ -214,7 +214,7 @@ $routes = array(
             'action'     => 'addEdition', 
             'layout'     => 'cms'
     ),
-    array(  'url'        => '/^cms\/bginfo\/edit\/(?P<page_id>\d*)\/(?P<id>\d*)\/edition\/?$/', 
+    array(  'url'        => '/^cms\/bginfo\/edit\/(?P<page_id>\d*)\/edition\/?$/', 
             'controller' => 'cmsBginfo', 
             'action'     => 'editEdition', 
             'layout'     => 'cms'
