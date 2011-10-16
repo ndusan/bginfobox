@@ -187,9 +187,9 @@ ul.soc  li {float:left; margin-left:20px;}
 
 .image_crop{ width: 170px; height: 120px; overflow: hidden;}
 
-.widgWeather {padding:10px;}
+.widgWeather {padding:10px; border-bottom:solid 1px #dfdfdf;}
 .widgWeather td {padding:5px 0;}
 .widgWeather label {display:block;}
 
-.currency {padding:10px;}
+.currency {padding:10px; border-bottom:solid 1px #dfdfdf;}
 .currency td {padding:5px 0;}
