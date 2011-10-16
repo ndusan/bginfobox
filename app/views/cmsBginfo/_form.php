@@ -7,24 +7,32 @@
         <div id="fragment-1" class="addContent">
             <table cellpadding="0" cellspacing="0">
                 <tbody>
+                    <? if(!empty($total)):?>
+                    <? for($i=0; $i<$total['num_of_images']; $i++):?>
                     <tr>
-                        <td>Title:</td>
+                        <td>Title (image #<?=($i+1);?>):</td>
                         <td>
                             <input type="text" name="edition[title_sr]" value="<?= @$edition['title_sr']; ?>" class="jr"/>
                         </td>
                     </tr>
+                    <? endfor; ?>
+                    <? endif;?>
                 </tbody>
             </table>
         </div>
         <div id="fragment-2" class="addContent">
             <table cellpadding="0" cellspacing="0">
                 <tbody>
+                    <? if(!empty($total)):?>
+                    <? for($i=0; $i<$total['num_of_images']; $i++):?>
                     <tr>
-                        <td>Title:</td>
+                        <td>Title (image #<?=($i+1);?>):</td>
                         <td>
                             <input type="text" name="edition[title_en]" value="<?= @$edition['title_en']; ?>"/>
                         </td>
                     </tr>
+                    <? endfor; ?>
+                    <? endif;?>
                 </tbody>
             </table>
 
@@ -35,7 +43,7 @@
                     <? if(!empty($total)):?>
                     <? for($i=0; $i<$total['num_of_images']; $i++):?>
                     <tr>
-                        <td>Image:</td>
+                        <td>Image #<?=($i+1);?>:</td>
                         <td>
                             <input type="file" name="image-<?=$i;?>" value=""  class="jr"/>
                         </td>
