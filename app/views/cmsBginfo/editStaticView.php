@@ -1,3 +1,7 @@
+<ul class="addTop">
+    <li><a href="/cms/bginfo">Pocket pages</a></li>
+    <li><h3>/ Edit about content</h3></li>
+</ul>
 <div class="tabs">
     <ul>
         <li><a href="#fragment-1">Serbian</a></li>
