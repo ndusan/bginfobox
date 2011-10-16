@@ -7,8 +7,8 @@
         <div id="fragment-1" class="addContent">
             <table cellpadding="0" cellspacing="0">
                 <tbody>
-                    <? if(!empty($total)):?>
-                    <? for($i=0; $i<$total['num_of_images']; $i++):?>
+                    <? if(!empty($settings['num_of_images'])):?>
+                    <? for($i=0; $i<$settings['num_of_images']; $i++):?>
                     <tr>
                         <td>Title (image #<?=($i+1);?>):</td>
                         <td>
@@ -23,8 +23,8 @@
         <div id="fragment-2" class="addContent">
             <table cellpadding="0" cellspacing="0">
                 <tbody>
-                    <? if(!empty($total)):?>
-                    <? for($i=0; $i<$total['num_of_images']; $i++):?>
+                    <? if(!empty($settings['num_of_images'])):?>
+                    <? for($i=0; $i<$settings['num_of_images']; $i++):?>
                     <tr>
                         <td>Title (image #<?=($i+1);?>):</td>
                         <td>
@@ -40,8 +40,8 @@
         <div class="addContent">
             <table cellpadding="0" cellspacing="0">
                 <tbody>
-                    <? if(!empty($total)):?>
-                    <? for($i=0; $i<$total['num_of_images']; $i++):?>
+                    <? if(!empty($settings['num_of_images'])):?>
+                    <? for($i=0; $i<$settings['num_of_images']; $i++):?>
                     <tr>
                         <td>Image #<?=($i+1);?>:</td>
                         <td>
@@ -49,6 +49,15 @@
                         </td>
                     </tr>
                     <? endfor; ?>
+                    <? endif;?>
+                    
+                    <? if(!empty($settings['has_file_name'])):?>
+                    <tr>
+                        <td>Download file:</td>
+                        <td>
+                            <input type="file" name="download" value=""/>
+                        </td>
+                    </tr>
                     <? endif;?>
                     <tr>
                         <td colspan="2" align="center">

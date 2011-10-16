@@ -23,12 +23,12 @@ class CmsBginfoModel extends Model
     }
     
     
-    public function getNumOfImages($pageId)
+    public function getStaticPageSettings($pageId)
     {
         
         try{
             
-            $query = sprintf("SELECT `num_of_images` FROM %s WHERE `id`=:pageId", $this->tablePages);
+            $query = sprintf("SELECT `num_of_images`, `has_file_name` FROM %s WHERE `id`=:pageId", $this->tablePages);
             $stmt = $this->dbh->prepare($query);
             
             $stmt->bindParam(':pageId', $pageId, PDO::PARAM_INT);

@@ -23,7 +23,7 @@ class CmsBginfoController extends Controller
     {
         
         
-        parent::set('total', $this->db->getNumOfImages($params['page_id']));
+        parent::set('settings', $this->db->getStaticPageSettings($params['page_id']));
     }
     
     
@@ -31,7 +31,7 @@ class CmsBginfoController extends Controller
     {
         
         
-        parent::set('total', $this->db->getNumOfImages($params['page_id']));
+        parent::set('settings', $this->db->getStaticPageSettings($params['page_id']));
     }
     
 }
