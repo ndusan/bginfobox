@@ -28,6 +28,6 @@ $translate = array(
     'days'=>array('sr'=>array('Ponedeljak', 'Utorak', 'Sreda', 'Četvrtak', 'Petak', 'Subota', 'Nedelja'),
                   'en'=>array('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday')),
     //Weather
-    'weather.day'=>array('sr'=>'Day', 'en'=>'Dan'),
+    'weather.day'=>array('sr'=>'Dan', 'en'=>'Day'),
     'weather.evening'=>array('sr'=>'Veče', 'en'=>'Evening'),
 );
