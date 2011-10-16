@@ -158,9 +158,7 @@ class HTML {
             $xml = new SimplexmlElement($xml_str);
             //print_r($xml);
             // Name
-            $response.= "<table cellspacing='0' cellpading='0' width='100%'>
-                            <tbody>
-                                <tr>";
+            $response.= '<table cellspacing="0" cellpading="0" width="100%"><tbody>';
             //Set date
             $date = substr($xml->dayf->lsup, 0, 8);
             $date = explode("/", $date);
@@ -168,36 +166,31 @@ class HTML {
             $countDays = $showDays;
             foreach ($xml->dayf->day as $item) {
                 if ($item->hi != 'N/A') {
-                    $date_out = @date("d-m-Y", mktime(0, 0, 0, $date[0], $date[1] + $day, "20" . $date[2]));
                     $day++;
-                    $response.= "<td align='center'>";
-                    $response.= "<h3>" . $xml->loc->dnam . "</h3>";
-                    $response .= "<label>" . $date_out . "</label>";
+                    $response.= '<tr><td width="50%" align="center">';
                     $max = round((5 / 9) * ($item->low - 32));
-                    $response .= "<div>min temp: " . $max . "&deg</div>";
+                    $response .= 'min temp: ' . $max . '&deg';
                     $min = round((5 / 9) * ($item->hi - 32));
-                    $response .= "<div>max temp: " . $min . "&deg</div>";
-                    $response .= "<br/>";
+                    $response.= '</td><td align="center">';
+                    $response .= 'max temp: ' . $min . '&deg';
+                    $response.= '</tr>';
                     $first = true;
+                    $response.= '<tr>';
                     foreach ($item->part as $new) {
-                        $response.= '<div>';
                         //Image
-                        $response .= "<label>" . ($first ? $langs['day'] : $langs['evening']) . "</label>";
-                        $response.= '<img src="http://s.imwx.com/v.20100415.153311/img/wxicon/45/' . $new->icon . '.png"/><br/>';
-                        $response.= '</div>';
-                        $response .= "<br/>";
+                        $response .= '<td width="50%"><label>' . ($first ? $langs['day'] : $langs['evening']) . '</label>';
+                        $response.= '<img src="http://s.imwx.com/v.20100415.153311/img/wxicon/45/' . $new->icon . '.png"/></td>';
                         $first = false;
-                        $response .= "</td>";
                     }
+                    $response .= '</tr>';
                     --$countDays;
 
                     if ($countDays <= 0)
                         break;
                 }
-                $response.= "</tr>
-                                </tbody>
-                                    </table>";
             }
+            $response.= '</tbody>
+                                </table>';
 
             Cache::set(array('key' => 'weather'.date('Y-m-d'), 'data' => $response));
             

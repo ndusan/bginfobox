@@ -1,5 +1,2 @@
-a:2:{s:3:"ttl";i:1318779579;s:4:"data";s:570:"<table cellspacing='0' cellpading='0' width='100%'>
-                            <tbody>
-                                <tr></tr>
-                                </tbody>
-                                    </table><td align='center'><h3>Belgrade, Serbia</h3><label>16-10-2011</label><div>min temp: 1&deg</div><div>max temp: 13&deg</div><br/><div><label>Day</label><img src="http://s.imwx.com/v.20100415.153311/img/wxicon/45/32.png"/><br/></div><br/></td><div><label>Veče</label><img src="http://s.imwx.com/v.20100415.153311/img/wxicon/45/31.png"/><br/></div><br/></td>";}
+a:2:{s:3:"ttl";i:1318780437;s:4:"data";s:429:"<table cellspacing="0" cellpading="0" width="100%"><tbody><tr><td width="50%" align="center">min temp: 1&deg</td><td align="center">max temp: 13&deg</tr><tr><td width="50%"><label>Dan</label><img src="http://s.imwx.com/v.20100415.153311/img/wxicon/45/32.png"/></td><td width="50%"><label>Veče</label><img src="http://s.imwx.com/v.20100415.153311/img/wxicon/45/31.png"/></td></tr></tbody>
+                                </table>";}
