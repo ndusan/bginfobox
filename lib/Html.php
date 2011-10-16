@@ -158,7 +158,7 @@ class HTML {
             $xml = new SimplexmlElement($xml_str);
             //print_r($xml);
             // Name
-            $response.= '<table cellspacing="0" cellpading="0" width="100%"><tbody>';
+            $response.= '<table class="widgWeather" cellspacing="0" cellpading="0" width="100%"><tbody>';
             //Set date
             $date = substr($xml->dayf->lsup, 0, 8);
             $date = explode("/", $date);
@@ -178,7 +178,7 @@ class HTML {
                     $response.= '<tr>';
                     foreach ($item->part as $new) {
                         //Image
-                        $response .= '<td>';
+                        $response .= '<td align="center">';
                         $response .= '<img src="http://s.imwx.com/v.20100415.153311/img/wxicon/45/' . $new->icon . '.png"/>';
                         $response .= '<label>' . ($first ? $langs['day'] : $langs['evening']) . '</label>';
                         $response.= '</td>';

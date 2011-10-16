@@ -186,3 +186,7 @@ ul.soc  li {float:left; margin-left:20px;}
 .mainBig  table td { background-color:#E6E6E6;}
 
 .image_crop{ width: 170px; height: 120px; overflow: hidden;}
+
+.widgWeather {padding:10px;}
+.widgWeather td {padding:5px 0;}
+.widgWeather label {display:block;}
