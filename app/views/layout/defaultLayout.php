@@ -144,7 +144,7 @@
                                 <h2><?=$_t['weather.title'][$params['lang']];?></h2>
                             </div>
                             <div class="boxContent">
-                                Vreme TBD
+                                <?=$html->getWeather('SRXX0005');?>
                             </div>
                         </div>
                         <div class="sidebarBox">
@@ -152,7 +152,12 @@
                                 <h2><?=$_t['exchange.title'][$params['lang']];?></h2>
                             </div>
                             <div class="boxContent">
-                                Kursna TBD
+                                <? 
+                                $allCurr = $html->getNBS();
+                                foreach($allCurr as $key=>$val):?>
+                                <span><?=$val['value'];?></span>
+                                <?=$key;?><br/>
+                                <? endforeach; ?>
                             </div>
                         </div>
                     </div>
