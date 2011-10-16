@@ -152,12 +152,25 @@
                                 <h2><?=$_t['exchange.title'][$params['lang']];?></h2>
                             </div>
                             <div class="boxContent">
+                                <div class="currency">
+                                    <table cellpadding="0" cellspacing="0" width="100%">
                                 <? 
                                 $allCurr = $html->getNBS();
                                 foreach($allCurr as $key=>$val):?>
-                                <span><?=$val['value'];?></span>
-                                <?=$key;?><br/>
+                                        <tr>
+                                            <td align="center">
+                                                <img src="<?= IMAGE_PATH . '<?=$key;?>.png'; ?>" />
+                                            </td>
+                                            <td  align="center">
+                                               <?=$key;?> 
+                                            </td>
+                                            <td  align="center">
+                                                <?=$val['value'];?>
+                                            </td>
+                                        </tr>
                                 <? endforeach; ?>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
