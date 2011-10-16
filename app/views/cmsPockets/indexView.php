@@ -9,7 +9,7 @@
         <li><a href="#fragment-<?=$i++;?>"><?=$tab['title'];?></a></li>
         <? endforeach;?>
         <? endif;?>
-        <li><a href="#"><span class="cmsEdit"></span></a></li>
+        <li><a href="/cms/pockets/edition"><span class="cmsEdit"></span></a></li>
     </ul>
     <? if(!empty($tabs)):?>
     <? $i=1;?>
