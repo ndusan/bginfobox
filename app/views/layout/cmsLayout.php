@@ -50,6 +50,8 @@
                     <li><a <?= $this->_controller=='cmsBanners'?'class="active"':''; ?> href="<?= DS . 'cms' . DS . 'banners'; ?>">Banners</a></li>
                     <li><a <?= $this->_controller=='cmsGallery'?'class="active"':''; ?> href="<?= DS . 'cms' . DS . 'gallery'; ?>">Gallery</a></li>
                     <li><a <?= $this->_controller=='cmsCarousel'?'class="active"':''; ?> href="<?= DS . 'cms' . DS . 'carousel'; ?>">Carousel</a></li>
+                    <li><a <?= $this->_controller=='cmsStatic'?'class="active"':''; ?> href="<?= DS . 'cms' . DS . 'static'; ?>">About pages</a></li>
+                    <li><a <?= $this->_controller=='cmsDynamic'?'class="active"':''; ?> href="<?= DS . 'cms' . DS . 'dynamic'; ?>">Dynamic pages</a></li>
                 </ul>
             </div>
             <div class="content">

@@ -25,79 +25,76 @@
                                 <label for="form_title">Naziv firme</label>
                             </td>
                             <td>
-                                <input type="text" name="form[title]" id="form_name" class="jr" value="" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="right">
-                                <label for="form_name">Delatnost</label>
-                            </td>
-                            <td>
-                                <input type="text" name="form[name]" id="form_name" class="jr" value="" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                &nbsp;
-                            </td>
-                            <td>
-                                <b>Zelim da se reklamiram u</b>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="right">
-                                <input type="checkbox" name="" value="ON" />
-                            </td>
-                            <td>
-                                <label for="form_name">Bg Info Box</label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="right">
-                                <input type="checkbox" name="" value="ON" />
-                            </td>
-                            <td>
-                                <label for="form_name">Bg Info Map</label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="right">
-                                <input type="checkbox" name="" value="ON" />
-                            </td>
-                            <td>
-                                <label for="form_name">Bg Info Night Map</label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="right">
-                                <input type="checkbox" name="" value="ON" />
-                            </td>
-                            <td>
-                                <label for="form_name">Belgrade in your pocket</label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="right">
-                                <input type="checkbox" name="" value="ON" />
-                            </td>
-                            <td>
-                                <label for="form_name">Novi Sad in your pocket</label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="right">
-                                <input type="checkbox" name="" value="ON" />
-                            </td>
-                            <td>
-                                <label for="form_name">Nis in your pocket</label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="right">
-                                <label for="form_company">Kontakt osoba</label>
-                            </td>
-                            <td>
                                 <input type="text" name="form[company]" id="form_company" class="jr" value="" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                <label for="form_company">Delatnost</label>
+                            </td>
+                            <td>
+                                <input type="text" name="form[occupation]" id="form_occupation" class="jr" value="" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <b>Zelim da se reklamiram u:</b>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                <input id="form_bginfobox" type="checkbox" name="form[field][bginfobox]" value="Bg Info Box" />
+                            </td>
+                            <td>
+                                <label for="form_bginfobox">Bg Info Box</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                <input id="form_bginfomap" type="checkbox" name="form[field][bginfomap]" value="Bg Info Map" />
+                            </td>
+                            <td>
+                                <label for="form_bginfomap">Bg Info Map</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                <input id="form_bginfonightmap" type="checkbox" name="form[field][bginfonightmap]" value="Bg Info Night Map" />
+                            </td>
+                            <td>
+                                <label for="form_bginfonightmap">Bg Info Night Map</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                <input id="form_belgradeinyourpocket" type="checkbox" name="form[field][belgradeinyourpocket]" value="Belgrade in your pocket" />
+                            </td>
+                            <td>
+                                <label for="form_belgradeinyourpocket">Belgrade in your pocket</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                <input id="form_novisadinyourpocket" type="checkbox" name="form[filed][novisadinyourpocket]" value="Novi Sad in your pocket" />
+                            </td>
+                            <td>
+                                <label for="form_novisadinyourpocket">Novi Sad in your pocket</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                <input id="form_nisinyourpocket" type="checkbox" name="form[filed][nisinyourpocket]" value="Nis in your pocket" />
+                            </td>
+                            <td>
+                                <label for="form_nisinyourpocket">Nis in your pocket</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                <label for="form_contact">Kontakt osoba</label>
+                            </td>
+                            <td>
+                                <input type="text" name="form[contact]" id="form_contact" class="jr" value="" />
                             </td>
                         </tr>
                         <tr>
@@ -121,7 +118,7 @@
                                 <label for="form_message">Poruka</label>
                             </td>
                             <td>
-                                <textarea name="form[message]" id="form_message" class="jr" rows="4" cols="20"></textarea>
+                                <textarea name="form[message]" id="form_message" rows="4" cols="20"></textarea>
                             </td>
                         </tr>
                         <tr align="right">

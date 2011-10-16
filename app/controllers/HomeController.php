@@ -73,7 +73,7 @@ class HomeController extends Controller
             case 'our-clients': break;
             case 'archive': break;
             case 'gallery': $this->galleryPage($params); break;
-            case 'ads': break;
+            case 'ads': $this->adsPage($params); break;
             case 'contact': $this->contactPage($params); break;
             case 'news':  $this->newsPage($params); break;
             case 'calendar': $this->calendarPage($params); break;
@@ -89,7 +89,23 @@ class HomeController extends Controller
         if(isset($params['submit'])){
             
             //Send
-            if(parent::sendMail(MAIL_TO, 'Contact form', $params['form'], MAIL_FROM)){
+            if(parent::sendEmail(MAIL_TO, 'Contact form', $params['form'], MAIL_FROM)){
+                parent::set('sent', 'success');
+            }else{
+                parent::set('sent', 'error');
+            }
+        }
+    }
+    
+    
+    
+    private function adsPage($params)
+    {
+        
+        if(isset($params['submit'])){
+            
+            //Send
+            if(parent::sendEmail(MAIL_TO, 'Contact form', $params['form'], MAIL_FROM)){
                 parent::set('sent', 'success');
             }else{
                 parent::set('sent', 'error');

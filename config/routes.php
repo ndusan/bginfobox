@@ -202,4 +202,16 @@ $routes = array(
             'action'     => 'delete', 
             'layout'     => 'empty'
     ),
+    
+    //CMS static page
+    array(  'url'        => '/^cms\/static\/?$/', 
+            'controller' => 'cmsStatic', 
+            'action'     => 'index', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/static\/edit\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsStatic', 
+            'action'     => 'edit', 
+            'layout'     => 'cms'
+    )
 );
