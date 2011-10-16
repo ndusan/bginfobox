@@ -3,7 +3,7 @@
         <li><a href="#fragment-1">Serbian</a></li>
         <li><a href="#fragment-2">English (optional)</a></li>
     </ul>
-    <form action="/cms/bginfo/<?= $params['page_id']; ?>/static" method="post" enctype="multipart/form-data">
+    <form action="/cms/bginfo/edit/<?= $params['page_id']; ?>/static" method="post" enctype="multipart/form-data">
         <div id="fragment-1" class="addContent">
             <table cellpadding="0" cellspacing="0">
                 <tbody>
@@ -34,7 +34,8 @@
                 <tbody>
                     <tr>
                         <td colspan="2" align="center">
-                            <input type="hidden" name="static[id]" value="<?= @$static['id']; ?>" />
+                            <input type="hidden" name="static[page_id]" value="<?= $params['page_id']; ?>" />
+                            <input type="hidden" name="static[id]" value="<?= $static['id']; ?>" />
                             <input type="submit" value="Submit" name="submit" />
                         </td>
                     </tr>
