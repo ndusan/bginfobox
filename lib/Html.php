@@ -205,59 +205,67 @@ class HTML {
 
     function getNBS() {
 
-        //Set agent
-        ini_set('user_agent', 'Mozilla Firefox');
+        //Cache data to make things much faster
+        if ($output = Cache::get(array('key' => 'currency'))) {
 
-        //Url
-        $part1 = 'http://www.nbs.rs/kursnaListaModul/zaDevize.faces?lang=lat';
-        $part2 = file_get_contents($part1);
-        $address = $part2;
+            return $output;
+        } else {
+            //Set agent
+            ini_set('user_agent', 'Mozilla Firefox');
+
+            //Url
+            $part1 = 'http://www.nbs.rs/kursnaListaModul/zaDevize.faces?lang=lat';
+            $part2 = file_get_contents($part1);
+            $address = $part2;
+
+            $output = array();
+
+            if (!$part2) {
+
+                return false;
+            } else {
+
+                // Evropska unija - EUR
+                $valuta = '<td class="tableCell" style="text-align:center;">EUR</td>';
+                $value = strpos($address, $valuta);
+
+                $EUR = '';
+                for ($i = $value + 220; $i <= $value + 227; $i++)
+                    $EUR .= $address{$i};
+                $tmp = str_replace('<td class="tableCell" style="text-align:center;">', "", str_replace("</td>", "", $valuta));
+                $output[$tmp] = array(
+                    'value' => $EUR,
+                );
+
+                // Evropska unija - CHF
+                $valuta = '<td class="tableCell" style="text-align:center;">CHF</td>';
+                $value = strpos($address, $valuta);
+
+                $CHF = '';
+                for ($i = $value + 220; $i <= $value + 226; $i++)
+                    $CHF .= $address{$i};
+                $tmp = str_replace('<td class="tableCell" style="text-align:center;">', "", str_replace("</td>", "", $valuta));
+                $output[$tmp] = array(
+                    'value' => $CHF,
+                );
+
+                // Evropska unija - USD
+                $valuta = '<td class="tableCell" style="text-align:center;">USD</td>';
+                $value = strpos($address, $valuta);
+
+                $USD = '';
+                for ($i = $value + 220; $i <= $value + 226; $i++)
+                    $USD .= $address{$i};
+                $tmp = str_replace('<td class="tableCell" style="text-align:center;">', "", str_replace("</td>", "", $valuta));
+                $output[$tmp] = array(
+                    'value' => $USD,
+                );
+            }
+            
+            Cache::set(array('key' => 'currency', 'data' => $output));
         
-        $output = array();
-
-        if (!$part2){
-            
-            return false;
-        }else {
-
-            // Evropska unija - EUR
-            $valuta = '<td class="tableCell" style="text-align:center;">EUR</td>';
-            $value = strpos($address, $valuta);
-            
-            $EUR = '';
-            for ($i = $value + 220; $i <= $value + 227; $i++)
-                $EUR .= $address{$i};
-            $tmp = str_replace('<td class="tableCell" style="text-align:right;">', "", str_replace("</td>", "", $valuta));
-            $output[$tmp] = array(
-                'value' => $EUR,
-            );
-            
-            // Evropska unija - CHF
-            $valuta = '<td class="tableCell" style="text-align:center;">CHF</td>';
-            $value = strpos($address, $valuta);
-            
-            $CHF = '';
-            for ($i = $value + 220; $i <= $value + 230; $i++)
-                $CHF .= $address{$i};
-            $tmp = str_replace('<td class="tableCell" style="text-align:right;">', "", str_replace("</td>", "", $valuta));
-            $output[$tmp] = array(
-                'value' => $CHF,
-            );
-            
-            // Evropska unija - USD
-            $valuta = '<td class="tableCell" style="text-align:center;">USD</td>';
-            $value = strpos($address, $valuta);
-            
-            $USD = '';
-            for ($i = $value + 220; $i <= $value + 230; $i++)
-                $USD .= $address{$i};
-            $tmp = str_replace('<td class="tableCell" style="text-align:right;">', "", str_replace("</td>", "", $valuta));
-            $output[$tmp] = array(
-                'value' => $USD,
-            );
+            return $output;
         }
-        
-        return $output;
     }
 
 }
