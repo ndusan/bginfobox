@@ -158,8 +158,7 @@ class HTML {
             $xml = new SimplexmlElement($xml_str);
             //print_r($xml);
             // Name
-            $response.= "<h1>" . $xml->loc->dnam . "</h1>";
-            $response.= "<table style='margin:10px 0 10px; text-align:center' cellspacing='0' cellpading='0' width='100%'>
+            $response.= "<table cellspacing='0' cellpading='0' width='100%'>
                             <tbody>
                                 <tr>";
             //Set date
@@ -171,7 +170,8 @@ class HTML {
                 if ($item->hi != 'N/A') {
                     $date_out = @date("d-m-Y", mktime(0, 0, 0, $date[0], $date[1] + $day, "20" . $date[2]));
                     $day++;
-                    $response.= "<td>";
+                    $response.= "<td align='center'>";
+                    $response.= "<h3>" . $xml->loc->dnam . "</h3>";
                     $response .= "<label>" . $date_out . "</label>";
                     $max = round((5 / 9) * ($item->low - 32));
                     $response .= "<div>min temp: " . $max . "&deg</div>";
