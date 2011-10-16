@@ -36,8 +36,11 @@ h3 {font-size:14px; line-height:20px;}
 
 /*SPRITE*/
 .statsVie, .statsDow, .statsVis {background-image: url(../images/statsIcos.png); background-repeat:no-repeat;}
-.cmsAdd {padding:0 0 0 25px; background:transparent url(../images/LinkIcos.png) scroll no-repeat 0 0;}
+.cmsAdd, .cmsEdit1 {padding:0 0 0 25px; background:transparent url(../images/LinkIcos.png) scroll no-repeat 0 0;}
+.cmsAdd {background-position:0 0;}
 .cmsAdd:hover {background-position:0 -20px;}
+.cmsEdit1 {background-position:0 -40px;}
+.cmsEdit1:hover {background-position:0 -60px;}
 .ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next, .cmsEdit, .cmsDelete {width:22px; height:22px; display:inline-block; background-image: url(../images/cmsIcos.png);}
 .cmsEdit {background-position:-22px 0;}
 .cmsEdit:hover  {background-position:-22px -22px;}
@@ -63,7 +66,7 @@ input[type=submit]:hover {color:#3399cc; border-color:#BBB; cursor:pointer;}
 .header {background-color:#333; padding:0 50px 0 220px; min-width:760px; position:relative; overflow:hidden;}
 .wrapper {padding:0 50px 50px 0; overflow:hidden;}
 .sidebar {width:200px; float:left; padding:60px 0 0;}
-.content {background-color:#FFF; margin:0 0 0 200px; border:solid 1px #bad4e3; border-top:none; min-width:780px; min-height:350px; position:relative; box-shadow:0 0 5px #CCC;}
+.content {background-color:#FFF; margin:0 0 0 200px; border:solid 1px #bad4e3; border-top:none; min-width:780px; min-height:500px; position:relative; box-shadow:0 0 5px #CCC;}
 
 ul.mainNav {overflow:hidden; border-top:solid 1px #bad4e3;}
 ul.mainNav li {border-bottom:solid 1px #bad4e3; text-align:right;}
@@ -88,7 +91,7 @@ ul.addTop li a {line-height:20px; font-size:14px; display:block;}
 .addContent1 {padding:20px 0;}
 .addContent .trSpec {display:block; padding:10px; margin:5px 0; background-color:#F5F5F5; width:300px;}
 
-ul.ui-tabs-nav {background-color:#EEF4F5; padding:20px 20px 0; height:41px;}
+ul.ui-tabs-nav {background-color:#EEF4F5; padding:19px 20px 0; height:41px;}
 ul.ui-tabs-nav li {float:left; }
 ul.ui-tabs-nav li a {padding:10px 40px; color:#555; display:block; line-height:24px;}
 ul.ui-tabs-nav li a:hover {color:#333;}
