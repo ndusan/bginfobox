@@ -1,7 +1,3 @@
-<?php
+#dynamic pages
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-?>
+<a href="/cms/dynamic/add/1">Add</a>

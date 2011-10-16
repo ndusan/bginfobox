@@ -213,5 +213,23 @@ $routes = array(
             'controller' => 'cmsStatic', 
             'action'     => 'edit', 
             'layout'     => 'cms'
-    )
+    ),
+    
+    //CMS dynamic page
+    array(  'url'        => '/^cms\/dynamic\/?$/', 
+            'controller' => 'cmsDynamic', 
+            'action'     => 'index', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/dynamic\/add\/(?P<page_id>\d*)\/?$/', 
+            'controller' => 'cmsDynamic', 
+            'action'     => 'add', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/dynamic\/edit\/(?P<page_id>\d*)\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsDynamic', 
+            'action'     => 'edit', 
+            'layout'     => 'cms'
+    ),
+    
 );
