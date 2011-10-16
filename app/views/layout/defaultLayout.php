@@ -144,7 +144,7 @@
                                 <h2><?=$_t['weather.title'][$params['lang']];?></h2>
                             </div>
                             <div class="boxContent">
-                                <?=$html->getWeather('SRXX0005');?>
+                                <?=$html->getWeather('SRXX0005', 1, array('day'=>$_t['weather.day'][$params['lang']], 'evening' => $_t['weather.evening'][$params['lang']]));?>
                             </div>
                         </div>
                         <div class="sidebarBox">
