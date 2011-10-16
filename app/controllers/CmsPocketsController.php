@@ -1,6 +1,6 @@
 <?php
 
-class CmsDynamicController extends Controller
+class CmsPocketsController extends Controller
 {
     
     public function indexAction($params)

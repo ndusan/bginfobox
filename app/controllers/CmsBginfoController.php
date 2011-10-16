@@ -1,6 +1,6 @@
 <?php
 
-class CmsStaticController extends Controller
+class CmsBginfoController extends Controller
 {
     
     public function indexAction($params)

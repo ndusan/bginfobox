@@ -203,32 +203,57 @@ $routes = array(
             'layout'     => 'empty'
     ),
     
-    //CMS static page
-    array(  'url'        => '/^cms\/static\/?$/', 
-            'controller' => 'cmsStatic', 
+    //CMS bginfo page
+    array(  'url'        => '/^cms\/bginfo\/?$/', 
+            'controller' => 'cmsBginfo', 
             'action'     => 'index', 
             'layout'     => 'cms'
     ),
-    array(  'url'        => '/^cms\/static\/edit\/(?P<id>\d*)\/?$/', 
-            'controller' => 'cmsStatic', 
-            'action'     => 'edit', 
+    array(  'url'        => '/^cms\/bginfo\/add\/(?P<page_id>\d*)\/edition\/?$/', 
+            'controller' => 'cmsBginfo', 
+            'action'     => 'addEdition', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/bginfo\/edit\/(?P<page_id>\d*)\/(?P<id>\d*)\/edition\/?$/', 
+            'controller' => 'cmsBginfo', 
+            'action'     => 'editEdition', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/bginfo\/delete\/(?P<page_id>\d*)\/(?P<id>\d*)\/edition\/?$/', 
+            'controller' => 'cmsBginfo', 
+            'action'     => 'deleteEdition', 
+            'layout'     => 'empty'
+    ),
+    array(  'url'        => '/^cms\/bginfo\/edit\/(?P<page_id>\d*)\/static\/?$/', 
+            'controller' => 'cmsBginfo', 
+            'action'     => 'editStatic', 
             'layout'     => 'cms'
     ),
     
-    //CMS dynamic page
-    array(  'url'        => '/^cms\/dynamic\/?$/', 
-            'controller' => 'cmsDynamic', 
+    //CMS pockets page
+    array(  'url'        => '/^cms\/pockets\/?$/', 
+            'controller' => 'cmsPockets', 
             'action'     => 'index', 
             'layout'     => 'cms'
     ),
-    array(  'url'        => '/^cms\/dynamic\/add\/(?P<page_id>\d*)\/?$/', 
-            'controller' => 'cmsDynamic', 
+    array(  'url'        => '/^cms\/pockets\/add\/?$/', 
+            'controller' => 'cmsPockets', 
             'action'     => 'add', 
             'layout'     => 'cms'
     ),
-    array(  'url'        => '/^cms\/dynamic\/edit\/(?P<page_id>\d*)\/(?P<id>\d*)\/?$/', 
-            'controller' => 'cmsDynamic', 
+    array(  'url'        => '/^cms\/pockets\/edit\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsPockets', 
             'action'     => 'edit', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/pockets\/delete\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsPockets', 
+            'action'     => 'delete', 
+            'layout'     => 'empty'
+    ),
+    array(  'url'        => '/^cms\/pockets\/edit\/static\/?$/', 
+            'controller' => 'cmsPockets', 
+            'action'     => 'editStatic', 
             'layout'     => 'cms'
     ),
     
