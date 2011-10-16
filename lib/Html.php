@@ -178,8 +178,10 @@ class HTML {
                     $response.= '<tr>';
                     foreach ($item->part as $new) {
                         //Image
-                        $response .= '<td width="50%"><label>' . ($first ? $langs['day'] : $langs['evening']) . '</label>';
-                        $response.= '<img src="http://s.imwx.com/v.20100415.153311/img/wxicon/45/' . $new->icon . '.png"/></td>';
+                        $response .= '<td>';
+                        $response .= '<img src="http://s.imwx.com/v.20100415.153311/img/wxicon/45/' . $new->icon . '.png"/>';
+                        $response .= '<label>' . ($first ? $langs['day'] : $langs['evening']) . '</label>';
+                        $response.= '</td>';
                         $first = false;
                     }
                     $response .= '</tr>';
