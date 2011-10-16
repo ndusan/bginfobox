@@ -36,12 +36,9 @@
                         <li><a href="#" class="youtube">Youtube</a></li>
                     </ul>
                     <ul class="lang">
-                        <li><a <?= ($params['lang'] == DEFAULT_LANG ? 'class="active"' : ''); ?> href="<?= DS . DEFAULT_LANG . (isset($params['page']) ? DS . $params['page'] : ''); ?>">SR</a></li>
-                        <li>/</li>
-                        <li>
-                            <? $allLang = explode('|', LANG); ?>
-                            <a <?= ($params['lang'] == $allLang[1] ? 'class="active"' : ''); ?> href="<?= DS . $allLang[1] . (isset($params['page']) ? DS . $params['page'] : ''); ?>">EN</a>
-                        </li>
+                        <? foreach ($activeLangs as $key=>$val):?>
+                        <li><a <?= ($val['value'] == $params['lang'] ? 'class="active"' : ''); ?> href="<?= DS . $val['value'] . (isset($params['page']) ? DS . $params['page'] : ''); ?>"><?=  strtoupper($val['value']);?></a></li>
+                        <? endforeach; ?>
                     </ul>
                 </div>
             </div>
@@ -120,7 +117,7 @@
                                 <? else:?>
                                 <? foreach($freshNews as $n):?>
                                     <li>
-                                        <span><?=$n['created'].' - '.$n['title_'.$params['lang']];?></span>
+                                        <span><?=@$html->convertDate($n['created']).' - '.$n['title_'.$params['lang']];?></span>
                                         <div><?=$n['heading_'.$params['lang']];?></div>
                                         <a href="<?=DS.$params['lang'].DS.'news'.DS.$n['id'].DS.urlencode(str_replace(array('š','đ','č','ć','ž','Š','Đ','Č','Ć','Ž','?','!',',','.'),array('s','d','c','c','z','s','d','c','c','z','','','',''),$n['title_'.$params['lang']]));?>">
                                             <?=$_t['news.read_more'][$params['lang']];?>...

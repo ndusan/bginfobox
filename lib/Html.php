@@ -137,6 +137,30 @@ class HTML
         }
         
         
+        function convertDate($date, $includeTime=false)
+        {
+            if(empty($date)){
+                
+                return false;
+            }
+            
+            //Remove time if exist
+            if($tmp = explode(' ', $date)){
+                
+                $date = $tmp[0];
+                $time = $tmp[1];
+            }
+            
+            $oldDate = explode('-', $date);
+
+            $result = $oldDate[2].'-'.$oldDate[1].'-'.$oldDate[0];
+            
+            if($includeTime) $result.= $tmp[1];
+            
+            return $result;
+        }
+        
+        
         
 
 }

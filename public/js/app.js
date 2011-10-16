@@ -44,7 +44,7 @@ var App = App || {};
             
             $('.datepicker').datepicker({
                 firstDay: 1,
-                dateFormat: 'yy-mm-dd'
+                dateFormat: 'dd-mm-yy'
             });
         },
         tabs: function() {

@@ -52,8 +52,8 @@ class CmsEventsModel extends Model
             $stmt->bindParam(':contentSr', $params['content_sr'], PDO::PARAM_STR);
             $stmt->bindParam(':titleEn', $params['title_en'], PDO::PARAM_STR);
             $stmt->bindParam(':contentEn', $params['content_en'], PDO::PARAM_STR);
-            $stmt->bindParam(':dateStart', $params['date_start']);
-            $stmt->bindParam(':dateEnd', $params['date_end']);
+            $stmt->bindParam(':dateStart', $this->convertDate($params['date_start']));
+            $stmt->bindParam(':dateEnd', $this->convertDate($params['date_end']));
             $stmt->bindParam(':id', $params['id'], PDO::PARAM_INT);
             $stmt->execute();
 
@@ -80,8 +80,8 @@ class CmsEventsModel extends Model
             $stmt->bindParam(':contentSr', $params['content_sr'], PDO::PARAM_STR);
             $stmt->bindParam(':titleEn', $params['title_en'], PDO::PARAM_STR);
             $stmt->bindParam(':contentEn', $params['content_en'], PDO::PARAM_STR);
-            $stmt->bindParam(':dateStart', $params['date_start']);
-            $stmt->bindParam(':dateEnd', $params['date_end']);
+            $stmt->bindParam(':dateStart', $this->convertDate($params['date_start']));
+            $stmt->bindParam(':dateEnd', $this->convertDate($params['date_end']));
             $stmt->execute();
             
             return true;
@@ -142,5 +142,12 @@ class CmsEventsModel extends Model
             
             return false;
         }
+    }
+    
+    private function convertDate($date)
+    {
+        $oldDate = explode('-', $date);
+        
+        return $oldDate[2].'-'.$oldDate[1].'-'.$oldDate[0];
     }
 }

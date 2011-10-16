@@ -60,6 +60,11 @@ $routes = array(
             'action'     => 'index', 
             'layout'     => 'cms'
     ),
+    array(  'url'        => '/^cms\/settings\/?$/', 
+            'controller' => 'cmsHome', 
+            'action'     => 'settings', 
+            'layout'     => 'cms'
+    ),
     
     //CMS user page
     array(  'url'        => '/^cms\/users\/?$/', 

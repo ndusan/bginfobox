@@ -46,13 +46,13 @@
                     <tr>
                         <td>Date start:</td>
                         <td>
-                            <input type="text" name="event[date_start]" value="<?= @$event['date_start']; ?>" class="jr datepicker"/>
+                            <input type="text" name="event[date_start]" value="<?= @$html->convertDate($event['date_start']); ?>" class="jr datepicker"/>
                         </td>
                     </tr>
                     <tr>
                         <td>Date end:</td>
                         <td>
-                            <input type="text" name="event[date_end]" value="<?= @$event['date_end']; ?>" class="jr datepicker"/>
+                            <input type="text" name="event[date_end]" value="<?= @$html->convertDate($event['date_end']); ?>" class="jr datepicker"/>
                         </td>
                     </tr>
                     <tr>

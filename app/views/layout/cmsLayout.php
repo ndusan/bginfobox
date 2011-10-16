@@ -35,7 +35,7 @@
         <div class="header">
             <ul class="headerNav">
                 <li class="first">Hello, <?=$_SESSION['cms']['email'];?></li>
-                <li><a href="#">Settings</a></li>
+                <li><a <?= $this->_action=='settings'?'class="active"':''; ?> href="<?= DS . 'cms'.DS.'settings'; ?>">Settings</a></li>
                 <li><a href="<?= DS . 'logout'; ?>">Logout</a></li>
             </ul>
             <h1><span>Admin panel</span>BG Info Box</h1>

@@ -2,31 +2,44 @@
 
 class CmsHomeModel extends Model
 {
-    private $tableHome= 'home';
+    private $tableHome = 'home';
+    private $tableConfig = 'config';
+    
+    protected $langArray = array('sr', 'en');
     
     
-    public function findAllHome()
+    public function updateLanguages($params)
     {
-        try{
-            $query = sprintf("SELECT * FROM %s", $this->tableHome);
-            $stmt = $this->dbh->prepare($query);
-            $stmt->execute();
 
-            return $stmt->fetchAll();
-        }catch(Exception $e){
+        foreach($this->langArray as $l){
             
-            return false;
+            $this->deleteConfigByKey('lang_'.$l);
         }
+        
+        foreach($params as $key=>$val){
+            
+            $this->setConfig($key, $val);
+        }
+        
+        return true;
+    }
+    
+    public function findLanguages()
+    {
+       
+        return $this->langArray;
     }
     
     
-    public function findHome($id)
+    public function getConfigByKey($key=null)
     {
+        
         try{
-            $query = sprintf("SELECT * FROM %s WHERE `id`=:id", $this->tableHome);
+            
+            $query = sprintf("SELECT * FROM %s WHERE `key`=:key", $this->tableConfig);
             $stmt = $this->dbh->prepare($query);
-
-            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            
+            $stmt->bindParam(':key', $key, PDO::PARAM_STR);
             $stmt->execute();
 
             return $stmt->fetch();
@@ -37,102 +50,47 @@ class CmsHomeModel extends Model
     }
     
     
-    
-    public function updateHome($params)
+    public function setConfig($key, $value)
     {
         
         try{
-            $query = sprintf("UPDATE %s SET `title`=:title, `content`=:content, `choice`=:choice, `youtube`=:youtube WHERE `id`=:id", $this->tableHome);
+
+            $query = sprintf("INSERT INTO %s SET `key`=:key, `value`=:value", $this->tableConfig);
             $stmt = $this->dbh->prepare($query);
             
-            $stmt->bindParam(':title', $params['title'], PDO::PARAM_STR);
-            $stmt->bindParam(':content', $params['content'], PDO::PARAM_STR);
-            $stmt->bindParam(':choice', $params['choice'], PDO::PARAM_STR);
-            $stmt->bindParam(':youtube', $params['youtube'], PDO::PARAM_STR);
-            $stmt->bindParam(':id', $params['id'], PDO::PARAM_INT);
+            $stmt->bindParam(':key', $key, PDO::PARAM_STR);
+            $stmt->bindParam(':value', $value, PDO::PARAM_STR);
             $stmt->execute();
 
             return true;
         }catch(Exception $e){
-            
+
             return false;
         }
+        
     }
     
-    
-    public function getImageName($id)
+    public function deleteConfigByKey($key=null)
     {
         
-        try{
-            $query = sprintf("SELECT `image_name` FROM %s WHERE `id`=:id", $this->tableHome);
-            $stmt = $this->dbh->prepare($query);
-
-            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-            $stmt->execute();
-
-            return $stmt->fetch();
-        }catch(Exception $e){
+        if(!$this->getConfigByKey($key)){
             
             return false;
         }
-    }
-    
-    
-    
-    public function createHome($params)
-    {
         
         try{
-            
-            $query = sprintf("INSERT INTO %s SET `title`=:title, `content`=:content, `choice`=:choice, `youtube`=:youtube", $this->tableHome);
+
+            $query = sprintf("DELETE FROM %s WHERE `key`=:key", $this->tableConfig);
             $stmt = $this->dbh->prepare($query);
 
-            $stmt->bindParam(':title', $params['title'], PDO::PARAM_STR);
-            $stmt->bindParam(':content', $params['content'], PDO::PARAM_STR);
-            $stmt->bindParam(':choice', $params['choice'], PDO::PARAM_STR);
-            $stmt->bindParam(':youtube', $params['youtube'], PDO::PARAM_STR);
-            $stmt->execute();
-            
-            return $this->dbh->lastInsertId();
-        }catch(Exception $e){
-            
-            return false;
-        }
-    }
-    
-    
-    public function setImageName($id, $imageName)
-    {
-        try{
-            $query = sprintf("UPDATE %s SET `image_name`=:imageName WHERE `id`=:id", $this->tableHome);
-            $stmt = $this->dbh->prepare($query);
-            
-            $stmt->bindParam(':imageName', $imageName, PDO::PARAM_STR);
-            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->bindParam(':key', $key, PDO::PARAM_STR);
             $stmt->execute();
             
             return true;
         }catch(Exception $e){
-            
+
             return false;
         }
-    }
-    
-    
-    public function deleteHome($params)
-    {
         
-        try{
-            $query = sprintf("DELETE FROM %s  WHERE `id`=:id", $this->tableHome);
-            $stmt = $this->dbh->prepare($query);
-
-            $stmt->bindParam(':id', $params['id'], PDO::PARAM_INT);
-            $stmt->execute();
-
-            return true;
-        }catch(Exception $e){
-            
-            return false;
-        }
-    }   
+    }
 }
