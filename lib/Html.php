@@ -149,58 +149,67 @@ class HTML {
 
     function getWeather($city_id = 0, $showDays=1) {
 
-        $response = '';
-        if (isset($city_id) && !empty($city_id)) {
-            $requestAddress = $city_id;
+        //Cache data to make things much faster
+        if ($response = Cache::get(array('key' => 'weather'.date('Y-m-d')))) {
 
-            $xml_str = file_get_contents("http://xoap.weather.com/weather/local/" . $requestAddress . "?cc=*&dayf=5&link=xoap&prod=xoap&par=1225844858&key=e874d961c427e609", 0);
-            // Parses XML
-            $xml = new SimplexmlElement($xml_str);
-            //print_r($xml);
-            // Name
-            $response.= "<h1>" . $xml->loc->dnam . "</h1>";
-            $response.= "<table style='margin:10px 0 10px; text-align:center' cellspacing='0' cellpading='0' width='100%'>
-                            <tbody>
-                                <tr>";
-            //Set date
-            $date = substr($xml->dayf->lsup, 0, 8);
-            $date = explode("/", $date);
-            $day = 0;
-            $countDays = $showDays + 1;
-            foreach ($xml->dayf->day as $item) {
-                if ($item->hi != 'N/A') {
-                    $date_out = @date("d-m-Y", mktime(0, 0, 0, $date[0], $date[1] + $day, "20" . $date[2]));
-                    $day++;
-                    $response.= "<td>";
-                    $response .= "<label>" . $date_out . "</label>";
-                    $max = round((5 / 9) * ($item->low - 32));
-                    $response .= "<div>min temp: " . $max . "&deg</div>";
-                    $min = round((5 / 9) * ($item->hi - 32));
-                    $response .= "<div>max temp: " . $min . "&deg</div>";
-                    $response .= "<br/>";
-                    $first = true;
-                    foreach ($item->part as $new) {
-                        $response.= '<div>';
-                        //Image
-                        $response .= "<label>" . ($first ? "Day" : "Evening") . "</label>";
-                        $response.= '<img src="http://s.imwx.com/v.20100415.153311/img/wxicon/45/' . $new->icon . '.png"/><br/>';
-                        $response.= '</div>';
+            return $response;
+        } else {
+
+            $response = '';
+            if (isset($city_id) && !empty($city_id)) {
+                $requestAddress = $city_id;
+
+                $xml_str = file_get_contents("http://xoap.weather.com/weather/local/" . $requestAddress . "?cc=*&dayf=5&link=xoap&prod=xoap&par=1225844858&key=e874d961c427e609", 0);
+                // Parses XML
+                $xml = new SimplexmlElement($xml_str);
+                //print_r($xml);
+                // Name
+                $response.= "<h1>" . $xml->loc->dnam . "</h1>";
+                $response.= "<table style='margin:10px 0 10px; text-align:center' cellspacing='0' cellpading='0' width='100%'>
+                                <tbody>
+                                    <tr>";
+                //Set date
+                $date = substr($xml->dayf->lsup, 0, 8);
+                $date = explode("/", $date);
+                $day = 0;
+                $countDays = $showDays + 1;
+                foreach ($xml->dayf->day as $item) {
+                    if ($item->hi != 'N/A') {
+                        $date_out = @date("d-m-Y", mktime(0, 0, 0, $date[0], $date[1] + $day, "20" . $date[2]));
+                        $day++;
+                        $response.= "<td>";
+                        $response .= "<label>" . $date_out . "</label>";
+                        $max = round((5 / 9) * ($item->low - 32));
+                        $response .= "<div>min temp: " . $max . "&deg</div>";
+                        $min = round((5 / 9) * ($item->hi - 32));
+                        $response .= "<div>max temp: " . $min . "&deg</div>";
                         $response .= "<br/>";
-                        $first = false;
+                        $first = true;
+                        foreach ($item->part as $new) {
+                            $response.= '<div>';
+                            //Image
+                            $response .= "<label>" . ($first ? "Day" : "Evening") . "</label>";
+                            $response.= '<img src="http://s.imwx.com/v.20100415.153311/img/wxicon/45/' . $new->icon . '.png"/><br/>';
+                            $response.= '</div>';
+                            $response .= "<br/>";
+                            $first = false;
+                        }
+                        $response .= "</td>";
                     }
-                    $response .= "</td>";
+                    --$countDays;
+
+                    if ($countDays <= 0)
+                        break;
                 }
-                --$countDays;
-
-                if ($countDays <= 0)
-                    break;
+                $response.= "</tr>
+                                </tbody>
+                                    </table>";
             }
-            $response.= "</tr>
-                            </tbody>
-                                </table>";
-        }
 
-        return $response;
+            Cache::set(array('key' => 'weather'.date('Y-m-d'), 'data' => $response));
+            
+            return $response;
+        }
     }
 
     function getNBS() {
