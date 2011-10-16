@@ -206,7 +206,7 @@ class HTML {
     function getNBS() {
 
         //Cache data to make things much faster
-        if ($output = Cache::get(array('key' => 'currency'))) {
+        if ($output = Cache::get(array('key' => 'currency'.date('Y-m-d')))) {
 
             return $output;
         } else {
@@ -262,7 +262,7 @@ class HTML {
                 );
             }
             
-            Cache::set(array('key' => 'currency', 'data' => $output));
+            Cache::set(array('key' => 'currency'.date('Y-m-d'), 'data' => $output));
         
             return $output;
         }
