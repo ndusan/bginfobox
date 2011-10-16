@@ -6,5 +6,5 @@ public/uploads/events/*
 public/uploads/banners/*
 public/uploads/gallery/*
 public/uploads/carousel/*
-lib/logs/
-lib/cache/
+lib/logs/*
+lib/cache/*
