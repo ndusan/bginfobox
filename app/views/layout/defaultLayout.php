@@ -159,7 +159,7 @@
                                 foreach($allCurr as $key=>$val):?>
                                         <tr>
                                             <td align="center">
-                                                <img src="<?= IMAGE_PATH . '<?=$key;?>.png'; ?>" />
+                                                <img src="<?= IMAGE_PATH;?><?=$key.'.png'; ?>" />
                                             </td>
                                             <td  align="center">
                                                <?=$key;?> 
