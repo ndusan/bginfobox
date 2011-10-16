@@ -241,12 +241,7 @@ $routes = array(
             'action'     => 'editStatic', 
             'layout'     => 'cms'
     ),
-    array(  'url'        => '/^cms\/pockets\/edition\/?$/', 
-            'controller' => 'cmsPockets', 
-            'action'     => 'viewEdition', 
-            'layout'     => 'cms'
-    ),
-    array(  'url'        => '/^cms\/pockets\/add\/(?P<page_id>\d*)\/edition\/?$/', 
+    array(  'url'        => '/^cms\/pockets\/add\/edition\/?$/', 
             'controller' => 'cmsPockets', 
             'action'     => 'addEdition', 
             'layout'     => 'cms'
