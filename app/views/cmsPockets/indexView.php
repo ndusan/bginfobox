@@ -25,7 +25,7 @@
     
     <div id="fragment-<?=$j;?>" class="addContent1">
         <ul class="addTop">
-            <li><a class="cmsAdd" href="/cms/pockets/add/edition" >Add new pocket</a></li>
+            <li><a class="cmsAdd" href="/cms/pockets/add/edition" >Add new city</a></li>
         </ul>
         
         <!-- List of all pocktes -->

@@ -83,7 +83,7 @@ ul.headerNav li.active {background:transparent url(../images/navActive1.png) scr
 ul.headerNav li.active a {color:#FFF;}
 
 ul.addTop {padding:20px; border-bottom:solid 1px #BAD4E3; overflow:hidden;}
-ul.addTop li {float:left; padding:0 20px 0 0; }
+ul.addTop li {float:left; padding:0 5px 0 0; }
 ul.addTop li a {line-height:20px; font-size:14px; display:block;}
 
 .addContent {padding:20px;}
