@@ -25,6 +25,7 @@ class CmsBginfoController extends Controller
             }
         }
         
+        parent::set('currentStatic', $this->db->getCurrentStatic($params['page_id']));
         parent::set('static', $this->db->getBginfo($params['page_id']));
         parent::set('tabs', $this->db->getStaticPages());
     }
@@ -44,5 +45,6 @@ class CmsBginfoController extends Controller
         
         parent::set('settings', $this->db->getStaticPageSettings($params['page_id']));
     }
+    
     
 }

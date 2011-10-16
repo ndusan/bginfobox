@@ -24,6 +24,26 @@ class CmsBginfoModel extends Model
     }
     
     
+    public function getCurrentStatic($pageId)
+    {
+        
+        try{
+            
+            $query = sprintf("SELECT * FROM %s WHERE `type`='static' AND `id`=:id", $this->tablePages);
+            $stmt = $this->dbh->prepare($query);
+            
+            $stmt->bindParam(':id', $pageId, PDO::PARAM_INT);
+            $stmt->execute();
+
+            return $stmt->fetch();
+            
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
     public function getStaticPageSettings($pageId)
     {
         
