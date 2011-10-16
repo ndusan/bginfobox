@@ -3,7 +3,7 @@
         <li><a href="#fragment-1">Serbian</a></li>
         <li><a href="#fragment-2">English (optional)</a></li>
     </ul>
-    <form action="/cms/bginfo/<?= $params['page_id']; ?>/static" method="post" enctype="multipart/form-data">
+    <form action="/cms/pockets/edit/static" method="post" enctype="multipart/form-data">
         <div id="fragment-1" class="addContent">
             <table cellpadding="0" cellspacing="0">
                 <tbody>

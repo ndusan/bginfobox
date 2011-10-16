@@ -1,36 +1,25 @@
-<a href="/cms/dynamic/add/1">Add</a>
 <ul class="addTop">
-            <li><a class="cmsAdd" href="/cms/user/add" >Edit About</a></li>
+            <li><a class="cmsEdit1" href="/cms/pockets/edit/static" >Edit about content</a></li>
         </ul>
 <div class="tabs">
     <ul>
-        <li><a href="#fragment-1">Beograd</a></li>
-        <li><a href="#fragment-2">Novi Sad</a></li>
-        <li><a href="#fragment-3">Nis</a></li>
-        <li><a href="#fragment-5"><span class="cmsEdit"></span></a></li>
+        <? if(!empty($tabs)):?>
+        <? $i=1;?>
+        <? foreach($tabs as $tab):?>
+        <li><a href="#fragment-<?=$i++;?>"><?=$tab['title'];?></a></li>
+        <? endforeach;?>
+        <? endif;?>
+        <li><a href="#"><span class="cmsEdit"></span></a></li>
     </ul>
-    <div id="fragment-1" class="addContent1">
+    <? if(!empty($tabs)):?>
+    <? $i=1;?>
+    <? foreach($tabs as $tab):?>
+    <div id="fragment-<?=$i++;?>" class="addContent1">
         <ul class="addTop">
-            <li><a class="cmsAdd" href="/cms/user/add" >Dodaj izdanje</a></li>
+            <li><a class="cmsAdd" href="/cms/pockets/edition" >Manage editions</a></li>
         </ul>
         tabela
     </div>
-    <div id="fragment-2" class="addContent1">
-        <ul class="addTop">
-            <li><a class="cmsAdd" href="/cms/user/add" >Dodaj izdanje</a></li>
-        </ul>
-        tabela
-    </div>
-    <div id="fragment-3" class="addContent1">
-        <ul class="addTop">
-            <li><a class="cmsAdd" href="/cms/user/add" >Dodaj izdanje</a></li>
-        </ul>
-        tabela
-    </div>
-    <div id="fragment-5" class="addContent1">
-        <ul class="addTop">
-            <li><a class="cmsAdd" href="/cms/user/add" >Dodaj novi grad</a></li>
-        </ul>
-        tabela sa izdanjima
-    </div>
+    <? endforeach;?>
+    <? endif;?>
 </div>

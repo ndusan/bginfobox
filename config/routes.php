@@ -236,24 +236,24 @@ $routes = array(
             'action'     => 'index', 
             'layout'     => 'cms'
     ),
-    array(  'url'        => '/^cms\/pockets\/add\/?$/', 
-            'controller' => 'cmsPockets', 
-            'action'     => 'add', 
-            'layout'     => 'cms'
-    ),
-    array(  'url'        => '/^cms\/pockets\/edit\/(?P<id>\d*)\/?$/', 
-            'controller' => 'cmsPockets', 
-            'action'     => 'edit', 
-            'layout'     => 'cms'
-    ),
-    array(  'url'        => '/^cms\/pockets\/delete\/(?P<id>\d*)\/?$/', 
-            'controller' => 'cmsPockets', 
-            'action'     => 'delete', 
-            'layout'     => 'empty'
-    ),
     array(  'url'        => '/^cms\/pockets\/edit\/static\/?$/', 
             'controller' => 'cmsPockets', 
             'action'     => 'editStatic', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/pockets\/edition\/?$/', 
+            'controller' => 'cmsPockets', 
+            'action'     => 'viewEdition', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/pockets\/add\/(?P<page_id>\d*)\/edition\/?$/', 
+            'controller' => 'cmsPockets', 
+            'action'     => 'addEdition', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/pockets\/edit\/(?P<page_id>\d*)\/edition\/?$/', 
+            'controller' => 'cmsPockets', 
+            'action'     => 'editEdition', 
             'layout'     => 'cms'
     ),
     
