@@ -41,11 +41,13 @@ h3 {font-size:14px; line-height:20px;}
 .cmsAdd:hover {background-position:0 -20px;}
 .cmsEdit1 {background-position:0 -40px;}
 .cmsEdit1:hover {background-position:0 -60px;}
-.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next, .cmsEdit, .cmsDelete {width:22px; height:22px; display:inline-block; background-image: url(../images/cmsIcos.png);}
+.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next, .cmsEdit, .cmsDelete, .cmsInfo {width:22px; height:22px; display:inline-block; background-image: url(../images/cmsIcos.png);}
 .cmsEdit {background-position:-22px 0;}
 .cmsEdit:hover  {background-position:-22px -22px;}
 .cmsDelete {background-position:0 0;}
 .cmsDelete:hover {background-position:0 -22px;}
+.cmsInfo {background-position:0 -88px;}
+.cmsInfo:hover  {background-position:-22px -88px;}
 
 /*FORMS*/
 input[type=text], input[type=password], textarea {padding:5px; background-color:#FDFDFD; border: 1px solid #D6D6D6; font-family: Arial,Helvetica,sans-serif; font-size:13px; width: 200px; box-shadow: 0 0 2px rgba(200, 200, 200, 0.3) inset;}
