@@ -4,6 +4,11 @@ var App = App || {};
         init: function() {
             App.Common.tabs();
         },
+        index: function(){
+            
+            //Set datatable
+            $('#dataTable').dataTable();
+        },
         editStatic: function() {
             App.Common.mce();
         }

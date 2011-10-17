@@ -1,4 +1,4 @@
-<? $edition['formAction'] = 'edit/'.$edition['id'];?>
+<? $edition['formAction'] = 'edit/'.$params['id'];?>
 <ul class="addTop">
     <li><a href="/cms/bginfo#fragment-<?=$settings['id'];?>"><?=$settings['title'];?></a></li>
     <li><h3>/ Edit edition</h3></li>
