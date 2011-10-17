@@ -241,7 +241,22 @@ $routes = array(
             'action'     => 'editStatic', 
             'layout'     => 'cms'
     ),
-    array(  'url'        => '/^cms\/pockets\/add\/edition\/?$/', 
+    array(  'url'        => '/^cms\/pockets\/add\/city\/?$/', 
+            'controller' => 'cmsPockets', 
+            'action'     => 'addCity', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/pockets\/edit\/(?P<id>\d*)\/city\/?$/', 
+            'controller' => 'cmsPockets', 
+            'action'     => 'editCity', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/pockets\/delete\/(?P<id>\d*)\/city\/?$/', 
+            'controller' => 'cmsPockets', 
+            'action'     => 'deleteCity', 
+            'layout'     => 'empty'
+    ),
+    array(  'url'        => '/^cms\/pockets\/add\/(?P<page_id>\d*)\/edition\/?$/', 
             'controller' => 'cmsPockets', 
             'action'     => 'addEdition', 
             'layout'     => 'cms'
@@ -250,6 +265,11 @@ $routes = array(
             'controller' => 'cmsPockets', 
             'action'     => 'editEdition', 
             'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/pockets\/delete\/(?P<page_id>\d*)\/(?P<id>\d*)\/edition\/?$/', 
+            'controller' => 'cmsPockets', 
+            'action'     => 'deleteEdition', 
+            'layout'     => 'empty'
     ),
     
 );

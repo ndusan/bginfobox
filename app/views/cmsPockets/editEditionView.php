@@ -1,6 +1,6 @@
 <? $edition['formAction'] = 'edit/'.$edition['id'];?>
 <ul class="addTop">
-    <li><a href="/cms/pockets">Pocket pages</a></li>
-    <li><h3>/ Add edition</h3></li>
+    <li><a href="/cms/bginfo">Pocket pages</a></li>
+    <li><h3>/ Edit edition</h3></li>
 </ul>
-<? include_once '_form.php';?>
+<? include_once '_formEdition.php';?>

@@ -16,7 +16,7 @@ class CmsBginfoController extends Controller
         
         if(!empty($params['submit'])){
             
-            if($id = $this->db->updateBginfo($params['static'])){
+            if($this->db->updateBginfo($params['static'])){
                 
                 
                 parent::redirect ('cms'.DS.'bginfo', 'success');
