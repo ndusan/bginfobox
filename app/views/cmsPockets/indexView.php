@@ -1,8 +1,6 @@
-<? if(!empty($tabs)):?>
 <ul class="addTop">
     <li><a class="cmsEdit1" href="/cms/pockets/edit/static" >Edit about content</a></li>
 </ul>
-<? endif;?>
 <div class="tabs">
     <ul>
         <? $i=1;?>
