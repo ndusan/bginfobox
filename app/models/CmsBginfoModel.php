@@ -5,6 +5,8 @@ class CmsBginfoModel extends Model
  
     private $tablePages = 'pages';
     private $tablePageContent = 'page_content';
+    private $tablePageEdition = 'page_edition';
+    private $tablePageEditionImages = 'page_edition_images';
     
     public function getStaticPages()
     {
@@ -24,7 +26,7 @@ class CmsBginfoModel extends Model
     }
     
     
-    public function getCurrentStatic($pageId)
+    public function getCurrentStaticPage($pageId)
     {
         
         try{
@@ -43,26 +45,7 @@ class CmsBginfoModel extends Model
         }
     }
     
-    
-    public function getStaticPageSettings($pageId)
-    {
         
-        try{
-            
-            $query = sprintf("SELECT `id`, `title`, `num_of_images`, `has_file_name` FROM %s WHERE `id`=:pageId", $this->tablePages);
-            $stmt = $this->dbh->prepare($query);
-            
-            $stmt->bindParam(':pageId', $pageId, PDO::PARAM_INT);
-            $stmt->execute();
-
-            return $stmt->fetch();
-            
-        }catch(Exception $e){
-            
-            return false;
-        }
-    }
-    
     public function getBginfo($pageId)
     {
         try{
@@ -107,6 +90,144 @@ class CmsBginfoModel extends Model
             $stmt->execute();
 
             return true;
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
+    public function createBginfoEdition($pageId)
+    {
+        
+        if(empty($pageId)) return false;
+        
+        $currStatic = $this->getCurrentStaticPage($pageId);
+        
+        try{
+            $query = sprintf("INSERT INTO %s SET `title`=:title, `page_id`=:pageId", $this->tablePageEdition);
+            $stmt = $this->dbh->prepare($query);
+
+            $genTitle = $currStatic['title'].' EDITION ['.date('Y-m-d H:m:s').']';
+            
+            $stmt->bindParam(':title', $genTitle, PDO::PARAM_STR);
+            $stmt->bindParam(':pageId', $pageId, PDO::PARAM_INT);
+            
+            $stmt->execute();
+
+            return $this->dbh->lastInsertId();
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
+    public function createBginfoEditionImage($params)
+    {
+        
+        try{
+            $query = sprintf("INSERT INTO %s SET `title_sr`=:titleSr, `title_en`=:titleEn, 
+                                                 `page_edition_id`=:pageEditionId, `page_id`=:pageId", $this->tablePageEditionImages);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->bindParam(':titleSr', $params['title_sr'], PDO::PARAM_STR);
+            $stmt->bindParam(':titleEn', $params['title_en'], PDO::PARAM_STR);
+            $stmt->bindParam(':pageEditionId', $params['page_edition_id'], PDO::PARAM_INT);
+            $stmt->bindParam(':pageId', $params['page_id'], PDO::PARAM_INT);
+            
+            $stmt->execute();
+
+            return $this->dbh->lastInsertId();
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
+    public function setImageName($id, $imageName)
+    {
+        try{
+            $query = sprintf("UPDATE %s SET `image_name`=:imageName WHERE `id`=:id", $this->tablePageEditionImages);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->bindParam(':imageName', $imageName, PDO::PARAM_STR);
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            
+            $stmt->execute();
+
+            return true;
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
+    
+    
+    public function setDownload($id, $fileName)
+    {
+        try{
+            $query = sprintf("UPDATE %s SET `file_name`=:fileName WHERE `id`=:id", $this->tablePageEdition);
+            $stmt = $this->dbh->prepare($query);
+            $stmt->bindParam(':fileName', $fileName, PDO::PARAM_STR);
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            
+            $stmt->execute();
+
+            return true;
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
+    public function getDownload($id)
+    {
+        try{
+            $query = sprintf("SELECT `file_name` FROM %s WHERE `id`=:id", $this->tablePageEdition);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+
+            return $stmt->fetch();
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
+    
+    public function getAllEdition()
+    {
+        try{
+            $query = sprintf("SELECT * FROM %s", $this->tablePageEdition);
+            $stmt = $this->dbh->prepare($query);
+            
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    public function getEditionImages($pageEditionId)
+    {
+        try{
+            $query = sprintf("SELECT * FROM %s WHERE `page_edition_id`=:pageEditionId", $this->tablePageEditionImages);
+            $stmt = $this->dbh->prepare($query);
+            
+            $stmt->bindParam(':pageEditionId', $pageEditionId, PDO::PARAM_INT);
+            $stmt->execute();
+
+            return $stmt->fetchAll();
         }catch(Exception $e){
             
             return false;

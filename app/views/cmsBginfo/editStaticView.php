@@ -1,5 +1,5 @@
 <ul class="addTop">
-    <li><a href="/cms/bginfo#fragment-<?=$currentStatic['id'];?>"><?=$currentStatic['title'];?></a></li>
+    <li><a href="/cms/bginfo#fragment-<?=$settings['id'];?>"><?=$settings['title'];?></a></li>
     <li><h3>/ Edit about content</h3></li>
 </ul>
 <div class="tabs">

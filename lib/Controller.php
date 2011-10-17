@@ -150,7 +150,7 @@ class Controller {
 
     public function uploadImage($imageName, $image, $folder) {
 
-        if (move_uploaded_file($image["tmp_name"], UPLOAD_PATH . $folder . DS . $imageName)) {
+        if (move_uploaded_file($image['tmp_name'], UPLOAD_PATH . $folder . DS . $imageName)) {
             
             list($width, $height) = getimagesize(UPLOAD_PATH . $folder . DS . $imageName);
             $size = filesize(UPLOAD_PATH . $folder . DS . $imageName);
@@ -168,7 +168,7 @@ class Controller {
             $this->deleteImage($oldImage, $folder);
         }
 
-        if (move_uploaded_file($image["tmp_name"], UPLOAD_PATH . $folder . DS . $newImage)) {
+        if (move_uploaded_file($image['tmp_name'], UPLOAD_PATH . $folder . DS . $newImage)) {
             list($width, $height) = getimagesize(UPLOAD_PATH . $folder . DS . $newImage);
             $size = filesize(UPLOAD_PATH . $folder . DS . $newImage);
             
