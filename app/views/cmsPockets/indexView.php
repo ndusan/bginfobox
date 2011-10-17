@@ -9,7 +9,8 @@
         <li><a href="#fragment-<?=$i=$tab['id'];?>"><?=$tab['title'];?></a></li>
         <? endforeach;?>
         <? endif;?>
-        <li><a href="#fragment-<?=++$i;?>"><span class="cmsEdit"></span></a></li>
+        <li><a href="#fragment-<?=$j=++$i;?>"><span class="cmsEdit"></span></a></li>
+        <li><a href="#fragment-<?=++$j;?>"><span class="cmsEdit"></span></a></li>
     </ul>
     <? $i=1;?>
     <? if(!empty($tabs)):?>
@@ -23,7 +24,7 @@
     <? endforeach;?>
     <? endif;?>
     
-    <div id="fragment-<?=++$i;?>" class="addContent1">
+    <div id="fragment-<?=$j=++$i;?>" class="addContent1">
         <ul class="addTop">
             <li><a class="cmsAdd" href="/cms/pockets/add/city" >Add new city</a></li>
         </ul>
@@ -68,5 +69,11 @@
                 There are no results on this page.
             </div>
         <? endif; ?>
+    </div>
+    <div id="fragment-<?=++$j;?>" class="addContent1">
+        <ul class="addTop">
+            <li><a class="cmsAdd" href="/cms/pockets/add/city" >Add new info</a></li>
+        </ul>
+        tabela
     </div>
 </div>
