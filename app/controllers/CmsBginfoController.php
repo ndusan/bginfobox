@@ -104,10 +104,21 @@ class CmsBginfoController extends Controller
         parent::set('download', $this->db->getDownload($params['id']));
         parent::set('edition', $this->db->getEditionImages($params['id']));
         parent::set('settings', $this->db->getCurrentStaticPage($params['page_id']));
+    
+        
     }
     
     
-    
+    public function deleteEditionAction($params)
+    {
+        
+        if(!empty($params['submit']) && !empty($params['edition'])){
+
+            
+            
+        }
+        
+    }
     
     
 }
