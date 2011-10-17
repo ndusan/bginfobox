@@ -157,10 +157,12 @@ ul.soc  li {float:left; margin-left:20px;}
 .archiveAll ul li {float:left; margin:0 10px 0 0; line-height:20px;}
 .archiveAll ul .last {padding:80px 0 0;}
 
-.galleryAll {overflow:hidden; padding:15px 10px;}
+.galleryAll {overflow:hidden; padding:10px;}
 .galleryAll li {float:left; margin:5px; position:relative;}
-.galleryAll li span {display:block; text-align:center; font-size:11px; line-height:20px;}
-.zoom {width:33px; height:34px; display:block; position:absolute; bottom:28px; right:9px; background:transparent url(../images/zoom_bg.png) scroll no-repeat 0 0;}
+.galleryAll li span {display:block; text-align:center; font-size:11px; line-height:30px;}
+.galleryAll li span.moreInfo {width:170px; font-size:13px; color:#FFF; background:#9a9a9a url(../images/grad1.png) scroll repeat-x 0 0;}
+
+.zoom {width:33px; height:34px; display:block; position:absolute; bottom:38px; right:9px; background:transparent url(../images/zoom_bg.png) scroll no-repeat 0 0;}
 .zoom:hover {background-position:0 -34px;}
 
 .contact {padding:15px; overflow:hidden;}
