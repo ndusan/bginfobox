@@ -49,7 +49,7 @@ class CmsBginfoModel extends Model
         
         try{
             
-            $query = sprintf("SELECT `num_of_images`, `has_file_name` FROM %s WHERE `id`=:pageId", $this->tablePages);
+            $query = sprintf("SELECT `id`, `title`, `num_of_images`, `has_file_name` FROM %s WHERE `id`=:pageId", $this->tablePages);
             $stmt = $this->dbh->prepare($query);
             
             $stmt->bindParam(':pageId', $pageId, PDO::PARAM_INT);

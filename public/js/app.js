@@ -13,6 +13,8 @@ var App = App || {};
                 if (!answer) return false;
             });
             
+            $('.display').thead();
+            
             
             //Set check on required fields
             $('body').delegate('form', 'submit', function(){

@@ -5,6 +5,7 @@
 <? endif;?>
 <div class="tabs">
     <ul>
+        <? $i=1;?>
         <? if(!empty($tabs)):?>
         <? foreach($tabs as $tab):?>
         <li><a href="#fragment-<?=$i=$tab['id'];?>"><?=$tab['title'];?></a></li>
@@ -12,6 +13,7 @@
         <? endif;?>
         <li><a href="#fragment-<?=++$i;?>"><span class="cmsEdit"></span></a></li>
     </ul>
+    <? $i=1;?>
     <? if(!empty($tabs)):?>
     <? foreach($tabs as $tab):?>
     <div id="fragment-<?=$i=$tab['id'];?>" class="addContent1">

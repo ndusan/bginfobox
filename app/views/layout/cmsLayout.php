@@ -22,11 +22,6 @@
         <?= $html->js('app', JS_PATH); ?>
         <?= $html->js('tiny_mce', MCE_PATH); ?>
         <?= $html->allCustomJs(JS_PATH . 'cms' . DS); ?>
-        <script type="text/javascript">
-            $(function() {
-                $('.display').thead();
-            });
-        </script>
 
         <!-- Load all custom css -->
         <?= $html->css('cms', CSS_PATH); ?>
