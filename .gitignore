@@ -6,4 +6,6 @@ public/uploads/events/*
 public/uploads/banners/*
 public/uploads/gallery/*
 public/uploads/carousel/*
+public/uploads/bginfo/*
+public/uploads/pockets/*
 tmp/*
