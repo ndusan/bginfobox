@@ -10,7 +10,7 @@
         <? endforeach;?>
         <? endif;?>
         <li><a href="#fragment-<?=$j=++$i;?>"><span class="cmsEdit"></span></a></li>
-        <li><a href="#fragment-<?=++$j;?>"><span class="cmsEdit"></span></a></li>
+        <li><a href="#fragment-<?=++$j;?>"><span class="cmsInfo"></span></a></li>
     </ul>
     <? $i=1;?>
     <? if(!empty($tabs)):?>
