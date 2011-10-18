@@ -119,13 +119,14 @@ class HomeController extends Controller
     {
         
         parent::set('freshNews', $this->db->getFreshNews($params));
+        parent::set('bannerCollection', $this->db->getAllBanners());
+        parent::set('carouselCollection', $this->db->getAllCarousel());
+        
+        parent::set('activeLangs', $this->db->getActiveLanguages());
         
         $settings = $this->db->getDynamicPageSettings($params);
 
-        if(null == $settings){
-            //Dynamic page not found
-            parent::redirect('404', '');
-        }
+        
     }
     
     

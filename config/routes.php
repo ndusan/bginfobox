@@ -35,8 +35,9 @@ $routes = array(
             'action'     => 'staticPages', 
             'layout'     => 'default'
     ),
+    
     //Dynamic pages
-    array(  'url'        => '/^(?P<lang>('.LANG.'))\/(?P<page>([a-zA-Z0-9\/#&@\-+_]+))\/?$/', 
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/(?P<page>(bginfo|pockets|bginfo-gallery))\/?$/', 
             'controller' => 'home', 
             'action'     => 'dynamicPages', 
             'layout'     => 'default'
@@ -286,5 +287,7 @@ $routes = array(
             'action'     => 'deleteInfo', 
             'layout'     => 'empty'
     ),
+    
+    
     
 );
