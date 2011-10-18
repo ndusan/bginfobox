@@ -118,6 +118,7 @@ class HomeController extends Controller
     public function dynamicPagesAction($params)
     {
         
+        
         parent::set('freshNews', $this->db->getFreshNews($params));
         parent::set('bannerCollection', $this->db->getAllBanners());
         parent::set('carouselCollection', $this->db->getAllCarousel());
