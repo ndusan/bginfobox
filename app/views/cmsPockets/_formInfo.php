@@ -34,7 +34,7 @@
                     <tr>
                         <td>Content:</td>
                         <td>
-                            <input type="text" name="info[content_en]" value="<?= @$info['content_en']; ?>"/>
+                            <textarea name="info[content_en]"><?= @$info['content_en']; ?></textarea>
                         </td>
                     </tr>
                 </tbody>
