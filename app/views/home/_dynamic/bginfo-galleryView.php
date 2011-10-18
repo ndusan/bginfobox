@@ -1,1 +1,0 @@
-#bginfo-gallery

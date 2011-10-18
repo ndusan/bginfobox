@@ -37,42 +37,12 @@ $routes = array(
     ),
     
     //Dynamic pages
-    array(  'url'        => '/^(?P<lang>('.LANG.'))\/(?P<page>(bginfo-box))\/?$/', 
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/(?P<page>(bginfo-box|bginfo-night-map|bginfo-map|putovanje-za-dvoje))\/gallery\/?$/', 
             'controller' => 'home', 
-            'action'     => 'dynamicPages', 
+            'action'     => 'dynamicGalleryPages', 
             'layout'     => 'default'
     ),
-    array(  'url'        => '/^(?P<lang>('.LANG.'))\/(?P<page>(bginfo-box))\/gallery\/?$/', 
-            'controller' => 'home', 
-            'action'     => 'dynamicPages', 
-            'layout'     => 'default'
-    ),
-    array(  'url'        => '/^(?P<lang>('.LANG.'))\/(?P<page>(bginfo-night-map))\/?$/', 
-            'controller' => 'home', 
-            'action'     => 'dynamicPages', 
-            'layout'     => 'default'
-    ),
-    array(  'url'        => '/^(?P<lang>('.LANG.'))\/(?P<page>(bginfo-night-map))\/gallery\/?$/', 
-            'controller' => 'home', 
-            'action'     => 'dynamicPages', 
-            'layout'     => 'default'
-    ),
-    array(  'url'        => '/^(?P<lang>('.LANG.'))\/(?P<page>(bginfo-map))\/?$/', 
-            'controller' => 'home', 
-            'action'     => 'dynamicPages', 
-            'layout'     => 'default'
-    ),
-    array(  'url'        => '/^(?P<lang>('.LANG.'))\/(?P<page>(bginfo-map))\/gallery\/?$/', 
-            'controller' => 'home', 
-            'action'     => 'dynamicPages', 
-            'layout'     => 'default'
-    ),
-    array(  'url'        => '/^(?P<lang>('.LANG.'))\/(?P<page>(putovanje-za-dvoje))\/?$/', 
-            'controller' => 'home', 
-            'action'     => 'dynamicPages', 
-            'layout'     => 'default'
-    ),
-    array(  'url'        => '/^(?P<lang>('.LANG.'))\/(?P<page>(putovanje-za-dvoje))\/gallery\/?$/', 
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/(?P<page>(bginfo-box|bginfo-night-map|bginfo-map|putovanje-za-dvoje))\/?$/', 
             'controller' => 'home', 
             'action'     => 'dynamicPages', 
             'layout'     => 'default'
