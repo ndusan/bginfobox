@@ -128,17 +128,41 @@ class CmsBginfoModel extends Model
         
         try{
             $query = sprintf("INSERT INTO %s SET `title_sr`=:titleSr, `title_en`=:titleEn, 
-                                                 `page_edition_id`=:pageEditionId, `page_id`=:pageId", $this->tablePageEditionImages);
+                                                 `page_edition_id`=:pageEditionId, `page_id`=:pageId, `position`=:position", $this->tablePageEditionImages);
             $stmt = $this->dbh->prepare($query);
 
             $stmt->bindParam(':titleSr', $params['title_sr'], PDO::PARAM_STR);
             $stmt->bindParam(':titleEn', $params['title_en'], PDO::PARAM_STR);
             $stmt->bindParam(':pageEditionId', $params['page_edition_id'], PDO::PARAM_INT);
             $stmt->bindParam(':pageId', $params['page_id'], PDO::PARAM_INT);
+            $stmt->bindParam(':position', $params['position'], PDO::PARAM_INT);
             
             $stmt->execute();
 
             return $this->dbh->lastInsertId();
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
+    public function updateBginfoEditionImage($params)
+    {
+        
+        try{
+            $query = sprintf("UPDATE %s SET `title_sr`=:titleSr, `title_en`=:titleEn, `position`=:position
+                               WHERE `id`=:id", $this->tablePageEditionImages);
+            $stmt = $this->dbh->prepare($query);
+            
+            $stmt->bindParam(':titleSr', $params['title_sr'], PDO::PARAM_STR);
+            $stmt->bindParam(':titleEn', $params['title_en'], PDO::PARAM_STR);
+            $stmt->bindParam(':position', $params['position'], PDO::PARAM_INT);
+            $stmt->bindParam(':id', $params['id'], PDO::PARAM_INT);
+            
+            $stmt->execute();
+
+            return true;
         }catch(Exception $e){
             
             return false;
@@ -158,6 +182,24 @@ class CmsBginfoModel extends Model
             $stmt->execute();
 
             return true;
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
+    public function getImageName($id)
+    {
+        
+        try{
+            $query = sprintf("SELECT `image_name` FROM %s WHERE `id`=:id", $this->tablePageEditionImages);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+
+            return $stmt->fetch();
         }catch(Exception $e){
             
             return false;

@@ -55,7 +55,8 @@ class CmsBginfoController extends Controller
                     $eid = $this->db->createBginfoEditionImage(array('title_sr'=>$val,
                                                                        'title_en'=>$params['edition']['title_en'][$key],
                                                                        'page_id'=>$params['page_id'],
-                                                                       'page_edition_id'=>$id));
+                                                                       'page_edition_id'=>$id,
+                                                                       'position'=>$key));
                     if($eid){
 
                         //If image uploaded add it
@@ -67,7 +68,8 @@ class CmsBginfoController extends Controller
                             $image = array('name'    =>$params['image']['name'][$key],
                                            'type'    =>$params['image']['type'][$key],
                                            'tmp_name'=>$params['image']['tmp_name'][$key],
-                                           'error'   =>$params['image']['error'][$key]);
+                                           'error'   =>$params['image']['error'][$key],
+                                           'size'   =>$params['image']['size'][$key]);
 
                             $this->uploadImage($newImageName, $image, 'bginfo');
                         }
@@ -97,8 +99,44 @@ class CmsBginfoController extends Controller
         
         if(!empty($params['submit']) && !empty($params['edition'])){
 
+            //Add new page_edition_images
+            foreach($params['edition']['title_sr'] as $key=>$val){
+                $this->db->updateBginfoEditionImage(array('title_sr'=>$val,
+                                                          'title_en'=>$params['edition']['title_en'][$key],
+                                                          'id'=>$params['edition']['page_edition_id'][$key],
+                                                          'position'=>$key));
+
+                //If image uploaded add it
+                if(0 == $params['image']['error'][$key] && !empty($params['edition']['page_edition_id'][$key])){
+
+                    $data = $this->db->getImageName($params['edition']['page_edition_id'][$key]);
+                    $oldImageName = $data['image_name'];
+                    
+                    $newImageName = $params['edition']['page_edition_id'][$key].'-'.$params['id'].'-'.$params['image']['name'][$key];
+                    $this->db->setImageName($params['edition']['page_edition_id'][$key], $newImageName);
+
+                    $image = array('name'    =>$params['image']['name'][$key],
+                                   'type'    =>$params['image']['type'][$key],
+                                   'tmp_name'=>$params['image']['tmp_name'][$key],
+                                   'error'   =>$params['image']['error'][$key],
+                                   'size'   =>$params['image']['size'][$key]);
+
+                    $this->reUploadImage($oldImageName, $newImageName, $image, 'bginfo');
+                }
+            }
             
+            //Add downloaded if set
+            if(0 == $params['download']['error'] && !empty($params['edition']['id'])){
+                $data = $this->db->getDownload($params['edition']['id']);
+                $oldImageName = $data['file_name'];
+                
+                $newImageName = $params['edition']['page_id'].'-'.$params['edition']['id'].'-download-'.$params['download']['name'];
+                
+                $this->db->setDownload($params['edition']['id'], $newImageName);
+                $this->reUploadImage($oldImageName, $newImageName, $params['download'], 'bginfo');
+            }
             
+            parent::redirect ('cms'.DS.'bginfo', 'success');
         }
         
         parent::set('download', $this->db->getDownload($params['id']));
