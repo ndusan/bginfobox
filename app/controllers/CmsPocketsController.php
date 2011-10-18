@@ -254,7 +254,7 @@ class CmsPocketsController extends Controller
             }
         }
         
-        parent::set('city', $this->db->getInfo($params['id']));
+        parent::set('info', $this->db->getInfo($params['id']));
     }
     
     
