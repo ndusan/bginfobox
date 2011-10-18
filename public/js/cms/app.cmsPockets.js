@@ -10,6 +10,12 @@ var App = App || {};
         },
         editStatic: function() {
             App.Common.mce();
+        },
+        addInfo: function() {
+            App.Common.mce();
+        },
+        editInfo: function() {
+            App.Common.mce();
         }
     };
 })(this.jQuery);
