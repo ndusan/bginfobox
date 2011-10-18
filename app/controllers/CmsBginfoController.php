@@ -150,12 +150,32 @@ class CmsBginfoController extends Controller
     public function deleteEditionAction($params)
     {
         
-        if(!empty($params['submit']) && !empty($params['edition'])){
-
-            
-            
-        }
+        parent::setRenderHTML(0);
         
+        $dataImageArray = $this->db->getImageNameArray($params['id']);
+        $dataDownload = $this->db->getDownload($params['id']);
+
+        if($this->db->deleteBginfoEdition($params)){
+            
+            //If exist delete
+            if(!empty($dataImageArray)){
+                foreach($dataImageArray as $dia){
+                    $oldImageName = $dia['image_name'];
+
+                    $this->deleteImage($oldImageName, 'bginfo');
+                }
+            }
+            
+            if($dataDownload){
+                $oldFileName = $dataDownload['file_name'];
+
+                $this->deleteImage($oldFileName, 'bginfo');
+            }
+            
+            parent::redirect ('cms'.DS.'bginfo', 'success');
+        }else{
+            parent::redirect ('cms'.DS.'bginfo', 'error');
+        }        
     }
     
     

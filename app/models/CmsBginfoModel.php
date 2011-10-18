@@ -170,6 +170,31 @@ class CmsBginfoModel extends Model
     }
     
     
+    
+    public function deleteBginfoEdition($params)
+    {
+        
+        try{
+            $query = sprintf("DELETE FROM %s  WHERE `page_edition_id`=:pageEditionId", $this->tablePageEditionImages);
+            $stmt = $this->dbh->prepare($query);
+            
+            $stmt->bindParam(':pageEditionId', $params['id'], PDO::PARAM_INT);
+            $stmt->execute();
+
+            $query = sprintf("DELETE FROM %s  WHERE `id`=:id", $this->tablePageEdition);
+            $stmt = $this->dbh->prepare($query);
+            
+            $stmt->bindParam(':id', $params['id'], PDO::PARAM_INT);
+            $stmt->execute();
+            
+            return true;
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
     public function setImageName($id, $imageName)
     {
         try{
@@ -200,6 +225,25 @@ class CmsBginfoModel extends Model
             $stmt->execute();
 
             return $stmt->fetch();
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
+    
+    public function getImageNameArray($pageEditionId)
+    {
+        
+        try{
+            $query = sprintf("SELECT `image_name` FROM %s WHERE `page_edition_id`=:pageEditionId", $this->tablePageEditionImages);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->bindParam(':pageEditionId', $pageEditionId, PDO::PARAM_INT);
+            $stmt->execute();
+
+            return $stmt->fetchAll();
         }catch(Exception $e){
             
             return false;
