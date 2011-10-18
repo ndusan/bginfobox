@@ -37,7 +37,7 @@ $routes = array(
     ),
     
     //Dynamic pages
-    array(  'url'        => '/^(?P<lang>('.LANG.'))\/(?P<page>(bginfo|pockets|bginfo-gallery))\/?$/', 
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/(?P<page>(bginfo|pockets|bginfo-gallery))\/?(?P<subpage>([a-zA-Z0-9\/#&@\-+_?%]+))*\/?$/', 
             'controller' => 'home', 
             'action'     => 'dynamicPages', 
             'layout'     => 'default'
