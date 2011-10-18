@@ -261,14 +261,29 @@ $routes = array(
             'action'     => 'addEdition', 
             'layout'     => 'cms'
     ),
-    array(  'url'        => '/^cms\/pockets\/edit\/(?P<page_id>\d*)\/edition\/?$/', 
+    array(  'url'        => '/^cms\/pockets\/edit\/(?P<id>\d*)\/(?P<page_id>\d*)\/edition\/?$/', 
             'controller' => 'cmsPockets', 
             'action'     => 'editEdition', 
             'layout'     => 'cms'
     ),
-    array(  'url'        => '/^cms\/pockets\/delete\/(?P<page_id>\d*)\/(?P<id>\d*)\/edition\/?$/', 
+    array(  'url'        => '/^cms\/pockets\/delete\/(?P<id>\d*)\/(?P<page_id>\d*)\/edition\/?$/', 
             'controller' => 'cmsPockets', 
             'action'     => 'deleteEdition', 
+            'layout'     => 'empty'
+    ),
+    array(  'url'        => '/^cms\/pockets\/add\/info\/?$/', 
+            'controller' => 'cmsPockets', 
+            'action'     => 'addInfo', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/pockets\/edit\/(?P<id>\d*)\/info\/?$/', 
+            'controller' => 'cmsPockets', 
+            'action'     => 'editInfo', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/pockets\/delete\/(?P<id>\d*)\/info\/?$/', 
+            'controller' => 'cmsPockets', 
+            'action'     => 'deleteInfo', 
             'layout'     => 'empty'
     ),
     
