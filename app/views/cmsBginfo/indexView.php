@@ -15,7 +15,7 @@
         </ul>
         <!-- editions -->
         <? if (!empty($editionCollection[$tab['id']])): ?>
-        <table cellpadding="0" cellspacing="0" border="0" class="display" id="dataTable"> 
+        <table cellpadding="0" cellspacing="0" border="0" class="display dataTable"> 
             <thead> 
                 <tr> 
                     <th>Title</th>

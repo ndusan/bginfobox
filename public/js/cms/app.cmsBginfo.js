@@ -7,7 +7,7 @@ var App = App || {};
         index: function(){
             
             //Set datatable
-            $('#dataTable').dataTable();
+            $('.dataTable').dataTable();
         },
         editStatic: function() {
             App.Common.mce();

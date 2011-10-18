@@ -21,7 +21,7 @@
         </ul>
         <!-- editions -->
         <? if (!empty($editionCollection[$tab['id']])): ?>
-        <table cellpadding="0" cellspacing="0" border="0" class="display" id="dataTable"> 
+        <table cellpadding="0" cellspacing="0" border="0" class="display dataTable"> 
             <thead> 
                 <tr> 
                     <th>Title</th>
@@ -63,7 +63,7 @@
         
         <!-- List of all pocktes -->
         <? if (!empty($tabs)): ?>
-            <table cellpadding="0" cellspacing="0" border="0" class="display" id="dataTable"> 
+            <table cellpadding="0" cellspacing="0" border="0" class="display dataTable"> 
                 <thead> 
                     <tr> 
                         <th>Title</th>
@@ -108,7 +108,7 @@
         </ul>
         <!-- List of all info -->
         <? if (!empty($infoCollection)): ?>
-            <table cellpadding="0" cellspacing="0" border="0" class="display" id="dataTable"> 
+            <table cellpadding="0" cellspacing="0" border="0" class="display dataTable"> 
                 <thead> 
                     <tr> 
                         <th>Title (serbian)</th>

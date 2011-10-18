@@ -75,6 +75,10 @@ class CmsPocketsController extends Controller
     public function deleteCityAction($params)
     {
         
+        $allEdition = $this->db->getAllEdition();
+        foreach($allEdition as $ae){
+            $this->deleteEditionAction($ae, false);
+        }
         if($this->db->deleteCity($params['id'])){
 
             parent::redirect ('cms'.DS.'pockets', 'success');
@@ -193,14 +197,14 @@ class CmsPocketsController extends Controller
     }
     
     
-    public function deleteEditionAction($params)
+    public function deleteEditionAction($params, $redirect=true)
     {
         
         parent::setRenderHTML(0);
         
         $dataImageArray = $this->db->getImageNameArray($params['id']);
         $dataDownload = $this->db->getDownload($params['id']);
-
+        
         if($this->db->deletePocketsEdition($params)){
             
             //If exist delete
@@ -218,9 +222,15 @@ class CmsPocketsController extends Controller
                 $this->deleteImage($oldFileName, 'pockets');
             }
             
-            parent::redirect ('cms'.DS.'pockets', 'success');
+            if($redirect){
+                
+                parent::redirect ('cms'.DS.'pockets', 'success');
+            }
         }else{
-            parent::redirect ('cms'.DS.'pockets', 'error');
+            if($redirect){
+             
+                parent::redirect ('cms'.DS.'pockets', 'error');
+            }
         }        
     }
     
