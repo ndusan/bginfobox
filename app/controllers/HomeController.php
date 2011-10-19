@@ -118,13 +118,6 @@ class HomeController extends Controller
     public function dynamicPagesAction($params)
     {
         
-        switch($params['page']){
-            case 'bginfo-box': break;
-            case 'bginfo-map': break;
-            case 'bginfo-night-map': break;
-            case 'putovanje-za-dvoje': break;
-        }
-        
         parent::set('freshNews', $this->db->getFreshNews($params));
         parent::set('bannerCollection', $this->db->getAllBanners());
         parent::set('carouselCollection', $this->db->getAllCarousel());
@@ -133,21 +126,19 @@ class HomeController extends Controller
         
         
         $settings = $this->db->getDynamicPageSettings($params);
-
         
+        switch($params['page']){
+            case 'bginfo-box': break;
+            case 'bginfo-map': break;
+            case 'bginfo-night-map': break;
+            case 'putovanje-za-dvoje': break;
+        }
     }
     
     
     public function dynamicGalleryPagesAction($params)
     {
-        
-        switch($params['page']){
-            case 'bginfo-box': break;
-            case 'bginfo-map': break;
-            case 'bginfo-night-map': break;
-            case 'putovanje-za-dvoje': break;
-        }
-        
+
         parent::set('freshNews', $this->db->getFreshNews($params));
         parent::set('bannerCollection', $this->db->getAllBanners());
         parent::set('carouselCollection', $this->db->getAllCarousel());
@@ -155,8 +146,13 @@ class HomeController extends Controller
         parent::set('activeLangs', $this->db->getActiveLanguages());
         
         $settings = $this->db->getDynamicPageSettings($params);
-
         
+        switch($params['page']){
+            case 'bginfo-box': break;
+            case 'bginfo-map': break;
+            case 'bginfo-night-map': break;
+            case 'putovanje-za-dvoje': break;
+        }
     }
     
     

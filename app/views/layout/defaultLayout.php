@@ -159,13 +159,13 @@
                                 foreach($allCurr as $key=>$val):?>
                                         <tr>
                                             <td align="center">
-                                                <img src="<?= IMAGE_PATH;?><?=$key.'.png'; ?>" />
+                                                <img src="////<?= IMAGE_PATH;?><?=$key.'.png'; ?>" />
                                             </td>
                                             <td  align="center">
-                                               <?=$key;?> 
+                                               ////<?=$key;?> 
                                             </td>
                                             <td  align="center">
-                                                <?=$val['value'];?>
+                                                ////<?=$val['value'];?>
                                             </td>
                                         </tr>
                                 <? endforeach; ?>
