@@ -2,22 +2,28 @@
     <div class="mainBox">
         <ul class="galleryAll">
             <li>
-                <img title="" width="170" height="240" src=" <?= IMAGE_PATH . 'dummy1.jpg'; ?>" />
+                <a href="<?= DS . $params['lang'] . DS . 'bginfo-box'.DS.'gallery';?>" >
+                    <img title="" width="170" height="240" src=" <?= IMAGE_PATH . 'dummy1.jpg'; ?>" />
+                </a>
             </li>
             <li>
-                <img title="" width="170" height="240" src=" <?= IMAGE_PATH . 'dummy1.jpg'; ?>" /> 
+                <a href="<?= DS . $params['lang'] . DS . 'bginfo-map'.DS.'gallery';?>">
+                    <img title="" width="170" height="240" src=" <?= IMAGE_PATH . 'dummy1.jpg'; ?>" /> 
+                </a>
             </li>
             <li>
-                <img title="" width="170" height="240" src=" <?= IMAGE_PATH . 'dummy1.jpg'; ?>" /> 
+                <a href="<?= DS . $params['lang'] . DS . 'bginfo-night-map'.DS.'gallery';?>">
+                    <img title="" width="170" height="240" src=" <?= IMAGE_PATH . 'dummy1.jpg'; ?>" /> 
+                </a>
             </li>
             <li>
-                <span class="moreInfo"><a href="#">Sta je Bg Info Box?</a></span>
+                <span class="moreInfo"><a href="<?= DS . $params['lang'] . DS . 'bginfo-box';?>">Sta je Bg Info Box?</a></span>
             </li>
             <li>
-                <span class="moreInfo"><a href="#">Sta je Bg Info Map?</a></span>
+                <span class="moreInfo"><a href="<?= DS . $params['lang'] . DS . 'bginfo-map';?>">Sta je Bg Info Map?</a></span>
             </li>
             <li>
-                <span class="moreInfo"><a href="#">Sta je Bg Info Night Map?</a></span>
+                <span class="moreInfo"><a href="<?= DS . $params['lang'] . DS . 'bginfo-nigth-map'?>">Sta je Bg Info Night Map?</a></span>
             </li>
         </ul>
     </div>
@@ -36,7 +42,7 @@
         <div class="boxContent wys">
             <!-- ovo sve  upucava kroz efitor jer ima 1ys klasu -->
             <h2>Saznajte vishe o asdljas</h2>
-            <p>asd asd asd asd asd asd a</p>
+            <p>asd asd asd asd asd asd <a href="<?= DS . $params['lang'] . DS . 'pockets';?>">link</a>a</p>
         </div>
     </div>
     <div class="mainBox">

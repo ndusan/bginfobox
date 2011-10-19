@@ -37,7 +37,7 @@
                     </ul>
                     <ul class="lang">
                         <? foreach ($activeLangs as $key=>$val):?>
-                        <li><a <?= ($val['value'] == $params['lang'] ? 'class="active"' : ''); ?> href="<?= DS . $val['value'] . (isset($params['page']) ? DS . $params['page'] : ''); ?>"><?=  strtoupper($val['value']);?></a></li>
+                        <li><a <?= ($val['value'] == $params['lang'] ? 'class="active"' : ''); ?> href="<?= DS . $val['value'] . (isset($params['page']) ? DS . $params['page'] : '').(isset($params['subpage']) ? DS . $params['subpage'] : ''); ?>"><?=  strtoupper($val['value']);?></a></li>
                         <? endforeach; ?>
                     </ul>
                 </div>

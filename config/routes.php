@@ -37,7 +37,7 @@ $routes = array(
     ),
     
     //Dynamic pages
-    array(  'url'        => '/^(?P<lang>('.LANG.'))\/(?P<page>(bginfo-box|bginfo-night-map|bginfo-map|putovanje-za-dvoje))\/gallery\/?$/', 
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/(?P<page>(bginfo-box|bginfo-night-map|bginfo-map|putovanje-za-dvoje))\/(?P<subpage>(gallery))\/?$/', 
             'controller' => 'home', 
             'action'     => 'dynamicGalleryPages', 
             'layout'     => 'default'

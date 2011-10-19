@@ -131,6 +131,7 @@ class HomeController extends Controller
         
         parent::set('activeLangs', $this->db->getActiveLanguages());
         
+        
         $settings = $this->db->getDynamicPageSettings($params);
 
         
