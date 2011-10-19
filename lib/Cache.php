@@ -29,6 +29,8 @@ class Cache {
                 if(!fwrite($h, $data)) throw new Exception('Problem with writting in file');
                 flock($h, LOCK_UN); // release the lock
                 fclose($h);
+                
+                chmod($fileName, 0777);
                 return true;
         }
         
