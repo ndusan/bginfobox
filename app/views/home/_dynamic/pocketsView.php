@@ -1,4 +1,3 @@
-#pockets
 <div class="main">
     <div class="mainBox">
         <div class="boxTitle">
@@ -24,16 +23,25 @@
         </div>
         <ul class="galleryAll">
             <li>
-                <a href="#"><img title="" width="170" height="240" src=" <?= IMAGE_PATH . 'dummy1.jpg'; ?>" /></a>
-                <span><a href="#">Preuzmi aktuelno izdanje Belgrade in your pocket vodica</a></span>
+                <span>
+                    <img title="" width="170" height="240" src=" <?= IMAGE_PATH . 'dummy1.jpg'; ?>" />
+                    <a class="zoom lightbox" href="<//?=DS.'public'.DS.'uploads'.DS.'gallery'.DS.$g['image_name'];?>"></a>
+                </span>
+                <span class="info"><a href="#">Preuzmi aktuelno izdanje Belgrade In Your Pocket vodica </a></span>
             </li>
             <li>
-                <a href="#"><img title="" width="170" height="240" src=" <?= IMAGE_PATH . 'dummy1.jpg'; ?>" /></a>
-                <span><a href="#">PPreuzmi aktuelno izdanje Novi Sad in your pocket vodica</a></span>
+                <span>
+                    <img title="" width="170" height="240" src=" <?= IMAGE_PATH . 'dummy1.jpg'; ?>" />
+                    <a class="zoom lightbox" href="<//?=DS.'public'.DS.'uploads'.DS.'gallery'.DS.$g['image_name'];?>"></a>
+                </span>
+                <span class="info"><a href="#">Preuzmi aktuelno izdanje Novi Sad In Your Pocket vodica </a></span>
             </li>
             <li>
-                <a href="#"><img title="" width="170" height="240" src=" <?= IMAGE_PATH . 'dummy1.jpg'; ?>" /></a>
-                <span><a href="#">Preuzmi aktuelno izdanje Nis in your pocket vodica</a></span>
+                <span>
+                    <img title="" width="170" height="240" src=" <?= IMAGE_PATH . 'dummy1.jpg'; ?>" />
+                    <a class="zoom lightbox" href="<//?=DS.'public'.DS.'uploads'.DS.'gallery'.DS.$g['image_name'];?>"></a>
+                </span>
+                <span class="info"><a href="#">Preuzmi aktuelno izdanje Nis In Your Pocket vodica </a></span>
             </li>
         </ul>
     </div>

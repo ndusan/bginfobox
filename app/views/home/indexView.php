@@ -2,28 +2,28 @@
     <div class="mainBox">
         <ul class="galleryAll">
             <li>
-                <a href="<?= DS . $params['lang'] . DS . 'bginfo-box'.DS.'gallery';?>" >
+                <a href="<?= DS . $params['lang'] . DS . 'bginfo-box' . DS . 'gallery'; ?>" >
                     <img title="" width="170" height="240" src=" <?= IMAGE_PATH . 'dummy1.jpg'; ?>" />
                 </a>
+                <span class="info moreInfo"><a href="<?= DS . $params['lang'] . DS . 'bginfo-box'; ?>">Sta je Bg Info Box?</a></span>
             </li>
             <li>
-                <a href="<?= DS . $params['lang'] . DS . 'bginfo-map'.DS.'gallery';?>">
+                <a href="<?= DS . $params['lang'] . DS . 'bginfo-map' . DS . 'gallery'; ?>">
                     <img title="" width="170" height="240" src=" <?= IMAGE_PATH . 'dummy1.jpg'; ?>" /> 
                 </a>
+                <span class="info moreInfo"><a href="<?= DS . $params['lang'] . DS . 'bginfo-map'; ?>">Sta je Bg Info Map?</a></span>
             </li>
             <li>
-                <a href="<?= DS . $params['lang'] . DS . 'bginfo-night-map'.DS.'gallery';?>">
+                <a href="<?= DS . $params['lang'] . DS . 'bginfo-night-map' . DS . 'gallery'; ?>">
                     <img title="" width="170" height="240" src=" <?= IMAGE_PATH . 'dummy1.jpg'; ?>" /> 
                 </a>
+                <span class="info moreInfo"><a href="<?= DS . $params['lang'] . DS . 'bginfo-night-map' ?>">Sta je Bg Info Night Map?</a></span>
             </li>
             <li>
-                <span class="moreInfo"><a href="<?= DS . $params['lang'] . DS . 'bginfo-box';?>">Sta je Bg Info Box?</a></span>
-            </li>
-            <li>
-                <span class="moreInfo"><a href="<?= DS . $params['lang'] . DS . 'bginfo-map';?>">Sta je Bg Info Map?</a></span>
-            </li>
-            <li>
-                <span class="moreInfo"><a href="<?= DS . $params['lang'] . DS . 'bginfo-night-map'?>">Sta je Bg Info Night Map?</a></span>
+                <a href="<?= DS . $params['lang'] . DS . 'putovanje-za-dvoje' . DS . 'gallery'; ?>">
+                    <img title="" width="170" height="240" src=" <?= IMAGE_PATH . 'dummy1.jpg'; ?>" /> 
+                </a>
+                <span class="info moreInfo"><a href="<?= DS . $params['lang'] . DS . 'putovanje-za-dvoje' ?>">Sta je Putovanja za dvoje?</a></span>
             </li>
         </ul>
     </div>
@@ -42,7 +42,7 @@
         <div class="boxContent wys">
             <!-- ovo sve  upucava kroz efitor jer ima 1ys klasu -->
             <h2>Saznajte vishe o asdljas</h2>
-            <p>asd asd asd asd asd asd <a href="<?= DS . $params['lang'] . DS . 'pockets';?>">link</a>a</p>
+            <p>asd asd asd asd asd asd <a href="<?= DS . $params['lang'] . DS . 'pockets'; ?>">link</a>a</p>
         </div>
     </div>
     <div class="mainBox">
@@ -68,13 +68,13 @@
                 <img title="" width="170" height="100" src=" <?= IMAGE_PATH . 'dummy1.jpg'; ?>" /> 
             </li>
             <li>
-                <span class="moreInfo"><b>Arhiva izdanja</b></span>
+                <span class="info moreInfo"><b>Arhiva izdanja</b></span>
             </li>
             <li>
-                <span class="moreInfo"><b>Saradnici</b></span>
+                <span class="info moreInfo"><b>Saradnici</b></span>
             </li>
             <li>
-                <span class="moreInfo"><b>Galerija</b></span>
+                <span class="info moreInfo"><b>Galerija</b></span>
             </li>
         </ul>
     </div>

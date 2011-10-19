@@ -1,31 +1,41 @@
 <div class="main">
     <div class="mainBox">
+        <div class="boxTitle">
+            <h1>Bg Info Map izdanja</h1>
+        </div>
         <ul class="galleryAll">
             <li>
-                <img title="" width="170" height="240" src=" <?= IMAGE_PATH . 'dummy1.jpg'; ?>" />
-                <span>asdasdasdasd</span>
+                <span>
+                    <img title="" width="170" height="240" src=" <?= IMAGE_PATH . 'dummy1.jpg'; ?>" />
+                    <a class="zoom lightbox" href="<//?=DS.'public'.DS.'uploads'.DS.'gallery'.DS.$g['image_name'];?>"></a>
+                </span>
             </li>
             <li>
-                <img title="" width="170" height="240" src=" <?= IMAGE_PATH . 'dummy1.jpg'; ?>" /> 
-                <span>asdasdasdasd</span>
+                <span>
+                    <img title="" width="170" height="240" src=" <?= IMAGE_PATH . 'dummy1.jpg'; ?>" />
+                    <a class="zoom lightbox" href="<//?=DS.'public'.DS.'uploads'.DS.'gallery'.DS.$g['image_name'];?>"></a>
+                </span>
             </li>
             <li>
-                <img title="" width="170" height="240" src=" <?= IMAGE_PATH . 'dummy1.jpg'; ?>" /> 
-                <span>asdasdasdasd</span>
-            </li>
-            <li>
-                <img title="" width="170" height="240" src=" <?= IMAGE_PATH . 'dummy1.jpg'; ?>" />
-                <span>asdasdasdasd</span>
-            </li>
-            <li>
-                <img title="" width="170" height="240" src=" <?= IMAGE_PATH . 'dummy1.jpg'; ?>" /> 
-                <span>asdasdasdasd</span>
-            </li>
-            <li>
-                <img title="" width="170" height="240" src=" <?= IMAGE_PATH . 'dummy1.jpg'; ?>" /> 
-                <span>asdasdasdasd</span>
+                <span>
+                    <img title="" width="170" height="240" src=" <?= IMAGE_PATH . 'dummy1.jpg'; ?>" />
+                    <a class="zoom lightbox" href="<//?=DS.'public'.DS.'uploads'.DS.'gallery'.DS.$g['image_name'];?>"></a>
+                </span>
             </li>
         </ul>
+        <p><span class="info">Aktuelno izdanje Bg info mape</span></p>
+        <ul class="archiveAll">
+            <li>
+                <ul>
+                    <li><a href="#"><img src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" /></a></li>
+                    <li><a href="#"><img src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" /></a></li>
+                    <li><a href="#"><img src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" /></a></li>
+                    <li><a href="#"><img src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" /></a></li>
+                    <li><a href="#"><img src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" /></a></li>
+                </ul>
+            </li>
+        </ul>
+        <p><span class="info">Poslednjih 5 izdanja Bg Info Mape</span></p>
     </div>
     <div class="mainBox">
         <div class="boxTitle">
