@@ -248,6 +248,11 @@ $routes = array(
             'action'     => 'index', 
             'layout'     => 'cms'
     ),
+    array(  'url'        => '/^cms\/pockets\/position\/?$/', 
+            'controller' => 'cmsPockets', 
+            'action'     => 'position', 
+            'layout'     => 'ajax'
+    ),
     array(  'url'        => '/^cms\/pockets\/edit\/static\/?$/', 
             'controller' => 'cmsPockets', 
             'action'     => 'editStatic', 

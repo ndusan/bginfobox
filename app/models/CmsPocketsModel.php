@@ -14,7 +14,7 @@ class CmsPocketsModel extends Model
         
         try{
             
-            $query = sprintf("SELECT * FROM %s WHERE `type`='dynamic'", $this->tablePages);
+            $query = sprintf("SELECT * FROM %s WHERE `type`='dynamic' ORDER BY `position` DESC", $this->tablePages);
             $stmt = $this->dbh->prepare($query);
             $stmt->execute();
 
@@ -121,6 +121,34 @@ class CmsPocketsModel extends Model
             $stmt = $this->dbh->prepare($query);
             
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+
+            return true;
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    public function positionCity($params)
+    {
+        
+        try{
+            
+            $query = sprintf("UPDATE %s AS `city` SET 
+                                    `city`.`position`=:start WHERE `id`=:endId", $this->tablePages);
+            $stmt = $this->dbh->prepare($query);
+            
+            $stmt->bindParam(':start', $params['start'], PDO::PARAM_INT);
+            $stmt->bindParam(':endId', $params['end_id'], PDO::PARAM_INT);
+            $stmt->execute();
+
+            $query = sprintf("UPDATE %s AS `city` SET 
+                                    `city`.`position`=:end WHERE `id`=:startId", $this->tablePages);
+            $stmt = $this->dbh->prepare($query);
+            
+            $stmt->bindParam(':end', $params['end'], PDO::PARAM_INT);
+            $stmt->bindParam(':startId', $params['start_id'], PDO::PARAM_INT);
             $stmt->execute();
 
             return true;

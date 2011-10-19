@@ -280,5 +280,16 @@ class CmsPocketsController extends Controller
     }
     
     
+    public function positionAction($params)
+    {
+        
+        if($this->db->positionCity($params)){
+            
+            return true;
+        }else{
+            
+            return false;
+        }
+    }
     
 }
