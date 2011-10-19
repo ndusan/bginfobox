@@ -23,7 +23,7 @@
                 <span class="moreInfo"><a href="<?= DS . $params['lang'] . DS . 'bginfo-map';?>">Sta je Bg Info Map?</a></span>
             </li>
             <li>
-                <span class="moreInfo"><a href="<?= DS . $params['lang'] . DS . 'bginfo-nigth-map'?>">Sta je Bg Info Night Map?</a></span>
+                <span class="moreInfo"><a href="<?= DS . $params['lang'] . DS . 'bginfo-night-map'?>">Sta je Bg Info Night Map?</a></span>
             </li>
         </ul>
     </div>
