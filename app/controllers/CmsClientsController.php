@@ -15,9 +15,9 @@ class CmsClientsController extends Controller
             //Data submited
             if($this->db->createClient($params['client'])){
                 
-                parent::redirect ('cms'.DS.'client', 'success');
+                parent::redirect ('cms'.DS.'clients', 'success');
             }else{
-                parent::redirect ('cms'.DS.'client'.DS.'add', 'error');
+                parent::redirect ('cms'.DS.'clients'.DS.'add', 'error');
             }
         }
         

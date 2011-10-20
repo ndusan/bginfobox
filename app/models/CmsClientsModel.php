@@ -66,17 +66,34 @@ class CmsClientsModel extends Model
         
         try{
             
-            $query = sprintf("INSERT INTO %s SET `title`=:title", $this->tableClients);
+            $query = sprintf("INSERT INTO %s SET `title`=:title, `type_client`=:typeClient, `type_distributor`=:typeDistributor", $this->tableClients);
             $stmt = $this->dbh->prepare($query);
             
+            $typeClient = !empty($params['purpose']['client'])?$params['purpose']['client']:'';
+            $dynamicClient = !empty($params['purpose']['distributor'])?$params['purpose']['distributor']:'';
+            
             $stmt->bindParam(':title', $params['title'], PDO::PARAM_STR);
+            $stmt->bindParam(':typeClient', $typeClient, PDO::PARAM_STR);
+            $stmt->bindParam(':typeDistributor', $dynamicClient, PDO::PARAM_STR);
             $stmt->execute();
             
             $id = $this->dbh->lastInsertId();
             
             //Add pages
-            if(!empty($params['client']['static'])){
-                foreach($parmas['client']['static'] as $s){
+            if(!empty($params['static'])){
+                foreach($parmas['static'] as $s){
+                    $query = sprintf("INSERT INTO %s SET `client_id`=:clientId, `page_id`=:pageId", $this->tableClientPages);
+                    $stmt = $this->dbh->prepare($query);
+
+                    $stmt->bindParam(':clientId', $id, PDO::PARAM_INT);
+                    $stmt->bindParam(':pageId', $s, PDO::PARAM_INT);
+                    $stmt->execute();
+                }
+            }
+            
+            //Add pages
+            if(!empty($params['dynamic'])){
+                foreach($parmas['dynamic'] as $s){
                     $query = sprintf("INSERT INTO %s SET `client_id`=:clientId, `page_id`=:pageId", $this->tableClientPages);
                     $stmt = $this->dbh->prepare($query);
 
