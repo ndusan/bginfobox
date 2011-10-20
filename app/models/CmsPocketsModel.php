@@ -53,17 +53,19 @@ class CmsPocketsModel extends Model
         try{
             
             $query = sprintf("INSERT INTO %s SET `title`=:title, `link`=:link, `num_of_images`=:numOfImages,
-                                `has_link`=:hasLink, `has_file_name`=:hasFileName", $this->tablePages);
+                                `has_link`=:hasLink, `has_file_name`=:hasFileName, `position`=:position", $this->tablePages);
             $stmt = $this->dbh->prepare($query);
             
             $numOfImages = 3;
             $hasLink = 1;
             $hasFileName = 1;
+            $position = time();
             $stmt->bindParam(':title', $params['title'], PDO::PARAM_STR);
             $stmt->bindParam(':link', $params['link'], PDO::PARAM_STR);
             $stmt->bindParam(':numOfImages', $numOfImages, PDO::PARAM_INT);
             $stmt->bindParam(':hasLink', $hasLink, PDO::PARAM_INT);
             $stmt->bindParam(':hasFileName', $hasFileName, PDO::PARAM_INT);
+            $stmt->bindParam(':position', $position, PDO::PARAM_INT);
             $stmt->execute();
 
             return true;
