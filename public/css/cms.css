@@ -9,7 +9,7 @@ address,caption,cite,code,dfn,th,var {font-style:normal; font-weight:normal;}
 em,strong{}
 ol,ul {list-style:none;}
 caption {text-align:center;}
-th {text-align:left;}
+
 h1,h2,h3,h4,h5,h6 {font-size:100%; margin:0; padding:0;}
 q:before,q:after {content:'';}
 abbr,acronym { border:0;}
@@ -90,8 +90,9 @@ ul.addTop li a {line-height:20px; font-size:14px; display:block;}
 
 .addContent {padding:20px;}
 .addContent td, .addContent1 td {padding:5px;}
+.addContent th {text-align:left; padding:10px 5px; border-bottom:solid 1px #BAD4E3;}
 .addContent1 {padding:20px 0;}
-.addContent .trSpec {display:block; padding:10px; margin:5px 0; background-color:#F5F5F5; width:300px;}
+.addContent .trSpec {display:block; padding:10px; margin:5px 0; border:solid 1px #BAD4E3;}
 
 ul.ui-tabs-nav {background-color:#EEF4F5; padding:19px 20px 0; height:41px;}
 ul.ui-tabs-nav li {float:left; }
@@ -137,3 +138,6 @@ ul.chart li {float:left; height:120px; width:48px; position:relative; margin:0 1
 ul.chart li span {line-height:20px; position:absolute; bottom:0; left:0; width:100%; color:#FFF; font-size:10px;}
 ul.chart .stat1 {position:absolute; bottom:0; width:100%; background-color:#19a6db;}
 ul.chart .stat2 {position:absolute; bottom:0; width:100%; background-color:#98cc52;}
+
+ul.listing {overflow:hidden;}
+ul.listing li {float:left; padding:0 10px 10px; margin:0 20px 0 0; border:solid 1px #BAD4E3;}

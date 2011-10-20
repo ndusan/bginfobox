@@ -9,8 +9,8 @@
         <li><a href="#fragment-<?=$i++;?>"><?=$tab['title'];?></a></li>
         <? endforeach;?>
         <? endif;?>
-        <li><a href="#fragment-<?=$i++;?>"><span class="cmsEdit"></span></a></li>
-        <li><a href="#fragment-<?=$i++;?>"><span class="cmsInfo"></span></a></li>
+        <li><a title="View Cities" href="#fragment-<?=$i++;?>"><span class="cmsEdit"></span></a></li>
+        <li><a title="View Info Notes"href="#fragment-<?=$i++;?>"><span class="cmsInfo"></span></a></li>
     </ul>
     
     <? $i=1;?>
