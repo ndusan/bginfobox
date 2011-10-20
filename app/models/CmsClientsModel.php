@@ -51,6 +51,33 @@ class CmsClientsModel extends Model
             $stmt->bindParam(':id', $params['id'], PDO::PARAM_INT);
             $stmt->execute();
 
+            //Remove all 
+            $this->removeClientPages($params['id']);
+            
+            //Add pages
+            if(!empty($params['static'])){
+                foreach($parmas['static'] as $s){
+                    $query = sprintf("INSERT INTO %s SET `client_id`=:clientId, `page_id`=:pageId", $this->tableClientPages);
+                    $stmt = $this->dbh->prepare($query);
+
+                    $stmt->bindParam(':clientId', $id, PDO::PARAM_INT);
+                    $stmt->bindParam(':pageId', $s, PDO::PARAM_INT);
+                    $stmt->execute();
+                }
+            }
+            
+            //Add pages
+            if(!empty($params['dynamic'])){
+                foreach($parmas['dynamic'] as $s){
+                    $query = sprintf("INSERT INTO %s SET `client_id`=:clientId, `page_id`=:pageId", $this->tableClientPages);
+                    $stmt = $this->dbh->prepare($query);
+
+                    $stmt->bindParam(':clientId', $id, PDO::PARAM_INT);
+                    $stmt->bindParam(':pageId', $s, PDO::PARAM_INT);
+                    $stmt->execute();
+                }
+            }
+            
             return true;
         }catch(Exception $e){
             
@@ -117,6 +144,8 @@ class CmsClientsModel extends Model
     {
         
         try{
+            $this->removeClientPages($params['id']);
+            
             $query = sprintf("DELETE FROM %s  WHERE `id`=:id", $this->tableClients);
             $stmt = $this->dbh->prepare($query);
 
@@ -179,6 +208,22 @@ class CmsClientsModel extends Model
 
                 return $stmt->fetchAll();
             }
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
+    private function removeClientPages($clientId)
+    {
+        
+        try{
+            $query = sprintf("DELETE FROM %s WHERE `client_id`=:clientId", $this->tableClientPages);
+            $stmt = $this->dbh->prepare($query);
+            $stmt->execute();
+
+            return true;
         }catch(Exception $e){
             
             return false;

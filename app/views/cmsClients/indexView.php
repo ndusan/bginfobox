@@ -21,9 +21,9 @@
                     <td><?=$html->convertDate($c['created'], true);?></td>
                     <td align="center">
                         <!--Edit-->
-                        <a title="Edit" class="cmsEdit" href="/cms/clients/edit/<?= $c['id']; ?>"></a>
+                        <a title="Edit" class="cmsEdit" href="/cms/clients/<?= $c['id']; ?>/edit"></a>
                         <!--Delete-->
-                        <a title="Delete" class="jw cmsDelete" href="/cms/clients/delete/<?= $c['id']; ?>"></a>
+                        <a title="Delete" class="jw cmsDelete" href="/cms/clients/<?= $c['id']; ?>/delete"></a>
                     </td> 
           </tr> 
             <? endforeach; ?>
