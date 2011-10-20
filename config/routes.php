@@ -304,6 +304,28 @@ $routes = array(
             'layout'     => 'empty'
     ),
     
+    //CMS clients
+    array(  'url'        => '/^cms\/clients\/?$/', 
+            'controller' => 'cmsClients', 
+            'action'     => 'index', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/clients\/add\/?$/', 
+            'controller' => 'cmsClients', 
+            'action'     => 'add', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/clients\/(?P<id>\d*)\/edit\/?$/', 
+            'controller' => 'cmsClients', 
+            'action'     => 'edit', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/clients\/(?P<id>\d*)\/delete\/?$/', 
+            'controller' => 'cmsClients', 
+            'action'     => 'delete', 
+            'layout'     => 'empty'
+    ),
+    
     
     
 );
