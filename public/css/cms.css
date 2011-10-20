@@ -133,11 +133,5 @@ ul.stats ul > li.last {margin:0; width:160px;}
 .statsDow {background-position:-2px -1px;}
 .statsVie {background-position:-2px -45px;}
 
-ul.chart {overflow:hidden; padding:10px 5px; margin:0 5px; width:350px; float:left; background-image: url(../images/chart_bg.png); border-top:solid 1px #f5f5f5;}
-ul.chart li {float:left; height:120px; width:48px; position:relative; margin:0 1px; text-align:center;}
-ul.chart li span {line-height:20px; position:absolute; bottom:0; left:0; width:100%; color:#FFF; font-size:10px;}
-ul.chart .stat1 {position:absolute; bottom:0; width:100%; background-color:#19a6db;}
-ul.chart .stat2 {position:absolute; bottom:0; width:100%; background-color:#98cc52;}
-
 ul.listing {overflow:hidden;}
 ul.listing li {float:left; padding:0 10px 10px; margin:0 20px 0 0; border:solid 1px #BAD4E3;}
