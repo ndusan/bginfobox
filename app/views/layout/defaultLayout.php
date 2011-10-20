@@ -144,7 +144,7 @@
                                 <h2><?=$_t['weather.title'][$params['lang']];?></h2>
                             </div>
                             <div class="boxContent">
-                                <?=$html->getWeather('SRXX0005', 1, array('day'=>$_t['weather.day'][$params['lang']], 'evening' => $_t['weather.evening'][$params['lang']]));?>
+                                <?//=$html->getWeather('SRXX0005', 1, array('day'=>$_t['weather.day'][$params['lang']], 'evening' => $_t['weather.evening'][$params['lang']]));?>
                             </div>
                         </div>
                         <div class="sidebarBox">
@@ -154,21 +154,21 @@
                             <div class="boxContent">
                                 <div class="currency">
                                     <table cellpadding="0" cellspacing="0" width="100%">
-                                <? 
+                                <? /*
                                 $allCurr = $html->getNBS();
                                 foreach($allCurr as $key=>$val):?>
                                         <tr>
                                             <td align="center">
-                                                <img src="////<?= IMAGE_PATH;?><?=$key.'.png'; ?>" />
+                                                <img src="<?= IMAGE_PATH;?><?=$key.'.png'; ?>" />
                                             </td>
                                             <td  align="center">
-                                               ////<?=$key;?> 
+                                               <?=$key;?> 
                                             </td>
                                             <td  align="center">
-                                                ////<?=$val['value'];?>
+                                                <?=$val['value'];?>
                                             </td>
                                         </tr>
-                                <? endforeach; ?>
+                                <? endforeach; */?>
                                     </table>
                                 </div>
                             </div>

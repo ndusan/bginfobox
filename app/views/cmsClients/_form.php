@@ -6,13 +6,31 @@
                     <tr>
                         <td>Title:</td>
                         <td>
-                            <input type="text" name="client[title]" value="<?= @$client['title']; ?>" />
+                            <input type="text" name="client[title]" value="<?= @$client['title']; ?>" class="jr"/>
                         </td>
                     </tr>
                     <tr>
-                        <td>Additional info:</td>
+                        <td>Address:</td>
                         <td>
-                            <textarea name="" rows="4" cols="20"></textarea>
+                            <input type="text" name="client[address]" value="<?= @$client['address']; ?>"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Telephone:</td>
+                        <td>
+                            <input type="text" name="client[phone]" value="<?= @$client['phone']; ?>" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Website:</td>
+                        <td>
+                            <input type="text" name="client[website]" value="<?= @$client['website']; ?>" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>E-mail:</td>
+                        <td>
+                            <input type="text" name="client[email]" value="<?= @$client['email']; ?>" />
                         </td>
                     </tr>
                     <tr>
@@ -28,8 +46,6 @@
                                                 </th>
                                                 <th><h3>Client</h3></th>
                                         </tr>
-
-
                                         <? if (!empty($staticCollection)): ?>
                                             <? foreach ($staticCollection as $static): ?>
                                                 <tr>
