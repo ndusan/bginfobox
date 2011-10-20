@@ -135,3 +135,5 @@ ul.stats ul > li.last {margin:0; width:160px;}
 
 ul.listing {overflow:hidden;}
 ul.listing li {float:left; padding:0 10px 10px; margin:0 20px 0 0; border:solid 1px #BAD4E3;}
+
+.dataTableSortable tr {background-image: url(../images/move.png); background-repeat:no-repeat; background-position:50% 50%; cursor:move;}
