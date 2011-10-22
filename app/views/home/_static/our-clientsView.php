@@ -24,15 +24,15 @@
                                         <li>
                                             <h4><?= $c['title']; ?></h4>
                                             <!-- Address -->
-                                            <?= (!empty($c['address']) ? $_t['client.address.label'][$params['lang']] . ': ' . $c['address'] . '<br/>' : ''); ?>
+                                            <?= (!empty($c['address']) ? '<b>'.$_t['client.address.label'][$params['lang']] . '</b>: ' . $c['address'] . '<br/>' : ''); ?>
                                         </li>
                                         <li>
                                             <!-- Phone -->
-                                            <b>Tel :</b> <?= (!empty($c['phone']) ? $_t['client.phone.label'][$params['lang']] . ': ' . $c['phone'] . '<br/>' : ''); ?>
+                                            <?= (!empty($c['phone']) ? '<b>'.$_t['client.phone.label'][$params['lang']] . '</b>: ' . $c['phone'] . '<br/>' : ''); ?>
                                             <!-- Email -->
-                                            <b>Email :</b> <?= (!empty($c['email']) ? $_t['client.email.label'][$params['lang']] . ': ' . $c['email'] . '<br/>' : ''); ?>
+                                            <?= (!empty($c['email']) ? '<b>'.$_t['client.email.label'][$params['lang']] . '</b>: ' . $c['email'] . '<br/>' : ''); ?>
                                             <!-- Website -->
-                                            <?= (!empty($c['website']) ? $_t['client.website.label'][$params['lang']] . ': ' . $c['website'] : ''); ?>
+                                            <?= (!empty($c['website']) ? '<b>'.$_t['client.website.label'][$params['lang']] . '</b>: ' . $c['website'] : ''); ?>
                                         </li>
                                     </ul>
                                 </div>

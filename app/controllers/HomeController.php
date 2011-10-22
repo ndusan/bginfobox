@@ -96,7 +96,7 @@ class HomeController extends Controller
     
     private function archivePage($params)
     {
-        
+        print_r($this->db->getAllArchive());
         parent::set('archiveCollection', $this->db->getAllArchive());
     }
     

@@ -342,6 +342,26 @@ $routes = array(
             'layout'     => 'empty'
     ),
     
-    
+    //CMS navigation
+    array(  'url'        => '/^cms\/navigation\/?$/', 
+            'controller' => 'cmsNavigation', 
+            'action'     => 'index', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/navigation\/add\/?$/', 
+            'controller' => 'cmsNavigation', 
+            'action'     => 'add', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/navigation\/(?P<id>\d*)\/edit\/?$/', 
+            'controller' => 'cmsNavigation', 
+            'action'     => 'edit', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/navigation\/(?P<id>\d*)\/delete\/?$/', 
+            'controller' => 'cmsNavigation', 
+            'action'     => 'delete', 
+            'layout'     => 'empty'
+    ),
     
 );

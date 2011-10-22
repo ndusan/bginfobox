@@ -47,6 +47,7 @@
                     <li><a <?= $this->_controller=='cmsCarousel'?'class="active"':''; ?> href="<?= DS . 'cms' . DS . 'carousel'; ?>">Carousel</a></li>
                     <li><a <?= $this->_controller=='cmsBginfo'?'class="active"':''; ?> href="<?= DS . 'cms' . DS . 'bginfo'; ?>">BgInfo pages</a></li>
                     <li><a <?= $this->_controller=='cmsPockets'?'class="active"':''; ?> href="<?= DS . 'cms' . DS . 'pockets'; ?>">Pockets pages</a></li>
+                    <li><a <?= $this->_controller=='cmsNavigation'?'class="active"':''; ?> href="<?= DS . 'cms' . DS . 'navigation'; ?>">Navigation</a></li>
                     <li><a <?= $this->_controller=='cmsClients'?'class="active"':''; ?> href="<?= DS . 'cms' . DS . 'clients'; ?>">Clients</a></li>
                 </ul>
             </div>
