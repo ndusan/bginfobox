@@ -109,9 +109,9 @@
                         <!-- guide nav -->
 
                         <ul class="guideNav">
-                            <li><a href="#">&laquo; Nazad</a></li>
+                            <li><a href="#">&laquo; NAZAD</a></li>
                             <li><a href="#">Smestaj</a></li>
-                            <li><a href="#">Resorani</a></li>
+                            <li><a href="#">Restorani</a></li>
                             <li><a href="#">Kultira</a></li>
                             <li><a href="#">Sport</a></li>
                             <li><a href="#">Zabava</a></li>
