@@ -24,6 +24,8 @@ var App = App || {};
                     if($(this).val().length <= 0){
                         
                         $(this).addClass('warning');
+                        $(this).closest('tr').addClass('warningTr');
+
                         allOk = false;
                     }else{
                         $(this).removeClass('warning');
