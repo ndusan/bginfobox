@@ -1,14 +1,19 @@
 <div class="main">
     <div class="mainBox">
-        <? if(!empty($bginfoboxCollection)):?>
+        <div class="boxTitle">
+            <h1><?=$_t['bginfo-box.gallery.label'][$params['lang']];?></h1>
+        </div>
+        <? if(!empty($galleryCollection)):?>
         <ul class="galleryAll">
+            <? foreach($galleryCollection as $gc):?>
             <li>
                 <span>
-                    <img title="" width="170" height="240" src=" <?= IMAGE_PATH . 'dummy1.jpg'; ?>" />
-                    <a class="zoom lightbox" href="<//?=DS.'public'.DS.'uploads'.DS.'gallery'.DS.$g['image_name'];?>"></a>
+                    <img title="<?=$gc['title_'.$params['lang']];?>" alt="<?=$gc['title_'.$params['lang']];?>" width="170" height="240" src="<?=(DS.'public'.DS.'uploads'.DS.'bginfo'.DS.$gc['image_name']);?>" />
+                    <a class="zoom lightbox" title="<?=$gc['title_'.$params['lang']];?>" href="<?=(DS.'public'.DS.'uploads'.DS.'bginfo'.DS.$gc['image_name']);?>"></a>
                 </span>
-                <span class="info">Lokacija</span>
+                <span class="info"><?=$gc['title_'.$params['lang']];?></span>
             </li>
+            <? endforeach;?>
         </ul>
         <? endif;?>
     </div>
