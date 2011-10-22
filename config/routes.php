@@ -325,6 +325,11 @@ $routes = array(
             'action'     => 'delete', 
             'layout'     => 'empty'
     ),
+    array(  'url'        => '/^cms\/clients\/delete\/image\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsClients', 
+            'action'     => 'deleteImage', 
+            'layout'     => 'empty'
+    ),
     
     
     
