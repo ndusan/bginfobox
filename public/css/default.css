@@ -65,8 +65,9 @@ input[type=submit]:hover {color:#f0397b; border-color:#C6C6C6; cursor:pointer;}
 .banner {height:280px; width:770px; float:right;}
 .page404 {position:absolute; top:50%; left:50%; margin:-250px 0 0 -400px; width:800px;}
 
-ul.mainNav {overflow:hidden; width:200px; position:absolute; left:0; bottom:10px;}
+ul.mainNav {overflow:hidden; width:200px; position:absolute; left:0; bottom:0;}
 ul.mainNav li {display:block; background-color:#999; margin:1px 0 0;}
+ul.mainNav li.last a {line-height:35px;}
 ul.mainNav li a {display:block; font-size:14px; font-weight:bold; line-height:20px; color:#FFF; padding:5px 15px; text-shadow:1px 1px 1px #777;}
 ul.mainNav li a:hover, ul.mainNav li a.active {background:#9c1006 url(../images/grad2.png) scroll repeat-x 0 0;}
 
@@ -95,9 +96,11 @@ ul.mainNav li a:hover, ul.mainNav li a.active {background:#9c1006 url(../images/
 
 .mainBox {background-color:#efefef; margin:0 0 10px;}
 .mainBox .boxTitle {background:#9c1006 url(../images/grad2.png) scroll repeat-x 0 0; padding:10px 15px; position:relative;}
+.mainBox .boxTitle1 {background:#9a9a9a url(../images/grad1.png) scroll repeat-x 0 0; padding:10px 15px; position:relative;}
 .mainBox .boxTitle span {position:absolute; right:20px; bottom:5px;}
 .mainBox .boxTitle h1 {color:#FFF; font-size:20px; text-shadow:0 -1px 1px #69140e;}
 .mainBox .boxTitle h2 {color:#FFF; font-size:16px; text-shadow:0 -1px 1px #69140e;}
+.mainBox .boxTitle1 h2 {color:#FFF; font-size:16px; text-shadow:0 -1px 1px #666;}
 .mainBox .boxContent {padding:15px;}
 .mainBox .boxContent p {padding:5px 0;}
 
@@ -156,7 +159,8 @@ ul.soc  li {float:left; margin-left:20px;}
 .archiveAll {overflow:hidden; padding:15px 5px;}
 .archiveAll > li {padding:5px 0;}
 .archiveAll ul {overflow:hidden;}
-.archiveAll ul li {float:left; margin:0 10px; line-height:20px;}
+.archiveAll ul li {float:left; margin:5px 10px;}
+.archiveAll ul li span {font-size:11px;}
 .archiveAll ul li img {width:90px;}
 .archiveAll ul .last {padding:80px 0 0;}
 
@@ -199,3 +203,15 @@ span.info.moreInfo {width:170px; font-size:13px; color:#FFF; margin:10px 0 0; ba
 
 .currency {padding:10px; border-bottom:solid 1px #dfdfdf;}
 .currency td {padding:5px 0;}
+
+.client {overflow:hidden;}
+.client h4 {font-size:14px;}
+.client span.img {float:left; width:70px; height:70px; overflow:hidden; display:block;}
+ul.clientInfo {margin:0 0 0 80px;}
+ul.clientInfo li {width:50%; line-height:20px; float:left;}
+
+ul.guideNav {overflow:hidden; margin-bottom:10px;}
+ul.guideNav li {display:block; background-color:#999; margin:1px 0 0;}
+ul.guideNav li.last a {line-height:35px;}
+ul.guideNav li a {display:block; font-size:14px; font-weight:bold; line-height:20px; color:#FFF; padding:5px 15px; text-shadow:1px 1px 1px #777;}
+ul.guideNav li a:hover, ul.mainNav li a.active {background:#9c1006 url(../images/grad2.png) scroll repeat-x 0 0;}
