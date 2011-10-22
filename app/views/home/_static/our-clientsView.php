@@ -3,7 +3,6 @@
         <div class="boxTitle">
             <h1>Nasi klijenti</h1>
         </div>
-        <div class="boxContent">
             <table cellpadding="0" cellpadding="0" width="100%">
                 <thead>
                     <tr>
@@ -47,6 +46,5 @@
                     </tr>
                 </tbody>
             </table>
-        </div>
     </div>
 </div>

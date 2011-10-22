@@ -43,13 +43,14 @@ input[type=submit]:hover {color:#f0397b; border-color:#C6C6C6; cursor:pointer;}
 .facebook:hover {background-position: 0 -75px; color:#FFF;}
 .youtube:hover {background-position:0 -25px; color:#FFF;}
 
-.icoMail, .icoPdf, .icoDoc, .icoDld {padding-left:35px !important;}
+.icoMail, .icoPdf, .icoDoc, .icoDld, .icoDis {padding-left:35px !important;}
 .icoMail {background:transparent url(../images/icoMail.png) scroll no-repeat 5px 50%;}
 .icoPdf {background:transparent url(../images/icoPdf.png) scroll no-repeat 5px 50%;}
 .icoDoc {background:transparent url(../images/icoDoc.png) scroll no-repeat 5px 50%;}
 .icoDld {background:transparent url(../images/icoDld.png) scroll no-repeat 5px 50%;}
+.icoDis {background:transparent url(../images/icoDis.png) scroll no-repeat 5px 50%;}
 .infoExtra {font-size:12px;}
-
+.galleryAll .icoDld,.galleryAll .icoDis {padding:5px 0;}
 /*WYS RESETING*/
 .wys img {float:left; margin:0 10px 0 0;}
 
@@ -59,13 +60,13 @@ input[type=submit]:hover {color:#f0397b; border-color:#C6C6C6; cursor:pointer;}
 
 .headerW {background-image:url(../images/header_bg.png); border-top:solid 1px #222;}
 .header {width:980px; margin:0 auto; padding:10px 0; height:280px; overflow:hidden; position:relative;}
-.logo {position:absolute; top:10px; left:0;}
+.logo {position:absolute; top:0; left:0;}
 .banner {height:280px; width:770px; float:right;}
 .page404 {position:absolute; top:50%; left:50%; margin:-250px 0 0 -400px; width:800px;}
 
 ul.mainNav {overflow:hidden; width:200px; position:absolute; left:0; bottom:10px;}
 ul.mainNav li {display:block; background-color:#999; margin:1px 0 0;}
-ul.mainNav li a {display:block; font-size:14px; font-weight:bold; line-height:19px; color:#FFF; padding:5px 15px; text-shadow:1px 1px 1px #777;}
+ul.mainNav li a {display:block; font-size:14px; font-weight:bold; line-height:20px; color:#FFF; padding:5px 15px; text-shadow:1px 1px 1px #777;}
 ul.mainNav li a:hover, ul.mainNav li a.active {background:#9c1006 url(../images/grad2.png) scroll repeat-x 0 0;}
 
 .slides_container {width:770px; height:280px;} 
@@ -187,8 +188,9 @@ span.info.moreInfo {width:170px; font-size:13px; color:#FFF; margin:10px 0 0; ba
 #calendar .todayDay {background-color:#CCC; box-shadow:0 1px 3px #CCC inset;}
 #calendar .eventDay {background-image:url(../images/event_bg.png); background-position:100% 100%; background-repeat:no-repeat;}
 #calendar .eventDay a {padding:0 5px; line-height:25px; color:#333; font-weight:bold; display:block;}
-.mainBig  table th {padding:5px; color:#FFF; font-size:11px; text-align:center; background:#9a9a9a url(../images/grad1.png) scroll repeat-x 0 0;}
-.mainBig  table td { background-color:#E6E6E6;}
+.mainBig  table {border-collapse:collapse; margin-top:15px;}
+.mainBig  table th {padding:5px; font-size:11px; text-align:center; color:#FFF; text-shadow:0 1px 1px #333; background:#9a9a9a url(../images/grad1.png) scroll repeat-x 0 0;}
+.mainBig  table td {padding:5px; background-color:#E6E6E6;}
 
 .image_crop{ width: 170px; height: 120px; overflow: hidden;}
 

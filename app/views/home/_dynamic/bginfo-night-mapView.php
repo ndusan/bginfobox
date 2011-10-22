@@ -7,6 +7,8 @@
             <ul class="boxExtra">
                 <li class="icoPdf"><a href="#">Cenovnik oglasavanja</a></li>
                 <li class="icoMail"><a href="#">Zelite da se oglasite? <span>Posaljite nam Vase zahteve</span></a></li>
+                <li class="icoDis"><a href="#">Lokacije<span>Spisak distributivnih mesta</span></a></li>
+                <li class="icoDld"><a href="#">Download<span>Preuzmi aktuelno izdanje</span></a></li>
             </ul>
             <p>
                 Proin congue varius commodo. Aliquam vel luctus tellus. Nunc tempor, lectus eu scelerisque vestibulum, urna leo vehicula justo, vel mollis orci purus sit amet augue. Vestibulum porta malesuada quam. Proin blandit velit sit amet elit euismod pretium. Suspendisse elit elit, consectetur et condimentum a, blandit quis sem. Morbi ut justo tortor. 

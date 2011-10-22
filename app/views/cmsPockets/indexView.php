@@ -26,7 +26,7 @@
             <thead> 
                 <tr>
                     <th>Title</th>
-                    <th width="100px">Action</th>
+                    <th width="100">Action</th>
               </tr> 
             </thead> 
             <tbody> 
