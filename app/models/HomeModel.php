@@ -8,6 +8,9 @@ class HomeModel extends Model
     private $tblGallery = 'gallery';
     private $tblCarousel = 'carousel';
     private $tblConfig = 'config';
+    private $tblClients = 'clients';
+    private $tblPages = 'pages';
+    private $tblClientPages = 'client_pages';
 
     public function getDynamicPageSettings($params)
     {
@@ -237,6 +240,46 @@ class HomeModel extends Model
             }
             
             return $output;
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
+    
+    public function getAllClients()
+    {
+        
+        try{
+           
+            $query = sprintf("SELECT `a`.*, GROUP_CONCAT(`b`.`page_id`) AS `page_id` FROM %s AS `a` LEFT JOIN %s AS `b` ON `b`.`client_id`=`a`.`id`
+                                WHERE `a`.`type_client`='1' GROUP BY `a`.`id`", $this->tblClients, $this->tblClientPages);
+            $stmt = $this->dbh->prepare($query);
+            
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
+    public function getAllStaticPages()
+    {
+        
+        try{
+           
+            $query = sprintf('SELECT * FROM %s WHERE `type`=:type', $this->tblPages);
+            $stmt = $this->dbh->prepare($query);
+
+            $type = 'static';
+            $stmt->bindParam(':type', $type, PDO::PARAM_STR);
+            $stmt->execute();
+
+            return $stmt->fetchAll();
         }catch(Exception $e){
             
             return false;

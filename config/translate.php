@@ -30,4 +30,13 @@ $translate = array(
     //Weather
     'weather.day'=>array('sr'=>'Dan', 'en'=>'Day'),
     'weather.evening'=>array('sr'=>'Veče', 'en'=>'Evening'),
+    
+    //Our clients
+    'our-clients.title'=>array('sr'=>'Naši klijenti', 'en'=>'Our clients'),
+    'client.label'=>array('sr'=>'Klijent', 'en'=>'Client'),
+    'client.address.label'=>array('sr'=>'Adresa', 'en'=>'Address'),
+    'client.phone.label'=>array('sr'=>'Telefon', 'en'=>'Phone'),
+    'client.email.label'=>array('sr'=>'El.pošta', 'en'=>'E-mail'),
+    'client.website.label'=>array('sr'=>'Internet adresa', 'en'=>'Wesite'),
+    
 );
