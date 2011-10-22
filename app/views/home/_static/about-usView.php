@@ -16,15 +16,8 @@
             </p>
         </div>
     </div>
-    <div class="mainBox">
-        <div class="boxTitle">
-            <h1>Vodic kroz Beograd</h1>
-        </div>
-        <div class="boxContent">
-            <p>
-                Proin congue varius commodo. Aliquam vel luctus tellus. Nunc tempor, lectus eu scelerisque vestibulum, urna leo vehicula justo, vel mollis orci purus sit amet augue. Vestibulum porta malesuada quam. Proin blandit velit sit amet elit euismod pretium. Suspendisse elit elit, consectetur et condimentum a, blandit quis sem. Morbi ut justo tortor. 
-            </p>
-        </div>
-    </div>
+    <!-- Load belgrade guide-->
+    <? include_once VIEW_PATH.'home'.DS.'_static'.DS.'_guide.php'; ?>
 </div>
-<? include_once '_banners.php';?>
+<!-- Load banners -->
+<? include_once VIEW_PATH.'home'.DS.'_static'.DS.'_banners.php'; ?>

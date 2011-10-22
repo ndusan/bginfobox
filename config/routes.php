@@ -52,7 +52,18 @@ $routes = array(
             'action'     => 'dynamicPages', 
             'layout'     => 'default'
     ),
-    
+    //Location
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/(?P<page>(bginfo-box|bginfo-night-map|bginfo-map|putovanje-za-dvoje|pockets))\/location\/?$/', 
+            'controller' => 'home', 
+            'action'     => 'location', 
+            'layout'     => 'default'
+    ),
+    //Archive
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/(?P<page>(bginfo-night-map|bginfo-map|putovanje-za-dvoje|pockets))\/archive\/?$/', 
+            'controller' => 'home', 
+            'action'     => 'archive', 
+            'layout'     => 'default'
+    ),
     //Login page
     array(  'url'        => '/^login\/?$/', 
             'controller' => 'login', 

@@ -162,7 +162,7 @@ class HomeController extends Controller
         $settings = $this->db->getDynamicPageSettings($params);
         
         switch($params['page']){
-            case 'bginfo-box': break;
+            case 'bginfo-box': $this->bginfoGalleryPage($params['page']); break;
             case 'bginfo-map': break;
             case 'bginfo-night-map': break;
             case 'putovanje-za-dvoje': break;
@@ -170,6 +170,50 @@ class HomeController extends Controller
     }
     
     
+    
+    public function locationAction($params)
+    {
+
+        parent::set('freshNews', $this->db->getFreshNews($params));
+        parent::set('bannerCollection', $this->db->getAllBanners());
+        parent::set('carouselCollection', $this->db->getAllCarousel());
+        
+        parent::set('activeLangs', $this->db->getActiveLanguages());
+        
+        switch($params['page']){
+            case 'bginfo-box': break;
+            case 'bginfo-map': break;
+            case 'bginfo-night-map': break;
+            case 'putovanje-za-dvoje': break;
+        }
+    }
+    
+    public function archiveAction($params)
+    {
+
+        parent::set('freshNews', $this->db->getFreshNews($params));
+        parent::set('bannerCollection', $this->db->getAllBanners());
+        parent::set('carouselCollection', $this->db->getAllCarousel());
+        
+        parent::set('activeLangs', $this->db->getActiveLanguages());
+        
+        switch($params['page']){
+            case 'bginfo-map': break;
+            case 'bginfo-night-map': break;
+            case 'putovanje-za-dvoje': break;
+        }
+    }
+    
+    
+    
+    
+    private function bginfoGalleryPage($pageName)
+    {
+        
+        $pages = array('bginfo-box'=>'1','bginfo-map'=>'2','bginfo-night-map'=>'3','putovanje-za-dvoje'=>'4');
+        
+        return $this->db->bginfoGallery($pages[$pageName]);
+    }
     
     public function noPageFoundAction($params)
     {
