@@ -14,6 +14,8 @@ class HomeModel extends Model
     private $tblPageEditionImages = 'page_edition_images';
     private $tblPagePocketEditionImages = 'page_pocket_edition_images';
     private $tblPagesPocketContent = 'page_pocket_content';
+    private $tblPageContent = 'page_content';
+    private $tblPagePocketInfo = 'page_pocket_info';
 
     
     
@@ -347,8 +349,8 @@ class HomeModel extends Model
             $query = sprintf("SELECT `a`.`title`, `b`.* FROM %s AS `a`
                                 INNER JOIN %s AS `b` ON `b`.`page_id`=`a`.`id`
                                 WHERE `a`.`id`=:id AND `b`.`position`='0' 
-                                ORDER BY `b`.`created` DESC LIMIT 0,1", $this->tblPages, $this->tblPagePocketEditionImages);
-            
+                                ORDER BY `b`.`created` DESC LIMIT 0, 1", $this->tblPages, $this->tblPagePocketEditionImages); 
+                
             $stmt = $this->dbh->prepare($query);
             
             $stmt->bindParam(':id', $d['id'], PDO::PARAM_INT);
@@ -472,11 +474,9 @@ class HomeModel extends Model
 
                 $results = $stmt->fetchAll();
                 if(!empty($results)){
-                    foreach ($results as $r){
-                        $sc['edition_images'][] = $results;
-                    }
+                    $sc['edition_images'] = $results;
+                    $output[] = $sc;
                 }
-                $output[] = $sc;
             }
         }
         
@@ -495,15 +495,72 @@ class HomeModel extends Model
 
                 $results = $stmt->fetchAll();
                 if(!empty($results)){
-                    foreach ($results as $r){
-                        $dc['edition_images'][] = $results;
-                    }
+                    $dc['edition_images'] = $results;
+                    $output[] = $dc;
                 }
             }
-            $output[] = $dc;
         }
-        
         
         return $output;
     }
+    
+    
+    
+    public function getBginfo($pageId){
+        
+        try{
+           
+            $query = sprintf('SELECT * FROM %s WHERE `page_id`=:pageId', $this->tblPageContent);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->bindParam(':pageId', $pageId, PDO::PARAM_INT);
+
+            $stmt->execute();
+
+            return $stmt->fetch();
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
+    
+    public function pocketsGallery()
+    {
+        
+        try{
+           
+            $query = sprintf('SELECT * FROM %s ORDER BY `created` DESC LIMIT 0, 3', $this->tblPagePocketEditionImages);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
+    
+    
+    public function getPocketsInfo()
+    {
+        try{
+           
+            $query = sprintf('SELECT * FROM %s ORDER BY `created`', $this->tblPagePocketInfo);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+        }catch(Exception $e){
+            
+            return false;
+        }
+        
+    }
+    
 }

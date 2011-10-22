@@ -96,7 +96,6 @@ class HomeController extends Controller
     
     private function archivePage($params)
     {
-        print_r($this->db->getAllArchive());
         parent::set('archiveCollection', $this->db->getAllArchive());
     }
     
@@ -152,10 +151,27 @@ class HomeController extends Controller
         
         
         switch($params['page']){
-            case 'bginfo-box': break;
-            case 'bginfo-map': break;
-            case 'bginfo-night-map': break;
-            case 'putovanje-za-dvoje': break;
+            case 'bginfo-box': 
+                $this->bginfoPage($params['page']); 
+                $this->bginfoBoxGalleryPage($params['page']);
+                break;
+            case 'bginfo-map': 
+                $this->bginfoPage($params['page']); 
+                $this->bginfoGalleryPage($params['page'], null);
+                break;
+            case 'bginfo-night-map': 
+                $this->bginfoPage($params['page']); 
+                $this->bginfoGalleryPage($params['page'], null);
+                break;
+            case 'putovanje-za-dvoje': 
+                $this->bginfoPage($params['page']); 
+                $this->bginfoGalleryPage($params['page'], null);
+                break;
+            case 'pockets': 
+                $this->pocketsPage();
+                $this->pocketsInfo();
+                $this->pocketsGalleryPage($params['page'], null);
+                break;
         }
     }
     
@@ -177,6 +193,30 @@ class HomeController extends Controller
             case 'bginfo-night-map': $this->bginfoGalleryPage($params['page'], $archive); break;
             case 'putovanje-za-dvoje': $this->bginfoGalleryPage($params['page'], $archive); break;
         }
+    }
+    
+    
+    
+    private function bginfoPage($pageName)
+    {
+        
+        parent::set('content', $this->db->getBginfo($this->pages[$pageName]));
+    }
+    
+    
+    
+    private function pocketsPage()
+    {
+        
+        parent::set('content', $this->db->getPocketContent());
+    }
+    
+    
+    
+    private function pocketsInfo()
+    {
+        
+        parent::set('info', $this->db->getPocketsInfo());
     }
     
     
@@ -232,6 +272,13 @@ class HomeController extends Controller
         parent::set('galleryCollection', $this->db->bginfoGallery($this->pages[$pageName], $archive));
     }
     
+    
+    
+    
+    private function pocketsGalleryPage()
+    {
+        parent::set('galleryCollection', $this->db->pocketsGallery());
+    }
     
     
     

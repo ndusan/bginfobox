@@ -42,6 +42,7 @@ var App = App || {};
                  }
             });
             
+            App.Common.thead();
         },
         editStatic: function() {
             App.Common.mce();

@@ -42,12 +42,7 @@ $routes = array(
             'action'     => 'dynamicGalleryPages', 
             'layout'     => 'default'
     ),
-    array(  'url'        => '/^(?P<lang>('.LANG.'))\/(?P<page>(bginfo-box|bginfo-night-map|bginfo-map|putovanje-za-dvoje))\/?$/', 
-            'controller' => 'home', 
-            'action'     => 'dynamicPages', 
-            'layout'     => 'default'
-    ),
-    array(  'url'        => '/^(?P<lang>('.LANG.'))\/(?P<page>(pockets))\/?$/', 
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/(?P<page>(bginfo-box|bginfo-night-map|bginfo-map|putovanje-za-dvoje|pockets))\/?$/', 
             'controller' => 'home', 
             'action'     => 'dynamicPages', 
             'layout'     => 'default'

@@ -76,7 +76,8 @@
                                 <?= $_t['menu.contact'][$params['lang']]; ?>
                             </a>
                         </li>
-                        <li class="last"><a href="#">
+                        <li class="last">
+                            <a href="#" id="bgdguide">
                                 <?= $_t['menu.guide'][$params['lang']]; ?>
                             </a>
                         </li>

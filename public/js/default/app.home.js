@@ -20,7 +20,10 @@ var App = App || {};
             });
 
             //Lightbox
-            $('a.lightbox').lightBox();  
+            $('a.lightbox').lightBox(); 
+            
+            //Activate
+            App.Home.bgdguide();
         },
         contact: function() {},
         
@@ -40,6 +43,19 @@ var App = App || {};
                    $('#calendar').html(msg);
                    $('#loader').removeClass('loader');
                } 
+            });
+        },
+        bgdguide: function() {
+            
+            $('#bgdguide').click(function(){
+               $('.guideNav').slideToggle();
+               var v = $('.guideNav').attr('style').split(':')[1];
+               
+               if(v.split(';')[0] == ' hidden'){
+                   $(this).addClass('active');
+               }else{
+                   $(this).removeClass('active');
+               }
             });
         }
 

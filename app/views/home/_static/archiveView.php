@@ -5,11 +5,20 @@
         </div>
         <? if(!empty($archiveCollection)):?>
         <ul class="archiveAll">
+            <? $array = array('1'=>'bginfo-box','2'=>'bginfo-map','3'=>'bginfo-night-map','4'=>'putovanje-za-dvoje');?>
             <? foreach($archiveCollection as $ac):?>
             <li>
                 <ul>
                     <? if(!empty($ac['edition_images'])):?>
-                    <li><a href="#"><img src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" /></a></li>
+                    <? $tmp = ($ac['id'] > 4 ? 'pockets' : $array[$ac['id']]); ?>
+                    <? $tmpFolder = ($ac['id'] > 4 ? 'pockets' : 'bginfo'); ?>
+                    <? foreach($ac['edition_images'] as $e):?>
+                    <li>
+                        <a href="<?=(DS . $params['lang'] . DS . $tmp . DS . 'gallery?archive='.$e['page_edition_id']); ?>">
+                            <img src="<?=(DS.'public'.DS.'uploads'.DS.$tmpFolder.DS.$e['image_name']); ?>" />
+                        </a>
+                    </li>
+                    <? endforeach;?>
                     <? endif;?>
                     <li class="last">
                         <p><b><?=$ac['title'];?></b></p>

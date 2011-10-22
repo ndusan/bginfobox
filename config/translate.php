@@ -48,6 +48,7 @@ $translate = array(
     'bginfo-map.gallery.label'=>array('sr'=>'Bg Info mape izdanja', 'en'=>'Bg Info map editions'),
     'bginfo-night-map.gallery.label'=>array('sr'=>'Bg Info noćne mape', 'en'=>'Bg Info night maps'),
     'putovanje-za-dvoje.gallery.label'=>array('sr'=>'Putovanje za dvoje', 'en'=>'Travel for two'),
+    'pocket.gallery.label'=>array('sr'=>'In your pocket', 'en'=>'In your pocket'),
     'bginfo-map.current.label'=>array('sr'=>'Aktuelno izdanje Bg Info Mape', 'en'=>'Current Bg Info Map edition'),
     'bginfo-map.last_five_archive.label'=>array('sr'=>'Poslednjih 5 izdanja Bg Info Mape', 'en'=>'Last 5 Bg Info Map editions'),
     'bginfo-night-map.current.label'=>array('sr'=>'Aktuelno izdanje Bg Info Night Mape', 'en'=>'Current Bg Info Night Map edition'),
@@ -55,5 +56,21 @@ $translate = array(
     'putovanje-za-dvoje.current.label'=>array('sr'=>'Aktuelno izdanje Putovanje za dvoje', 'en'=>'Current Travel for two edition'),
     'putovanje-za-dvoje.last_five_archive.label'=>array('sr'=>'Poslednjih 5 izdanja Putovanje za dvoje', 'en'=>'Last 5 Travel for two editions'),
     
+    //Ads
+    'ads.label'=>array('sr'=>'Cenovnik oglašavanja','en'=>'Price list for ads'),
+    'ads-question.label'=>array('sr'=>'Želite da se oglašavate','en'=>'Interested in advertisment'),
+    'ads-question.sublabel'=>array('sr'=>'Pošaljite nam vaše zahteve','en'=>'Send us your requests'),
     
+    //Location
+    'location.label'=>array('sr'=>'Lokacije','en'=>'Locations'),
+    'location.sublabel'=>array('sr'=>'Spisak distributivnih mesta','en'=>'List of distributors'),
+    
+    //Download
+    'download.label'=>array('sr'=>'Preuzimanje','en'=>'Download'),
+    'download.sublabel'=>array('sr'=>'Preuzmi aktivno izdanje','en'=>'Download current edition'),
+    
+    //Page position
+    'page.0.label'=>array('sr'=>'Naslovna strana aktuelnog izdanja','en'=>'Front side of current edition'),
+    'page.1.label'=>array('sr'=>'Mapa aktuelnog izdanja','en'=>'Map of current edition'),
+    'page.2.label'=>array('sr'=>'Poleđina aktuelnog izdanja','en'=>'Backside of current edition'),
 );

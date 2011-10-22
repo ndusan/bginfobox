@@ -1,61 +1,47 @@
 <div class="main">
     <div class="mainBox">
         <div class="boxTitle">
-            <h1>Putovanja za dvoje</h1>
+            <h1><?=$_t['putovanje-za-dvoje.gallery.label'][$params['lang']];?></h1>
         </div>
         <div class="boxContent">
             <ul class="boxExtra">
-                <li class="icoPdf"><a href="#">Cenovnik oglasavanja</a></li>
-                <li class="icoMail"><a href="#">Zelite da se oglasite? <span>Posaljite nam Vase zahteve</span></a></li>
-                <li class="icoDis"><a href="#">Lokacije<span>Spisak distributivnih mesta</span></a></li>
-                <li class="icoDld"><a href="#">Download<span>Preuzmi aktuelno izdanje</span></a></li>
+                <li class="icoPdf"><a href="#"><?=$_t['ads.label'][$params['lang']];?></a></li>
+                <li class="icoMail">
+                    <a href="<?=(DS.$params['lang'].DS.'ads');?>">
+                        <?=$_t['ads-question.label'][$params['lang']];?>? 
+                        <span><?=$_t['ads-question.sublabel'][$params['lang']];?></span>
+                    </a>
+                </li>
+                <li class="icoDis">
+                    <a href="<?=(DS.$params['lang'].DS.'bginfo-map'.DS.'location');?>">
+                        <?=$_t['location.label'][$params['lang']];?>? 
+                        <span><?=$_t['location.sublabel'][$params['lang']];?></span>
+                    </a>
+                </li>
+                <li class="icoDld">
+                    <a href="<?=(DS.'public'.DS.'uploads'.DS.'bginfo'.DS.'');?>">
+                        <?=$_t['download.label'][$params['lang']];?>? 
+                        <span><?=$_t['download.sublabel'][$params['lang']];?></span>
+                    </a>
+                </li>
             </ul>
-            <p>
-                Proin congue varius commodo. Aliquam vel luctus tellus. Nunc tempor, lectus eu scelerisque vestibulum, urna leo vehicula justo, vel mollis orci purus sit amet augue. Vestibulum porta malesuada quam. Proin blandit velit sit amet elit euismod pretium. Suspendisse elit elit, consectetur et condimentum a, blandit quis sem. Morbi ut justo tortor. 
-            </p>
-            <p>
-                Proin congue varius commodo. Aliquam vel luctus tellus. Nunc tempor, lectus eu scelerisque vestibulum, urna leo vehicula justo, vel mollis orci purus sit amet augue. Vestibulum porta malesuada quam. Proin blandit velit sit amet elit euismod pretium. Suspendisse elit elit, consectetur et condimentum a, blandit quis sem. Morbi ut justo tortor. 
-            </p>
-            <p>
-                Proin congue varius commodo. Aliquam vel luctus tellus. Nunc tempor, lectus eu scelerisque vestibulum, urna leo vehicula justo, vel mollis orci purus sit amet augue. Vestibulum porta malesuada quam. Proin blandit velit sit amet elit euismod pretium. Suspendisse elit elit, consectetur et condimentum a, blandit quis sem. Morbi ut justo tortor. 
-            </p>
-            <p>
-                Proin congue varius commodo. Aliquam vel luctus tellus. Nunc tempor, lectus eu scelerisque vestibulum, urna leo vehicula justo, vel mollis orci purus sit amet augue. Vestibulum porta malesuada quam. Proin blandit velit sit amet elit euismod pretium. Suspendisse elit elit, consectetur et condimentum a, blandit quis sem. Morbi ut justo tortor. 
-            </p>
+            <p><?=$content['content_'.$params['lang']];?></p>
         </div>
+        <div style="clear:both"></div>
+        <? if(!empty($galleryCollection)):?>
         <ul class="galleryAll">
+            <? foreach($galleryCollection as $gc):?>
             <li>
                 <span>
-                    <img title="" width="170" height="240" src=" <?= IMAGE_PATH . 'dummy1.jpg'; ?>" />
-                    <a class="zoom lightbox" href="<//?=DS.'public'.DS.'uploads'.DS.'gallery'.DS.$g['image_name'];?>"></a>
+                    <img width="170" height="240" title="<?=$gc['title_'.$params['lang']];?>" alt="<?=$gc['title_'.$params['lang']];?>" width="170" height="240" src="<?=(DS.'public'.DS.'uploads'.DS.'bginfo'.DS.$gc['image_name']);?>" />
+                    <a class="zoom lightbox" title="<?=$gc['title_'.$params['lang']];?>" href="<?=(DS.'public'.DS.'uploads'.DS.'bginfo'.DS.$gc['image_name']);?>"></a>
                 </span>
-                <span class="info">Naslovna strana aktuelnog izdanja</span>
+                <span class="info"><?=$_t['page.'.$gc['position'].'.label'][$params['lang']];?></span>
             </li>
-            <li>
-                <span>
-                    <img title="" width="170" height="240" src=" <?= IMAGE_PATH . 'dummy1.jpg'; ?>" />
-                    <a class="zoom lightbox" href="<//?=DS.'public'.DS.'uploads'.DS.'gallery'.DS.$g['image_name'];?>"></a>
-                </span>
-                <span class="info">Mapa aktuelnog izdanja</span>
-            </li>
-            <li>
-                <span>
-                    <img title="" width="170" height="240" src=" <?= IMAGE_PATH . 'dummy1.jpg'; ?>" />
-                    <a class="zoom lightbox" href="<//?=DS.'public'.DS.'uploads'.DS.'gallery'.DS.$g['image_name'];?>"></a>
-                </span>
-                <span class="info">Poledjina aktuelnog izdanja</span>
-            </li>
+            <? endforeach;?>
         </ul>
+        <? endif;?>
     </div>
-    <div class="mainBox">
-        <div class="boxTitle">
-            <span><img src="<?= IMAGE_PATH . 'icoMap.png'; ?>" /></span>
-            <h1>Vodic kroz Beograd</h1>
-        </div>
-        <div class="boxContent">
-            <p>
-                Proin congue varius commodo. Aliquam vel luctus tellus. Nunc tempor, lectus eu scelerisque vestibulum, urna leo vehicula justo, vel mollis orci purus sit amet augue. Vestibulum porta malesuada quam. Proin blandit velit sit amet elit euismod pretium. Suspendisse elit elit, consectetur et condimentum a, blandit quis sem. Morbi ut justo tortor. 
-            </p>
-        </div>
-    </div>
+    <!-- Load belgrade guide-->
+    <? include_once VIEW_PATH.'home'.DS.'_static'.DS.'_guide.php'; ?>
 </div>

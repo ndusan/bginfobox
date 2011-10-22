@@ -8,6 +8,7 @@ var App = App || {};
             
             //Set datatable
             $('.dataTable').dataTable();
+            App.Common.thead();
         },
         editStatic: function() {
             App.Common.mce();
