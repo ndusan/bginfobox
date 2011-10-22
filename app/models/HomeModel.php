@@ -385,4 +385,22 @@ class HomeModel extends Model
         }
     }
     
+    
+    public function bginfoBoxGallery($pageId)
+    {
+        
+        try{
+           
+            $query = sprintf('SELECT * FROM %s', $this->tblPagesPocketContent);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->execute();
+
+            return $stmt->fetch();
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
 }

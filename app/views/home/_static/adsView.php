@@ -130,4 +130,5 @@
         </div>
     </div>
 </div>
-<? include_once '_banners.php';?>
+<!-- Load banners -->
+<? include_once VIEW_PATH.'home'.DS.'_static'.DS.'_banners.php'; ?>
