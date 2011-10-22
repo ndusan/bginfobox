@@ -11,6 +11,9 @@ class HomeModel extends Model
     private $tblClients = 'clients';
     private $tblPages = 'pages';
     private $tblClientPages = 'client_pages';
+    private $tblPageEditionImages = 'page_edition_images';
+    private $tblPagePocketEditionImages = 'page_pocket_edition_images';
+    private $tblPagesPocketContent = 'page_pocket_content';
 
     public function getDynamicPageSettings($params)
     {
@@ -280,6 +283,102 @@ class HomeModel extends Model
             $stmt->execute();
 
             return $stmt->fetchAll();
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
+    public function getAllDynamicPages()
+    {
+        
+        try{
+           
+            $query = sprintf('SELECT * FROM %s WHERE `type`=:type', $this->tblPages);
+            $stmt = $this->dbh->prepare($query);
+
+            $type = 'dynamic';
+            $stmt->bindParam(':type', $type, PDO::PARAM_STR);
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
+    
+    public function getLattestStaticEditions()
+    {
+        
+        $staticPages = $this->getAllStaticPages();
+        if(empty($staticPages)) return false;
+        
+        $output = array();
+        
+        foreach ($staticPages as $s){
+            
+            $query = sprintf("SELECT `a`.`title`, `b`.* FROM %s AS `a`
+                                INNER JOIN %s AS `b` ON `b`.`page_id`=`a`.`id`
+                                WHERE `a`.`id`=:id AND `b`.`position`='0' 
+                                ORDER BY `b`.`created` DESC LIMIT 0,1", $this->tblPages, $this->tblPageEditionImages);
+            
+            $stmt = $this->dbh->prepare($query);
+            
+            $stmt->bindParam(':id', $s['id'], PDO::PARAM_INT);
+            $stmt->execute();
+            
+            $result = $stmt->fetch();
+            if(!empty($result)) $output[] = $result;
+        }
+        
+        return $output;
+    }
+    
+    
+    public function getLattestDynamicEditions()
+    {
+        
+        $dynamicPages = $this->getAllDynamicPages();
+        if(empty($dynamicPages)) return false;
+        
+        $output = array();
+        
+        foreach ($dynamicPages as $d){
+            
+            $query = sprintf("SELECT `a`.`title`, `b`.* FROM %s AS `a`
+                                INNER JOIN %s AS `b` ON `b`.`page_id`=`a`.`id`
+                                WHERE `a`.`id`=:id AND `b`.`position`='0' 
+                                ORDER BY `b`.`created` DESC LIMIT 0,1", $this->tblPages, $this->tblPagePocketEditionImages);
+            
+            $stmt = $this->dbh->prepare($query);
+            
+            $stmt->bindParam(':id', $d['id'], PDO::PARAM_INT);
+            $stmt->execute();
+            
+            $result = $stmt->fetch();
+            if(!empty($result)) $output[] = $result;
+        }
+        
+        return $output;
+    }
+    
+    
+    
+    public function getPocketContent()
+    {
+        
+        try{
+           
+            $query = sprintf('SELECT * FROM %s', $this->tblPagesPocketContent);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->execute();
+
+            return $stmt->fetch();
         }catch(Exception $e){
             
             return false;

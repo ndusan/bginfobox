@@ -39,4 +39,8 @@ $translate = array(
     'client.email.label'=>array('sr'=>'El.pošta', 'en'=>'E-mail'),
     'client.website.label'=>array('sr'=>'Internet adresa', 'en'=>'Wesite'),
     
+    //Index page
+    'index.question'=>array('sr'=>'Šta je', 'en'=>'What is'),
+    'pockets.label'=>array('sr'=>'Šta je "In your pocket"', 'en'=>'What is "In your pocket"'),
+    
 );

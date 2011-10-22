@@ -1,48 +1,34 @@
 <div class="main">
     <div class="mainBox">
+        <? if(!empty($lattestStaticEditions)):?>
+        <? $tmp = array('1'=>'bginfo-box','2'=>'bginfo-map','3'=>'bginfo-night-map','4'=>'putovanje-za-dvoje');?>
         <ul class="galleryAll">
+            <? foreach($lattestStaticEditions as $lse):?>
             <li>
-                <a href="<?= DS . $params['lang'] . DS . 'bginfo-box' . DS . 'gallery'; ?>" >
-                    <img title="" width="170" height="240" src=" <?= IMAGE_PATH . 'dummy1.jpg'; ?>" />
+                <a href="<?=(DS . $params['lang'] . DS . $tmp[$lse['page_id']] . DS . 'gallery'); ?>" >
+                    <img title="<?=$lse['title'];?>" alt="<?=$lse['title'];?>" width="170" height="240" src="<?=(DS.'public'.DS.'uploads'.DS.'bginfo'.DS.$lse['image_name']);?>" />
                 </a>
-                <span class="info moreInfo"><a href="<?= DS . $params['lang'] . DS . 'bginfo-box'; ?>">Sta je Bg Info Box?</a></span>
+                <span class="info moreInfo">
+                    <a href="<?=(DS . $params['lang'] . DS . $tmp[$lse['page_id']]);?>"><?=$_t['index.question'][$params['lang']]?> <?=$lse['title'];?>?</a>
+                </span>
             </li>
-            <li>
-                <a href="<?= DS . $params['lang'] . DS . 'bginfo-map' . DS . 'gallery'; ?>">
-                    <img title="" width="170" height="240" src=" <?= IMAGE_PATH . 'dummy1.jpg'; ?>" /> 
-                </a>
-                <span class="info moreInfo"><a href="<?= DS . $params['lang'] . DS . 'bginfo-map'; ?>">Sta je Bg Info Map?</a></span>
-            </li>
-            <li>
-                <a href="<?= DS . $params['lang'] . DS . 'bginfo-night-map' . DS . 'gallery'; ?>">
-                    <img title="" width="170" height="240" src=" <?= IMAGE_PATH . 'dummy1.jpg'; ?>" /> 
-                </a>
-                <span class="info moreInfo"><a href="<?= DS . $params['lang'] . DS . 'bginfo-night-map' ?>">Sta je Bg Info Night Map?</a></span>
-            </li>
-            <li>
-                <a href="<?= DS . $params['lang'] . DS . 'putovanje-za-dvoje' . DS . 'gallery'; ?>">
-                    <img title="" width="170" height="240" src=" <?= IMAGE_PATH . 'dummy1.jpg'; ?>" /> 
-                </a>
-                <span class="info moreInfo"><a href="<?= DS . $params['lang'] . DS . 'putovanje-za-dvoje' ?>">Sta je Putovanja za dvoje?</a></span>
-            </li>
+            <? endforeach; ?>
         </ul>
+        <? endif;?>
     </div>
     <div class="mainBox">
+        <? if(!empty($lattestDynamicEditions)):?>
         <ul class="galleryAll">
+            <? foreach($lattestDynamicEditions as $lde):?>
             <li>
-                <img title="" width="170" height="240" src=" <?= IMAGE_PATH . 'dummy1.jpg'; ?>" />
+                <img title="<?=$lde['title'];?>" alt="<?=$lde['title'];?>" width="170" height="240" src="<?=(DS.'public'.DS.'uploads'.DS.'pockets'.DS.$lde['image_name']);?>" />
             </li>
-            <li>
-                <img title="" width="170" height="240" src=" <?= IMAGE_PATH . 'dummy1.jpg'; ?>" /> 
-            </li>
-            <li>
-                <img title="" width="170" height="240" src=" <?= IMAGE_PATH . 'dummy1.jpg'; ?>" /> 
-            </li>
+            <? endforeach;?>
         </ul>
+        <? endif;?>
         <div class="boxContent wys">
-            <!-- ovo sve  upucava kroz efitor jer ima 1ys klasu -->
-            <h2>Saznajte vishe o asdljas</h2>
-            <p>asd asd asd asd asd asd <a href="<?= DS . $params['lang'] . DS . 'pockets'; ?>">link</a>a</p>
+            <h2><?=$_t['pockets.label'][$params['lang']];?>?</h2>
+            <p><?=$pocketContent['front_content_'.$params['lang']];?> <a href="<?= DS . $params['lang'] . DS . 'pockets'; ?>">link</a></p>
         </div>
     </div>
     <div class="mainBox">
