@@ -15,11 +15,6 @@ class HomeModel extends Model
     private $tblPagePocketEditionImages = 'page_pocket_edition_images';
     private $tblPagesPocketContent = 'page_pocket_content';
 
-    public function getDynamicPageSettings($params)
-    {
-        
-        return null;
-    }
     
     
     public function getFreshNews($params)
@@ -391,16 +386,71 @@ class HomeModel extends Model
         
         try{
            
-            $query = sprintf('SELECT * FROM %s', $this->tblPagesPocketContent);
+            $query = sprintf('SELECT * FROM %s WHERE `page_id`=:pageId ORDER BY `created` DESC', $this->tblPageEditionImages);
             $stmt = $this->dbh->prepare($query);
 
+            $stmt->bindParam(':pageId', $pageId, PDO::PARAM_INT);
             $stmt->execute();
 
-            return $stmt->fetch();
+            return $stmt->fetchAll();
         }catch(Exception $e){
             
             return false;
         }
     }
+    
+    
+    
+    
+    public function bginfoGallery($pageId, $pageEditionId=null)
+    {
+        
+        try{
+           
+            if(null == $pageEditionId){
+                $query = sprintf('SELECT * FROM %s WHERE `page_id`=:pageId ORDER BY `created` DESC LIMIT 0,3', $this->tblPageEditionImages);
+                $stmt = $this->dbh->prepare($query);
+
+                $stmt->bindParam(':pageId', $pageId, PDO::PARAM_INT);
+                
+            }else{
+                
+                $query = sprintf('SELECT * FROM %s WHERE `page_id`=:pageId AND `page_edition_id`=:pageEditionId', $this->tblPageEditionImages);
+                $stmt = $this->dbh->prepare($query);
+
+                $stmt->bindParam(':pageId', $pageId, PDO::PARAM_INT);
+                $stmt->bindParam(':pageEditionId', $pageEditionId, PDO::PARAM_INT);
+            }
+            
+                $stmt->execute();
+
+                return $stmt->fetchAll();
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
+    public function bginfoArchiveGallery($pageId, $numOfEdition=5)
+    {
+        
+        try{
+           
+            $query = sprintf('SELECT * FROM %s WHERE `page_id`=:pageId AND `position`=0 ORDER BY `created` DESC LIMIT 1,:numOfEdition', $this->tblPageEditionImages);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->bindParam(':pageId', $pageId, PDO::PARAM_INT);
+            $stmt->bindParam(':numOfEdition', $numOfEdition, PDO::PARAM_INT);
+
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
     
 }

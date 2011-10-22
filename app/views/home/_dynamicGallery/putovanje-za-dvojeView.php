@@ -1,53 +1,39 @@
 <div class="main">
     <div class="mainBox">
         <div class="boxTitle">
-            <h1>Putovanja za dvoje izdanja</h1>
+            <h1><?=$_t['putovanje-za-dvoje.gallery.label'][$params['lang']];?></h1>
         </div>
+        <? if(!empty($galleryCollection)):?>
         <ul class="galleryAll">
+            <? foreach($galleryCollection as $gc):?>
             <li>
                 <span>
-                    <img title="" width="170" height="240" src=" <?= IMAGE_PATH . 'dummy1.jpg'; ?>" />
-                    <a class="zoom lightbox" href="<//?=DS.'public'.DS.'uploads'.DS.'gallery'.DS.$g['image_name'];?>"></a>
+                    <img title="<?=$gc['title_'.$params['lang']];?>" alt="<?=$gc['title_'.$params['lang']];?>" width="170" height="240" src="<?=(DS.'public'.DS.'uploads'.DS.'bginfo'.DS.$gc['image_name']);?>" />
+                    <a class="zoom lightbox" title="<?=$gc['title_'.$params['lang']];?>" href="<?=(DS.'public'.DS.'uploads'.DS.'bginfo'.DS.$gc['image_name']);?>"></a>
                 </span>
             </li>
-            <li>
-                <span>
-                    <img title="" width="170" height="240" src=" <?= IMAGE_PATH . 'dummy1.jpg'; ?>" />
-                    <a class="zoom lightbox" href="<//?=DS.'public'.DS.'uploads'.DS.'gallery'.DS.$g['image_name'];?>"></a>
-                </span>
-            </li>
-            <li>
-                <span>
-                    <img title="" width="170" height="240" src=" <?= IMAGE_PATH . 'dummy1.jpg'; ?>" />
-                    <a class="zoom lightbox" href="<//?=DS.'public'.DS.'uploads'.DS.'gallery'.DS.$g['image_name'];?>"></a>
-                </span>
-            </li>
+            <? endforeach;?>
         </ul>
-        <p><span class="info">Aktuelno izdanje Putovanja za dvoje</span></p>
+        <p><span class="info"><?=$_t['putovanje-za-dvoje.current.label'][$params['lang']];?></span></p>
+        <? endif;?>
+        
+        <? if(!empty($galleryArchiveCollection)):?>
         <ul class="archiveAll">
             <li>
                 <ul>
-                    <li><a href="#"><img src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" /></a></li>
-                    <li><a href="#"><img src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" /></a></li>
-                    <li><a href="#"><img src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" /></a></li>
-                    <li><a href="#"><img src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" /></a></li>
-                    <li><a href="#"><img src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" /></a></li>
+                    <? foreach($galleryArchiveCollection as $gac):?>
+                    <li><a href="<?=(DS . $params['lang'] . DS . 'bginfo-night-map' . DS . 'gallery?archive='.$gac['page_edition_id']);?>"><img title="<?=$gac['title_'.$params['lang']];?>" alt="<?=$gac['title_'.$params['lang']];?>" src="<?=(DS.'public'.DS.'uploads'.DS.'bginfo'.DS.$gac['image_name']);?>" /></a></li>
+                    <? endforeach;?>
                 </ul>
             </li>
         </ul>
-        <p><span class="info">Poslednjih 5 izdanja Putovanja za dvoje</span></p>
+        <p><span class="info"><?=$_t['putovanje-za-dvoje.last_five_archive.label'][$params['lang']];?></span></p>
+        <? endif; ?>
     </div>
-    <div class="mainBox">
-        <div class="boxTitle">
-            <span><img src="<?= IMAGE_PATH . 'icoMap.png'; ?>" /></span>
-            <h1>Vodic kroz Beograd</h1>
-        </div>
-        <div class="boxContent">
-            <p>
-                Proin congue varius commodo. Aliquam vel luctus tellus. Nunc tempor, lectus eu scelerisque vestibulum, urna leo vehicula justo, vel mollis orci purus sit amet augue. Vestibulum porta malesuada quam. Proin blandit velit sit amet elit euismod pretium. Suspendisse elit elit, consectetur et condimentum a, blandit quis sem. Morbi ut justo tortor. 
-            </p>
-        </div>
-    </div>
+    
+    <!-- Load belgrade guide-->
+    <? include_once VIEW_PATH.'home'.DS.'_static'.DS.'_guide.php'; ?>
+    
 </div>
-<? include_once '_static/_banners.php'; ?>
-
+<!-- Load banners -->
+<? include_once VIEW_PATH.'home'.DS.'_static'.DS.'_banners.php'; ?>

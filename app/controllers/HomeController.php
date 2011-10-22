@@ -4,6 +4,9 @@ class HomeController extends Controller
 {
     
     
+    protected $pages = array('bginfo-box'=>'1','bginfo-map'=>'2','bginfo-night-map'=>'3','putovanje-za-dvoje'=>'4');
+    
+    
     public function indexAction($params)
     {
      
@@ -139,8 +142,6 @@ class HomeController extends Controller
         parent::set('activeLangs', $this->db->getActiveLanguages());
         
         
-        $settings = $this->db->getDynamicPageSettings($params);
-        
         switch($params['page']){
             case 'bginfo-box': break;
             case 'bginfo-map': break;
@@ -159,13 +160,13 @@ class HomeController extends Controller
         
         parent::set('activeLangs', $this->db->getActiveLanguages());
         
-        $settings = $this->db->getDynamicPageSettings($params);
+        $archive = (!empty($params['archive']) ? (int)$params['archive'] : null);
         
         switch($params['page']){
-            case 'bginfo-box': $this->bginfoGalleryPage($params['page']); break;
-            case 'bginfo-map': break;
-            case 'bginfo-night-map': break;
-            case 'putovanje-za-dvoje': break;
+            case 'bginfo-box': $this->bginfoBoxGalleryPage($params['page']); break;
+            case 'bginfo-map': $this->bginfoGalleryPage($params['page'], $archive); break;
+            case 'bginfo-night-map': $this->bginfoGalleryPage($params['page'], $archive); break;
+            case 'putovanje-za-dvoje': $this->bginfoGalleryPage($params['page'], $archive); break;
         }
     }
     
@@ -207,13 +208,23 @@ class HomeController extends Controller
     
     
     
-    private function bginfoGalleryPage($pageName)
+    private function bginfoBoxGalleryPage($pageName)
     {
         
-        $pages = array('bginfo-box'=>'1','bginfo-map'=>'2','bginfo-night-map'=>'3','putovanje-za-dvoje'=>'4');
-        
-        return $this->db->bginfoGallery($pages[$pageName]);
+        parent::set('galleryCollection', $this->db->bginfoBoxGallery($this->pages[$pageName]));
     }
+    
+    
+    
+    private function bginfoGalleryPage($pageName, $archive)
+    {
+        
+        parent::set('galleryArchiveCollection', $this->db->bginfoArchiveGallery($this->pages[$pageName], 5));
+        parent::set('galleryCollection', $this->db->bginfoGallery($this->pages[$pageName], $archive));
+    }
+    
+    
+    
     
     public function noPageFoundAction($params)
     {
