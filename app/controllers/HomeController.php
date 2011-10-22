@@ -170,7 +170,7 @@ class HomeController extends Controller
             case 'pockets': 
                 $this->pocketsPage();
                 $this->pocketsInfo();
-                $this->pocketsGalleryPage($params['page'], null);
+                $this->pocketsGalleryPage();
                 break;
         }
     }
@@ -277,7 +277,7 @@ class HomeController extends Controller
     
     private function pocketsGalleryPage()
     {
-        parent::set('galleryCollection', $this->db->pocketsGallery());
+        parent::set('galleryCollection', $this->db->getLattestDynamicEditions());
     }
     
     

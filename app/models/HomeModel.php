@@ -526,26 +526,6 @@ class HomeModel extends Model
     
     
     
-    public function pocketsGallery()
-    {
-        
-        try{
-           
-            $query = sprintf('SELECT * FROM %s ORDER BY `created` DESC LIMIT 0, 3', $this->tblPagePocketEditionImages);
-            $stmt = $this->dbh->prepare($query);
-
-            $stmt->execute();
-
-            return $stmt->fetchAll();
-        }catch(Exception $e){
-            
-            return false;
-        }
-    }
-    
-    
-    
-    
     public function getPocketsInfo()
     {
         try{
