@@ -11,7 +11,7 @@
                         <? foreach ($pageCollection as $p): ?>
                             <th width="49"><?= $p['title']; ?></th>
                         <? endforeach; ?>
-                        <th width="49">In your pockets</th>
+                        <th width="49">Pocket izdanja</th>
                     </tr>
                 </thead>
                 <tbody>
