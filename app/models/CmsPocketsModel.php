@@ -167,18 +167,24 @@ class CmsPocketsModel extends Model
         try{
             if(!empty($params['id'])){
                 //Update
-                $query = sprintf("UPDATE %s SET `content_sr`=:contentSr, `content_en`=:contentEn 
+                $query = sprintf("UPDATE %s SET `front_content_sr`=:frontContentSr, `front_content_en`=:frontContentEn, 
+                                                `content_sr`=:contentSr, `content_en`=:contentEn 
                                     WHERE `id`=:id", $this->tablePageContent, $this->tablePages);
                 $stmt = $this->dbh->prepare($query);
                 
+                $stmt->bindParam(':frontContentSr', $params['front_content_sr'], PDO::PARAM_STR);
+                $stmt->bindParam(':frontContentEn', $params['front_content_en'], PDO::PARAM_STR);
                 $stmt->bindParam(':contentSr', $params['content_sr'], PDO::PARAM_STR);
                 $stmt->bindParam(':contentEn', $params['content_en'], PDO::PARAM_STR);
                 $stmt->bindParam(':id', $params['id'], PDO::PARAM_INT);
             }else{
                 //Insert
-                $query = sprintf("INSERT INTO %s SET `content_sr`=:contentSr, `content_en`=:contentEn", $this->tablePageContent);
+                $query = sprintf("INSERT INTO %s SET `front_content_sr`=:frontContentSr, `front_content_en`=:frontContentEn,
+                                                    `content_sr`=:contentSr, `content_en`=:contentEn", $this->tablePageContent);
                 $stmt = $this->dbh->prepare($query);
                 
+                $stmt->bindParam(':frontContentSr', $params['front_content_sr'], PDO::PARAM_STR);
+                $stmt->bindParam(':frontContentEn', $params['front_content_en'], PDO::PARAM_STR);
                 $stmt->bindParam(':contentSr', $params['content_sr'], PDO::PARAM_STR);
                 $stmt->bindParam(':contentEn', $params['content_en'], PDO::PARAM_STR);
             }

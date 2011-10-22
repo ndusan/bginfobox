@@ -13,6 +13,11 @@ class HomeController extends Controller
         parent::set('carouselCollection', $this->db->getAllCarousel());
 
         parent::set('activeLangs', $this->db->getActiveLanguages());
+        
+        parent::set('lattestStaticEditions', $this->db->getLattestStaticEditions());
+        parent::set('lattestDynamicEditions', $this->db->getLattestDynamicEditions());
+        parent::set('pocketContent', $this->db->getPocketContent());
+        
     }
     
     
@@ -70,7 +75,7 @@ class HomeController extends Controller
         
         switch($params['page']){
             case 'about-us':break;
-            case 'our-clients': break;
+            case 'our-clients': $this->clientsPage($params); break;
             case 'archive': break;
             case 'gallery': $this->galleryPage($params); break;
             case 'ads': $this->adsPage($params); break;
@@ -80,6 +85,15 @@ class HomeController extends Controller
             default: //error
         }
         
+    }
+    
+    
+    
+    private function clientsPage($params)
+    {
+        
+        parent::set('pageCollection', $this->db->getAllStaticPages());
+        parent::set('clientCollection', $this->db->getAllClients());
     }
     
     

@@ -40,14 +40,84 @@ class CmsClientsModel extends Model
     
     
     
+    public function createClient($params)
+    {
+        
+        try{
+            
+            $query = sprintf("INSERT INTO %s SET `title`=:title, `address`=:address, `phone`=:phone, `website`=:website,
+                                    `email`=:email, `all_pockets`=:allPockets, `type_client`=:typeClient, `type_distributor`=:typeDistributor", $this->tableClients);
+            $stmt = $this->dbh->prepare($query);
+            
+            echo $allPockets = !empty($params['static']['all_pockets'])?1:0;
+            echo $typeClient = !empty($params['purpose']['client'])?1:0;
+            echo $typeDistributor = !empty($params['purpose']['distributor'])?1:0;
+            
+            $stmt->bindParam(':title', $params['title'], PDO::PARAM_STR);
+            $stmt->bindParam(':address', $params['address'], PDO::PARAM_STR);
+            $stmt->bindParam(':phone', $params['phone'], PDO::PARAM_STR);
+            $stmt->bindParam(':website', $params['website'], PDO::PARAM_STR);
+            $stmt->bindParam(':email', $params['email'], PDO::PARAM_STR);
+            $stmt->bindParam(':allPockets', $allPockets, PDO::PARAM_INT);
+            $stmt->bindParam(':typeClient', $typeClient, PDO::PARAM_INT);
+            $stmt->bindParam(':typeDistributor', $typeDistributor, PDO::PARAM_INT);
+            $stmt->execute();
+            
+            $id = $this->dbh->lastInsertId();
+            
+            //Add pages
+            if(!empty($params['static'])){
+                foreach($params['static'] as $s){
+                    $query = sprintf("INSERT INTO %s SET `client_id`=:clientId, `page_id`=:pageId", $this->tableClientPages);
+                    $stmt = $this->dbh->prepare($query);
+
+                    $stmt->bindParam(':clientId', $id, PDO::PARAM_INT);
+                    $stmt->bindParam(':pageId', $s, PDO::PARAM_INT);
+                    $stmt->execute();
+                }
+            }
+            
+            //Add pages
+            if(!empty($params['dynamic'])){
+                foreach($params['dynamic'] as $s){
+                    $query = sprintf("INSERT INTO %s SET `client_id`=:clientId, `page_id`=:pageId", $this->tableClientPages);
+                    $stmt = $this->dbh->prepare($query);
+
+                    $stmt->bindParam(':clientId', $id, PDO::PARAM_INT);
+                    $stmt->bindParam(':pageId', $s, PDO::PARAM_INT);
+                    $stmt->execute();
+                }
+            }
+        
+            return $id;
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
+    
     public function updateClient($params)
     {
         
         try{
-            $query = sprintf("UPDATE %s SET `title`=:title WHERE `id`=:id", $this->tableClients);
+            $query = sprintf("UPDATE %s SET `title`=:title, `address`=:address, `phone`=:phone, `website`=:website,
+                                    `email`=:email, `all_pockets`=:allPockets, `type_client`=:typeClient, `type_distributor`=:typeDistributor WHERE `id`=:id", $this->tableClients);
             $stmt = $this->dbh->prepare($query);
             
+            $allPockets = !empty($params['static']['all_pockets'])?1:0;
+            $typeClient = !empty($params['purpose']['client'])?1:0;
+            $typeDistributor = !empty($params['purpose']['distributor'])?1:0;
+            
             $stmt->bindParam(':title', $params['title'], PDO::PARAM_STR);
+            $stmt->bindParam(':address', $params['address'], PDO::PARAM_STR);
+            $stmt->bindParam(':phone', $params['phone'], PDO::PARAM_STR);
+            $stmt->bindParam(':website', $params['website'], PDO::PARAM_STR);
+            $stmt->bindParam(':email', $params['email'], PDO::PARAM_STR);
+            $stmt->bindParam(':allPockets', $allPockets, PDO::PARAM_INT);
+            $stmt->bindParam(':typeClient', $typeClient, PDO::PARAM_INT);
+            $stmt->bindParam(':typeDistributor', $typeDistributor, PDO::PARAM_INT);
             $stmt->bindParam(':id', $params['id'], PDO::PARAM_INT);
             $stmt->execute();
 
@@ -56,11 +126,11 @@ class CmsClientsModel extends Model
             
             //Add pages
             if(!empty($params['static'])){
-                foreach($parmas['static'] as $s){
+                foreach($params['static'] as $s){
                     $query = sprintf("INSERT INTO %s SET `client_id`=:clientId, `page_id`=:pageId", $this->tableClientPages);
                     $stmt = $this->dbh->prepare($query);
 
-                    $stmt->bindParam(':clientId', $id, PDO::PARAM_INT);
+                    $stmt->bindParam(':clientId', $params['id'], PDO::PARAM_INT);
                     $stmt->bindParam(':pageId', $s, PDO::PARAM_INT);
                     $stmt->execute();
                 }
@@ -68,11 +138,11 @@ class CmsClientsModel extends Model
             
             //Add pages
             if(!empty($params['dynamic'])){
-                foreach($parmas['dynamic'] as $s){
+                foreach($params['dynamic'] as $s){
                     $query = sprintf("INSERT INTO %s SET `client_id`=:clientId, `page_id`=:pageId", $this->tableClientPages);
                     $stmt = $this->dbh->prepare($query);
 
-                    $stmt->bindParam(':clientId', $id, PDO::PARAM_INT);
+                    $stmt->bindParam(':clientId', $params['id'], PDO::PARAM_INT);
                     $stmt->bindParam(':pageId', $s, PDO::PARAM_INT);
                     $stmt->execute();
                 }
@@ -86,56 +156,6 @@ class CmsClientsModel extends Model
     }
     
     
-    
-    
-    public function createClient($params)
-    {
-        
-        try{
-            
-            $query = sprintf("INSERT INTO %s SET `title`=:title, `type_client`=:typeClient, `type_distributor`=:typeDistributor", $this->tableClients);
-            $stmt = $this->dbh->prepare($query);
-            
-            $typeClient = !empty($params['purpose']['client'])?$params['purpose']['client']:'';
-            $dynamicClient = !empty($params['purpose']['distributor'])?$params['purpose']['distributor']:'';
-            
-            $stmt->bindParam(':title', $params['title'], PDO::PARAM_STR);
-            $stmt->bindParam(':typeClient', $typeClient, PDO::PARAM_STR);
-            $stmt->bindParam(':typeDistributor', $dynamicClient, PDO::PARAM_STR);
-            $stmt->execute();
-            
-            $id = $this->dbh->lastInsertId();
-            
-            //Add pages
-            if(!empty($params['static'])){
-                foreach($parmas['static'] as $s){
-                    $query = sprintf("INSERT INTO %s SET `client_id`=:clientId, `page_id`=:pageId", $this->tableClientPages);
-                    $stmt = $this->dbh->prepare($query);
-
-                    $stmt->bindParam(':clientId', $id, PDO::PARAM_INT);
-                    $stmt->bindParam(':pageId', $s, PDO::PARAM_INT);
-                    $stmt->execute();
-                }
-            }
-            
-            //Add pages
-            if(!empty($params['dynamic'])){
-                foreach($parmas['dynamic'] as $s){
-                    $query = sprintf("INSERT INTO %s SET `client_id`=:clientId, `page_id`=:pageId", $this->tableClientPages);
-                    $stmt = $this->dbh->prepare($query);
-
-                    $stmt->bindParam(':clientId', $id, PDO::PARAM_INT);
-                    $stmt->bindParam(':pageId', $s, PDO::PARAM_INT);
-                    $stmt->execute();
-                }
-            }
-            
-            return true;
-        }catch(Exception $e){
-            
-            return false;
-        }
-    }
     
     
     
@@ -165,23 +185,27 @@ class CmsClientsModel extends Model
         
         try{
             
+            $query = sprintf("SELECT `a`.*, IFNULL(0,0) AS `client_id` FROM %s AS `a` WHERE `a`.`type`='static'", $this->tablePages);
+            $stmt = $this->dbh->prepare($query);
+            $stmt->execute();
+
+            $results = $stmt->fetchAll();
             
             if(null !== $clientId){
-                
-                $query = sprintf("SELECT `a`.*, `b`.`client_id` FROM %s AS `a` LEFT JOIN %s AS `b` ON `b`.`page_id`=`a`.`id`
-                                    WHERE `a`.`id`=:clientId", $this->tablePages, $this->tableClientPages);
-                $stmt = $this->dbh->prepare($query);
-                $stmt->execute();
+                foreach($results as $key=>$val){
+                    
+                    $query = sprintf("SELECT * FROM %s WHERE `page_id`=:pageId AND `client_id`=:clientId", $this->tableClientPages);
+                    $stmt = $this->dbh->prepare($query);
 
-                return $stmt->fetchAll();
-            }else{
-                $query = sprintf("SELECT `a`.*, IFNULL(0,0) AS `client_id` FROM %s AS `a` WHERE `a`.`type`='static'", $this->tablePages);
-                $stmt = $this->dbh->prepare($query);
-                $stmt->execute();
-
-                return $stmt->fetchAll();
+                    $stmt->bindParam(':pageId', $val['id'], PDO::PARAM_INT);
+                    $stmt->bindParam(':clientId', $clientId, PDO::PARAM_INT);
+                    $stmt->execute();
+                    
+                    $results[$key]['client_id'] = ($stmt->fetch() ? $clientId : 0);
+                }
             }
             
+            return $results;
         }catch(Exception $e){
             
             return false;
@@ -193,21 +217,27 @@ class CmsClientsModel extends Model
     {
         
         try{
+            $query = sprintf("SELECT `a`.*, IFNULL(0,0) AS `client_id` FROM %s AS `a` WHERE `a`.`type`='dynamic'", $this->tablePages);
+            $stmt = $this->dbh->prepare($query);
+            $stmt->execute();
+
+            $results = $stmt->fetchAll();
+            
             if(null !== $clientId){
-                
-                $query = sprintf("SELECT `a`.*, `b`.`client_id` FROM %s AS `a` LEFT JOIN %s AS `b` ON `b`.`page_id`=`a`.`id`
-                                    WHERE `b`.`client_id`=:clientId AND `a`.`type`='dynamic'", $this->tablePages, $this->tableClientPages);
-                $stmt = $this->dbh->prepare($query);
-                $stmt->execute();
+                foreach($results as $key=>$val){
+                    
+                    $query = sprintf("SELECT * FROM %s WHERE `page_id`=:pageId AND `client_id`=:clientId", $this->tableClientPages);
+                    $stmt = $this->dbh->prepare($query);
 
-                return $stmt->fetchAll();
-            }else{
-                $query = sprintf("SELECT `a`.*, IFNULL(0,0) AS `client_id` FROM %s AS `a` WHERE `a`.`type`='dynamic'", $this->tablePages);
-                $stmt = $this->dbh->prepare($query);
-                $stmt->execute();
-
-                return $stmt->fetchAll();
+                    $stmt->bindParam(':pageId', $val['id'], PDO::PARAM_INT);
+                    $stmt->bindParam(':clientId', $clientId, PDO::PARAM_INT);
+                    $stmt->execute();
+                    
+                    $results[$key]['client_id'] = ($stmt->fetch() ? $clientId : 0);
+                }
             }
+            
+            return $results;
         }catch(Exception $e){
             
             return false;
@@ -221,9 +251,47 @@ class CmsClientsModel extends Model
         try{
             $query = sprintf("DELETE FROM %s WHERE `client_id`=:clientId", $this->tableClientPages);
             $stmt = $this->dbh->prepare($query);
+            
+            $stmt->bindParam(':clientId', $clientId, PDO::PARAM_INT);
             $stmt->execute();
 
             return true;
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
+    public function setImageName($id, $imageName)
+    {
+        try{
+            $query = sprintf("UPDATE %s SET `image_name`=:imageName WHERE `id`=:id", $this->tableClients);
+            $stmt = $this->dbh->prepare($query);
+            
+            $stmt->bindParam(':imageName', $imageName, PDO::PARAM_STR);
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+            
+            return true;
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
+    public function getImageName($id)
+    {
+        
+        try{
+            $query = sprintf("SELECT `image_name` FROM %s WHERE `id`=:id", $this->tableClients);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+
+            return $stmt->fetch();
         }catch(Exception $e){
             
             return false;

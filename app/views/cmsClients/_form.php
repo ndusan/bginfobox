@@ -42,7 +42,7 @@
                                         <tbody>
                                             <tr>
                                                 <th>
-                                                    <input type="checkbox" name="client[purpose][client]" value="client" />
+                                                    <input type="checkbox" id="jstatic" name="client[purpose][client]" value="1" />
                                                 </th>
                                                 <th><h3>Client</h3></th>
                                         </tr>
@@ -50,30 +50,22 @@
                                             <? foreach ($staticCollection as $static): ?>
                                                 <tr>
                                                     <td>
-                                                        <input type="checkbox" name="client[static][<?= $static['id']; ?>]" <?= (!empty($static['checked']) ? 'checked="checked"' : '') ?> value="<?= $static['id']; ?>" />
+                                                        <input class="jstatic" id="client_static_<?=$static['id'];?>" type="checkbox" name="client[static][<?= $static['id']; ?>]" <?= (!empty($static['client_id']) && $static['client_id'] == $client['id'] ? 'checked="checked"' : '') ?> value="<?= $static['id']; ?>" />
                                                     </td>
                                                     <td>
-                                                        <label><?= $static['title']; ?></label>
+                                                        <label for="client_static_<?=$static['id'];?>"><?= $static['title']; ?></label>
                                                     </td>
                                                 </tr>
                                             <? endforeach; ?>
-                                        <? endif; ?>
-
-
-                                        <? if (!empty($dynamicCollection)): ?>
-
-                                            <? foreach ($dynamicCollection as $dynamic): ?>
                                                 <tr>
                                                     <td>
-                                                        <input type="checkbox" name="client[dynamic][<?= $dynamic['id']; ?>" <?= (!empty($dymamic['client_id']) ? 'checked="checked"' : '') ?> value="<?= $dynamic['id']; ?>" />
+                                                        <input class="jstatic" id="client_static_all_pockets" type="checkbox" name="client[static][all_pockets]" <?=(!empty($client['all_pockets'])?'checked="checked"':'');?> value="1" />
                                                     </td>
                                                     <td>
-                                                        <label><?= $dynamic['title']; ?></label>
+                                                        <label for="client_static_all_pockets">All in your pocket</label>
                                                     </td>
                                                 </tr>
-                                            <? endforeach; ?>
-                                        <? endif; ?> 
-
+                                        <? endif; ?>
                                         </tbody>
                                     </table>
                                 </li>
@@ -83,30 +75,18 @@
                                         <tbody> 
                                             <tr>
                                                 <th> 
-                                                    <input type="checkbox" name="client[purpose][distributor]" value="distributor" />
+                                                    <input type="checkbox" id="jdynamic" name="client[purpose][distributor]" value="1" />
                                                 </th>
                                                 <th><h3>Distributor</h3></th>
                                         </tr>
-                                        <? if (!empty($staticCollection)): ?>
-                                            <? foreach ($staticCollection as $static): ?>
-                                                <tr>
-                                                    <td>
-                                                        <input type="checkbox" name="client[static][<?= $static['id']; ?>]" <?= (!empty($static['checked']) ? 'checked="checked"' : '') ?> value="<?= $static['id']; ?>" />
-                                                    </td>
-                                                    <td>
-                                                        <label><?= $static['title']; ?></label>
-                                                    </td>
-                                                </tr>
-                                            <? endforeach; ?>
-                                        <? endif; ?>
                                         <? if (!empty($dynamicCollection)): ?>
                                             <? foreach ($dynamicCollection as $dynamic): ?>
                                                 <tr>
                                                     <td>
-                                                        <input type="checkbox" name="client[dynamic][<?= $dynamic['id']; ?>" <?= (!empty($dymamic['client_id']) ? 'checked="checked"' : '') ?> value="<?= $dynamic['id']; ?>" />
+                                                        <input class="jdynamic" type="checkbox" id="client_dynamic_<?=$dynamic['id'];?>" name="client[dynamic][<?= $dynamic['id']; ?>]" <?= (!empty($dynamic['client_id']) && $dynamic['client_id'] == $client['id'] ? 'checked="checked"' : '') ?> value="<?= $dynamic['id']; ?>" />
                                                     </td>
                                                     <td>
-                                                        <label><?= $dynamic['title']; ?></label>
+                                                        <label for="client_dynamic_<?=$dynamic['id'];?>"><?= $dynamic['title']; ?></label>
                                                     </td>
                                                 </tr>
                                             <? endforeach; ?>
@@ -115,6 +95,16 @@
                                     </table>
                                 </li>
                             </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Logo:</td>
+                        <td>
+                            <input type="file" name="image" value=""/>
+                            <? if (isset($client['id']) && !empty($client['image_name'])): ?>
+                                <a href="<?= DS . 'public' . DS . 'uploads' . DS . 'clients' . DS . $client['image_name']; ?>" target="_blank"><?= $client['image_name']; ?></a>
+                                [<a href="/cms/clients/delete/image/<?= $client['id']; ?>" class='jw'>Delete</a>]
+                            <? endif; ?>
                         </td>
                     </tr>
                     <tr>
