@@ -156,7 +156,8 @@ ul.soc  li {float:left; margin-left:20px;}
 .archiveAll {overflow:hidden; padding:15px 5px;}
 .archiveAll > li {padding:5px 0;}
 .archiveAll ul {overflow:hidden;}
-.archiveAll ul li {float:left; margin:0 10px; line-height:20px;}
+.archiveAll ul li {float:left; margin:5px 10px;}
+.archiveAll ul li span {font-size:11px;}
 .archiveAll ul li img {width:90px;}
 .archiveAll ul .last {padding:80px 0 0;}
 
@@ -199,3 +200,9 @@ span.info.moreInfo {width:170px; font-size:13px; color:#FFF; margin:10px 0 0; ba
 
 .currency {padding:10px; border-bottom:solid 1px #dfdfdf;}
 .currency td {padding:5px 0;}
+
+.client {overflow:hidden;}
+.client h4 {font-size:14px;}
+.client span.img {float:left; width:70px; height:70px; overflow:hidden; display:block;}
+ul.clientInfo {margin:0 0 0 80px;}
+ul.clientInfo li {width:50%; line-height:20px; float:left;}
