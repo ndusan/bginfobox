@@ -1,6 +1,6 @@
 /* Generic */
 body {
-font-family:Verdana, Arial, Helvetica, sans-serif; font-size:11px;
+font-family:Verdana, Arial, Helvetica, sans-serif; font-size:13px;
 scrollbar-3dlight-color:#F0F0EE;
 scrollbar-arrow-color:#676662;
 scrollbar-base-color:#F0F0EE;
@@ -22,7 +22,7 @@ a:hover {color:#2B6FB6;}
 .nowrap {white-space: nowrap}
 
 /* Forms */
-fieldset {margin:0; padding:4px; border:1px solid #919B9C; font-family:Verdana, Arial; font-size:10px;}
+fieldset {margin:0; padding:4px; border:1px solid #919B9C; font-family:Verdana, Arial; font-size:13px;}
 legend {color:#2B6FB6; font-weight:bold;}
 label.msg {display:none;}
 label.invalid {color:#EE0000; display:inline;}

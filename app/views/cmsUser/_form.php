@@ -3,19 +3,19 @@
         <table cellpadding="0" cellspacing="0">
             <tbody>
                 <tr>
-                    <th>First name</th>
+                    <td>First name</td>
                     <td>
                         <input type="text" class="jr" name="user[firstname]" value="<?= $user['firstname']; ?>" />
                     </td>
                 </tr>
                 <tr>
-                    <th>Last name</th>
+                    <td>Last name</td>
                     <td>
                         <input type="text" class="jr" name="user[lastname]" value="<?= $user['lastname']; ?>" />
                     </td>
                 </tr>
                 <tr>
-                    <th>Email</th>
+                    <td>Email</td>
                     <td>
                         <? if ($this->_action == 'add'): ?>
                             <input type="text" class="jr" name="user[email]" value="" />
@@ -26,7 +26,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <th>Password</th>
+                    <td>Password</td>
                     <td>
                         <input type="text" name="user[password]" value="" <?= ($this->_action == 'add' ? 'class="jr"' : ''); ?> />
                     </td>
