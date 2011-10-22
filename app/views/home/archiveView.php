@@ -10,7 +10,7 @@
                     <li><a href="#"><img src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" /></a></li>
                     <li><a href="#"><img src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" /></a></li>
                     <li class="last">
-                        <p><b>BG Info Mapxxxx</b></p>
+                        <p><b>BG Info Map</b></p>
                         <a href="#">Kompletna arhiva izdanja</a>
                     </li>
                 </ul>

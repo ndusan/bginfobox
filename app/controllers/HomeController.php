@@ -66,7 +66,10 @@ class HomeController extends Controller
     }
    
     
-    
+    /**
+     * STATIC PAGES
+     * @param type $params 
+     */
     public function staticPagesAction($params)
     {
 
@@ -79,7 +82,7 @@ class HomeController extends Controller
         switch($params['page']){
             case 'about-us':break;
             case 'our-clients': $this->clientsPage($params); break;
-            case 'archive': break;
+            case 'archive': $this->archivePage($params); break;
             case 'gallery': $this->galleryPage($params); break;
             case 'ads': $this->adsPage($params); break;
             case 'contact': $this->contactPage($params); break;
@@ -90,6 +93,12 @@ class HomeController extends Controller
         
     }
     
+    
+    private function archivePage($params)
+    {
+        
+        parent::set('archiveCollection', $this->db->getAllArchive());
+    }
     
     
     private function clientsPage($params)
