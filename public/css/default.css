@@ -180,8 +180,6 @@ span.info.moreInfo {width:170px; font-size:13px; color:#FFF; margin:10px 0 0; ba
 .adsForm {float:left; width:320px;}
 .adsForm td {padding:5px;}
 
-
-
 #calendar {border-bottom:1px solid #D6D6D6;position: relative;}
 #calendar caption {padding:5px 0; font-weight:bold;}
 #calendar table {width:100%;}
@@ -189,9 +187,9 @@ span.info.moreInfo {width:170px; font-size:13px; color:#FFF; margin:10px 0 0; ba
 #calendar .todayDay {background-color:#CCC; box-shadow:0 1px 3px #CCC inset;}
 #calendar .eventDay {background-image:url(../images/event_bg.png); background-position:100% 100%; background-repeat:no-repeat;}
 #calendar .eventDay a {padding:0 5px; line-height:25px; color:#333; font-weight:bold; display:block;}
-.mainBig  table {border-collapse:collapse; margin-top:15px;}
-.mainBig  table th {padding:5px; font-size:11px; text-align:center; color:#FFF; text-shadow:0 1px 1px #333; background:#9a9a9a url(../images/grad1.png) scroll repeat-x 0 0;}
-.mainBig  table td {padding:5px; background-color:#E6E6E6;}
+.mainBig table { margin-top:10px;}
+.mainBig table th {padding:5px; font-size:11px; text-align:center; color:#FFF; text-shadow:0 1px 1px #333; background:#9a9a9a url(../images/grad1.png) scroll repeat-x 0 0;}
+.mainBig table td {padding:5px; background-color:#E6E6E6;}
 
 .image_crop{ width: 170px; height: 120px; overflow: hidden;}
 
