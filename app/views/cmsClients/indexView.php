@@ -21,8 +21,8 @@
                 <tbody> 
                     <? foreach ($nodeCollection as $n): ?>
                         <tr> 
-                            <td><?=$n['title'];?></td>
-                            <td></td>
+                            <td><?=$n['breadcrumb'];?></td>
+                            <td><?=$n['type'];?></td>
                             <td><?=$html->convertDate($n['created'], true);?></td>
                             <td align="center">
                                 <!--Edit-->

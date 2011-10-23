@@ -6,6 +6,7 @@ class CmsClientsController extends Controller
     public function indexAction($params)
     {
         parent::set('clientCollection', $this->db->findAllClients());
+        parent::set('nodeCollection', $this->db->getTree());
     }
     
     public function addAction($params)
@@ -127,6 +128,8 @@ class CmsClientsController extends Controller
             
             
         }
+        
+        parent::set('tree', $this->db->getTree());
     }
     
     public function deleteNodeAction($params)

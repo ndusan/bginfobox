@@ -427,7 +427,7 @@ class CmsClientsModel extends Model
     public function getTree()
     {
         
-        $query = sprintf("SELECT `n`.`id`, `n`.`title_sr`,
+        $query = sprintf("SELECT `n`.`id`, `n`.`title_sr`, `n`.`type`, `n`.`created`,
                                 COUNT(`nt`.`ancestor`)-1 AS `path_length`,
                                 (SELECT GROUP_CONCAT(`n2`.`title_sr` ORDER BY `nt3`.`path_length` DESC SEPARATOR ' > ') 
                                     FROM `navigation` AS `n2` 
