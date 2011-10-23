@@ -37,24 +37,24 @@ $routes = array(
     ),
     
     //Dynamic pages
-    array(  'url'        => '/^(?P<lang>('.LANG.'))\/(?P<page>(bginfo-box|bginfo-night-map|bginfo-map|putovanje-za-dvoje))\/(?P<subpage>(gallery))\/?$/', 
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/(?P<page>(bginfo-box|bginfo-night-map|bginfo-map))\/(?P<subpage>(gallery))\/?$/', 
             'controller' => 'home', 
             'action'     => 'dynamicGalleryPages', 
             'layout'     => 'default'
     ),
-    array(  'url'        => '/^(?P<lang>('.LANG.'))\/(?P<page>(bginfo-box|bginfo-night-map|bginfo-map|putovanje-za-dvoje|pockets))\/?$/', 
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/(?P<page>(bginfo-box|bginfo-night-map|bginfo-map|pockets))\/?$/', 
             'controller' => 'home', 
             'action'     => 'dynamicPages', 
             'layout'     => 'default'
     ),
     //Location
-    array(  'url'        => '/^(?P<lang>('.LANG.'))\/(?P<page>(bginfo-box|bginfo-night-map|bginfo-map|putovanje-za-dvoje|pockets))\/location\/?$/', 
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/(?P<page>(bginfo-box|bginfo-night-map|bginfo-map|pockets))\/location\/?$/', 
             'controller' => 'home', 
             'action'     => 'location', 
             'layout'     => 'default'
     ),
     //Archive
-    array(  'url'        => '/^(?P<lang>('.LANG.'))\/(?P<page>(bginfo-night-map|bginfo-map|putovanje-za-dvoje|pockets))\/archive\/?$/', 
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/archive\/(?P<page>(bginfo-night-map|bginfo-map|pockets))\/?$/', 
             'controller' => 'home', 
             'action'     => 'archive', 
             'layout'     => 'default'

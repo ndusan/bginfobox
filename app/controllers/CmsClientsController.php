@@ -23,6 +23,8 @@ class CmsClientsController extends Controller
                     $newImageName = $id.'-'.$params['image']['name'];
                     $this->db->setImageName($id, $newImageName);
                     $this->uploadImage($newImageName, $params['image'], 'clients');
+                    //Create thumb
+                    $this->createThumbImage($newImageName, 'clients', 70, 70);
                 }
                 
                 parent::redirect ('cms'.DS.'clients', 'success');
@@ -52,6 +54,12 @@ class CmsClientsController extends Controller
                     $newImageName = $params['client']['id'].'-'.$params['image']['name'];
                     $this->db->setImageName($params['client']['id'], $newImageName);
                     $this->reUploadImage($oldImageName, $newImageName, $params['image'], 'clients');
+                    
+                    //Delete thumb
+                    $oldThumbImageName = 'thumb-'.$oldImageName;
+                    $this->deleteImage($oldThumbImageName, 'clients');
+                    //Create thumb
+                    $this->createThumbImage($newImageName, 'clients', 70, 70);
                 }
                 
                 parent::redirect ('cms'.DS.'clients', 'success');
@@ -79,6 +87,10 @@ class CmsClientsController extends Controller
             if(!empty($data)){
                 $oldImageName = $data['image_name'];
                 $this->deleteImage($oldImageName, 'clients');
+                
+                //Delete thumb
+                $oldThumbImageName = 'thumb-'.$oldImageName;
+                $this->deleteImage($oldThumbImageName, 'clients');
             }
             parent::redirect ('cms'.DS.'clients', 'success');
         }else{
@@ -99,6 +111,10 @@ class CmsClientsController extends Controller
             
             $this->db->setImageName($params['id'], '');
             $this->deleteImage($data['image_name'], 'clients');
+            
+            //Delete thumb
+            $oldThumbImageName = 'thumb-'.$data['image_name'];
+            $this->deleteImage($oldThumbImageName, 'pockets');
         }
         parent::redirect ('cms'.DS.'clients'.DS.$params['id'].DS.'edit', 'success');
     }

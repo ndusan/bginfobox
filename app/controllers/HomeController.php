@@ -17,7 +17,9 @@ class HomeController extends Controller
 
         parent::set('activeLangs', $this->db->getActiveLanguages());
         
+        //Bg Info pages
         parent::set('lattestStaticEditions', $this->db->getLattestStaticEditions());
+        
         parent::set('lattestDynamicEditions', $this->db->getLattestDynamicEditions());
         parent::set('pocketContent', $this->db->getPocketContent());
         

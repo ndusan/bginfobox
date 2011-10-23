@@ -9,6 +9,7 @@
                     <tr>
                         <th><?= $_t['client.label'][$params['lang']]; ?></th>
                         <? foreach ($pageCollection as $p): ?>
+                        <? if($p['id'] == 1 || $p['id'] == 4) continue;?>
                             <th width="49"><?= $p['title']; ?></th>
                         <? endforeach; ?>
                         <th width="49">Pocket izdanja</th>
@@ -19,7 +20,7 @@
                         <tr>
                             <td>
                                 <div class="client">
-                                    <span class="img"><img src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" /></span>
+                                    <span class="img"><img src="<?=(DS.'public'.DS.'uploads'.DS.'clients'.DS.'thumb-'.$c['image_name']); ?>" /></span>
                                     <ul class="clientInfo">
                                         <li>
                                             <h4><?= $c['title']; ?></h4>
@@ -39,7 +40,7 @@
                                 <? $array = explode(',', $c['page_id']); ?>
                             </td>
                             <? foreach ($pageCollection as $p): ?>
-
+                            <? if($p['id'] == 1 || $p['id'] == 4) continue;?>
                                 <td align="center"><? if (!empty($array) && in_array($p['id'], $array)): ?><img width="33" height="34" src="<?= IMAGE_PATH . 'yes.png'; ?>" /><? endif; ?></td>
                             <? endforeach; ?>
                             <td align="center"><? if ($c['all_pockets']): ?><img width="33" height="34" src="<?= IMAGE_PATH . 'yes.png'; ?>" /><? endif; ?></th>

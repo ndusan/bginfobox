@@ -8,7 +8,7 @@
             <? foreach($galleryCollection as $gc):?>
             <li>
                 <span>
-                    <img title="<?=$gc['title_'.$params['lang']];?>" alt="<?=$gc['title_'.$params['lang']];?>" width="170" height="240" src="<?=(DS.'public'.DS.'uploads'.DS.'bginfo'.DS.$gc['image_name']);?>" />
+                    <img title="<?=$gc['title_'.$params['lang']];?>" alt="<?=$gc['title_'.$params['lang']];?>" width="170" height="240" src="<?=(DS.'public'.DS.'uploads'.DS.'bginfo'.DS.'thumb-'.$gc['image_name']);?>" />
                     <a class="zoom lightbox" title="<?=$gc['title_'.$params['lang']];?>" href="<?=(DS.'public'.DS.'uploads'.DS.'bginfo'.DS.$gc['image_name']);?>"></a>
                 </span>
             </li>
@@ -22,7 +22,7 @@
             <li>
                 <ul>
                     <? foreach($galleryArchiveCollection as $gac):?>
-                    <li><a href="<?=(DS . $params['lang'] . DS . 'bginfo-map' . DS . 'gallery?archive='.$gac['page_edition_id']);?>"><img title="<?=$gac['title_'.$params['lang']];?>" alt="<?=$gac['title_'.$params['lang']];?>" src="<?=(DS.'public'.DS.'uploads'.DS.'bginfo'.DS.$gac['image_name']);?>" /></a></li>
+                    <li><a href="<?=(DS . $params['lang'] . DS . 'bginfo-map' . DS . 'gallery?archive='.$gac['page_edition_id']);?>"><img title="<?=$gac['title_'.$params['lang']];?>" alt="<?=$gac['title_'.$params['lang']];?>" src="<?=(DS.'public'.DS.'uploads'.DS.'bginfo'.DS.'thumb-'.$gac['image_name']);?>" /></a></li>
                     <? endforeach;?>
                 </ul>
             </li>

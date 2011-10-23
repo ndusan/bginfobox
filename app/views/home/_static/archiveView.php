@@ -5,7 +5,7 @@
         </div>
         <? if(!empty($archiveCollection)):?>
         <ul class="archiveAll">
-            <? $array = array('1'=>'bginfo-box','2'=>'bginfo-map','3'=>'bginfo-night-map','4'=>'putovanje-za-dvoje');?>
+            <? $array = array('2'=>'bginfo-map','3'=>'bginfo-night-map');?>
             <? foreach($archiveCollection as $ac):?>
             <li>
                 <ul>
@@ -14,15 +14,15 @@
                     <? $tmpFolder = ($ac['id'] > 4 ? 'pockets' : 'bginfo'); ?>
                     <? foreach($ac['edition_images'] as $e):?>
                     <li>
-                        <a href="<?=(DS . $params['lang'] . DS . $tmp . DS . 'gallery?archive='.$e['page_edition_id']); ?>">
-                            <img src="<?=(DS.'public'.DS.'uploads'.DS.$tmpFolder.DS.$e['image_name']); ?>" />
+                        <a href="<?=(DS . $params['lang'] . DS . 'archive' . DS.  $tmp); ?>">
+                            <img src="<?=(DS.'public'.DS.'uploads'.DS.$tmpFolder.DS.'thumb-'.$e['image_name']); ?>" />
                         </a>
                     </li>
                     <? endforeach;?>
                     <? endif;?>
                     <li class="last">
                         <p><b><?=$ac['title'];?></b></p>
-                        <a href="#">Kompletna arhiva izdanja</a>
+                        <a href="<?=(DS . $params['lang'] . DS . 'archive' . DS.  $tmp); ?>">Kompletna arhiva izdanja</a>
                     </li>
                 </ul>
             </li>

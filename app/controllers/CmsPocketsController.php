@@ -129,7 +129,7 @@ class CmsPocketsController extends Controller
                 }
                 
                 //Add downloaded if set
-                if(0 == $params['download']['error'] && !empty($params['page_id'])){
+                if(isset($params['download']) && 0 == $params['download']['error'] && !empty($params['page_id'])){
 
                     $newImageName = $params['page_id'].'-'.$id.'-download-'.$params['download']['name'];
                     $this->db->setDownload($id, $newImageName);
@@ -184,7 +184,7 @@ class CmsPocketsController extends Controller
             }
             
             //Add downloaded if set
-            if(0 == $params['download']['error'] && !empty($params['edition']['id'])){
+            if(isset($params['download']) && 0 == $params['download']['error'] && !empty($params['edition']['id'])){
                 $data = $this->db->getDownload($params['edition']['id']);
                 $oldImageName = $data['file_name'];
                 

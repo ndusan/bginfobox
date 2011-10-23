@@ -1,12 +1,12 @@
 <div class="main">
     <div class="mainBox">
         <? if(!empty($lattestStaticEditions)):?>
-        <? $tmp = array('1'=>'bginfo-box','2'=>'bginfo-map','3'=>'bginfo-night-map','4'=>'putovanje-za-dvoje');?>
+        <? $tmp = array('1'=>'bginfo-box','2'=>'bginfo-map','3'=>'bginfo-night-map');?>
         <ul class="galleryAll">
             <? foreach($lattestStaticEditions as $lse):?>
             <li>
                 <a href="<?=(DS . $params['lang'] . DS . $tmp[$lse['page_id']] . DS . 'gallery'); ?>" >
-                    <img title="<?=$lse['title'];?>" alt="<?=$lse['title'];?>" width="170" height="240" src="<?=(DS.'public'.DS.'uploads'.DS.'bginfo'.DS.$lse['image_name']);?>" />
+                    <img title="<?=$lse['title'];?>" alt="<?=$lse['title'];?>" width="170" height="240" src="<?=(DS.'public'.DS.'uploads'.DS.'bginfo'.DS.'thumb-'.$lse['image_name']);?>" />
                 </a>
                 <span class="info moreInfo">
                     <a href="<?=(DS . $params['lang'] . DS . $tmp[$lse['page_id']]);?>"><?=$_t['index.question'][$params['lang']]?> <?=$lse['title'];?>?</a>
@@ -21,7 +21,9 @@
         <ul class="galleryAll">
             <? foreach($lattestDynamicEditions as $lde):?>
             <li>
-                <img title="<?=$lde['title'];?>" alt="<?=$lde['title'];?>" width="170" height="240" src="<?=(DS.'public'.DS.'uploads'.DS.'pockets'.DS.$lde['image_name']);?>" />
+                <a href="<?=($lde['has_link']?$lde['link']:'#');?>" target="_blank">
+                    <img title="<?=$lde['title'];?>" alt="<?=$lde['title'];?>" width="170" height="240" src="<?=(DS.'public'.DS.'uploads'.DS.'pockets'.DS.'thumb-'.$lde['image_name']);?>" />
+                </a>
             </li>
             <? endforeach;?>
         </ul>

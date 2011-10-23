@@ -317,7 +317,7 @@ class HomeModel extends Model
         $output = array();
         
         foreach ($staticPages as $s){
-            
+            if($s['id']==4) break;
             $query = sprintf("SELECT `a`.`title`, `b`.* FROM %s AS `a`
                                 INNER JOIN %s AS `b` ON `b`.`page_id`=`a`.`id`
                                 WHERE `a`.`id`=:id AND `b`.`position`='0' 
@@ -465,6 +465,7 @@ class HomeModel extends Model
         if(!empty($staticCollection)){
             
             foreach($staticCollection as $sc){
+                if($sc['id'] ==1 || $sc['id'] ==4) continue;
                 
                 $query = sprintf("SELECT * FROM %s WHERE `page_id`=:pageId AND `position`=0 ORDER BY `created` DESC LIMIT 0,3", $this->tblPageEditionImages);
                 $stmt = $this->dbh->prepare($query);
