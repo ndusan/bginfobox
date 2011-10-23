@@ -336,6 +336,21 @@ $routes = array(
             'action'     => 'deleteImage', 
             'layout'     => 'empty'
     ),
+    array(  'url'        => '/^cms\/clients\/node\/add\/?$/', 
+            'controller' => 'cmsClients', 
+            'action'     => 'addNode', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/clients\/node\/(?P<id>\d*)\/edit\/?$/', 
+            'controller' => 'cmsClients', 
+            'action'     => 'editNode', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/clients\/node\/(?P<id>\d*)\/delete\/?$/', 
+            'controller' => 'cmsClients', 
+            'action'     => 'deleteNode', 
+            'layout'     => 'empty'
+    ),
     
     //CMS navigation
     array(  'url'        => '/^cms\/navigation\/?$/', 

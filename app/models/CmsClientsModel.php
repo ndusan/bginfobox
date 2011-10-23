@@ -5,7 +5,8 @@ class CmsClientsModel extends Model
     private $tableClients= 'clients';
     private $tablePages= 'pages';
     private $tableClientPages = 'client_pages';
-    
+    private $tableNavigation = 'navigation';
+    private $tableNavigationTree = 'navigation_tree';
     
     public function findAllClients()
     {
@@ -49,9 +50,9 @@ class CmsClientsModel extends Model
                                     `email`=:email, `all_pockets`=:allPockets, `type_client`=:typeClient, `type_distributor`=:typeDistributor", $this->tableClients);
             $stmt = $this->dbh->prepare($query);
             
-            echo $allPockets = !empty($params['static']['all_pockets'])?1:0;
-            echo $typeClient = !empty($params['purpose']['client'])?1:0;
-            echo $typeDistributor = !empty($params['purpose']['distributor'])?1:0;
+            $allPockets = !empty($params['static']['all_pockets'])?1:0;
+            $typeClient = !empty($params['purpose']['client'])?1:0;
+            $typeDistributor = !empty($params['purpose']['distributor'])?1:0;
             
             $stmt->bindParam(':title', $params['title'], PDO::PARAM_STR);
             $stmt->bindParam(':address', $params['address'], PDO::PARAM_STR);
@@ -281,6 +282,24 @@ class CmsClientsModel extends Model
     }
     
     
+    public function setNodeImageName($id, $imageName)
+    {
+        try{
+            $query = sprintf("UPDATE %s SET `image_name`=:imageName WHERE `id`=:id", $this->tableNavigation);
+            $stmt = $this->dbh->prepare($query);
+            
+            $stmt->bindParam(':imageName', $imageName, PDO::PARAM_STR);
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+            
+            return true;
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
     public function getImageName($id)
     {
         
@@ -296,5 +315,131 @@ class CmsClientsModel extends Model
             
             return false;
         }
+    }
+    
+    
+    public function getNodeImageName($id)
+    {
+        
+        try{
+            $query = sprintf("SELECT `image_name` FROM %s WHERE `id`=:id", $this->tableNavigation);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+
+            return $stmt->fetch();
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
+    public function createNode($params)
+    {
+        
+        try{
+            
+            $query = sprintf("INSERT INTO %s SET `title_sr`=:titleSr, `title_en`=:titleEn, 
+                                                 `content_sr`=:contentSr, `content_en`=:contentEn, 
+                                                 `position`=:position, `type`=:type", $this->tableNavigation);
+            $stmt = $this->dbh->prepare($query);
+            
+            $position = time();
+            $type = 'clients';
+            $stmt->bindParam(':titleSr', $params['title_sr'], PDO::PARAM_STR);
+            $stmt->bindParam(':titleEn', $params['title_en'], PDO::PARAM_STR);
+            $stmt->bindParam(':contentSr', $params['content_sr'], PDO::PARAM_STR);
+            $stmt->bindParam(':contentEn', $params['content_en'], PDO::PARAM_STR);
+            $stmt->bindParam(':position', $position, PDO::PARAM_INT);
+            $stmt->bindParam(':type', $type, PDO::PARAM_STR);
+            $stmt->execute();
+
+            $id = $this->dbh->lastInsertId();
+            
+            $navigationPath = array();
+            if (!empty($params['parent'])) {
+                $navigationPath = $this->getParentNodeArray($params['parent']);
+            }
+            
+            $query = sprintf("DELETE FROM %s WHERE `descendant`=:descendant", $this->tableNavigationTree);
+            $stmt = $this->dbh->prepare($query);
+            
+            $stmt->bindParam(':descendant', $id, PDO::PARAM_INT);
+            $stmt->execute();
+            
+            $query = sprintf("INSERT INTO %s SET `ancestor`=:ancestor, `descendant`=:descendant, 
+                                                 `path_length`=:pathLength, `type`=:type", $this->tableNavigationTree);
+            $stmt = $this->dbh->prepare($query);
+            
+            
+            $pl = 0;
+            $stmt->bindParam(':ancestor', $id, PDO::PARAM_INT);
+            $stmt->bindParam(':descendant', $id, PDO::PARAM_INT);
+            $stmt->bindParam(':pathLength', $pl, PDO::PARAM_INT);
+            $stmt->bindParam(':type', $type, PDO::PARAM_STR);
+            $stmt->execute();
+            
+            $pl = count($navigationPath);
+            foreach ($navigationPath as $pathItem) {
+                if (null == $pathItem['id']) {
+                    $pathItem['id'] = 0;
+                }
+                $stmt->bindValue(':ancestor', $pathItem['id']);
+                $stmt->bindParam(':descendant', $id, PDO::PARAM_INT);
+                $stmt->bindValue(':pathLength', $pl);
+                $stmt->bindParam(':type', $type, PDO::PARAM_STR);
+                $stmt->execute();
+
+                $pl--;
+            }
+        
+            return $id;
+        }catch(Exception $e){
+            
+            return false;
+        }
+        
+    }
+    
+    
+    
+    
+    
+    private function getParentNodeArray($id)
+    {
+        
+        $query = sprintf("SELECT `n`.`id`, `n`.`title_sr`
+                            FROM %s AS `n` 
+                            JOIN %s AS `nt` ON `nt`.`ancestor`=`n`.`id`
+                            WHERE `nt`.`descendant`=:id ORDER BY `n`.`position`", $this->tableNavigation, $this->tableNavigationTree);
+        $stmt = $this->dbh->prepare($query);
+        
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        
+        return $stmt->fetchAll();
+        
+    }
+    
+    
+    public function getTree()
+    {
+        
+        $query = sprintf("SELECT `n`.`id`, `n`.`title_sr`,
+                                COUNT(`nt`.`ancestor`)-1 AS `path_length`,
+                                (SELECT GROUP_CONCAT(`n2`.`title_sr` ORDER BY `nt3`.`path_length` DESC SEPARATOR ' > ') 
+                                    FROM `navigation` AS `n2` 
+                                    INNER JOIN `navigation_tree` AS `nt3` ON `n2`.`id`=`nt3`.`ancestor` 
+                                    WHERE `nt3`.`descendant`=`n`.`id`) AS `breadcrumb`
+                                FROM %s AS `nt`
+                                STRAIGHT_JOIN %s AS `n` ON (`n`.`id`=`nt`.`descendant`)
+                                GROUP BY `n`.`id`", $this->tableNavigationTree, $this->tableNavigation);
+        $stmt = $this->dbh->prepare($query);
+        
+        $stmt->execute();
+        
+        return $stmt->fetchAll();
     }
 }

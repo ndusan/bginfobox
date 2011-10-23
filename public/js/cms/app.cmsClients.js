@@ -9,12 +9,21 @@ var App = App || {};
             //Set datatable
             $('#dataTable').dataTable();
             App.Common.thead();
+            App.Common.tabs();
         }, 
         add: function() {
             App.CmsClients.checkbox();
         },
         edit: function() {
             App.CmsClients.checkbox();
+        },
+        addNode: function() {
+            App.Common.tabs();
+            App.Common.mce();
+        }, 
+        editNode: function() {
+            App.Common.tabs();
+            App.Common.mce();
         },
         checkbox: function() {
             

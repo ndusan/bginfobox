@@ -93,4 +93,45 @@ class CmsClientsController extends Controller
         parent::redirect ('cms'.DS.'clients'.DS.$params['id'].DS.'edit', 'success');
     }
     
+    
+    
+    public function addNodeAction($params)
+    {
+        
+        if(!empty($params['submit'])){
+            //Data submited
+            if($id = $this->db->createNode($params['node'])){
+                
+                //If image uploaded add it
+                if(0 == $params['image']['error'] && !empty($id)){
+                    
+                    $newImageName = 'node-'.$id.'-'.$params['image']['name'];
+                    $this->db->setNodeImageName($id, $newImageName);
+                    $this->uploadImage($newImageName, $params['image'], 'clients');
+                }
+                
+                parent::redirect ('cms'.DS.'clients', 'success');
+            }else{
+                parent::redirect ('cms'.DS.'clients', 'error');
+            }
+        }
+        parent::set('tree', $this->db->getTree());
+    }
+    
+    public function editNodeAction($params)
+    {
+        
+        
+        if(!empty($params['submit'])){
+
+            
+            
+        }
+    }
+    
+    public function deleteNodeAction($params)
+    {
+        
+        
+    }
 }
