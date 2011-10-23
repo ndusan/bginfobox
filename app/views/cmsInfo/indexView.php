@@ -1,11 +1,11 @@
 <div class="tabs">
     <ul>
-        <li><a href="#fragment-1">Client Navigation</a></li>
-        <li><a href="#fragment-2">Client List</a></li>
+        <li><a href="#fragment-1">Info Navigation</a></li>
+        <li><a href="#fragment-2">Bg Info List</a></li>
     </ul>
     <div id="fragment-1" class="addContent1">
         <ul class="addTop">
-            <li><a class="cmsAdd" href="/cms/clients/node/add" >Add new node</a></li>
+            <li><a class="cmsAdd" href="/cms/info/node/add" >Add new node</a></li>
         </ul>
         
         <? if (!empty($nodeCollection)): ?>
@@ -28,9 +28,9 @@
                             <td><?=$html->convertDate($n['created'], true);?></td>
                             <td align="center">
                                 <!--Edit-->
-                                <a title="Edit" class="cmsEdit" href="/cms/clients/node/<?= $n['id']; ?>/edit"></a>
+                                <a title="Edit" class="cmsEdit" href="/cms/info/node/<?= $n['id']; ?>/edit"></a>
                                 <!--Delete-->
-                                <a title="Delete" class="jw cmsDelete" href="/cms/clients/node/<?= $n['id']; ?>/delete"></a>
+                                <a title="Delete" class="jw cmsDelete" href="/cms/info/node/<?= $n['id']; ?>/delete"></a>
                             </td> 
                   </tr> 
                     <? endforeach; ?>
@@ -54,10 +54,10 @@
     
     <div id="fragment-2" class="addContent1">
         <ul class="addTop">
-            <li><a class="cmsAdd" href="/cms/clients/add" >Add new client</a></li>
+            <li><a class="cmsAdd" href="/cms/info/add" >Add new Bg Info</a></li>
         </ul>
 
-        <? if (!empty($clientCollection)): ?>
+        <? if (!empty($infoCollection)): ?>
             <table cellpadding="0" cellspacing="0" border="0" class="display dataTable"> 
                 <thead> 
                     <tr> 
@@ -67,15 +67,15 @@
                   </tr> 
                 </thead> 
                 <tbody> 
-                    <? foreach ($clientCollection as $c): ?>
+                    <? foreach ($infoCollection as $c): ?>
                         <tr> 
-                            <td><?=$c['title'];?></td>
+                            <td><?=$c['title_sr'];?></td>
                             <td><?=$html->convertDate($c['created'], true);?></td>
                             <td align="center">
                                 <!--Edit-->
-                                <a title="Edit" class="cmsEdit" href="/cms/clients/<?= $c['id']; ?>/edit"></a>
+                                <a title="Edit" class="cmsEdit" href="/cms/info/<?= $c['id']; ?>/edit"></a>
                                 <!--Delete-->
-                                <a title="Delete" class="jw cmsDelete" href="/cms/clients/<?= $c['id']; ?>/delete"></a>
+                                <a title="Delete" class="jw cmsDelete" href="/cms/info/<?= $c['id']; ?>/delete"></a>
                             </td> 
                   </tr> 
                     <? endforeach; ?>

@@ -7,7 +7,7 @@ var App = App || {};
         index: function() {
             
             //Set datatable
-            $('#dataTable').dataTable();
+            $('.dataTable').dataTable();
             App.Common.thead();
             App.Common.tabs();
         }, 

@@ -1,4 +1,5 @@
 <div class="tabs">
+    <? if(!empty($tree)):?>
     <form action="/cms/clients/<?= $client['formAction']; ?>" method="post" enctype="multipart/form-data">
         <div class="addContent">
             <table cellpadding="0" cellspacing="0">
@@ -31,6 +32,20 @@
                         <td>E-mail:</td>
                         <td>
                             <input type="text" name="client[email]" value="<?= @$client['email']; ?>" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Navigation:</td>
+                        <td>
+                            <select name="client[navigation]">
+                                <? if(!empty($tree)):?>
+                                <? foreach($tree as $t):?>
+                                <? if($t['id'] == $client['navigation_id']) $sel = 'selected="selected"';
+                                   else $sel = '';?>
+                                <option value="<?=$t['id'];?>" <?=$sel;?>><?=$t['breadcrumb'];?></option>
+                                <? endforeach;?>
+                                <? endif;?>
+                            </select>
                         </td>
                     </tr>
                     <tr>
@@ -117,5 +132,10 @@
             </table>
         </div>
     </form>
+    <? else: ?>
+    <div class="noResults">
+        Please, set client navigation first!
+    </div>
+    <? endif;?>
 </div>
 
