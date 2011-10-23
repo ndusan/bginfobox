@@ -52,8 +52,9 @@ input[type=submit]:hover {color:#f0397b; border-color:#C6C6C6; cursor:pointer;}
 .icoDis {background:transparent url(../images/icoDis.png) scroll no-repeat 5px 50%;}
 .infoExtra {font-size:12px;}
 .galleryAll .icoDld,.galleryAll .icoDis {padding:5px 0;}
+
 /*WYS RESETING*/
-.wys img {float:left; margin:0 10px 0 0;}
+.wys p {padding:5px 0;}
 
 /*BUILD*/
 .topNavW {background-color:#111;}
@@ -102,7 +103,8 @@ ul.mainNav li a:hover, ul.mainNav li a.active {background:#9c1006 url(../images/
 .mainBox .boxTitle h2 {color:#FFF; font-size:16px; text-shadow:0 -1px 1px #69140e;}
 .mainBox .boxTitle1 h2 {color:#FFF; font-size:16px; text-shadow:0 -1px 1px #666;}
 .mainBox .boxContent {padding:15px;}
-.mainBox .boxContent p {padding:5px 0;}
+.mainBox .boxIntro {padding:15px; overflow:hidden;}
+.mainBox .boxIntro .img {float:right; margin:0 0 10px 10px;}
 
 ul.boxExtra {float:right; width:200px; font-size:14px; margin:0 0 5px 5px;}
 ul.boxExtra span {font-size:11px; display:block;}
@@ -215,3 +217,16 @@ ul.guideNav li {display:block; background-color:#999; margin:1px 0 0;}
 ul.guideNav li.last a {line-height:35px;}
 ul.guideNav li a {display:block; font-size:14px; font-weight:bold; line-height:20px; color:#FFF; padding:5px 15px; text-shadow:1px 1px 1px #777;}
 ul.guideNav li a:hover, ul.mainNav li a.active {background:#9c1006 url(../images/grad2.png) scroll repeat-x 0 0;}
+
+.adsRegular table td {padding:5px; background-color:#E6E6E6;}
+
+.breadcrumb {padding:0 0 5px; line-height:20px; font-size:11px;}
+
+.adsPaid {overflow:hidden; padding:5px 5px 0;}
+.adsPaid > li {padding:10px; background-color:#E6E6E6; margin-bottom:5px;}
+.adsPaid h4 {font-size:14px;}
+.adsPaid span.img {float:right; width:150px; overflow:hidden; display:block;}
+.adsPaidInfo {margin:0 160px 0 0; }
+.adsPaidInfo ul {padding:5px 0; overflow:hidden;}
+.adsPaidInfo ul li {width:50%; line-height:20px; float:left;}
+.adsPaidInfo p {font-size:11px;}
