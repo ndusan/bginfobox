@@ -5,7 +5,13 @@
         </div>
         <div class="boxContent">
             <ul class="boxExtra">
-                <li class="icoPdf"><a href="#"><?=$_t['ads.label'][$params['lang']];?></a></li>
+                <? if(!empty($pricelist['image_name'])):?>
+                <li class="icoPdf">
+                    <a href="<?=(DS.'public'.DS.'uploads'.DS.'aboutus'.DS.$pricelist['image_name']);?>" target="_blank">
+                        <?=$_t['ads.label'][$params['lang']];?>
+                    </a>
+                </li>
+                <? endif;?>
                 <li class="icoMail">
                     <a href="<?=(DS.$params['lang'].DS.'ads');?>">
                         <?=$_t['ads-question.label'][$params['lang']];?>? 
@@ -18,12 +24,14 @@
                         <span><?=$_t['location.sublabel'][$params['lang']];?></span>
                     </a>
                 </li>
+                <? if(!empty($download)):?>
                 <li class="icoDld">
-                    <a href="<?=(DS.'public'.DS.'uploads'.DS.'bginfo'.DS.'');?>">
+                    <a href="<?=(DS.'public'.DS.'uploads'.DS.'bginfo'.DS.$download['file_name']);?>" target="_blank">
                         <?=$_t['download.label'][$params['lang']];?>? 
                         <span><?=$_t['download.sublabel'][$params['lang']];?></span>
                     </a>
                 </li>
+                <? endif;?>
             </ul>
             <p><?=$content['content_'.$params['lang']];?></p>
         </div>
@@ -33,7 +41,7 @@
             <? foreach($galleryCollection as $gc):?>
             <li>
                 <span>
-                    <img width="170" height="240" title="<?=$gc['title_'.$params['lang']];?>" alt="<?=$gc['title_'.$params['lang']];?>" width="170" height="240" src="<?=(DS.'public'.DS.'uploads'.DS.'bginfo'.DS.$gc['image_name']);?>" />
+                    <img width="170" height="240" title="<?=$gc['title_'.$params['lang']];?>" alt="<?=$gc['title_'.$params['lang']];?>" width="170" height="240" src="<?=(DS.'public'.DS.'uploads'.DS.'bginfo'.DS.'thumb-'.$gc['image_name']);?>" />
                     <a class="zoom lightbox" title="<?=$gc['title_'.$params['lang']];?>" href="<?=(DS.'public'.DS.'uploads'.DS.'bginfo'.DS.$gc['image_name']);?>"></a>
                 </span>
                 <span class="info"><?=$_t['page.'.$gc['position'].'.label'][$params['lang']];?></span>
