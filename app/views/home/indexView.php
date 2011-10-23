@@ -49,13 +49,13 @@
                 <img title="" width="170" height="100" src=" <?= IMAGE_PATH . 'dummy1.jpg'; ?>" /> 
             </li>
             <li>
-                <span class="info moreInfo"><b>Arhiva izdanja</b></span>
+                <span class="info moreInfo"><b><?= $_t['moreInfo.archive'][$params['lang']]; ?></b></span>
             </li>
             <li>
-                <span class="info moreInfo"><b>Saradnici</b></span>
+                <span class="info moreInfo"><b><?= $_t['moreInfo.clients'][$params['lang']]; ?></b></span>
             </li>
             <li>
-                <span class="info moreInfo"><b>Galerija</b></span>
+                <span class="info moreInfo"><b><?= $_t['moreInfo.gallery'][$params['lang']]; ?></b></span>
             </li>
         </ul>
     </div>

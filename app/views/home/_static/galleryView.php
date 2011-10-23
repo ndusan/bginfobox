@@ -1,7 +1,7 @@
 <div class="main">
     <div class="mainBox">
         <div class="boxTitle">
-            <h1>Galerija</h1>
+            <h1><?=$_t['menu.gallery'][$params['lang']];?></h1>
         </div>
         <? if(!empty($galleryCollection)):?>
         <ul class="galleryAll">

@@ -5,9 +5,10 @@ $translate = array(
     'menu.our-clients'=>array('sr'=>'Naši klijenti', 'en'=>'Our clients'),
     'menu.archive'=>array('sr'=>'Arhiva izdanja', 'en'=>'Archive'),
     'menu.gallery'=>array('sr'=>'Foto galerija', 'en'=>'Photo gallery'),
-    'menu.ads'=>array('sr'=>'Oglašavanje', 'en'=>'Ads'),
+    'menu.ads'=>array('sr'=>'Oglašavanje', 'en'=>'Advertising'),
     'menu.contact'=>array('sr'=>'Kontakt', 'en'=>'Contact'),
     'menu.guide'=>array('sr'=>'VODIČ KROZ BEOGRAD', 'en'=>'BELGRADE GUIDE'),
+    'menu.back'=>array('sr'=>'NAZAD', 'en'=>'BACK'),
     //News
     'news.no_news'=>array('sr'=>'Trenutno nema unetih vesti', 'en'=>'No news added'),
     'news.read_more'=>array('sr'=>'detaljnije', 'en'=>'read more'),
@@ -42,6 +43,9 @@ $translate = array(
     //Index page
     'index.question'=>array('sr'=>'Šta je', 'en'=>'What is'),
     'pockets.label'=>array('sr'=>'Šta je "In your pocket"', 'en'=>'What is "In your pocket"'),
+    'moreInfo.archive'=>array('sr'=>'Arhiva izdanja', 'en'=>'Archive'),
+    'moreInfo.clients'=>array('sr'=>'Klijenti', 'en'=>'Clients'),
+    'moreInfo.gallery'=>array('sr'=>'Foto galerija', 'en'=>'Photo Gallery'),
     
     //Bginfo
     'bginfo-box.gallery.label'=>array('sr'=>'Bg Info panoi', 'en'=>'Bg Info pano'),
@@ -73,4 +77,30 @@ $translate = array(
     'page.0.label'=>array('sr'=>'Naslovna strana aktuelnog izdanja','en'=>'Front side of current edition'),
     'page.1.label'=>array('sr'=>'Mapa aktuelnog izdanja','en'=>'Map of current edition'),
     'page.2.label'=>array('sr'=>'Poleđina aktuelnog izdanja','en'=>'Backside of current edition'),
+    
+    //Guide
+    'guide.label'=>array('sr'=>'Vodič kroz Beograd', 'en'=>'Belgrade Guide'),
+    'guide-highlights.label'=>array('sr'=>'Izdvajamo', 'en'=>'Highlights'),
+    //Archive
+    'complete-archive.label'=>array('sr'=>'Kompletna arhiva', 'en'=>'Complete archive'),
+    'archive-bginfomap.label'=>array('sr'=>'BG Info Map arhiva', 'en'=>'BG Info Map Archive'),
+    //Advertising
+    'advertising.company'=>array('sr'=>'Naziv firme', 'en'=>'Company'),
+    'advertising.activity'=>array('sr'=>'Delatnost', 'en'=>'Activity'),
+    'advertising.label'=>array('sr'=>'Želim da se reklamiram u', 'en'=>'I wish to advertise in'),
+    'advertising.contact'=>array('sr'=>'Kontakt osoba', 'en'=>'Contact person'),
+    'advertising.phone'=>array('sr'=>'Telefon', 'en'=>'Phone'),
+    'advertising.message'=>array('sr'=>'Poruka', 'en'=>'message'),
+    'advertising.declaration'=>array('sr'=>'Preuzmi deklaraciju o oglašavanju', 'en'=>'Download Advertising Agreement'),
+    'advertising.message'=>array('sr'=>'Poruka', 'en'=>'Message'),
+    //Contact
+    'contact.address'=>array('sr'=>'Matice srpske 3a', 'en'=>'3a, Matice srpske Street'),
+    'contact.city'=>array('sr'=>'11000 Beograd, Srbija', 'en'=>'11000 Belgrade, Serbia'),
+    'contact.subject'=>array('sr'=>'Naslov poruke', 'en'=>'Subject'),
+    'contact.name'=>array('sr'=>'Ime i prezime', 'en'=>'First and last name'),
+    'contact.company'=>array('sr'=>'Firma', 'en'=>'Company'),
+    'contact.email'=>array('sr'=>'Kontakt email', 'en'=>'Contact email'),
+    'contact.phone'=>array('sr'=>'Telefon', 'en'=>'Phone'),
+    'contact.message'=>array('sr'=>'Poruka', 'en'=>'Message'),
+    
 );

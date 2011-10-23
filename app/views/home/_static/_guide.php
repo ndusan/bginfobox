@@ -1,7 +1,7 @@
 <div class="mainBox">
     <div class="boxTitle">
         <span><img src="<?= IMAGE_PATH . 'icoMap.png'; ?>" /></span>
-        <h1>Vodic kroz Beograd</h1>
+        <h1><?=$_t['guide.label'][$params['lang']];?></h1>
     </div>
     <div class="boxContent">
         <p>
@@ -9,7 +9,7 @@
         </p>
     </div>
     <div class="boxTitle1">
-        <h2>Izdvajamo</h2>
+        <h2><?=$_t['guide-highlights.label'][$params['lang']];?></h2>
     </div>
     <div class="boxContent">
         <p>

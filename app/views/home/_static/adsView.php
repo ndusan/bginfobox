@@ -1,7 +1,7 @@
 <div class="main">
     <div class="mainBox">
         <div class="boxTitle">
-            <h1>Oglasite se</h1>
+            <h1><?=$_t['menu.ads'][$params['lang']];?></h1>
         </div>
         <div class="ads">
             <? if (!empty($params['sent'])): ?>
@@ -12,7 +12,7 @@
                 <? endif; ?>
             <? endif; ?>
             <ul class="boxExtra">
-                <li class="icoDoc"><a href="#">Preuzmi deklaraciju o oglashavanju</a></li>
+                <li class="icoDoc"><a href="#"><?=$_t['advertising.declaration'][$params['lang']];?></a></li>
                 <li class="infoExtra">
                     <p>dodatne informacije o ovome shto je levod esno</p>
                 </li>
@@ -22,7 +22,7 @@
                     <table cellpadding="0" cellspacing="0" width="0">
                         <tr>
                             <td align="right">
-                                <label for="form_title">Naziv firme</label>
+                                <label for="form_title"><?=$_t['advertising.company'][$params['lang']];?></label>
                             </td>
                             <td>
                                 <input type="text" name="form[company]" id="form_company" class="jr" value="" />
@@ -30,7 +30,7 @@
                         </tr>
                         <tr>
                             <td align="right">
-                                <label for="form_company">Delatnost</label>
+                                <label for="form_company"><?=$_t['advertising.activity'][$params['lang']];?></label>
                             </td>
                             <td>
                                 <input type="text" name="form[occupation]" id="form_occupation" class="jr" value="" />
@@ -38,7 +38,7 @@
                         </tr>
                         <tr>
                             <td colspan="2">
-                                <b>Zelim da se reklamiram u:</b>
+                                <b><?=$_t['advertising.label'][$params['lang']];?>:</b>
                             </td>
                         </tr>
                         <tr>
@@ -91,7 +91,7 @@
                         </tr>
                         <tr>
                             <td align="right">
-                                <label for="form_contact">Kontakt osoba</label>
+                                <label for="form_contact"><?=$_t['advertising.contact'][$params['lang']];?></label>
                             </td>
                             <td>
                                 <input type="text" name="form[contact]" id="form_contact" class="jr" value="" />
@@ -107,7 +107,7 @@
                         </tr>
                         <tr>
                             <td align="right">
-                                <label for="form_phone">Telefon</label>
+                                <label for="form_phone"><?=$_t['advertising.phone'][$params['lang']];?></label>
                             </td>
                             <td>
                                 <input type="text" name="form[phone]" id="form_phone" class="jr" value="" />
@@ -115,7 +115,7 @@
                         </tr>
                         <tr>
                             <td align="right" valign="top">
-                                <label for="form_message">Poruka</label>
+                                <label for="form_message"><?=$_t['advertising.message'][$params['lang']];?></label>
                             </td>
                             <td>
                                 <textarea name="form[message]" id="form_message" rows="4" cols="20"></textarea>

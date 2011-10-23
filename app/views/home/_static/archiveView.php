@@ -1,7 +1,7 @@
 <div class="main">
     <div class="mainBox">
         <div class="boxTitle">
-            <h1>Arhiva izdanja</h1>
+            <h1><?=$_t['menu.archive'][$params['lang']];?></h1>
         </div>
         <? if(!empty($archiveCollection)):?>
         <ul class="archiveAll">
@@ -22,7 +22,7 @@
                     <? endif;?>
                     <li class="last">
                         <p><b><?=$ac['title'];?></b></p>
-                        <a href="<?=(DS . $params['lang'] . DS . 'archive' . DS.  $tmp); ?>">Kompletna arhiva izdanja</a>
+                        <a href="<?=(DS . $params['lang'] . DS . 'archive' . DS.  $tmp); ?>"><?=$_t['complete-archive.label'][$params['lang']];?></a>
                     </li>
                 </ul>
             </li>

@@ -110,7 +110,7 @@
                         <!-- guide nav -->
 
                         <ul class="guideNav">
-                            <li><a href="#">&laquo; NAZAD</a></li>
+                            <li><a href="#">&laquo; <?= $_t['menu.back'][$params['lang']]; ?></a></li>
                             <? if(!empty($treeGuide)):?>
                             <? foreach($treeGuide as $tg):?>
                             <li><a href="<?=(DS.$params['lang'].DS.'guide'.DS.$tg['slug']);?>"><?=($tg['title_'.$params['lang']]);?></a></li>

@@ -4,7 +4,7 @@
     </div>
     <div class="mainBox">
         <div class="boxTitle">
-            <h1>Vodic kroz Beograd</h1>
+            <h1><?= $_t['guide.label'][$params['lang']]; ?></h1>
         </div>
         <div class="boxIntro wys">
             <span class="img"><img src="/public/images/dummy1.jpg"></span>
@@ -14,7 +14,7 @@
             </p>
         </div>
         <div class="boxTitle1">
-            <h2>Izdvajamo</h2>
+            <h2><?= $_t['guide-highlights.label'][$params['lang']]; ?></h2>
         </div>
         <div class="boxIntro wys">
             <span class="img"><img src="/public/images/dummy1.jpg"></span>
