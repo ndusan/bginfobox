@@ -360,6 +360,62 @@ class CmsClientsModel extends Model
     }
     
     
+    private function generateSlug($text)
+    {
+        // replace non letter or digits by -
+        $text = preg_replace('~[^\\pL\d]+~u', '-', $text);
+
+        // trim
+        $text = trim($text, '-');
+
+        // transliterate
+        $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+
+        // lowercase
+        $text = strtolower($text);
+
+        // remove unwanted characters
+        $text = preg_replace('~[^-\w]+~', '', $text);
+
+        if (empty($text)){
+            return false;
+        }
+        
+        //Check if slug already exists
+        $text = $this->checkSlugInDb($text);
+        
+        return $text;
+    }
+    
+    
+    private function checkSlugInDb($text)
+    {
+        
+        try{
+            
+            $query = sprintf("SELECT `slug` FROM %s WHERE `slug`=:slug", $this->tableNavigation);
+            $stmt = $this->dbh->prepare($query);
+            
+            $stmt->bindParam(':slug', $slug, PDO::PARAM_STR);
+            $stmt->execute();
+            
+            $res = $stmt->fetch();
+            
+            if(!empty($res)){
+                
+                //New name 
+                $newText.= $text.'-'.time();
+                $text = $this->checkSlugInDb($newText);
+            }
+            
+            return $text;
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
     public function createNode($params)
     {
         
@@ -367,17 +423,19 @@ class CmsClientsModel extends Model
             
             $query = sprintf("INSERT INTO %s SET `title_sr`=:titleSr, `title_en`=:titleEn, 
                                                  `content_sr`=:contentSr, `content_en`=:contentEn, 
-                                                 `position`=:position, `type`=:type", $this->tableNavigation);
+                                                 `position`=:position, `type`=:type, `slug`=:slug", $this->tableNavigation);
             $stmt = $this->dbh->prepare($query);
             
             $position = time();
             $type = 'clients';
+            $slug = $this->generateSlug($params['title_sr']);
             $stmt->bindParam(':titleSr', $params['title_sr'], PDO::PARAM_STR);
             $stmt->bindParam(':titleEn', $params['title_en'], PDO::PARAM_STR);
             $stmt->bindParam(':contentSr', $params['content_sr'], PDO::PARAM_STR);
             $stmt->bindParam(':contentEn', $params['content_en'], PDO::PARAM_STR);
             $stmt->bindParam(':position', $position, PDO::PARAM_INT);
             $stmt->bindParam(':type', $type, PDO::PARAM_STR);
+            $stmt->bindParam(':slug', $slug, PDO::PARAM_STR);
             $stmt->execute();
 
             $id = $this->dbh->lastInsertId();
@@ -400,13 +458,15 @@ class CmsClientsModel extends Model
         
         try{
             $query = sprintf("UPDATE %s SET `title_sr`=:titleSr, `title_en`=:titleEn, 
-                                            `content_sr`=:contentSr, `content_en`=:contentEn WHERE `id`=:id", $this->tableNavigation);
+                                            `content_sr`=:contentSr, `content_en`=:contentEn, `slug`=:slug WHERE `id`=:id", $this->tableNavigation);
             $stmt = $this->dbh->prepare($query);
             
+            $slug = $this->generateSlug($params['title_sr']);
             $stmt->bindParam(':titleSr', $params['title_sr'], PDO::PARAM_STR);
             $stmt->bindParam(':titleEn', $params['title_en'], PDO::PARAM_STR);
             $stmt->bindParam(':contentSr', $params['content_sr'], PDO::PARAM_STR);
             $stmt->bindParam(':contentEn', $params['content_en'], PDO::PARAM_STR);
+            $stmt->bindParam(':slug', $slug, PDO::PARAM_STR);
             $stmt->bindParam(':id', $params['id'], PDO::PARAM_INT);
             $stmt->execute();
 

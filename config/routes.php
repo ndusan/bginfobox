@@ -59,6 +59,18 @@ $routes = array(
             'action'     => 'archive', 
             'layout'     => 'default'
     ),
+    //BGINFO guide
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/guide\/(?P<slug>([a-zA-Z0-9\/\-+_]+))\/?$/', 
+            'controller' => 'home', 
+            'action'     => 'guide', 
+            'layout'     => 'default'
+    ),
+    //BGINFO guide
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/info\/(?P<slug>([a-zA-Z0-9\/\-+_]+))\/?$/', 
+            'controller' => 'home', 
+            'action'     => 'info', 
+            'layout'     => 'default'
+    ),
     //Login page
     array(  'url'        => '/^login\/?$/', 
             'controller' => 'login', 
