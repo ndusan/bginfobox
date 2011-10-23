@@ -1,14 +1,14 @@
 <?php
 
-class CmsBannersModel extends Model
+class CmsAboutUsModel extends Model
 {
-    private $tableBanners= 'banners';
+    private $tableAboutUs= 'aboutus';
     
     
-    public function findAllBanners()
+    public function findAllAboutUs()
     {
         try{
-            $query = sprintf("SELECT * FROM %s", $this->tableBanners);
+            $query = sprintf("SELECT * FROM %s", $this->tableAboutUs);
             $stmt = $this->dbh->prepare($query);
             $stmt->execute();
 
@@ -20,10 +20,10 @@ class CmsBannersModel extends Model
     }
     
     
-    public function findBanner($id)
+    public function findAboutUs($id)
     {
         try{
-            $query = sprintf("SELECT * FROM %s WHERE `id`=:id", $this->tableBanners);
+            $query = sprintf("SELECT * FROM %s WHERE `id`=:id", $this->tableAboutUs);
             $stmt = $this->dbh->prepare($query);
 
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
@@ -38,15 +38,15 @@ class CmsBannersModel extends Model
     
     
     
-    public function updateBanner($params)
+    public function updateAboutUs($params)
     {
         
         try{
-            $query = sprintf("UPDATE %s SET `title`=:title, `link`=:link WHERE `id`=:id", $this->tableBanners);
+            $query = sprintf("UPDATE %s SET `content_sr`=:contentSr, `content_en`=:contentEn WHERE `id`=:id", $this->tableAboutUs);
             $stmt = $this->dbh->prepare($query);
             
-            $stmt->bindParam(':title', $params['title'], PDO::PARAM_STR);
-            $stmt->bindParam(':link', $params['link'], PDO::PARAM_STR);
+            $stmt->bindParam(':contentSr', $params['content_sr'], PDO::PARAM_STR);
+            $stmt->bindParam(':contentEn', $params['content_en'], PDO::PARAM_STR);
             $stmt->bindParam(':id', $params['id'], PDO::PARAM_INT);
             $stmt->execute();
 
@@ -62,7 +62,7 @@ class CmsBannersModel extends Model
     {
         
         try{
-            $query = sprintf("SELECT `image_name` FROM %s WHERE `id`=:id", $this->tableBanners);
+            $query = sprintf("SELECT `image_name` FROM %s WHERE `id`=:id", $this->tableAboutUs);
             $stmt = $this->dbh->prepare($query);
 
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
@@ -77,16 +77,16 @@ class CmsBannersModel extends Model
     
     
     
-    public function createBanner($params)
+    public function createAboutUs($params)
     {
         
         try{
             
-            $query = sprintf("INSERT INTO %s SET `title`=:title, `link`=:link", $this->tableBanners);
+            $query = sprintf("INSERT INTO %s SET `content_sr`=:contentSr, `content_en`=:contentEn", $this->tableAboutUs);
             $stmt = $this->dbh->prepare($query);
             
-            $stmt->bindParam(':title', $params['title'], PDO::PARAM_STR);
-            $stmt->bindParam(':link', $params['link'], PDO::PARAM_STR);
+            $stmt->bindParam(':contentSr', $params['content_sr'], PDO::PARAM_STR);
+            $stmt->bindParam(':contentEn', $params['content_en'], PDO::PARAM_STR);
             $stmt->execute();
             
             return $this->dbh->lastInsertId();
@@ -100,7 +100,7 @@ class CmsBannersModel extends Model
     public function setImageName($id, $imageName)
     {
         try{
-            $query = sprintf("UPDATE %s SET `image_name`=:imageName WHERE `id`=:id", $this->tableBanners);
+            $query = sprintf("UPDATE %s SET `image_name`=:imageName WHERE `id`=:id", $this->tableAboutUs);
             $stmt = $this->dbh->prepare($query);
             
             $stmt->bindParam(':imageName', $imageName, PDO::PARAM_STR);
@@ -115,11 +115,11 @@ class CmsBannersModel extends Model
     }
     
     
-    public function deleteBanner($params)
+    public function deleteAboutUs($params)
     {
         
         try{
-            $query = sprintf("DELETE FROM %s  WHERE `id`=:id", $this->tableBanners);
+            $query = sprintf("DELETE FROM %s  WHERE `id`=:id", $this->tableAboutUs);
             $stmt = $this->dbh->prepare($query);
 
             $stmt->bindParam(':id', $params['id'], PDO::PARAM_INT);

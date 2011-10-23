@@ -40,6 +40,7 @@
                 <ul class="mainNav">
                     <li><a <?= $this->_controller=='cmsHome'?'class="active"':''; ?> href="<?= DS . 'cms'; ?>">Dashboard</a></li>
                     <li><a <?= $this->_controller=='cmsUser'?'class="active"':''; ?> href="<?= DS . 'cms' . DS . 'users'; ?>">Users</a></li>
+                    <li><a <?= $this->_controller=='cmsAboutUs'?'class="active"':''; ?> href="<?= DS . 'cms' . DS . 'about-us'; ?>">About Us</a></li>
                     <li><a <?= $this->_controller=='cmsNews'?'class="active"':''; ?> href="<?= DS . 'cms' . DS . 'news'; ?>">News</a></li>
                     <li><a <?= $this->_controller=='cmsEvents'?'class="active"':''; ?> href="<?= DS . 'cms' . DS . 'events'; ?>">Events</a></li>
                     <li><a <?= $this->_controller=='cmsBanners'?'class="active"':''; ?> href="<?= DS . 'cms' . DS . 'banners'; ?>">Banners</a></li>

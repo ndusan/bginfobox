@@ -118,6 +118,33 @@ $routes = array(
             'layout'     => 'empty'
     ),
     
+    //CMS about-us page
+    array(  'url'        => '/^cms\/about-us\/?$/', 
+            'controller' => 'cmsAboutUs', 
+            'action'     => 'index', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/about-us\/add\/?$/', 
+            'controller' => 'cmsAboutUs', 
+            'action'     => 'add', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/about-us\/edit\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsAboutUs', 
+            'action'     => 'edit', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/about-us\/delete\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsAboutUs', 
+            'action'     => 'delete', 
+            'layout'     => 'empty'
+    ),
+    array(  'url'        => '/^cms\/about-us\/delete\/image\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsAboutUs', 
+            'action'     => 'deleteImage', 
+            'layout'     => 'empty'
+    ),
+    
     //CMS news page
     array(  'url'        => '/^cms\/news\/?$/', 
             'controller' => 'cmsNews', 

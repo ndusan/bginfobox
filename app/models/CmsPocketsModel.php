@@ -56,7 +56,7 @@ class CmsPocketsModel extends Model
                                 `has_link`=:hasLink, `has_file_name`=:hasFileName, `position`=:position", $this->tablePages);
             $stmt = $this->dbh->prepare($query);
             
-            $numOfImages = 3;
+            $numOfImages = 1;
             $hasLink = 1;
             $hasFileName = 1;
             $position = time();

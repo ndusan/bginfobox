@@ -35,6 +35,19 @@
                         </td>
                     </tr>
                     <tr>
+                        <td>Paid:</td>
+                        <td>
+                            <input type="checkbox" name="client[paid]" id="client_paid" value="1" <?= (@$client['paid']?'checked="checked"':'');?> />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Period:</td>
+                        <td>
+                            <input type="text" class="datepicker" <?=(@$client['paid']?'':'disabled="disabled"')?> name="client[date_start]" id="client_date_start" value="<?= @$html->convertDate($client['date_start']); ?>" />
+                            <input type="text" class="datepicker" <?=(@$client['paid']?'':'disabled="disabled"')?> name="client[date_end]" id="client_date_end" value="<?= @$html->convertDate($client['date_end']); ?>" />
+                        </td>
+                    </tr>
+                    <tr>
                         <td>Navigation:</td>
                         <td>
                             <select name="client[navigation]">
@@ -98,7 +111,7 @@
                                         </tr>
                                          <? if (!empty($staticCollection)): ?>
                                             <? foreach ($staticCollection as $static): ?>
-                                            <? if($static['id'] > 1  && $static['id']<4):?>
+                                            <? if($static['id']<4):?>
                                                 <tr>
                                                     <td>
                                                         <input class="jstatic" id="client_static_<?=$static['id'];?>" type="checkbox" name="client[static][<?= $static['id']; ?>]" <?= (!empty($static['client_id']) && $static['client_id'] == $client['id'] ? 'checked="checked"' : '') ?> value="<?= $static['id']; ?>" />

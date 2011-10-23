@@ -8,6 +8,7 @@
         <thead> 
             <tr> 
                 <th>Content</th>
+                <th>Link</th>
                 <th>Created</th> 
                 <th width="100px">Action</th>
           </tr> 
@@ -16,6 +17,7 @@
             <? foreach ($carouselCollection as $carousel): ?>
                 <tr> 
                     <td><?=$carousel['content_sr'];?></td>
+                    <td><?=$carousel['link'];?></td>
                     <td><?=$html->convertDate($carousel['created'], true);?></td>
                     <td align="center" valign="top">
                         <!--Edit-->
@@ -28,6 +30,7 @@
         <tfoot> 
             <tr> 
                 <th>Content</th>
+                <th>Link</th>
                 <th>Created</th> 
                 <th>Action</th> 
             </tr> 

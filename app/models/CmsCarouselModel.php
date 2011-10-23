@@ -42,11 +42,12 @@ class CmsCarouselModel extends Model
     {
         
         try{
-            $query = sprintf("UPDATE %s SET `content_sr`=:contentSr, `content_en`=:contentEn WHERE `id`=:id", $this->tableCarousel);
+            $query = sprintf("UPDATE %s SET `content_sr`=:contentSr, `content_en`=:contentEn, `link`=:link WHERE `id`=:id", $this->tableCarousel);
             $stmt = $this->dbh->prepare($query);
             
             $stmt->bindParam(':contentSr', $params['content_sr'], PDO::PARAM_STR);
             $stmt->bindParam(':contentEn', $params['content_en'], PDO::PARAM_STR);
+            $stmt->bindParam(':link', $params['link'], PDO::PARAM_STR);
             $stmt->bindParam(':id', $params['id'], PDO::PARAM_INT);
             $stmt->execute();
 
@@ -82,11 +83,12 @@ class CmsCarouselModel extends Model
         
         try{
             
-            $query = sprintf("INSERT INTO %s SET `content_sr`=:contentSr, `content_en`=:contentEn", $this->tableCarousel);
+            $query = sprintf("INSERT INTO %s SET `content_sr`=:contentSr, `content_en`=:contentEn, `link`=:link", $this->tableCarousel);
             $stmt = $this->dbh->prepare($query);
             
             $stmt->bindParam(':contentSr', $params['content_sr'], PDO::PARAM_STR);
             $stmt->bindParam(':contentEn', $params['content_en'], PDO::PARAM_STR);
+            $stmt->bindParam(':link', $params['link'], PDO::PARAM_STR);
             $stmt->execute();
             
             return $this->dbh->lastInsertId();

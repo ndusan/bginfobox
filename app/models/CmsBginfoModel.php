@@ -108,7 +108,11 @@ class CmsBginfoModel extends Model
             $query = sprintf("INSERT INTO %s SET `title`=:title, `page_id`=:pageId", $this->tablePageEdition);
             $stmt = $this->dbh->prepare($query);
 
-            $genTitle = $currStatic['title'].' EDITION ['.date('Y-m-d H:m:s').']';
+            if($pageId == 1){
+                $genTitle = $currStatic['title'].' PANO ['.date('Y-m-d H:m:s').']';
+            }else{
+                $genTitle = $currStatic['title'].' EDITION ['.date('Y-m-d H:m:s').']';
+            }
             
             $stmt->bindParam(':title', $genTitle, PDO::PARAM_STR);
             $stmt->bindParam(':pageId', $pageId, PDO::PARAM_INT);

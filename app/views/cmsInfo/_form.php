@@ -59,7 +59,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>Logo:</td>
+                        <td>Image:</td>
                         <td>
                             <input type="file" name="image" value=""/>
                             <? if (isset($info['id']) && !empty($info['image_name'])): ?>

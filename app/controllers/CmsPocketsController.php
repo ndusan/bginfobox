@@ -120,6 +120,8 @@ class CmsPocketsController extends Controller
                                            'size'   =>$params['image']['size'][$key]);
 
                             $this->uploadImage($newImageName, $image, 'pockets');
+                            //Create thumb
+                            $this->createThumbImage($newImageName, 'pockets', 170, 240);
                         }
                     }else{
                         parent::redirect ('cms'.DS.'pockets'.DS.'add'.DS.$params['page_id'].DS.'edition', 'error');
@@ -165,6 +167,10 @@ class CmsPocketsController extends Controller
                     $newImageName = $params['edition']['page_edition_id'][$key].'-'.$params['id'].'-'.$params['image']['name'][$key];
                     $this->db->setImageName($params['edition']['page_edition_id'][$key], $newImageName);
 
+                    //Delete thumb
+                    $oldThumbImageName = 'thumb-'.$oldImageName;
+                    $this->deleteImage($oldThumbImageName, 'pockets');
+                    
                     $image = array('name'    =>$params['image']['name'][$key],
                                    'type'    =>$params['image']['type'][$key],
                                    'tmp_name'=>$params['image']['tmp_name'][$key],
@@ -172,6 +178,8 @@ class CmsPocketsController extends Controller
                                    'size'   =>$params['image']['size'][$key]);
 
                     $this->reUploadImage($oldImageName, $newImageName, $image, 'pockets');
+                    //Create thumb
+                    $this->createThumbImage($newImageName, 'pockets', 170, 240);
                 }
             }
             
@@ -213,6 +221,10 @@ class CmsPocketsController extends Controller
                     $oldImageName = $dia['image_name'];
 
                     $this->deleteImage($oldImageName, 'pockets');
+                    
+                    //Delete thumb
+                    $oldThumbImageName = 'thumb-'.$oldImageName;
+                    $this->deleteImage($oldThumbImageName, 'pockets');
                 }
             }
             

@@ -18,9 +18,11 @@
                 <tr>
                     <td>Image:</td>
                     <td>
-                        <input type="file" name="image" value="" class="jr"/>
                         <? if (isset($banner['id']) && !empty($banner['image_name'])): ?>
+                            <input type="file" name="image" value=""/>
                             <a href="<?= DS . 'public' . DS . 'uploads' . DS . 'banner' . DS . $banner['image_name']; ?>" target="_blank"><?= $banner['image_name']; ?></a>
+                        <? else: ?>
+                            <input type="file" name="image" value="" class="jr"/>
                         <? endif; ?>
                     </td>
                 </tr>

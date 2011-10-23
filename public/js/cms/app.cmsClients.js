@@ -13,9 +13,13 @@ var App = App || {};
         }, 
         add: function() {
             App.CmsClients.checkbox();
+            App.CmsClients.paidClients();
+            App.Common.datepicker();
         },
         edit: function() {
             App.CmsClients.checkbox();
+            App.CmsClients.paidClients();
+            App.Common.datepicker();
         },
         addNode: function() {
             App.Common.tabs();
@@ -95,6 +99,16 @@ var App = App || {};
                $('.jdynamic').each(function(){
                   $(this).attr('checked', status); 
                });
+            });
+        },
+        paidClients: function() {
+            
+            $('#client_paid').click(function(){
+               if($(this).attr('checked')=='checked'){
+                   $('.datepicker').attr('disabled', false);
+               }else{
+                   $('.datepicker').attr('disabled', true);
+               }
             });
         }
     };

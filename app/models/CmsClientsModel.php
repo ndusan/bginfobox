@@ -68,12 +68,14 @@ class CmsClientsModel extends Model
             
             $query = sprintf("INSERT INTO %s SET `title`=:title, `address`=:address, `phone`=:phone, `website`=:website,
                                     `email`=:email, `all_pockets`=:allPockets, `type_client`=:typeClient, 
-                                    `type_distributor`=:typeDistributor, `navigation_id`=:navigationId", $this->tableClients);
+                                    `type_distributor`=:typeDistributor, `navigation_id`=:navigationId, 
+                                    `paid`=:paid, `date_start`=:dateStart, `date_end`=:dateEnd", $this->tableClients);
             $stmt = $this->dbh->prepare($query);
             
             $allPockets = !empty($params['static']['all_pockets'])?1:0;
             $typeClient = !empty($params['purpose']['client'])?1:0;
             $typeDistributor = !empty($params['purpose']['distributor'])?1:0;
+            $paid = !empty($params['paid'])?1:0;
             
             $stmt->bindParam(':title', $params['title'], PDO::PARAM_STR);
             $stmt->bindParam(':address', $params['address'], PDO::PARAM_STR);
@@ -84,6 +86,9 @@ class CmsClientsModel extends Model
             $stmt->bindParam(':typeClient', $typeClient, PDO::PARAM_INT);
             $stmt->bindParam(':typeDistributor', $typeDistributor, PDO::PARAM_INT);
             $stmt->bindParam(':navigationId', $params['navigation_id'], PDO::PARAM_INT);
+            $stmt->bindParam(':paid', $paid, PDO::PARAM_INT);
+            $stmt->bindParam(':dateStart', $this->convertDate($params['date_start']));
+            $stmt->bindParam(':dateEnd', $this->convertDate($params['date_end']));
             $stmt->execute();
             
             $id = $this->dbh->lastInsertId();
@@ -127,12 +132,14 @@ class CmsClientsModel extends Model
         try{
             $query = sprintf("UPDATE %s SET `title`=:title, `address`=:address, `phone`=:phone, `website`=:website,
                                     `email`=:email, `all_pockets`=:allPockets, `type_client`=:typeClient, 
-                                    `type_distributor`=:typeDistributor, `navigation_id`=:navigationId WHERE `id`=:id", $this->tableClients);
+                                    `type_distributor`=:typeDistributor, `navigation_id`=:navigationId,
+                                    `paid`=:paid, `date_start`=:dateStart, `date_end`=:dateEnd WHERE `id`=:id", $this->tableClients);
             $stmt = $this->dbh->prepare($query);
             
             $allPockets = !empty($params['static']['all_pockets'])?1:0;
             $typeClient = !empty($params['purpose']['client'])?1:0;
             $typeDistributor = !empty($params['purpose']['distributor'])?1:0;
+            $paid = !empty($params['paid'])?1:0;
             
             $stmt->bindParam(':title', $params['title'], PDO::PARAM_STR);
             $stmt->bindParam(':address', $params['address'], PDO::PARAM_STR);
@@ -143,6 +150,9 @@ class CmsClientsModel extends Model
             $stmt->bindParam(':typeClient', $typeClient, PDO::PARAM_INT);
             $stmt->bindParam(':typeDistributor', $typeDistributor, PDO::PARAM_INT);
             $stmt->bindParam(':navigationId', $params['navigation_id'], PDO::PARAM_INT);
+            $stmt->bindParam(':paid', $paid, PDO::PARAM_INT);
+            $stmt->bindParam(':dateStart', $this->convertDate($params['date_start']));
+            $stmt->bindParam(':dateEnd', $this->convertDate($params['date_end']));
             $stmt->bindParam(':id', $params['id'], PDO::PARAM_INT);
             $stmt->execute();
 
@@ -616,5 +626,13 @@ class CmsClientsModel extends Model
             
             return false;
         }
+    }
+    
+    
+    private function convertDate($date)
+    {
+        $oldDate = explode('-', $date);
+        
+        return $oldDate[2].'-'.$oldDate[1].'-'.$oldDate[0];
     }
 }

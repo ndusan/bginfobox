@@ -8,10 +8,10 @@
     </ul>
     <? $i=1;?>
     <? foreach($tabs as $tab):?>
-    <div id="fragment-<?=$i++;?>" class="addContent1">
+    <div id="fragment-<?=$i;?>" class="addContent1">
         <ul class="addTop">
-            <li><a class="cmsEdit1" href="/cms/bginfo/edit/<?=$tab['id'];?>/static" >Edit about content</a></li>
-            <li><a class="cmsAdd" href="/cms/bginfo/add/<?=$tab['id'];?>/edition" >New edition</a></li>
+            <? if($i<4):?><li><a class="cmsEdit1" href="/cms/bginfo/edit/<?=$tab['id'];?>/static" >Edit about content</a></li><? endif;?>
+            <li><a class="cmsAdd" href="/cms/bginfo/add/<?=$tab['id'];?>/edition" ><?=($i++==1?'New pano' : 'New edition');?></a></li>
         </ul>
         <!-- editions -->
         <? if (!empty($editionCollection[$tab['id']])): ?>
