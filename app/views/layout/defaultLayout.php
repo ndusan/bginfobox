@@ -111,7 +111,11 @@
 
                         <ul class="guideNav">
                             <li><a href="#">&laquo; NAZAD</a></li>
-                            <li><a href="#">Smestaj</a></li>
+                            <? if(!empty($treeGuide)):?>
+                            <? foreach($treeGuide as $tg):?>
+                            <li><a href="<?=(DS.$params['lang'].DS.'guide'.DS.$tg['slug']);?>"><?=($tg['title_'.$params['lang']]);?></a></li>
+                            <? endforeach;?>
+                            <? endif;?>
                             <li><a href="#">Restorani</a></li>
                             <li><a href="#">Kultira</a></li>
                             <li><a href="#">Sport</a></li>
