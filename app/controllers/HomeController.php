@@ -92,7 +92,9 @@ class HomeController extends Controller
         parent::set('activeLangs', $this->db->getActiveLanguages());
         
         switch($params['page']){
-            case 'about-us':break;
+            case 'about-us':
+                $this->getPricelist();
+                break;
             case 'our-clients': $this->clientsPage($params); break;
             case 'archive': $this->archivePage($params); break;
             case 'gallery': $this->galleryPage($params); break;
@@ -159,6 +161,8 @@ class HomeController extends Controller
                 parent::set('sent', 'error');
             }
         }
+        
+        parent::set('pages', $this->db->getPagesForAds());
     }
    
     

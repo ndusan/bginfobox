@@ -22,7 +22,7 @@
             <li>
                 <ul>
                     <? foreach($galleryArchiveCollection as $gac):?>
-                    <li><a href="<?=(DS . $params['lang'] . DS . 'bginfo-night-map' . DS . 'gallery?archive='.$gac['page_edition_id']);?>"><img title="<?=$gac['title_'.$params['lang']];?>" alt="<?=$gac['title_'.$params['lang']];?>" src="<?=(DS.'public'.DS.'uploads'.DS.'bginfo'.DS.'thumb-'.$gac['image_name']);?>" /></a></li>
+                    <li><a href="<?=(DS . $params['lang'] . DS . 'archive'.DS. 'bginfo-night-map');?>"><img title="<?=$gac['title_'.$params['lang']];?>" alt="<?=$gac['title_'.$params['lang']];?>" src="<?=(DS.'public'.DS.'uploads'.DS.'bginfo'.DS.'thumb-'.$gac['image_name']);?>" /></a></li>
                     <? endforeach;?>
                 </ul>
             </li>

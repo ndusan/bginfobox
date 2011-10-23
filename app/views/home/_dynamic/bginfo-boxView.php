@@ -5,11 +5,13 @@
         </div>
         <div class="boxContent">
             <ul class="boxExtra">
+                <? if(!empty($pricelist['image_name'])):?>
                 <li class="icoPdf">
-                    <a href="#">
+                    <a href="<?=(DS.'public'.DS.'uploads'.DS.'aboutus'.DS.$pricelist['image_name']);?>" target="_blank">
                         <?=$_t['ads.label'][$params['lang']];?>
                     </a>
                 </li>
+                <? endif;?>
                 <li class="icoMail">
                     <a href="<?=(DS.$params['lang'].DS.'ads');?>">
                         <?=$_t['ads-question.label'][$params['lang']];?>? 

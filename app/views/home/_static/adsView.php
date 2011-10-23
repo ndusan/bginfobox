@@ -41,54 +41,18 @@
                                 <b><?=$_t['advertising.label'][$params['lang']];?>:</b>
                             </td>
                         </tr>
+                        <? if(!empty($pages)):?>
+                        <? foreach($pages as $p):?>
                         <tr>
                             <td align="right">
-                                <input id="form_bginfobox" type="checkbox" name="form[field][bginfobox]" value="Bg Info Box" />
+                                <input id="form_<?=$p['id'];?>" type="checkbox" name="form[pages][]" value="<?=$p['title'];?>" />
                             </td>
                             <td>
-                                <label for="form_bginfobox">Bg Info Box</label>
+                                <label for="form_<?=$p['id'];?>"><?=$p['title'];?></label>
                             </td>
                         </tr>
-                        <tr>
-                            <td align="right">
-                                <input id="form_bginfomap" type="checkbox" name="form[field][bginfomap]" value="Bg Info Map" />
-                            </td>
-                            <td>
-                                <label for="form_bginfomap">Bg Info Map</label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="right">
-                                <input id="form_bginfonightmap" type="checkbox" name="form[field][bginfonightmap]" value="Bg Info Night Map" />
-                            </td>
-                            <td>
-                                <label for="form_bginfonightmap">Bg Info Night Map</label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="right">
-                                <input id="form_belgradeinyourpocket" type="checkbox" name="form[field][belgradeinyourpocket]" value="Belgrade in your pocket" />
-                            </td>
-                            <td>
-                                <label for="form_belgradeinyourpocket">Belgrade in your pocket</label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="right">
-                                <input id="form_novisadinyourpocket" type="checkbox" name="form[filed][novisadinyourpocket]" value="Novi Sad in your pocket" />
-                            </td>
-                            <td>
-                                <label for="form_novisadinyourpocket">Novi Sad in your pocket</label>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="right">
-                                <input id="form_nisinyourpocket" type="checkbox" name="form[filed][nisinyourpocket]" value="Nis in your pocket" />
-                            </td>
-                            <td>
-                                <label for="form_nisinyourpocket">Nis in your pocket</label>
-                            </td>
-                        </tr>
+                        <? endforeach;?>
+                        <? endif; ?>
                         <tr>
                             <td align="right">
                                 <label for="form_contact"><?=$_t['advertising.contact'][$params['lang']];?></label>
