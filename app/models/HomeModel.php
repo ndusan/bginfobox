@@ -460,49 +460,99 @@ class HomeModel extends Model
     {
         $output = array();
         
-        //Static
-        $staticCollection = $this->getAllStaticPages();
-        if(!empty($staticCollection)){
+        try{
+            //Static
+            $staticCollection = $this->getAllStaticPages();
+            if(!empty($staticCollection)){
+
+                foreach($staticCollection as $sc){
+                    if($sc['id'] ==1) continue;
+
+                    $query = sprintf("SELECT * FROM %s WHERE `page_id`=:pageId AND `position`=0 ORDER BY `created` DESC LIMIT 0,3", $this->tblPageEditionImages);
+                    $stmt = $this->dbh->prepare($query);
+
+                    $stmt->bindParam(':pageId', $sc['id'], PDO::PARAM_INT);
+                    $stmt->execute();
+
+                    $results = $stmt->fetchAll();
+                    if(!empty($results)){
+                        $sc['edition_images'] = $results;
+                        $output[] = $sc;
+                    }
+                }
+            }
+
+
+            //Dynamic
+            $dynamicCollection = $this->getAllDynamicPages();
+            if(!empty($dynamicCollection)){
+
+                foreach($dynamicCollection as $dc){
+
+                    $query = sprintf("SELECT * FROM %s WHERE `page_id`=:pageId AND `position`=0 ORDER BY `created` DESC LIMIT 0,3", $this->tblPagePocketEditionImages);
+                    $stmt = $this->dbh->prepare($query);
+
+                    $stmt->bindParam(':pageId', $dc['id'], PDO::PARAM_INT);
+                    $stmt->execute();
+
+                    $results = $stmt->fetchAll();
+                    if(!empty($results)){
+                        $dc['edition_images'] = $results;
+                        $output[] = $dc;
+                    }
+                }
+            }
+
+            return $output;
+        }catch(Exception $e){
             
-            foreach($staticCollection as $sc){
-                if($sc['id'] ==1 || $sc['id'] ==4) continue;
-                
-                $query = sprintf("SELECT * FROM %s WHERE `page_id`=:pageId AND `position`=0 ORDER BY `created` DESC LIMIT 0,3", $this->tblPageEditionImages);
+            return false;
+        }
+    }
+    
+    
+    
+    public function getArchiveById($pageId=null)
+    {
+        try{
+            $output = array();
+            
+            if(null == $pageId){
+                //Pockets
+                $query = sprintf("SELECT * FROM %s WHERE `page_id`>4", $this->tblPagePocketEditionImages);
                 $stmt = $this->dbh->prepare($query);
-                
-                $stmt->bindParam(':pageId', $sc['id'], PDO::PARAM_INT);
+
                 $stmt->execute();
 
                 $results = $stmt->fetchAll();
-                if(!empty($results)){
-                    $sc['edition_images'] = $results;
-                    $output[] = $sc;
+                if($results){
+                    foreach($results as $r){
+                        $output[$r['page_edition_id']][] = $r;
+                    }
                 }
-            }
-        }
-        
-        
-        //Dynamic
-        $dynamicCollection = $this->getAllDynamicPages();
-        if(!empty($dynamicCollection)){
-            
-            foreach($dynamicCollection as $dc){
-                
-                $query = sprintf("SELECT * FROM %s WHERE `page_id`=:pageId AND `position`=0 ORDER BY `created` DESC LIMIT 0,3", $this->tblPagePocketEditionImages);
+
+            }else{
+                //Rest
+                $query = sprintf("SELECT * FROM %s WHERE `page_id`=:pageId", $this->tblPageEditionImages);
                 $stmt = $this->dbh->prepare($query);
-                
-                $stmt->bindParam(':pageId', $dc['id'], PDO::PARAM_INT);
+
+                $stmt->bindParam(':pageId', $pageId, PDO::PARAM_INT);
                 $stmt->execute();
 
                 $results = $stmt->fetchAll();
-                if(!empty($results)){
-                    $dc['edition_images'] = $results;
-                    $output[] = $dc;
+                if($results){
+                    foreach($results as $r){
+                        $output[$r['page_edition_id']][] = $r;
+                    }
                 }
+
             }
+            
+            return $output;
+        }catch(Exception $e){
+            
+            return false;
         }
-        
-        return $output;
     }
     
     

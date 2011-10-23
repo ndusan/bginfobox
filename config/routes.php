@@ -54,7 +54,7 @@ $routes = array(
             'layout'     => 'default'
     ),
     //Archive
-    array(  'url'        => '/^(?P<lang>('.LANG.'))\/archive\/(?P<page>(bginfo-night-map|bginfo-map|pockets))\/?$/', 
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/archive\/(?P<page>(bginfo-night-map|bginfo-map|pockets|putovanje-za-dvoje))\/?$/', 
             'controller' => 'home', 
             'action'     => 'archive', 
             'layout'     => 'default'

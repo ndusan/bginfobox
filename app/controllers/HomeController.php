@@ -175,10 +175,6 @@ class HomeController extends Controller
                 $this->bginfoPage($params['page']); 
                 $this->bginfoGalleryPage($params['page'], null);
                 break;
-            case 'putovanje-za-dvoje': 
-                $this->bginfoPage($params['page']); 
-                $this->bginfoGalleryPage($params['page'], null);
-                break;
             case 'pockets': 
                 $this->pocketsPage();
                 $this->pocketsInfo();
@@ -203,7 +199,6 @@ class HomeController extends Controller
             case 'bginfo-box': $this->bginfoBoxGalleryPage($params['page']); break;
             case 'bginfo-map': $this->bginfoGalleryPage($params['page'], $archive); break;
             case 'bginfo-night-map': $this->bginfoGalleryPage($params['page'], $archive); break;
-            case 'putovanje-za-dvoje': $this->bginfoGalleryPage($params['page'], $archive); break;
         }
     }
     
@@ -246,7 +241,6 @@ class HomeController extends Controller
             case 'bginfo-box': break;
             case 'bginfo-map': break;
             case 'bginfo-night-map': break;
-            case 'putovanje-za-dvoje': break;
         }
     }
     
@@ -260,10 +254,19 @@ class HomeController extends Controller
         parent::set('activeLangs', $this->db->getActiveLanguages());
         
         switch($params['page']){
-            case 'bginfo-map': break;
-            case 'bginfo-night-map': break;
-            case 'putovanje-za-dvoje': break;
+            case 'bginfo-map': $this->getAchiveByName($params['page']); break;
+            case 'bginfo-night-map': $this->getAchiveByName($params['page']); break;
+            case 'putovanje-za-dvoje': $this->getAchiveByName($params['page']); break;
+            case 'pockets': $this->getAchiveByName(); break;
         }
+    }
+    
+    
+    private function getAchiveByName($name=null)
+    {
+        $id = null == $name ? null : $this->pages[$name];
+        parent::set('archiveCollection', $this->db->getArchiveById($id));
+        
     }
     
     
@@ -336,6 +339,9 @@ class HomeController extends Controller
         
         parent::set('activeLangs', $this->db->getActiveLanguages());
     }
+    
+    
+    
     
     
 }
