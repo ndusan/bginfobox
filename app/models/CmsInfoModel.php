@@ -120,7 +120,6 @@ class CmsInfoModel extends Model
     {
         
         try{
-            $this->removeClientPages($params['id']);
             
             $query = sprintf("DELETE FROM %s  WHERE `id`=:id", $this->tableInfo);
             $stmt = $this->dbh->prepare($query);
