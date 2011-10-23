@@ -204,47 +204,32 @@
                 <ul class="bottomLinks">
                     <li><b>Izdanja</b>
                         <ul>
-                            <li><a href="#">Izdanja</a></li>
-                            <li><a href="#">Vodič kroz Beograd</a></li>
-                            <li><a href="#">BG Info Box</a></li>
-                            <li><a href="#">Oni su nam ukazali poverenje</a></li>
-                            <li><a href="#">TBD</a></li>
+                            <li><a href="#">Bg Info Map</a></li>
+                            <li><a href="#">Bg Info Night Map</a></li>
+                            <!-- dinamicki ili samo jedan link? -->
+                            <li><a href="#">In Your Pocket Izdanja</a></li>
                         </ul>
                     </li>
                     <li><b>Vodič kroz Beograd</b>
-                        <ul>
-                            <li><a href="#">Izdanja</a></li>
-                            <li><a href="#">Vodič kroz Beograd</a></li>
-                            <li><a href="#">BG Info Box</a></li>
-                            <li><a href="#">Oni su nam ukazali poverenje</a></li>
-                            <li><a href="#">TBD</a></li>
+                        <ul><!-- prvi nivo dinamicki -->
+                            <li><a href="#">Restorani</a></li>
+                            <li><a href="#">Kultura</a></li>
+                            <li><a href="#">Sport</a></li>
+                            <li><a href="#">Bla bla</a></li>
                         </ul>
                     </li>
-                    <li><b>BG Info Box</b>
-                        <ul>
-                            <li><a href="#">Izdanja</a></li>
-                            <li><a href="#">Vodič kroz Beograd</a></li>
-                            <li><a href="#">BG Info Box</a></li>
-                            <li><a href="#">Oni su nam ukazali poverenje</a></li>
-                            <li><a href="#">TBD</a></li>
-                        </ul>
-                    </li>
-                    <li><b>Oni su nam ukazali poverenje</b>
-                        <ul>
-                            <li><a href="#">Izdanja</a></li>
-                            <li><a href="#">Vodič kroz Beograd</a></li>
-                            <li><a href="#">BG Info Box</a></li>
-                            <li><a href="#">Oni su nam ukazali poverenje</a></li>
-                            <li><a href="#">TBD</a></li>
+                    <li><b>Belgrade Info</b>
+                        <ul><!-- prvi nivo dinamicki -->
+                            <li><a href="#">Istiorija Beograda</a></li>
+                            <li><a href="#">Kulturna dešavanja</a></li>
+                            <li><a href="#">Bla bla</a></li>
                         </ul>
                     </li>
                     <li><b>TBD</b>
                         <ul>
-                            <li><a href="#">Izdanja</a></li>
-                            <li><a href="#">Vodič kroz Beograd</a></li>
-                            <li><a href="#">BG Info Box</a></li>
-                            <li><a href="#">Oni su nam ukazali poverenje</a></li>
-                            <li><a href="#">TBD</a></li>
+                            <li><a href="#">O nama</a></li>
+                            <li><a href="#">Oglašavanje</a></li>
+                            <li><a href="#">Kontakt</a></li>
                         </ul>
                     </li>
                 </ul>

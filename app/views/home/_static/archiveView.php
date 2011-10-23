@@ -5,7 +5,7 @@
         </div>
         <? if(!empty($archiveCollection)):?>
         <ul class="archiveAll">
-            <? $array = array('2'=>'bginfo-map','3'=>'bginfo-night-map');?>
+            <? $array = array('2'=>'bginfo-map','3'=>'bginfo-night-map','4'=>'putovanje-za-dvoje');?>
             <? foreach($archiveCollection as $ac):?>
             <li>
                 <ul>

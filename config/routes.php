@@ -48,13 +48,13 @@ $routes = array(
             'layout'     => 'default'
     ),
     //Location
-    array(  'url'        => '/^(?P<lang>('.LANG.'))\/(?P<page>(bginfo-box|bginfo-night-map|bginfo-map|pockets))\/location\/?$/', 
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/(?P<page>(bginfo-night-map|bginfo-map|pockets))\/location\/?$/', 
             'controller' => 'home', 
             'action'     => 'location', 
             'layout'     => 'default'
     ),
     //Archive
-    array(  'url'        => '/^(?P<lang>('.LANG.'))\/archive\/(?P<page>(bginfo-night-map|bginfo-map|pockets))\/?$/', 
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/archive\/(?P<page>(bginfo-night-map|bginfo-map|pockets|putovanje-za-dvoje))\/?$/', 
             'controller' => 'home', 
             'action'     => 'archive', 
             'layout'     => 'default'

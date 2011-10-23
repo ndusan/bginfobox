@@ -16,7 +16,9 @@ class HomeModel extends Model
     private $tblPagesPocketContent = 'page_pocket_content';
     private $tblPageContent = 'page_content';
     private $tblPagePocketInfo = 'page_pocket_info';
-
+    private $tblPagePocketEdition = 'page_pocket_edition';
+    private $tblPageEdition = 'page_edition';
+    private $tblAboutUs = 'aboutus';
     
     
     public function getFreshNews($params)
@@ -346,10 +348,11 @@ class HomeModel extends Model
         
         foreach ($dynamicPages as $d){
             
-            $query = sprintf("SELECT `a`.`title`, `b`.* FROM %s AS `a`
-                                INNER JOIN %s AS `b` ON `b`.`page_id`=`a`.`id`
-                                WHERE `a`.`id`=:id AND `b`.`position`='0' 
-                                ORDER BY `b`.`created` DESC LIMIT 0, 1", $this->tblPages, $this->tblPagePocketEditionImages); 
+            $query = sprintf("SELECT `a`.`title`, `a`.`has_link`, `a`.`link`, `b`.`file_name`, `c`.* FROM %s AS `a`
+                                LEFT JOIN %s AS `b` ON `b`.`page_id`=`a`.`id`
+                                INNER JOIN %s AS `c` ON `c`.`page_id`=`a`.`id`
+                                WHERE `a`.`id`=:id AND `c`.`position`='0' 
+                                ORDER BY `c`.`created` DESC LIMIT 0, 1", $this->tblPages, $this->tblPagePocketEdition, $this->tblPagePocketEditionImages); 
                 
             $stmt = $this->dbh->prepare($query);
             
@@ -460,49 +463,99 @@ class HomeModel extends Model
     {
         $output = array();
         
-        //Static
-        $staticCollection = $this->getAllStaticPages();
-        if(!empty($staticCollection)){
+        try{
+            //Static
+            $staticCollection = $this->getAllStaticPages();
+            if(!empty($staticCollection)){
+
+                foreach($staticCollection as $sc){
+                    if($sc['id'] ==1) continue;
+
+                    $query = sprintf("SELECT * FROM %s WHERE `page_id`=:pageId AND `position`=0 ORDER BY `created` DESC LIMIT 0,3", $this->tblPageEditionImages);
+                    $stmt = $this->dbh->prepare($query);
+
+                    $stmt->bindParam(':pageId', $sc['id'], PDO::PARAM_INT);
+                    $stmt->execute();
+
+                    $results = $stmt->fetchAll();
+                    if(!empty($results)){
+                        $sc['edition_images'] = $results;
+                        $output[] = $sc;
+                    }
+                }
+            }
+
+
+            //Dynamic
+            $dynamicCollection = $this->getAllDynamicPages();
+            if(!empty($dynamicCollection)){
+
+                foreach($dynamicCollection as $dc){
+
+                    $query = sprintf("SELECT * FROM %s WHERE `page_id`=:pageId AND `position`=0 ORDER BY `created` DESC LIMIT 0,3", $this->tblPagePocketEditionImages);
+                    $stmt = $this->dbh->prepare($query);
+
+                    $stmt->bindParam(':pageId', $dc['id'], PDO::PARAM_INT);
+                    $stmt->execute();
+
+                    $results = $stmt->fetchAll();
+                    if(!empty($results)){
+                        $dc['edition_images'] = $results;
+                        $output[] = $dc;
+                    }
+                }
+            }
+
+            return $output;
+        }catch(Exception $e){
             
-            foreach($staticCollection as $sc){
-                if($sc['id'] ==1 || $sc['id'] ==4) continue;
-                
-                $query = sprintf("SELECT * FROM %s WHERE `page_id`=:pageId AND `position`=0 ORDER BY `created` DESC LIMIT 0,3", $this->tblPageEditionImages);
+            return false;
+        }
+    }
+    
+    
+    
+    public function getArchiveById($pageId=null)
+    {
+        try{
+            $output = array();
+            
+            if(null == $pageId){
+                //Pockets
+                $query = sprintf("SELECT * FROM %s WHERE `page_id`>4", $this->tblPagePocketEditionImages);
                 $stmt = $this->dbh->prepare($query);
-                
-                $stmt->bindParam(':pageId', $sc['id'], PDO::PARAM_INT);
+
                 $stmt->execute();
 
                 $results = $stmt->fetchAll();
-                if(!empty($results)){
-                    $sc['edition_images'] = $results;
-                    $output[] = $sc;
+                if($results){
+                    foreach($results as $r){
+                        $output[$r['page_edition_id']][] = $r;
+                    }
                 }
-            }
-        }
-        
-        
-        //Dynamic
-        $dynamicCollection = $this->getAllDynamicPages();
-        if(!empty($dynamicCollection)){
-            
-            foreach($dynamicCollection as $dc){
-                
-                $query = sprintf("SELECT * FROM %s WHERE `page_id`=:pageId AND `position`=0 ORDER BY `created` DESC LIMIT 0,3", $this->tblPagePocketEditionImages);
+
+            }else{
+                //Rest
+                $query = sprintf("SELECT * FROM %s WHERE `page_id`=:pageId", $this->tblPageEditionImages);
                 $stmt = $this->dbh->prepare($query);
-                
-                $stmt->bindParam(':pageId', $dc['id'], PDO::PARAM_INT);
+
+                $stmt->bindParam(':pageId', $pageId, PDO::PARAM_INT);
                 $stmt->execute();
 
                 $results = $stmt->fetchAll();
-                if(!empty($results)){
-                    $dc['edition_images'] = $results;
-                    $output[] = $dc;
+                if($results){
+                    foreach($results as $r){
+                        $output[$r['page_edition_id']][] = $r;
+                    }
                 }
+
             }
+            
+            return $output;
+        }catch(Exception $e){
+            
+            return false;
         }
-        
-        return $output;
     }
     
     
@@ -550,6 +603,76 @@ class HomeModel extends Model
     {
         
         
+    }
+    
+    
+    
+    public function getDownload($pageId=null)
+    {
+        
+        try{
+           
+            if(null == $pageId){
+                //Pocekts
+                $query = sprintf('SELECT * FROM %s ORDER BY `id` DESC LIMIT 0,1', $this->tblPagePocketEdition);
+                $stmt = $this->dbh->prepare($query);
+
+                $stmt->execute();
+            }else{
+                //Rest
+                $query = sprintf('SELECT * FROM %s WHERE `page_id`=:pageId ORDER BY `id` DESC LIMIT 0,1', $this->tblPageEdition);
+                $stmt = $this->dbh->prepare($query);
+
+                $stmt->bindParam(':pageId', $pageId, PDO::PARAM_INT);
+                $stmt->execute();
+            }
+
+            return $stmt->fetch();
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
+    public function getLocations($pageId)
+    {
+     
+        try{
+           
+            $query = sprintf('SELECT * FROM %s AS `c`
+                                INNER JOIN %s AS `cp` ON `cp`.`client_id`=`c`.`id`
+                                WHERE `cp`.`page_id`=:pageId 
+                                ORDER BY `id`', $this->tblClients, $this->tblClientPages);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->bindParam(':pageId', $pageId, PDO::PARAM_INT);
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
+    
+    public function getAboutUs()
+    {
+        
+        try{
+           
+            $query = sprintf('SELECT * FROM %s', $this->tblAboutUs);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->execute();
+
+            return $stmt->fetch();
+        }catch(Exception $e){
+            
+            return false;
+        }
     }
     
 }

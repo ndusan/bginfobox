@@ -3,53 +3,27 @@
         <div class="boxTitle">
             <h1><?= $_t['archive-bginfomap.label'][$params['lang']]; ?></h1>
         </div>
+        <? if(!empty($archiveCollection)):?>
         <ul class="archiveAll">
             <li>
                 <ul>
-
+                    <? foreach($archiveCollection as $ac):?>
                     <li>
-                        <a href="#"><img src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" /></a>
-                        <span class="info">Broj 23,<br/>Avgust 2011</span>
+                        <? foreach($ac as $image):?>
+                        <a class="lightbox" href="<?=(DS.'public'.DS.'uploads'.DS.($image['page_id']>4?'pockets':'bginfo').DS.$image['image_name']);?>">
+                            <img <?=($image['position']?'style="display:none;"':'')?> src="<?=(DS.'public'.DS.'uploads'.DS.($image['page_id']>4?'pockets':'bginfo').DS.'thumb-'.$image['image_name']);?>" />
+                        </a>
+                        <span <?=($image['position']?'style="display:none;"':'')?> class="info">
+                            <?=$image['title_'.$params['lang']];?>
+                            <br/><?=$html->convertDate($image['created']);?>
+                        </span>
+                        <? endforeach;?>
                     </li>
-                    <li>
-                        <a href="#"><img src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" /></a>
-                        <span class="info">Broj 23,<br/>Avgust 2011</span>
-                    </li>
-                    <li>
-                        <a href="#"><img src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" /></a>
-                        <span class="info">Broj 23,<br/>Avgust 2011</span>
-                    </li>
-                    <li>
-                        <a href="#"><img src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" /></a>
-                        <span class="info">Broj 23,<br/>Avgust 2011</span>
-                    </li>
-                    <li>
-                        <a href="#"><img src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" /></a>
-                        <span class="info">Broj 23,<br/>Avgust 2011</span>
-                    </li>
-                    <li>
-                        <a href="#"><img src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" /></a>
-                        <span class="info">Broj 23,<br/>Avgust 2011</span>
-                    </li>
-                    <li>
-                        <a href="#"><img src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" /></a>
-                        <span class="info">Broj 23,<br/>Avgust 2011</span>
-                    </li>
-                    <li>
-                        <a href="#"><img src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" /></a>
-                        <span class="info">Broj 23,<br/>Avgust 2011</span>
-                    </li>
-                    <li>
-                        <a href="#"><img src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" /></a>
-                        <span class="info">Broj 23,<br/>Avgust 2011</span>
-                    </li>
-                    <li>
-                        <a href="#"><img src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" /></a>
-                        <span class="info">Broj 23,<br/>Avgust 2011</span>
-                    </li>
+                    <? endforeach;?>
                 </ul>
             </li>
         </ul>
+        <? endif;?>
     </div>
     <!-- Load belgrade guide-->
     <? include_once VIEW_PATH . 'home' . DS . '_static' . DS . '_guide.php'; ?>
