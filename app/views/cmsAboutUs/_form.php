@@ -43,6 +43,16 @@
                         </td>
                     </tr>
                     <tr>
+                        <td>Agreement:</td>
+                        <td>
+                            <input type="file" name="doc" value=""/>
+                            <? if (isset($aboutus['id']) && !empty($aboutus['doc_name'])): ?>
+                                <a href="<?= DS . 'public' . DS . 'uploads' . DS . 'aboutus' . DS . $aboutus['doc_name']; ?>" target="_blank"><?= $aboutus['doc_name']; ?></a>
+                                [<a href="/cms/about-us/delete/doc/<?= $aboutus['id']; ?>">Delete</a>]
+                            <? endif; ?>
+                        </td>
+                    </tr>
+                    <tr>
                         <td colspan="2" align="center">
                             <input type="hidden" name="aboutus[id]" value="<?= @$aboutus['id']; ?>" />
                             <input type="submit" value="Submit" name="submit" />

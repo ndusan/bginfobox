@@ -144,6 +144,11 @@ $routes = array(
             'action'     => 'deleteImage', 
             'layout'     => 'empty'
     ),
+    array(  'url'        => '/^cms\/about-us\/delete\/doc\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsAboutUs', 
+            'action'     => 'deleteDoc', 
+            'layout'     => 'empty'
+    ),
     
     //CMS news page
     array(  'url'        => '/^cms\/news\/?$/', 

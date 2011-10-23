@@ -43,19 +43,19 @@
                 <a href="<?= DS . $params['lang'] . DS . 'archive'; ?>">
                     <img title="" width="170" height="100" src=" <?= IMAGE_PATH . 'arhiva.jpg'; ?>" />
                 </a>
-                <span class="info moreInfo"><b><?= $_t['moreInfo.archive'][$params['lang']]; ?></b></span>
+                <span class="info moreInfo"><b><?= $_t['menu.archive'][$params['lang']]; ?></b></span>
             </li>
             <li>
                 <a href="<?= DS . $params['lang'] . DS . 'our-clients'; ?>">
                     <img title="" width="170" height="100" src=" <?= IMAGE_PATH . 'klijenti.jpg'; ?>" /> 
                 </a>
-                <span class="info moreInfo"><b><?= $_t['moreInfo.clients'][$params['lang']]; ?></b></span>
+                <span class="info moreInfo"><b><?= $_t['menu.our-clients'][$params['lang']]; ?></b></span>
             </li>
             <li>
                 <a href="<?= DS . $params['lang'] . DS . 'gallery'; ?>">
                     <img title="" width="170" height="100" src=" <?= IMAGE_PATH . 'galerija.jpg'; ?>" /> 
                 </a>
-                <span class="info moreInfo"><b><?= $_t['moreInfo.gallery'][$params['lang']]; ?></b></span>
+                <span class="info moreInfo"><b><?= $_t['menu.gallery'][$params['lang']]; ?></b></span>
             </li>
         </ul>
     </div>

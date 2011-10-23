@@ -12,7 +12,13 @@
                 <? endif; ?>
             <? endif; ?>
             <ul class="boxExtra">
-                <li class="icoDoc"><a href="#"><?=$_t['advertising.declaration'][$params['lang']];?></a></li>
+                <? if(!empty($pricelist['doc_name'])):?>
+                <li class="icoDoc">
+                    <a href="<?=(DS.'public'.DS.'uploads'.DS.'aboutus'.DS.$pricelist['doc_name']);?>" target="_blank">
+                        <?=$_t['advertising.declaration'][$params['lang']];?>
+                    </a>
+                </li>
+                <? endif;?>
                 <li class="infoExtra">
                     <p>dodatne informacije o ovome shto je levod esno</p>
                 </li>
