@@ -30,6 +30,7 @@
         <div class="header">
             <ul class="headerNav">
                 <li class="first">Hello, <?=$_SESSION['cms']['email'];?></li>
+                <li <?= $this->_controller=='cmsUser'?'class="active"':''; ?>> <a  href="<?= DS . 'cms' . DS . 'users'; ?>">Users</a></li>
                 <li <?= $this->_action=='settings'?'class="active"':''; ?>><a  href="<?= DS . 'cms'.DS.'settings'; ?>">Settings</a></li>
                 <li><a href="<?= DS . 'logout'; ?>" class="jl">Logout</a></li>
             </ul>
@@ -39,7 +40,6 @@
             <div class="sidebar">
                 <ul class="mainNav">
                     <li><a <?= $this->_controller=='cmsHome'?'class="active"':''; ?> href="<?= DS . 'cms'; ?>">Dashboard</a></li>
-                    <li><a <?= $this->_controller=='cmsUser'?'class="active"':''; ?> href="<?= DS . 'cms' . DS . 'users'; ?>">Users</a></li>
                     <li><a <?= $this->_controller=='cmsAboutUs'?'class="active"':''; ?> href="<?= DS . 'cms' . DS . 'about-us'; ?>">About Us</a></li>
                     <li><a <?= $this->_controller=='cmsNews'?'class="active"':''; ?> href="<?= DS . 'cms' . DS . 'news'; ?>">News</a></li>
                     <li><a <?= $this->_controller=='cmsEvents'?'class="active"':''; ?> href="<?= DS . 'cms' . DS . 'events'; ?>">Events</a></li>
