@@ -21,7 +21,17 @@ class HomeController extends Controller
         parent::set('lattestDynamicEditions', $this->db->getLattestDynamicEditions());
         parent::set('pocketContent', $this->db->getPocketContent());
         
+        parent::set('treeGuide', $this->getTreeGuide());
+        
     }
+    
+    
+    private function getTreeGuide()
+    {
+        
+        return $this->db->getTreeGuide();
+    }
+    
     
     
     private function newsPage($params)

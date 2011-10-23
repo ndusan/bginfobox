@@ -63,6 +63,7 @@
                                         </tr>
                                         <? if (!empty($staticCollection)): ?>
                                             <? foreach ($staticCollection as $static): ?>
+                                            <? if($static['id'] > 1  && $static['id']<4):?>
                                                 <tr>
                                                     <td>
                                                         <input class="jstatic" id="client_static_<?=$static['id'];?>" type="checkbox" name="client[static][<?= $static['id']; ?>]" <?= (!empty($static['client_id']) && $static['client_id'] == $client['id'] ? 'checked="checked"' : '') ?> value="<?= $static['id']; ?>" />
@@ -71,6 +72,7 @@
                                                         <label for="client_static_<?=$static['id'];?>"><?= $static['title']; ?></label>
                                                     </td>
                                                 </tr>
+                                            <? endif;?>
                                             <? endforeach; ?>
                                                 <tr>
                                                     <td>
@@ -94,6 +96,20 @@
                                                 </th>
                                                 <th><h3>Distributor</h3></th>
                                         </tr>
+                                         <? if (!empty($staticCollection)): ?>
+                                            <? foreach ($staticCollection as $static): ?>
+                                            <? if($static['id'] > 1  && $static['id']<4):?>
+                                                <tr>
+                                                    <td>
+                                                        <input class="jstatic" id="client_static_<?=$static['id'];?>" type="checkbox" name="client[static][<?= $static['id']; ?>]" <?= (!empty($static['client_id']) && $static['client_id'] == $client['id'] ? 'checked="checked"' : '') ?> value="<?= $static['id']; ?>" />
+                                                    </td>
+                                                    <td>
+                                                        <label for="client_static_<?=$static['id'];?>"><?= $static['title']; ?></label>
+                                                    </td>
+                                                </tr>
+                                            <? endif;?>
+                                            <? endforeach; ?>
+                                        <? endif; ?>
                                         <? if (!empty($dynamicCollection)): ?>
                                             <? foreach ($dynamicCollection as $dynamic): ?>
                                                 <tr>
