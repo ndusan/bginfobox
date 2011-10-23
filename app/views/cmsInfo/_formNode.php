@@ -3,7 +3,7 @@
         <li><a href="#fragment-1">Serbian</a></li>
         <li><a href="#fragment-2">English (optional)</a></li>
     </ul>
-    <form action="/cms/clients/node/<?= $node['formAction']; ?>" method="post" enctype="multipart/form-data">
+    <form action="/cms/info/node/<?= $node['formAction']; ?>" method="post" enctype="multipart/form-data">
         <div id="fragment-1" class="addContent">
             <table cellpadding="0" cellspacing="0">
                 <tbody>
@@ -50,7 +50,7 @@
                                 <option value="0">No parent</option>
                                 <? if(!empty($tree)):?>
                                 <? foreach($tree as $t):?>
-                                <? if($t['id'] <> $node['id'] && $t['path_length'] < 2):?>
+                                <? if($t['id'] <> $node['id']):?>
                                 <? if($t['id'] == $node['parent']) $sel = 'selected="selected"';
                                    else $sel = '';?>
                                 <option value="<?=$t['id'];?>" <?=$sel;?>><?=$t['breadcrumb'];?></option>
@@ -65,8 +65,8 @@
                         <td>
                             <input type="file" name="image" value=""/>
                             <? if (isset($node['id']) && !empty($node['image_name'])): ?>
-                                <a href="<?= DS . 'public' . DS . 'uploads' . DS . 'clients' . DS . $node['image_name']; ?>" target="_blank"><?= $node['image_name']; ?></a>
-                                [<a href="/cms/clients/node/delete/image/<?= $node['id']; ?>" class='jw'>Delete</a>]
+                                <a href="<?= DS . 'public' . DS . 'uploads' . DS . 'info' . DS . $node['image_name']; ?>" target="_blank"><?= $node['image_name']; ?></a>
+                                [<a href="/cms/info/node/delete/image/<?= $node['id']; ?>" class='jw'>Delete</a>]
                             <? endif; ?>
                         </td>
                     </tr>

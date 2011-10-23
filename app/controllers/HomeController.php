@@ -288,4 +288,42 @@ class HomeController extends Controller
     }
     
     
+    
+    public function guideAction($params)
+    {
+        
+        $slugArray = array();
+        if(!empty($params['slug'])){
+            $slugArray = explode('/', $params['slug']);
+        }
+        
+        
+        
+        parent::set('freshNews', $this->db->getFreshNews($params));
+        parent::set('bannerCollection', $this->db->getAllBanners());
+        parent::set('carouselCollection', $this->db->getAllCarousel());
+        
+        parent::set('activeLangs', $this->db->getActiveLanguages());
+    }
+    
+    
+    
+    public function infoAction($params)
+    {
+        
+        $slugArray = array();
+        if(!empty($params['slug'])){
+            $slugArray = explode('/', $params['slug']);
+        }
+        
+        
+        
+        parent::set('freshNews', $this->db->getFreshNews($params));
+        parent::set('bannerCollection', $this->db->getAllBanners());
+        parent::set('carouselCollection', $this->db->getAllCarousel());
+        
+        parent::set('activeLangs', $this->db->getActiveLanguages());
+    }
+    
+    
 }

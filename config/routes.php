@@ -59,6 +59,18 @@ $routes = array(
             'action'     => 'archive', 
             'layout'     => 'default'
     ),
+    //BGINFO guide
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/guide\/(?P<slug>([a-zA-Z0-9\/\-+_]+))\/?$/', 
+            'controller' => 'home', 
+            'action'     => 'guide', 
+            'layout'     => 'default'
+    ),
+    //BGINFO guide
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/info\/(?P<slug>([a-zA-Z0-9\/\-+_]+))\/?$/', 
+            'controller' => 'home', 
+            'action'     => 'info', 
+            'layout'     => 'default'
+    ),
     //Login page
     array(  'url'        => '/^login\/?$/', 
             'controller' => 'login', 
@@ -310,6 +322,53 @@ $routes = array(
             'layout'     => 'empty'
     ),
     
+    //CMS info
+    array(  'url'        => '/^cms\/info\/?$/', 
+            'controller' => 'cmsInfo', 
+            'action'     => 'index', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/info\/add\/?$/', 
+            'controller' => 'cmsInfo', 
+            'action'     => 'add', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/info\/(?P<id>\d*)\/edit\/?$/', 
+            'controller' => 'cmsInfo', 
+            'action'     => 'edit', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/info\/(?P<id>\d*)\/delete\/?$/', 
+            'controller' => 'cmsInfo', 
+            'action'     => 'delete', 
+            'layout'     => 'empty'
+    ),
+    array(  'url'        => '/^cms\/info\/delete\/image\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsInfo', 
+            'action'     => 'deleteImage', 
+            'layout'     => 'empty'
+    ),
+    array(  'url'        => '/^cms\/info\/node\/add\/?$/', 
+            'controller' => 'cmsInfo', 
+            'action'     => 'addNode', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/info\/node\/(?P<id>\d*)\/edit\/?$/', 
+            'controller' => 'cmsInfo', 
+            'action'     => 'editNode', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/info\/node\/(?P<id>\d*)\/delete\/?$/', 
+            'controller' => 'cmsInfo', 
+            'action'     => 'deleteNode', 
+            'layout'     => 'empty'
+    ),
+    array(  'url'        => '/^cms\/info\/node\/delete\/image\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsInfo', 
+            'action'     => 'deleteNodeImage', 
+            'layout'     => 'empty'
+    ),
+    
     //CMS clients
     array(  'url'        => '/^cms\/clients\/?$/', 
             'controller' => 'cmsClients', 
@@ -351,27 +410,11 @@ $routes = array(
             'action'     => 'deleteNode', 
             'layout'     => 'empty'
     ),
-    
-    //CMS navigation
-    array(  'url'        => '/^cms\/navigation\/?$/', 
-            'controller' => 'cmsNavigation', 
-            'action'     => 'index', 
-            'layout'     => 'cms'
-    ),
-    array(  'url'        => '/^cms\/navigation\/add\/?$/', 
-            'controller' => 'cmsNavigation', 
-            'action'     => 'add', 
-            'layout'     => 'cms'
-    ),
-    array(  'url'        => '/^cms\/navigation\/(?P<id>\d*)\/edit\/?$/', 
-            'controller' => 'cmsNavigation', 
-            'action'     => 'edit', 
-            'layout'     => 'cms'
-    ),
-    array(  'url'        => '/^cms\/navigation\/(?P<id>\d*)\/delete\/?$/', 
-            'controller' => 'cmsNavigation', 
-            'action'     => 'delete', 
+    array(  'url'        => '/^cms\/clients\/node\/delete\/image\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsClients', 
+            'action'     => 'deleteNodeImage', 
             'layout'     => 'empty'
     ),
+    
     
 );
