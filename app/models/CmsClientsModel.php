@@ -591,7 +591,7 @@ class CmsClientsModel extends Model
                                     WHERE `nt3`.`descendant`=`n`.`id`) AS `breadcrumb`
                                 FROM %s AS `nt`
                                 STRAIGHT_JOIN %s AS `n` ON (`n`.`id`=`nt`.`descendant`)
-                                WHERE `nt`.`path_length`=2 AND `n`.`type`='clients'
+                                WHERE `nt`.`path_length`=1 AND `n`.`type`='clients'
                                 GROUP BY `n`.`id`", $this->tableNavigationTree, $this->tableNavigation);
         $stmt = $this->dbh->prepare($query);
         

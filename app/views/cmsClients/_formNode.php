@@ -50,7 +50,7 @@
                                 <option value="0">No parent</option>
                                 <? if(!empty($tree)):?>
                                 <? foreach($tree as $t):?>
-                                <? if($t['id'] <> $node['id'] && $t['path_length'] < 2):?>
+                                <? if($t['id'] <> $node['id'] && $t['path_length'] < 1):?>
                                 <? if($t['id'] == $node['parent']) $sel = 'selected="selected"';
                                    else $sel = '';?>
                                 <option value="<?=$t['id'];?>" <?=$sel;?>><?=$t['breadcrumb'];?></option>
