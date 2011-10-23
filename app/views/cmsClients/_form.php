@@ -114,10 +114,10 @@
                                             <? if($static['id']<4):?>
                                                 <tr>
                                                     <td>
-                                                        <input class="jstatic" id="client_static_<?=$static['id'];?>" type="checkbox" name="client[static][<?= $static['id']; ?>]" <?= (!empty($static['client_id']) && $static['client_id'] == $client['id'] ? 'checked="checked"' : '') ?> value="<?= $static['id']; ?>" />
+                                                        <input class="jdynamic" id="client_dynamic_<?=$static['id'];?>" type="checkbox" name="client[dynamic][<?= $static['id']; ?>]" <?= (!empty($static['client_id']) && $static['client_id'] == $client['id'] ? 'checked="checked"' : '') ?> value="<?= $static['id']; ?>" />
                                                     </td>
                                                     <td>
-                                                        <label for="client_static_<?=$static['id'];?>"><?= $static['title']; ?></label>
+                                                        <label for="client_dynamic_<?=$static['id'];?>"><?= $static['title']; ?></label>
                                                     </td>
                                                 </tr>
                                             <? endif;?>
