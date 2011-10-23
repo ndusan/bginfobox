@@ -50,7 +50,7 @@ input[type=submit]:hover {color:#f0397b; border-color:#C6C6C6; cursor:pointer;}
 .icoDoc {background:transparent url(../images/icoDoc.png) scroll no-repeat 5px 50%;}
 .icoDld {background:transparent url(../images/icoDld.png) scroll no-repeat 5px 50%;}
 .icoDis {background:transparent url(../images/icoDis.png) scroll no-repeat 5px 50%;}
-.infoExtra {font-size:12px;}
+.infoExtra {font-size:11px; line-height:15px !important;}
 .galleryAll .icoDld,.galleryAll .icoDis {padding:5px 0;}
 
 /*WYS RESETING*/
@@ -86,7 +86,7 @@ ul.mainNav li a:hover, ul.mainNav li a.active {background:#9c1006 url(../images/
 .container {overflow:hidden; width:980px; margin:0 auto;}
 .sidebarL {width:200px; float:left;}
 .sidebarR {width:200px; float:right;}
-.main {float:left; margin:0 0 0 10px; width:560px;}
+.main {float:left; margin:0 0 0 10px; width:560px; background:transparent url(../images/shadowMed.png) scroll no-repeat 0 100%;}
 .mainBig {float:left; margin:0 0 0 10px; width:770px;}
 
 .sidebarBox {padding:0 0 15px; background:transparent url(../images/shadow.png) scroll no-repeat 0 100%;}
@@ -95,7 +95,7 @@ ul.mainNav li a:hover, ul.mainNav li a.active {background:#9c1006 url(../images/
 .sidebarBox .boxContent {border:solid 1px #dfdfdf; border-top:none; border-bottom:none; background-color:#efefef;}
 .sidebarBox .boxFooter {border:solid 1px #dfdfdf; border-top:none; background-color:#E5E5E5; padding:5px 15px; font-size:11px;}
 
-.mainBox {background-color:#efefef; margin:0 0 10px;}
+.mainBox {margin:0 0 10px; background-color:#EFEFEF;}
 .mainBox .boxTitle {background:#9c1006 url(../images/grad2.png) scroll repeat-x 0 0; padding:10px 15px; position:relative;}
 .mainBox .boxTitle1 {background:#9a9a9a url(../images/grad1.png) scroll repeat-x 0 0; padding:10px 15px; position:relative;}
 .mainBox .boxTitle span {position:absolute; right:20px; bottom:5px;}
