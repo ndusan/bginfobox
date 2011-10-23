@@ -1,7 +1,7 @@
 <div class="main">
     <div class="mainBox">
         <div class="boxTitle">
-            <h1>Arhiva izdanja Bg Info Map</h1>
+            <h1><?= $_t['archive-bginfomap.label'][$params['lang']]; ?></h1>
         </div>
         <ul class="archiveAll">
             <li>
