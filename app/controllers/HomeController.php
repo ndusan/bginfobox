@@ -96,13 +96,24 @@ class HomeController extends Controller
             case 'our-clients': $this->clientsPage($params); break;
             case 'archive': $this->archivePage($params); break;
             case 'gallery': $this->galleryPage($params); break;
-            case 'ads': $this->adsPage($params); break;
+            case 'ads': 
+                $this->adsPage($params);
+                $this->getPricelist();
+                break;
             case 'contact': $this->contactPage($params); break;
             case 'news':  $this->newsPage($params); break;
             case 'calendar': $this->calendarPage($params); break;
             default: //error
         }
         
+    }
+    
+    
+    
+    private function getPricelist()
+    {
+        
+        parent::set('pricelist', $this->db->getAboutUs());
     }
     
     
@@ -152,6 +163,11 @@ class HomeController extends Controller
    
     
     
+    
+    /**
+     * DYNAMIC PAGES
+     * @param type $params 
+     */
     public function dynamicPagesAction($params)
     {
         
@@ -166,14 +182,17 @@ class HomeController extends Controller
             case 'bginfo-box': 
                 $this->bginfoPage($params['page']); 
                 $this->bginfoBoxGalleryPage($params['page']);
+                $this->getDownload($this->pages[$params['page']]);
                 break;
             case 'bginfo-map': 
                 $this->bginfoPage($params['page']); 
                 $this->bginfoGalleryPage($params['page'], null);
+                $this->getDownload($this->pages[$params['page']]);
                 break;
             case 'bginfo-night-map': 
                 $this->bginfoPage($params['page']); 
                 $this->bginfoGalleryPage($params['page'], null);
+                $this->getDownload($this->pages[$params['page']]);
                 break;
             case 'pockets': 
                 $this->pocketsPage();
@@ -181,7 +200,21 @@ class HomeController extends Controller
                 $this->pocketsGalleryPage();
                 break;
         }
+        
+        $this->getPricelist();
     }
+    
+    
+    
+    
+    
+    private function getDownload($pageId=null)
+    {
+        
+        parent::set('download', $this->db->getDownload($pageId));
+    }
+    
+    
     
     
     public function dynamicGalleryPagesAction($params)
@@ -237,11 +270,10 @@ class HomeController extends Controller
         
         parent::set('activeLangs', $this->db->getActiveLanguages());
         
-        switch($params['page']){
-            case 'bginfo-box': break;
-            case 'bginfo-map': break;
-            case 'bginfo-night-map': break;
-        }
+        $id = (!empty($params['id']))?$params['id']:$this->pages[$params['page']];
+        
+        parent::set('locationCollection', $this->db->getLocations($id));
+        
     }
     
     public function archiveAction($params)

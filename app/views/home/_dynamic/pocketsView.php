@@ -5,23 +5,17 @@
         </div>
         <div class="boxContent">
             <ul class="boxExtra">
-                <li class="icoPdf"><a href="#"><?= $_t['ads.label'][$params['lang']]; ?></a></li>
+                <? if(!empty($pricelist['image_name'])):?>
+                <li class="icoPdf">
+                    <a href="<?=(DS.'public'.DS.'uploads'.DS.'aboutus'.DS.$pricelist['image_name']);?>" target="_blank">
+                        <?=$_t['ads.label'][$params['lang']];?>
+                    </a>
+                </li>
+                <? endif;?>
                 <li class="icoMail">
                     <a href="<?= (DS . $params['lang'] . DS . 'ads'); ?>">
                         <?= $_t['ads-question.label'][$params['lang']]; ?>? 
                         <span><?= $_t['ads-question.sublabel'][$params['lang']]; ?></span>
-                    </a>
-                </li>
-                <li class="icoDis">
-                    <a href="<?= (DS . $params['lang'] . DS . 'bginfo-map' . DS . 'location'); ?>">
-                        <?= $_t['location.label'][$params['lang']]; ?>? 
-                        <span><?= $_t['location.sublabel'][$params['lang']]; ?></span>
-                    </a>
-                </li>
-                <li class="icoDld">
-                    <a href="<?= (DS . 'public' . DS . 'uploads' . DS . 'bginfo' . DS . ''); ?>">
-                        <?= $_t['download.label'][$params['lang']]; ?>? 
-                        <span><?= $_t['download.sublabel'][$params['lang']]; ?></span>
                     </a>
                 </li>
             </ul>
@@ -48,20 +42,21 @@
                 <? foreach ($galleryCollection as $gc): ?>
                     <li>
                         <span>
-                            <img width="170" height="240" title="<?= $gc['title_' . $params['lang']]; ?>" alt="<?= $gc['title_' . $params['lang']]; ?>" width="170" height="240" src="<?= (DS . 'public' . DS . 'uploads' . DS . 'pockets' . DS . $gc['image_name']); ?>" />
+                            <img width="170" height="240" title="<?= $gc['title_' . $params['lang']]; ?>" alt="<?= $gc['title_' . $params['lang']]; ?>" width="170" height="240" src="<?= (DS . 'public' . DS . 'uploads' . DS . 'pockets' . DS . 'thumb-'.$gc['image_name']); ?>" />
                             <a class="zoom lightbox" title="<?= $gc['title_' . $params['lang']]; ?>" href="<?= (DS . 'public' . DS . 'uploads' . DS . 'pockets' . DS . $gc['image_name']); ?>"></a>
                         </span>
-                        <span class="info"><?= $_t['page.' . $gc['position'] . '.label'][$params['lang']]; ?></span>
+                        <? if(!empty($gc['file_name'])):?>
+                        <span class="icoDld">
+                            <a href="<?=(DS.'public'.DS.'uploads'.DS.'pockets'.DS.$gc['file_name']);?>" target="_blank">
+                                Preuzmi aktuelno izdanje Nis In Your Pocket vodica
+                            </a>
+                        </span>
+                        <? endif;?>
+                        <span class="icoDis">
+                            <a href="<?=(DS.$params['lang'].DS.'pockets'.DS.'location?id='.$gc['page_id'])?>">Spisak distributivnih mesta</a>
+                        </span>
                     </li>
                 <? endforeach; ?>
-                <li>
-                    <span>
-                        <img title="" width="170" height="240" src=" <?= IMAGE_PATH . 'dummy1.jpg'; ?>" />
-                        <a class="zoom lightbox" href="<//?=DS.'public'.DS.'uploads'.DS.'gallery'.DS.$g['image_name'];?>"></a>
-                    </span>
-                    <span class="icoDld"><a href="#">Preuzmi aktuelno izdanje Nis In Your Pocket vodica </a></span>
-                    <span class="icoDis"><a href="#">Spisak distributivnih mesta</a></span>
-                </li>
             </ul>
         <? endif; ?>
     </div>
