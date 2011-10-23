@@ -1,7 +1,7 @@
 <div class="main">
     <div class="mainBox">
         <div class="boxTitle">
-            <h1>Galerija</h1>
+            <h1><?=$_t['menu.gallery'][$params['lang']];?></h1>
         </div>
         <? if(!empty($galleryCollection)):?>
         <ul class="galleryAll">
@@ -9,24 +9,16 @@
             <li>
                 <span class="image_crop">
                 <img src="<?=DS.'public'.DS.'uploads'.DS.'gallery'.DS.'thumb-'.$g['image_name'];?>" title="<?=$g['title'];?>" alt="<?=$g['title'];?>"/>
-                </span>
-                <span><?=$g['ratio'];?> / <?=  number_format($g['size']/1024, 2);?>kB <a href="<?=DS.'public'.DS.'uploads'.DS.'gallery'.DS.$g['image_name'];?>" target="_blank">preuzmi</a></span>
                 <a class="zoom lightbox" href="<?=DS.'public'.DS.'uploads'.DS.'gallery'.DS.$g['image_name'];?>"></a>
+                </span>
+                <span class="info"><?=$g['ratio'];?> / <?=  number_format($g['size']/1024, 2);?>kB <a href="<?=DS.'public'.DS.'uploads'.DS.'gallery'.DS.$g['image_name'];?>" target="_blank">preuzmi</a></span>
             </li>
             <? endforeach;?>
         </ul>
         <? endif; ?>
     </div>
-    <div class="mainBox">
-        <div class="boxTitle">
-            <span><img src="<?= IMAGE_PATH . 'icoMap.png'; ?>" /></span>
-            <h1>Vodic kroz Beograd</h1>
-        </div>
-        <div class="boxContent">
-            <p>
-                Proin congue varius commodo. Aliquam vel luctus tellus. Nunc tempor, lectus eu scelerisque vestibulum, urna leo vehicula justo, vel mollis orci purus sit amet augue. Vestibulum porta malesuada quam. Proin blandit velit sit amet elit euismod pretium. Suspendisse elit elit, consectetur et condimentum a, blandit quis sem. Morbi ut justo tortor. 
-            </p>
-        </div>
-    </div>
+    <!-- Load belgrade guide-->
+    <? include_once VIEW_PATH.'home'.DS.'_static'.DS.'_guide.php'; ?>
 </div>
-<? include_once '_banners.php';?>
+<!-- Load banners -->
+<? include_once VIEW_PATH.'home'.DS.'_static'.DS.'_banners.php'; ?>

@@ -227,7 +227,7 @@ class HTML {
                 $value = strpos($address, $valuta);
 
                 $EUR = '';
-                for ($i = $value + 220; $i <= $value + 227; $i++)
+                for ($i = $value + 220; $i <= $value + 225; $i++)
                     $EUR .= $address{$i};
                 $tmp = str_replace('<td class="tableCell" style="text-align:center;">', "", str_replace("</td>", "", $valuta));
                 $output[$tmp] = array(
@@ -239,7 +239,7 @@ class HTML {
                 $value = strpos($address, $valuta);
 
                 $CHF = '';
-                for ($i = $value + 220; $i <= $value + 226; $i++)
+                for ($i = $value + 220; $i <= $value + 225; $i++)
                     $CHF .= $address{$i};
                 $tmp = str_replace('<td class="tableCell" style="text-align:center;">', "", str_replace("</td>", "", $valuta));
                 $output[$tmp] = array(
@@ -251,7 +251,7 @@ class HTML {
                 $value = strpos($address, $valuta);
 
                 $USD = '';
-                for ($i = $value + 220; $i <= $value + 226; $i++)
+                for ($i = $value + 220; $i <= $value + 225; $i++)
                     $USD .= $address{$i};
                 $tmp = str_replace('<td class="tableCell" style="text-align:center;">', "", str_replace("</td>", "", $valuta));
                 $output[$tmp] = array(

@@ -13,8 +13,6 @@ var App = App || {};
                 if (!answer) return false;
             });
             
-            $('.display').thead();
-            
             
             //Set check on required fields
             $('body').delegate('form', 'submit', function(){
@@ -24,6 +22,8 @@ var App = App || {};
                     if($(this).val().length <= 0){
                         
                         $(this).addClass('warning');
+                        $(this).closest('tr').addClass('warningTr');
+
                         allOk = false;
                     }else{
                         $(this).removeClass('warning');
@@ -32,7 +32,6 @@ var App = App || {};
                 
                 if(!allOk) return false;
             });
-            
         },
         mce: function() {
             tinyMCE.init({
@@ -52,6 +51,10 @@ var App = App || {};
         tabs: function() {
             
             $('.tabs').tabs();
+        },
+        thead: function(){
+            
+            $('.display').thead();
         }
     };
 })(this.jQuery);

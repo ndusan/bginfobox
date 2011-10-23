@@ -34,6 +34,7 @@ input[type=text]:focus, textarea:focus {background-color:#FFF;}
 input[type=submit] {padding:5px 15px; background-color:#FDFDFD; border: 1px solid #D6D6D6; font-family: Arial,Helvetica,sans-serif; font-size:13px; box-shadow: 1px 1px 2px rgba(200, 200, 200, 0.3);}
 input[type=submit]:hover {color:#f0397b; border-color:#C6C6C6; cursor:pointer;}
 .warning {border-color:#cd090f !important;}
+
 /*ICONS*/
 .twitter, .facebook, .youtube {color:#777; line-height:25px; display:block; padding:0 0 0 30px; background-image:url(../images/socIcons.png); background-repeat:no-repeat;}
 .twitter {background-position: 0 -100px}
@@ -43,15 +44,17 @@ input[type=submit]:hover {color:#f0397b; border-color:#C6C6C6; cursor:pointer;}
 .facebook:hover {background-position: 0 -75px; color:#FFF;}
 .youtube:hover {background-position:0 -25px; color:#FFF;}
 
-.icoMail, .icoPdf, .icoDoc, .icoDld {padding-left:35px !important;}
+.icoMail, .icoPdf, .icoDoc, .icoDld, .icoDis {padding-left:35px !important;}
 .icoMail {background:transparent url(../images/icoMail.png) scroll no-repeat 5px 50%;}
 .icoPdf {background:transparent url(../images/icoPdf.png) scroll no-repeat 5px 50%;}
 .icoDoc {background:transparent url(../images/icoDoc.png) scroll no-repeat 5px 50%;}
 .icoDld {background:transparent url(../images/icoDld.png) scroll no-repeat 5px 50%;}
-.infoExtra {font-size:12px;}
+.icoDis {background:transparent url(../images/icoDis.png) scroll no-repeat 5px 50%;}
+.infoExtra {font-size:11px; line-height:15px !important;}
+.galleryAll .icoDld,.galleryAll .icoDis {padding:5px 0;}
 
 /*WYS RESETING*/
-.wys img {float:left; margin:0 10px 0 0;}
+.wys p {padding:5px 0;}
 
 /*BUILD*/
 .topNavW {background-color:#111;}
@@ -59,13 +62,14 @@ input[type=submit]:hover {color:#f0397b; border-color:#C6C6C6; cursor:pointer;}
 
 .headerW {background-image:url(../images/header_bg.png); border-top:solid 1px #222;}
 .header {width:980px; margin:0 auto; padding:10px 0; height:280px; overflow:hidden; position:relative;}
-.logo {position:absolute; top:10px; left:0;}
+.logo {position:absolute; top:0; left:0;}
 .banner {height:280px; width:770px; float:right;}
 .page404 {position:absolute; top:50%; left:50%; margin:-250px 0 0 -400px; width:800px;}
 
-ul.mainNav {overflow:hidden; width:200px; position:absolute; left:0; bottom:10px;}
+ul.mainNav {overflow:hidden; width:200px; position:absolute; left:0; bottom:0;}
 ul.mainNav li {display:block; background-color:#999; margin:1px 0 0;}
-ul.mainNav li a {display:block; font-size:14px; font-weight:bold; line-height:19px; color:#FFF; padding:5px 15px; text-shadow:1px 1px 1px #777;}
+ul.mainNav li.last a {line-height:35px;}
+ul.mainNav li a {display:block; font-size:14px; font-weight:bold; line-height:20px; color:#FFF; padding:5px 15px; text-shadow:1px 1px 1px #777;}
 ul.mainNav li a:hover, ul.mainNav li a.active {background:#9c1006 url(../images/grad2.png) scroll repeat-x 0 0;}
 
 .slides_container {width:770px; height:280px;} 
@@ -82,7 +86,7 @@ ul.mainNav li a:hover, ul.mainNav li a.active {background:#9c1006 url(../images/
 .container {overflow:hidden; width:980px; margin:0 auto;}
 .sidebarL {width:200px; float:left;}
 .sidebarR {width:200px; float:right;}
-.main {float:left; margin:0 0 0 10px; width:560px;}
+.main {float:left; margin:0 0 0 10px; width:560px; background:transparent url(../images/shadowMed.png) scroll no-repeat 0 100%;}
 .mainBig {float:left; margin:0 0 0 10px; width:770px;}
 
 .sidebarBox {padding:0 0 15px; background:transparent url(../images/shadow.png) scroll no-repeat 0 100%;}
@@ -91,13 +95,16 @@ ul.mainNav li a:hover, ul.mainNav li a.active {background:#9c1006 url(../images/
 .sidebarBox .boxContent {border:solid 1px #dfdfdf; border-top:none; border-bottom:none; background-color:#efefef;}
 .sidebarBox .boxFooter {border:solid 1px #dfdfdf; border-top:none; background-color:#E5E5E5; padding:5px 15px; font-size:11px;}
 
-.mainBox {background-color:#efefef; margin:0 0 10px;}
+.mainBox {margin:0 0 10px; background-color:#EFEFEF;}
 .mainBox .boxTitle {background:#9c1006 url(../images/grad2.png) scroll repeat-x 0 0; padding:10px 15px; position:relative;}
+.mainBox .boxTitle1 {background:#9a9a9a url(../images/grad1.png) scroll repeat-x 0 0; padding:10px 15px; position:relative;}
 .mainBox .boxTitle span {position:absolute; right:20px; bottom:5px;}
 .mainBox .boxTitle h1 {color:#FFF; font-size:20px; text-shadow:0 -1px 1px #69140e;}
 .mainBox .boxTitle h2 {color:#FFF; font-size:16px; text-shadow:0 -1px 1px #69140e;}
+.mainBox .boxTitle1 h2 {color:#FFF; font-size:16px; text-shadow:0 -1px 1px #666;}
 .mainBox .boxContent {padding:15px;}
-.mainBox .boxContent p {padding:5px 0;}
+.mainBox .boxIntro {padding:15px; overflow:hidden;}
+.mainBox .boxIntro .img {float:right; margin:0 0 10px 10px;}
 
 ul.boxExtra {float:right; width:200px; font-size:14px; margin:0 0 5px 5px;}
 ul.boxExtra span {font-size:11px; display:block;}
@@ -132,8 +139,8 @@ ul.calendarAll .date {font-size:11px; color:#999;}
 
 .bottomW {background-color:#e1e1e1; padding:20px 0; border-top:solid 1px #DDD;}
 ul.bottomLinks {overflow:hidden; margin:0 auto; width:980px; color:#777; text-shadow:0 1px 1px #F5F5F5;}
-ul.bottomLinks > li {float:left; width:196px;}
-ul.bottomLinks ul {padding:30px 0 0;}
+ul.bottomLinks > li {float:left; width:245px;}
+ul.bottomLinks ul {padding:20px 0 0;}
 ul.bottomLinks li a {color:#999;}
 ul.bottomLinks li a:hover {text-decoration:underline; color:#333;}
 
@@ -151,18 +158,22 @@ ul.soc  li {float:left; margin-left:20px;}
 
 .footerW {color:#FFF; border-top:solid 1px #EEE; text-align:center; font-size:11px; padding:30px 0; background:transparent url(../images/footer_bg.jpg) scroll repeat-x 0 0;}
 
-.archiveAll {overflow:hidden; padding:15px;}
+.archiveAll {overflow:hidden; padding:15px 5px;}
 .archiveAll > li {padding:5px 0;}
 .archiveAll ul {overflow:hidden;}
-.archiveAll ul li {float:left; margin:0 10px 0 0; line-height:20px;}
+.archiveAll ul li {float:left; margin:5px 10px;}
+.archiveAll ul li span {font-size:11px;}
+.archiveAll ul li img {width:90px;}
 .archiveAll ul .last {padding:80px 0 0;}
 
 .galleryAll {overflow:hidden; padding:10px;}
-.galleryAll li {float:left; margin:5px; position:relative;}
-.galleryAll li span {display:block; text-align:center; font-size:11px; line-height:30px;}
-.galleryAll li span.moreInfo {width:170px; font-size:13px; color:#FFF; background:#9a9a9a url(../images/grad1.png) scroll repeat-x 0 0;}
+.galleryAll li {float:left; margin:5px; position:relative; width:170px;}
+.galleryAll li span {position:relative; display:block;}
 
-.zoom {width:33px; height:34px; display:block; position:absolute; bottom:38px; right:9px; background:transparent url(../images/zoom_bg.png) scroll no-repeat 0 0;}
+span.info {text-align:center; padding:5px 0; display:block;}
+span.info.moreInfo {width:170px; font-size:13px; color:#FFF; margin:10px 0 0; background:#9a9a9a url(../images/grad1.png) scroll repeat-x 0 0;}
+
+.zoom {width:33px; height:34px; display:block; position:absolute; bottom:9px; right:9px; background:transparent url(../images/zoom_bg.png) scroll no-repeat 0 0;}
 .zoom:hover {background-position:0 -34px;}
 
 .contact {padding:15px; overflow:hidden;}
@@ -175,8 +186,6 @@ ul.soc  li {float:left; margin-left:20px;}
 .adsForm {float:left; width:320px;}
 .adsForm td {padding:5px;}
 
-
-
 #calendar {border-bottom:1px solid #D6D6D6;position: relative;}
 #calendar caption {padding:5px 0; font-weight:bold;}
 #calendar table {width:100%;}
@@ -184,8 +193,9 @@ ul.soc  li {float:left; margin-left:20px;}
 #calendar .todayDay {background-color:#CCC; box-shadow:0 1px 3px #CCC inset;}
 #calendar .eventDay {background-image:url(../images/event_bg.png); background-position:100% 100%; background-repeat:no-repeat;}
 #calendar .eventDay a {padding:0 5px; line-height:25px; color:#333; font-weight:bold; display:block;}
-.mainBig  table th {padding:5px; color:#FFF; font-size:11px; text-align:center; background:#9a9a9a url(../images/grad1.png) scroll repeat-x 0 0;}
-.mainBig  table td { background-color:#E6E6E6;}
+.mainBig table { margin-top:10px;}
+.mainBig table th {padding:5px; font-size:11px; text-align:center; color:#FFF; text-shadow:0 1px 1px #333; background:#9a9a9a url(../images/grad1.png) scroll repeat-x 0 0;}
+.mainBig table td {padding:5px; background-color:#E6E6E6;}
 
 .image_crop{ width: 170px; height: 120px; overflow: hidden;}
 
@@ -195,3 +205,28 @@ ul.soc  li {float:left; margin-left:20px;}
 
 .currency {padding:10px; border-bottom:solid 1px #dfdfdf;}
 .currency td {padding:5px 0;}
+
+.client {overflow:hidden;}
+.client h4 {font-size:14px;}
+.client span.img {float:left; width:70px; height:70px; overflow:hidden; display:block;}
+ul.clientInfo {margin:0 0 0 80px;}
+ul.clientInfo li {width:50%; line-height:20px; float:left;}
+
+ul.guideNav {overflow:hidden; margin-bottom:10px; display: none;}
+ul.guideNav li {display:block; background-color:#999; margin:1px 0 0;}
+ul.guideNav li.last a {line-height:35px;}
+ul.guideNav li a {display:block; font-size:14px; font-weight:bold; line-height:20px; color:#FFF; padding:5px 15px; text-shadow:1px 1px 1px #777;}
+ul.guideNav li a:hover, ul.mainNav li a.active {background:#9c1006 url(../images/grad2.png) scroll repeat-x 0 0;}
+
+.adsRegular table td {padding:5px; background-color:#E6E6E6;}
+
+.breadcrumb {padding:0 0 5px; line-height:20px; font-size:11px;}
+
+.adsPaid {overflow:hidden; padding:5px 5px 0;}
+.adsPaid > li {padding:10px; background-color:#E6E6E6; margin-bottom:5px;}
+.adsPaid h4 {font-size:14px;}
+.adsPaid span.img {float:right; width:150px; overflow:hidden; display:block;}
+.adsPaidInfo {margin:0 160px 0 0; }
+.adsPaidInfo ul {padding:5px 0; overflow:hidden;}
+.adsPaidInfo ul li {width:50%; line-height:20px; float:left;}
+.adsPaidInfo p {font-size:11px;}

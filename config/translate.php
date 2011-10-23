@@ -5,9 +5,10 @@ $translate = array(
     'menu.our-clients'=>array('sr'=>'Naši klijenti', 'en'=>'Our clients'),
     'menu.archive'=>array('sr'=>'Arhiva izdanja', 'en'=>'Archive'),
     'menu.gallery'=>array('sr'=>'Foto galerija', 'en'=>'Photo gallery'),
-    'menu.ads'=>array('sr'=>'Oglašavanje', 'en'=>'Ads'),
+    'menu.ads'=>array('sr'=>'Oglašavanje', 'en'=>'Advertising'),
     'menu.contact'=>array('sr'=>'Kontakt', 'en'=>'Contact'),
     'menu.guide'=>array('sr'=>'VODIČ KROZ BEOGRAD', 'en'=>'BELGRADE GUIDE'),
+    'menu.back'=>array('sr'=>'NAZAD', 'en'=>'BACK'),
     //News
     'news.no_news'=>array('sr'=>'Trenutno nema unetih vesti', 'en'=>'No news added'),
     'news.read_more'=>array('sr'=>'detaljnije', 'en'=>'read more'),
@@ -30,4 +31,76 @@ $translate = array(
     //Weather
     'weather.day'=>array('sr'=>'Dan', 'en'=>'Day'),
     'weather.evening'=>array('sr'=>'Veče', 'en'=>'Evening'),
+    
+    //Our clients
+    'our-clients.title'=>array('sr'=>'Naši klijenti', 'en'=>'Our clients'),
+    'client.label'=>array('sr'=>'Klijent', 'en'=>'Client'),
+    'client.address.label'=>array('sr'=>'Adresa', 'en'=>'Address'),
+    'client.phone.label'=>array('sr'=>'Telefon', 'en'=>'Phone'),
+    'client.email.label'=>array('sr'=>'El.pošta', 'en'=>'E-mail'),
+    'client.website.label'=>array('sr'=>'Internet adresa', 'en'=>'Wesite'),
+    
+    //Index page
+    'index.question'=>array('sr'=>'Šta je', 'en'=>'What is'),
+    'pockets.label'=>array('sr'=>'Šta je "In your pocket"', 'en'=>'What is "In your pocket"'),
+    'moreInfo.archive'=>array('sr'=>'Arhiva izdanja', 'en'=>'Archive'),
+    'moreInfo.clients'=>array('sr'=>'Klijenti', 'en'=>'Clients'),
+    'moreInfo.gallery'=>array('sr'=>'Foto galerija', 'en'=>'Photo Gallery'),
+    
+    //Bginfo
+    'bginfo-box.gallery.label'=>array('sr'=>'Bg Info panoi', 'en'=>'Bg Info pano'),
+    'bginfo-map.gallery.label'=>array('sr'=>'Bg Info mape izdanja', 'en'=>'Bg Info map editions'),
+    'bginfo-night-map.gallery.label'=>array('sr'=>'Bg Info noćne mape', 'en'=>'Bg Info night maps'),
+    'putovanje-za-dvoje.gallery.label'=>array('sr'=>'Putovanje za dvoje', 'en'=>'Travel for two'),
+    'pocket.gallery.label'=>array('sr'=>'In your pocket', 'en'=>'In your pocket'),
+    'bginfo-map.current.label'=>array('sr'=>'Aktuelno izdanje Bg Info Mape', 'en'=>'Current Bg Info Map edition'),
+    'bginfo-map.last_five_archive.label'=>array('sr'=>'Poslednjih 5 izdanja Bg Info Mape', 'en'=>'Last 5 Bg Info Map editions'),
+    'bginfo-night-map.current.label'=>array('sr'=>'Aktuelno izdanje Bg Info Night Mape', 'en'=>'Current Bg Info Night Map edition'),
+    'bginfo-night-map.last_five_archive.label'=>array('sr'=>'Poslednjih 5 izdanja Bg Info Night Mape', 'en'=>'Last 5 Bg Info Night Map editions'),
+    'putovanje-za-dvoje.current.label'=>array('sr'=>'Aktuelno izdanje Putovanje za dvoje', 'en'=>'Current Travel for two edition'),
+    'putovanje-za-dvoje.last_five_archive.label'=>array('sr'=>'Poslednjih 5 izdanja Putovanje za dvoje', 'en'=>'Last 5 Travel for two editions'),
+    
+    //Ads
+    'ads.label'=>array('sr'=>'Cenovnik oglašavanja','en'=>'Price list for ads'),
+    'ads-question.label'=>array('sr'=>'Želite da se oglašavate','en'=>'Interested in advertisment'),
+    'ads-question.sublabel'=>array('sr'=>'Pošaljite nam vaše zahteve','en'=>'Send us your requests'),
+    
+    //Location
+    'location.label'=>array('sr'=>'Lokacije','en'=>'Locations'),
+    'location.sublabel'=>array('sr'=>'Spisak distributivnih mesta','en'=>'List of distributors'),
+    
+    //Download
+    'download.label'=>array('sr'=>'Preuzimanje','en'=>'Download'),
+    'download.sublabel'=>array('sr'=>'Preuzmi aktivno izdanje','en'=>'Download current edition'),
+    
+    //Page position
+    'page.0.label'=>array('sr'=>'Naslovna strana aktuelnog izdanja','en'=>'Front side of current edition'),
+    'page.1.label'=>array('sr'=>'Mapa aktuelnog izdanja','en'=>'Map of current edition'),
+    'page.2.label'=>array('sr'=>'Poleđina aktuelnog izdanja','en'=>'Backside of current edition'),
+    
+    //Guide
+    'guide.label'=>array('sr'=>'Vodič kroz Beograd', 'en'=>'Belgrade Guide'),
+    'guide-highlights.label'=>array('sr'=>'Izdvajamo', 'en'=>'Highlights'),
+    //Archive
+    'complete-archive.label'=>array('sr'=>'Kompletna arhiva', 'en'=>'Complete archive'),
+    'archive-bginfomap.label'=>array('sr'=>'BG Info Map arhiva', 'en'=>'BG Info Map Archive'),
+    //Advertising
+    'advertising.company'=>array('sr'=>'Naziv firme', 'en'=>'Company'),
+    'advertising.activity'=>array('sr'=>'Delatnost', 'en'=>'Activity'),
+    'advertising.label'=>array('sr'=>'Želim da se reklamiram u', 'en'=>'I wish to advertise in'),
+    'advertising.contact'=>array('sr'=>'Kontakt osoba', 'en'=>'Contact person'),
+    'advertising.phone'=>array('sr'=>'Telefon', 'en'=>'Phone'),
+    'advertising.message'=>array('sr'=>'Poruka', 'en'=>'message'),
+    'advertising.declaration'=>array('sr'=>'Preuzmi deklaraciju o oglašavanju', 'en'=>'Download Advertising Agreement'),
+    'advertising.message'=>array('sr'=>'Poruka', 'en'=>'Message'),
+    //Contact
+    'contact.address'=>array('sr'=>'Matice srpske 3a', 'en'=>'3a, Matice srpske Street'),
+    'contact.city'=>array('sr'=>'11000 Beograd, Srbija', 'en'=>'11000 Belgrade, Serbia'),
+    'contact.subject'=>array('sr'=>'Naslov poruke', 'en'=>'Subject'),
+    'contact.name'=>array('sr'=>'Ime i prezime', 'en'=>'First and last name'),
+    'contact.company'=>array('sr'=>'Firma', 'en'=>'Company'),
+    'contact.email'=>array('sr'=>'Kontakt email', 'en'=>'Contact email'),
+    'contact.phone'=>array('sr'=>'Telefon', 'en'=>'Phone'),
+    'contact.message'=>array('sr'=>'Poruka', 'en'=>'Message'),
+    
 );

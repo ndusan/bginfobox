@@ -12,6 +12,12 @@
             <table cellpadding="0" cellspacing="0">
                 <tbody>
                     <tr>
+                        <td>Content on home page:</td>
+                        <td>
+                            <textarea name="static[front_content_sr]" class="jr"><?= @$static['front_content_sr']; ?></textarea>
+                        </td>
+                    </tr>
+                    <tr>
                         <td>Content:</td>
                         <td>
                             <textarea name="static[content_sr]" class="jr"><?= @$static['content_sr']; ?></textarea>
@@ -23,6 +29,12 @@
         <div id="fragment-2" class="addContent">
             <table cellpadding="0" cellspacing="0">
                 <tbody>
+                    <tr>
+                        <td>Content on home page:</td>
+                        <td>
+                            <textarea name="static[front_content_en]"><?= @$static['front_content_en']; ?></textarea>
+                        </td>
+                    </tr>
                     <tr>
                         <td>Content:</td>
                         <td>

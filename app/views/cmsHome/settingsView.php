@@ -12,23 +12,42 @@
             <table cellpadding="0" cellspacing="0">
                 <tbody>
                     <tr>
-                        <td colspan="4">Enabled language :</td>
-                    </tr>
-                    <tr class="trSpec">
-                        <td>
-                            <input type="checkbox" name="" value="" checked="checked" disabled="disabled" />
-                            <input type="hidden" value="sr" name="settings[lang_sr]" />
-                        </td>
-                        <td>Serbian (always active)</td>
-                    </tr>
-                    <tr class="trSpec">
-                        <td>
-                            <input id="lang_sr" type="checkbox" name="settings[lang_en]" <?=@(!empty($en)?'checked="checked"':'');?> value="en" />
-                        </td>
-                        <td><label for="lang_sr">English</label></td>
+                        <td>Enabled language :</td>
                     </tr>
                     <tr>
-                        <td colspan="2" align="center">
+                        <td>
+                            <ul class="listing">
+                                <li>
+                                    <table cellpadding="0" cellspacing="0">
+                                        <tr>
+                                            <th colspan="2"><h3>Serbian</h3></th>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="checkbox" name="" value="" checked="checked" disabled="disabled" />
+                                                <input type="hidden" value="sr" name="settings[lang_sr]" />
+                                            </td>
+                                            <td>Always active</td>
+                                        </tr>  
+                                    </table>
+                                </li>
+                                <li>
+                                    <table cellpadding="0" cellspacing="0">
+                                        <tr>
+                                            <th colspan="2"><h3>English</h3></th>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input id="lang_sr" type="checkbox" name="settings[lang_en]" <?= @(!empty($en) ? 'checked="checked"' : ''); ?> value="en" />
+                                            </td>
+                                            <td><label for="lang_sr">Activate</label></td>
+                                        </tr>
+                                    </table>
+                                </li>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
                             <input type="submit" value="Submit" name="submit" />
                         </td>
                     </tr>
@@ -39,4 +58,4 @@
             Welcome to CMS
         </div>
     </form>
-    </div>
+</div>

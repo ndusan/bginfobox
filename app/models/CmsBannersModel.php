@@ -20,7 +20,7 @@ class CmsBannersModel extends Model
     }
     
     
-    public function findBanners($id)
+    public function findBanner($id)
     {
         try{
             $query = sprintf("SELECT * FROM %s WHERE `id`=:id", $this->tableBanners);
@@ -38,7 +38,7 @@ class CmsBannersModel extends Model
     
     
     
-    public function updateBanners($params)
+    public function updateBanner($params)
     {
         
         try{

@@ -1,76 +1,37 @@
 <div class="main">
     <div class="mainBox">
         <div class="boxTitle">
-            <h1>Arhiva izdanja</h1>
+            <h1><?=$_t['menu.archive'][$params['lang']];?></h1>
         </div>
+        <? if(!empty($archiveCollection)):?>
         <ul class="archiveAll">
+            <? $array = array('2'=>'bginfo-map','3'=>'bginfo-night-map','4'=>'putovanje-za-dvoje');?>
+            <? foreach($archiveCollection as $ac):?>
             <li>
                 <ul>
-                    <li><a href="#"><img src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" /></a></li>
-                    <li><a href="#"><img src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" /></a></li>
-                    <li><a href="#"><img src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" /></a></li>
+                    <? if(!empty($ac['edition_images'])):?>
+                    <? $tmp = ($ac['id'] > 4 ? 'pockets' : $array[$ac['id']]); ?>
+                    <? $tmpFolder = ($ac['id'] > 4 ? 'pockets' : 'bginfo'); ?>
+                    <? foreach($ac['edition_images'] as $e):?>
+                    <li>
+                        <a href="<?=(DS . $params['lang'] . DS . 'archive' . DS.  $tmp); ?>">
+                            <img src="<?=(DS.'public'.DS.'uploads'.DS.$tmpFolder.DS.'thumb-'.$e['image_name']); ?>" />
+                        </a>
+                    </li>
+                    <? endforeach;?>
+                    <? endif;?>
                     <li class="last">
-                        <p><b>BG Info Map</b></p>
-                        <a href="#">Kompletna arhiva izdanja</a>
+                        <p><b><?=$ac['title'];?></b></p>
+                        <a href="<?=(DS . $params['lang'] . DS . 'archive' . DS.  $tmp); ?>"><?=$_t['complete-archive.label'][$params['lang']];?></a>
                     </li>
                 </ul>
             </li>
-            <li>
-                <ul>
-                    <li><a href="#"><img src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" /></a></li>
-                    <li><a href="#"><img src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" /></a></li>
-                    <li><a href="#"><img src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" /></a></li>
-                    <li class="last">
-                        <p><b>BG Info Night Map</b></p>
-                        <a href="#">Kompletna arhiva izdanja</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <ul>
-                    <li><a href="#"><img src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" /></a></li>
-                    <li><a href="#"><img src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" /></a></li>
-                    <li><a href="#"><img src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" /></a></li>
-                    <li class="last">
-                        <p><b>In Your Pocket Belgrade</b></p>
-                        <a href="#">Kompletna arhiva izdanja</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <ul>
-                    <li><a href="#"><img src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" /></a></li>
-                    <li><a href="#"><img src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" /></a></li>
-                    <li><a href="#"><img src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" /></a></li>
-                    <li class="last">
-                        <p><b>In Your Pocket Novi Sad</b></p>
-                        <a href="#">Kompletna arhiva izdanja</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <ul>
-                    <li><a href="#"><img src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" /></a></li>
-                    <li><a href="#"><img src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" /></a></li>
-                    <li><a href="#"><img src="<?= IMAGE_PATH . 'dummy1.jpg'; ?>" /></a></li>
-                    <li class="last">
-                        <p><b>In Your Pocket Nis</b></p>
-                        <a href="#">Kompletna arhiva izdanja</a>
-                    </li>
-                </ul>
-            </li>
+            <? endforeach;?>
         </ul>
+        <? endif;?>
     </div>
-    <div class="mainBox">
-        <div class="boxTitle">
-            <span><img src="<?= IMAGE_PATH . 'icoMap.png'; ?>" /></span>
-            <h1>Vodic kroz Beograd</h1>
-        </div>
-        <div class="boxContent">
-            <p>
-                Proin congue varius commodo. Aliquam vel luctus tellus. Nunc tempor, lectus eu scelerisque vestibulum, urna leo vehicula justo, vel mollis orci purus sit amet augue. Vestibulum porta malesuada quam. Proin blandit velit sit amet elit euismod pretium. Suspendisse elit elit, consectetur et condimentum a, blandit quis sem. Morbi ut justo tortor. 
-            </p>
-        </div>
-    </div>
+    <!-- Load belgrade guide-->
+    <? include_once VIEW_PATH.'home'.DS.'_static'.DS.'_guide.php'; ?>
 </div>
-<? include_once '_banners.php';?>
+<!-- Load banners -->
+<? include_once VIEW_PATH.'home'.DS.'_static'.DS.'_banners.php'; ?>

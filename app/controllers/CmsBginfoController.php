@@ -72,6 +72,8 @@ class CmsBginfoController extends Controller
                                            'size'   =>$params['image']['size'][$key]);
 
                             $this->uploadImage($newImageName, $image, 'bginfo');
+                            //Create thumb
+                            $this->createThumbImage($newImageName, 'bginfo', 170, 240);
                         }
                     }else{
                         parent::redirect ('cms'.DS.'bginfo'.DS.'add'.DS.$params['page_id'].DS.'edition', 'error');
@@ -79,7 +81,7 @@ class CmsBginfoController extends Controller
                 }
                 
                 //Add downloaded if set
-                if(0 == $params['download']['error'] && !empty($params['page_id'])){
+                if(isset($params['download']) && 0 == $params['download']['error'] && !empty($params['page_id'])){
 
                     $newImageName = $params['page_id'].'-'.$id.'-download-'.$params['download']['name'];
                     $this->db->setDownload($id, $newImageName);
@@ -115,6 +117,10 @@ class CmsBginfoController extends Controller
                     $newImageName = $params['edition']['page_edition_id'][$key].'-'.$params['id'].'-'.$params['image']['name'][$key];
                     $this->db->setImageName($params['edition']['page_edition_id'][$key], $newImageName);
 
+                    //Delete thumb
+                    $oldThumbImageName = 'thumb-'.$oldImageName;
+                    $this->deleteImage($oldThumbImageName, 'bginfo');
+                    
                     $image = array('name'    =>$params['image']['name'][$key],
                                    'type'    =>$params['image']['type'][$key],
                                    'tmp_name'=>$params['image']['tmp_name'][$key],
@@ -122,11 +128,13 @@ class CmsBginfoController extends Controller
                                    'size'   =>$params['image']['size'][$key]);
 
                     $this->reUploadImage($oldImageName, $newImageName, $image, 'bginfo');
+                    //Create thumb
+                    $this->createThumbImage($newImageName, 'bginfo', 170, 240);
                 }
             }
             
             //Add downloaded if set
-            if(0 == $params['download']['error'] && !empty($params['edition']['id'])){
+            if(isset($params['download']) && 0 == $params['download']['error'] && !empty($params['edition']['id'])){
                 $data = $this->db->getDownload($params['edition']['id']);
                 $oldImageName = $data['file_name'];
                 
@@ -163,6 +171,9 @@ class CmsBginfoController extends Controller
                     $oldImageName = $dia['image_name'];
 
                     $this->deleteImage($oldImageName, 'bginfo');
+                    //Delete thumb
+                    $oldThumbImageName = 'thumb-'.$oldImageName;
+                    $this->deleteImage($oldThumbImageName, 'bginfo');
                 }
             }
             

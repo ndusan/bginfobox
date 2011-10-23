@@ -35,10 +35,40 @@ $routes = array(
             'action'     => 'staticPages', 
             'layout'     => 'default'
     ),
+    
     //Dynamic pages
-    array(  'url'        => '/^(?P<lang>('.LANG.'))\/(?P<page>([a-zA-Z0-9\/#&@\-+_]+))\/?$/', 
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/(?P<page>(bginfo-box|bginfo-night-map|bginfo-map))\/(?P<subpage>(gallery))\/?$/', 
+            'controller' => 'home', 
+            'action'     => 'dynamicGalleryPages', 
+            'layout'     => 'default'
+    ),
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/(?P<page>(bginfo-box|bginfo-night-map|bginfo-map|pockets))\/?$/', 
             'controller' => 'home', 
             'action'     => 'dynamicPages', 
+            'layout'     => 'default'
+    ),
+    //Location
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/(?P<page>(bginfo-night-map|bginfo-map|pockets))\/location\/?$/', 
+            'controller' => 'home', 
+            'action'     => 'location', 
+            'layout'     => 'default'
+    ),
+    //Archive
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/archive\/(?P<page>(bginfo-night-map|bginfo-map|pockets|putovanje-za-dvoje))\/?$/', 
+            'controller' => 'home', 
+            'action'     => 'archive', 
+            'layout'     => 'default'
+    ),
+    //BGINFO guide
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/guide\/(?P<slug>([a-zA-Z0-9\/\-+_]+))\/?$/', 
+            'controller' => 'home', 
+            'action'     => 'guide', 
+            'layout'     => 'default'
+    ),
+    //BGINFO guide
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/info\/(?P<slug>([a-zA-Z0-9\/\-+_]+))\/?$/', 
+            'controller' => 'home', 
+            'action'     => 'info', 
             'layout'     => 'default'
     ),
     //Login page
@@ -85,6 +115,38 @@ $routes = array(
     array(  'url'        => '/^cms\/user\/delete\/(?P<id>\d*)\/?$/', 
             'controller' => 'cmsUser', 
             'action'     => 'delete', 
+            'layout'     => 'empty'
+    ),
+    
+    //CMS about-us page
+    array(  'url'        => '/^cms\/about-us\/?$/', 
+            'controller' => 'cmsAboutUs', 
+            'action'     => 'index', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/about-us\/add\/?$/', 
+            'controller' => 'cmsAboutUs', 
+            'action'     => 'add', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/about-us\/edit\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsAboutUs', 
+            'action'     => 'edit', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/about-us\/delete\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsAboutUs', 
+            'action'     => 'delete', 
+            'layout'     => 'empty'
+    ),
+    array(  'url'        => '/^cms\/about-us\/delete\/image\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsAboutUs', 
+            'action'     => 'deleteImage', 
+            'layout'     => 'empty'
+    ),
+    array(  'url'        => '/^cms\/about-us\/delete\/doc\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsAboutUs', 
+            'action'     => 'deleteDoc', 
             'layout'     => 'empty'
     ),
     
@@ -236,6 +298,11 @@ $routes = array(
             'action'     => 'index', 
             'layout'     => 'cms'
     ),
+    array(  'url'        => '/^cms\/pockets\/position\/?$/', 
+            'controller' => 'cmsPockets', 
+            'action'     => 'position', 
+            'layout'     => 'ajax'
+    ),
     array(  'url'        => '/^cms\/pockets\/edit\/static\/?$/', 
             'controller' => 'cmsPockets', 
             'action'     => 'editStatic', 
@@ -261,15 +328,125 @@ $routes = array(
             'action'     => 'addEdition', 
             'layout'     => 'cms'
     ),
-    array(  'url'        => '/^cms\/pockets\/edit\/(?P<page_id>\d*)\/edition\/?$/', 
+    array(  'url'        => '/^cms\/pockets\/edit\/(?P<id>\d*)\/(?P<page_id>\d*)\/edition\/?$/', 
             'controller' => 'cmsPockets', 
             'action'     => 'editEdition', 
             'layout'     => 'cms'
     ),
-    array(  'url'        => '/^cms\/pockets\/delete\/(?P<page_id>\d*)\/(?P<id>\d*)\/edition\/?$/', 
+    array(  'url'        => '/^cms\/pockets\/delete\/(?P<id>\d*)\/(?P<page_id>\d*)\/edition\/?$/', 
             'controller' => 'cmsPockets', 
             'action'     => 'deleteEdition', 
             'layout'     => 'empty'
     ),
+    array(  'url'        => '/^cms\/pockets\/add\/info\/?$/', 
+            'controller' => 'cmsPockets', 
+            'action'     => 'addInfo', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/pockets\/edit\/(?P<id>\d*)\/info\/?$/', 
+            'controller' => 'cmsPockets', 
+            'action'     => 'editInfo', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/pockets\/delete\/(?P<id>\d*)\/info\/?$/', 
+            'controller' => 'cmsPockets', 
+            'action'     => 'deleteInfo', 
+            'layout'     => 'empty'
+    ),
+    
+    //CMS info
+    array(  'url'        => '/^cms\/info\/?$/', 
+            'controller' => 'cmsInfo', 
+            'action'     => 'index', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/info\/add\/?$/', 
+            'controller' => 'cmsInfo', 
+            'action'     => 'add', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/info\/(?P<id>\d*)\/edit\/?$/', 
+            'controller' => 'cmsInfo', 
+            'action'     => 'edit', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/info\/(?P<id>\d*)\/delete\/?$/', 
+            'controller' => 'cmsInfo', 
+            'action'     => 'delete', 
+            'layout'     => 'empty'
+    ),
+    array(  'url'        => '/^cms\/info\/delete\/image\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsInfo', 
+            'action'     => 'deleteImage', 
+            'layout'     => 'empty'
+    ),
+    array(  'url'        => '/^cms\/info\/node\/add\/?$/', 
+            'controller' => 'cmsInfo', 
+            'action'     => 'addNode', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/info\/node\/(?P<id>\d*)\/edit\/?$/', 
+            'controller' => 'cmsInfo', 
+            'action'     => 'editNode', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/info\/node\/(?P<id>\d*)\/delete\/?$/', 
+            'controller' => 'cmsInfo', 
+            'action'     => 'deleteNode', 
+            'layout'     => 'empty'
+    ),
+    array(  'url'        => '/^cms\/info\/node\/delete\/image\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsInfo', 
+            'action'     => 'deleteNodeImage', 
+            'layout'     => 'empty'
+    ),
+    
+    //CMS clients
+    array(  'url'        => '/^cms\/clients\/?$/', 
+            'controller' => 'cmsClients', 
+            'action'     => 'index', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/clients\/add\/?$/', 
+            'controller' => 'cmsClients', 
+            'action'     => 'add', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/clients\/(?P<id>\d*)\/edit\/?$/', 
+            'controller' => 'cmsClients', 
+            'action'     => 'edit', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/clients\/(?P<id>\d*)\/delete\/?$/', 
+            'controller' => 'cmsClients', 
+            'action'     => 'delete', 
+            'layout'     => 'empty'
+    ),
+    array(  'url'        => '/^cms\/clients\/delete\/image\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsClients', 
+            'action'     => 'deleteImage', 
+            'layout'     => 'empty'
+    ),
+    array(  'url'        => '/^cms\/clients\/node\/add\/?$/', 
+            'controller' => 'cmsClients', 
+            'action'     => 'addNode', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/clients\/node\/(?P<id>\d*)\/edit\/?$/', 
+            'controller' => 'cmsClients', 
+            'action'     => 'editNode', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/clients\/node\/(?P<id>\d*)\/delete\/?$/', 
+            'controller' => 'cmsClients', 
+            'action'     => 'deleteNode', 
+            'layout'     => 'empty'
+    ),
+    array(  'url'        => '/^cms\/clients\/node\/delete\/image\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsClients', 
+            'action'     => 'deleteNodeImage', 
+            'layout'     => 'empty'
+    ),
+    
     
 );

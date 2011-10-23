@@ -36,8 +36,8 @@
                         <li><a href="#" class="youtube">Youtube</a></li>
                     </ul>
                     <ul class="lang">
-                        <? foreach ($activeLangs as $key=>$val):?>
-                        <li><a <?= ($val['value'] == $params['lang'] ? 'class="active"' : ''); ?> href="<?= DS . $val['value'] . (isset($params['page']) ? DS . $params['page'] : ''); ?>"><?=  strtoupper($val['value']);?></a></li>
+                        <? foreach ($activeLangs as $key => $val): ?>
+                            <li><a <?= ($val['value'] == $params['lang'] ? 'class="active"' : ''); ?> href="<?= DS . $val['value'] . (isset($params['page']) ? DS . $params['page'] : '') . (isset($params['subpage']) ? DS . $params['subpage'] : ''); ?>"><?= strtoupper($val['value']); ?></a></li>
                         <? endforeach; ?>
                     </ul>
                 </div>
@@ -48,57 +48,58 @@
                     <ul class="mainNav">
                         <li>
                             <a href="<?= DS . $params['lang'] . DS . 'about-us'; ?>" <?= (isset($params['page']) && 'about-us' == $params['page'] ? 'class="active"' : ''); ?>>
-                                <?=$_t['menu.about-us'][$params['lang']];?>
+                                <?= $_t['menu.about-us'][$params['lang']]; ?>
                             </a>
                         </li>
                         <li>
                             <a href="<?= DS . $params['lang'] . DS . 'our-clients'; ?>" <?= (isset($params['page']) && 'our-clients' == $params['page'] ? 'class="active"' : ''); ?>>
-                                <?=$_t['menu.our-clients'][$params['lang']];?>
+                                <?= $_t['menu.our-clients'][$params['lang']]; ?>
                             </a>
                         </li>
                         <li>
                             <a href="<?= DS . $params['lang'] . DS . 'archive'; ?>" <?= (isset($params['page']) && 'archive' == $params['page'] ? 'class="active"' : ''); ?>>
-                                <?=$_t['menu.archive'][$params['lang']];?>
+                                <?= $_t['menu.archive'][$params['lang']]; ?>
                             </a>
                         </li>
                         <li>
                             <a href="<?= DS . $params['lang'] . DS . 'gallery'; ?>" <?= (isset($params['page']) && 'gallery' == $params['page'] ? 'class="active"' : ''); ?>>
-                                <?=$_t['menu.gallery'][$params['lang']];?>
+                                <?= $_t['menu.gallery'][$params['lang']]; ?>
                             </a>
                         </li>
                         <li>
                             <a href="<?= DS . $params['lang'] . DS . 'ads'; ?>" <?= (isset($params['page']) && 'ads' == $params['page'] ? 'class="active"' : ''); ?>>
-                                <?=$_t['menu.ads'][$params['lang']];?>
+                                <?= $_t['menu.ads'][$params['lang']]; ?>
                             </a>
                         </li>
                         <li>
                             <a href="<?= DS . $params['lang'] . DS . 'contact'; ?>" <?= (isset($params['page']) && 'contact' == $params['page'] ? 'class="active"' : ''); ?>>
-                                <?=$_t['menu.contact'][$params['lang']];?>
+                                <?= $_t['menu.contact'][$params['lang']]; ?>
                             </a>
                         </li>
-                        <li><a href="#">
-                                <?=$_t['menu.guide'][$params['lang']];?>
+                        <li class="last">
+                            <a href="#" id="bgdguide">
+                                <?= $_t['menu.guide'][$params['lang']]; ?>
                             </a>
                         </li>
                     </ul>
-                    <a href="<?= DS.$params['lang']; ?>" class="logo">
+                    <a href="<?= DS . $params['lang']; ?>" class="logo">
                         <img src="<?= IMAGE_PATH . 'logo.png'; ?>" />
                     </a>
                     <div class="banner">
-                        <? if(!empty($carouselCollection)):?>
-                        <div id="slides">
-                            <div class="slides_container">
-                                <? foreach($carouselCollection as $cc):?>
-                                <div class="slide">
-                                    <img src="<?=DS.'public'.DS.'uploads'.DS.'carousel'.DS.$cc['image_name'];?>" />
-                                    <div class="desc">
-                                        <p><?=$cc['content_'.$params['lang']];?></p>
-                                    </div>
+                        <? if (!empty($carouselCollection)): ?>
+                            <div id="slides">
+                                <div class="slides_container">
+                                    <? foreach ($carouselCollection as $cc): ?>
+                                        <div class="slide">
+                                            <img src="<?= DS . 'public' . DS . 'uploads' . DS . 'carousel' . DS . $cc['image_name']; ?>" />
+                                            <div class="desc">
+                                                <p><?= $cc['content_' . $params['lang']]; ?></p>
+                                            </div>
+                                        </div>
+                                    <? endforeach; ?>
                                 </div>
-                                <? endforeach;?>
                             </div>
-                        </div>
-                        <? endif;?>
+                        <? endif; ?>
                     </div>
                 </div>
             </div>
@@ -106,34 +107,52 @@
                 <div class="container">
                     <!-- SIDEBAR -->
                     <div class="sidebarL">
+                        <!-- guide nav -->
+
+                        <ul class="guideNav">
+                            <li><a href="#">&laquo; <?= $_t['menu.back'][$params['lang']]; ?></a></li>
+                            <? if(!empty($treeGuide)):?>
+                            <? foreach($treeGuide as $tg):?>
+                            <li><a href="<?=(DS.$params['lang'].DS.'guide'.DS.$tg['slug']);?>"><?=($tg['title_'.$params['lang']]);?></a></li>
+                            <? endforeach;?>
+                            <? endif;?>
+                            <li><a href="#">Restorani</a></li>
+                            <li><a href="#">Kultira</a></li>
+                            <li><a href="#">Sport</a></li>
+                            <li><a href="#">Zabava</a></li>
+                            <li><a href="#">Usluge</a></li>
+                            <li><a href="#">Razgledajte</a></li>
+                            <li><a href="#">Begorad Info</a></li>
+                        </ul>
+
                         <div class="sidebarBox">
                             <div class="boxTitle">
-                                <h2><?=$_t['news.title'][$params['lang']];?></h2>
+                                <h2><?= $_t['news.title'][$params['lang']]; ?></h2>
                             </div>
                             <div class="boxContent">
                                 <ul class="news">
-                                <? if(empty($freshNews)):?>
-                                    <li><?=$_t['news.no_news'][$params['lang']];?></li>
-                                <? else:?>
-                                <? foreach($freshNews as $n):?>
-                                    <li>
-                                        <span><?=@$html->convertDate($n['created']).' - '.$n['title_'.$params['lang']];?></span>
-                                        <div><?=$n['heading_'.$params['lang']];?></div>
-                                        <a href="<?=DS.$params['lang'].DS.'news'.DS.$n['id'].DS.urlencode(str_replace(array('š','đ','č','ć','ž','Š','Đ','Č','Ć','Ž','?','!',',','.'),array('s','d','c','c','z','s','d','c','c','z','','','',''),$n['title_'.$params['lang']]));?>">
-                                            <?=$_t['news.read_more'][$params['lang']];?>...
-                                        </a>
-                                    </li>
-                                <? endforeach; ?>
-                                <? endif;?>
+                                    <? if (empty($freshNews)): ?>
+                                        <li><?= $_t['news.no_news'][$params['lang']]; ?></li>
+                                    <? else: ?>
+                                        <? foreach ($freshNews as $n): ?>
+                                            <li>
+                                                <span><?= @$html->convertDate($n['created']) . ' - ' . $n['title_' . $params['lang']]; ?></span>
+                                                <div><?= $n['heading_' . $params['lang']]; ?></div>
+                                                <a href="<?= DS . $params['lang'] . DS . 'news' . DS . $n['id'] . DS . urlencode(str_replace(array('š', 'đ', 'č', 'ć', 'ž', 'Š', 'Đ', 'Č', 'Ć', 'Ž', '?', '!', ',', '.'), array('s', 'd', 'c', 'c', 'z', 's', 'd', 'c', 'c', 'z', '', '', '', ''), $n['title_' . $params['lang']])); ?>">
+                                                    <?= $_t['news.read_more'][$params['lang']]; ?>...
+                                                </a>
+                                            </li>
+                                        <? endforeach; ?>
+                                    <? endif; ?>
                                 </ul>
                             </div>
                             <div class="boxFooter">
-                                <a href="<?=DS.$params['lang'].DS.'news';?>"><?=$_t['news.all_news'][$params['lang']];?> &raquo;</a>
+                                <a href="<?= DS . $params['lang'] . DS . 'news'; ?>"><?= $_t['news.all_news'][$params['lang']]; ?> &raquo;</a>
                             </div>
                         </div>
                         <div class="sidebarBox">
                             <div class="boxTitle">
-                                <h2><?=$_t['cal.title'][$params['lang']];?></h2>
+                                <h2><?= $_t['cal.title'][$params['lang']]; ?></h2>
                             </div>
                             <div class="boxContent" id="calendar">
                                 <!-- Load -->
@@ -141,7 +160,7 @@
                         </div>
                         <div class="sidebarBox">
                             <div class="boxTitle">
-                                <h2><?=$_t['weather.title'][$params['lang']];?></h2>
+                                <h2><?= $_t['weather.title'][$params['lang']]; ?></h2>
                             </div>
                             <div class="boxContent">
                                 <?=$html->getWeather('SRXX0005', 1, array('day'=>$_t['weather.day'][$params['lang']], 'evening' => $_t['weather.evening'][$params['lang']]));?>
@@ -149,26 +168,26 @@
                         </div>
                         <div class="sidebarBox">
                             <div class="boxTitle">
-                                <h2><?=$_t['exchange.title'][$params['lang']];?></h2>
+                                <h2><?= $_t['exchange.title'][$params['lang']]; ?></h2>
                             </div>
                             <div class="boxContent">
                                 <div class="currency">
                                     <table cellpadding="0" cellspacing="0" width="100%">
-                                <? 
-                                $allCurr = $html->getNBS();
-                                foreach($allCurr as $key=>$val):?>
-                                        <tr>
-                                            <td align="center">
-                                                <img src="<?= IMAGE_PATH;?><?=$key.'.png'; ?>" />
-                                            </td>
-                                            <td  align="center">
-                                               <?=$key;?> 
-                                            </td>
-                                            <td  align="center">
-                                                <?=$val['value'];?>
-                                            </td>
-                                        </tr>
-                                <? endforeach; ?>
+                                        <? 
+                                          $allCurr = $html->getNBS();
+                                          foreach($allCurr as $key=>$val):?>
+                                          <tr>
+                                          <td align="center">
+                                          <img src="<?= IMAGE_PATH;?><?=$key.'.png'; ?>" />
+                                          </td>
+                                          <td  align="center">
+                                          <?=$key;?>
+                                          </td>
+                                          <td  align="center">
+                                          <?=$val['value'];?>
+                                          </td>
+                                          </tr>
+                                          <? endforeach;  ?>
                                     </table>
                                 </div>
                             </div>
@@ -185,47 +204,32 @@
                 <ul class="bottomLinks">
                     <li><b>Izdanja</b>
                         <ul>
-                            <li><a href="#">Izdanja</a></li>
-                            <li><a href="#">Vodič kroz Beograd</a></li>
-                            <li><a href="#">BG Info Box</a></li>
-                            <li><a href="#">Oni su nam ukazali poverenje</a></li>
-                            <li><a href="#">TBD</a></li>
+                            <li><a href="#">Bg Info Map</a></li>
+                            <li><a href="#">Bg Info Night Map</a></li>
+                            <!-- dinamicki ili samo jedan link? -->
+                            <li><a href="#">In Your Pocket Izdanja</a></li>
                         </ul>
                     </li>
                     <li><b>Vodič kroz Beograd</b>
-                        <ul>
-                            <li><a href="#">Izdanja</a></li>
-                            <li><a href="#">Vodič kroz Beograd</a></li>
-                            <li><a href="#">BG Info Box</a></li>
-                            <li><a href="#">Oni su nam ukazali poverenje</a></li>
-                            <li><a href="#">TBD</a></li>
+                        <ul><!-- prvi nivo dinamicki -->
+                            <li><a href="#">Restorani</a></li>
+                            <li><a href="#">Kultura</a></li>
+                            <li><a href="#">Sport</a></li>
+                            <li><a href="#">Bla bla</a></li>
                         </ul>
                     </li>
-                    <li><b>BG Info Box</b>
-                        <ul>
-                            <li><a href="#">Izdanja</a></li>
-                            <li><a href="#">Vodič kroz Beograd</a></li>
-                            <li><a href="#">BG Info Box</a></li>
-                            <li><a href="#">Oni su nam ukazali poverenje</a></li>
-                            <li><a href="#">TBD</a></li>
-                        </ul>
-                    </li>
-                    <li><b>Oni su nam ukazali poverenje</b>
-                        <ul>
-                            <li><a href="#">Izdanja</a></li>
-                            <li><a href="#">Vodič kroz Beograd</a></li>
-                            <li><a href="#">BG Info Box</a></li>
-                            <li><a href="#">Oni su nam ukazali poverenje</a></li>
-                            <li><a href="#">TBD</a></li>
+                    <li><b>Belgrade Info</b>
+                        <ul><!-- prvi nivo dinamicki -->
+                            <li><a href="#">Istiorija Beograda</a></li>
+                            <li><a href="#">Kulturna dešavanja</a></li>
+                            <li><a href="#">Bla bla</a></li>
                         </ul>
                     </li>
                     <li><b>TBD</b>
                         <ul>
-                            <li><a href="#">Izdanja</a></li>
-                            <li><a href="#">Vodič kroz Beograd</a></li>
-                            <li><a href="#">BG Info Box</a></li>
-                            <li><a href="#">Oni su nam ukazali poverenje</a></li>
-                            <li><a href="#">TBD</a></li>
+                            <li><a href="#">O nama</a></li>
+                            <li><a href="#">Oglašavanje</a></li>
+                            <li><a href="#">Kontakt</a></li>
                         </ul>
                     </li>
                 </ul>

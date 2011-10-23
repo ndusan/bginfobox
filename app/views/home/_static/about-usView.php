@@ -1,30 +1,24 @@
 <div class="main">
     <div class="mainBox">
         <div class="boxTitle">
-            <h1>O nama</h1>
+            <h1><?=$_t['menu.about-us'][$params['lang']];?></h1>
         </div>
         <div class="boxContent">
             <ul class="boxExtra">
-                <li class="icoPdf"><a href="#">Cenovnik oglasavanja</a></li>
-                <li class="icoMail"><a href="#">Zelite da se oglasite? <span>Posaljite nam Vase zahteve</span></a></li>
+                <? if(!empty($pricelist['image_name'])):?>
+                <li class="icoPdf">
+                    <a href="<?=(DS.'public'.DS.'uploads'.DS.'aboutus'.DS.$pricelist['image_name']);?>" target="_blank">
+                        <?=$_t['ads.label'][$params['lang']];?>
+                    </a>
+                </li>
+                <? endif;?>
+                <li class="icoMail"><a href="<?=(DS.$params['lang'].DS.'ads');?>"><?=$_t['ads-question.label'][$params['lang']];?>? <span><?=$_t['ads-question.sublabel'][$params['lang']];?></span></a></li>
             </ul>
-            <p>
-                Proin congue varius commodo. Aliquam vel luctus tellus. Nunc tempor, lectus eu scelerisque vestibulum, urna leo vehicula justo, vel mollis orci purus sit amet augue. Vestibulum porta malesuada quam. Proin blandit velit sit amet elit euismod pretium. Suspendisse elit elit, consectetur et condimentum a, blandit quis sem. Morbi ut justo tortor. 
-            </p>
-            <p>
-                Proin congue varius commodo. Aliquam vel luctus tellus. Nunc tempor, lectus eu scelerisque vestibulum, urna leo vehicula justo, vel mollis orci purus sit amet augue. Vestibulum porta malesuada quam. Proin blandit velit sit amet elit euismod pretium. Suspendisse elit elit, consectetur et condimentum a, blandit quis sem. Morbi ut justo tortor. 
-            </p>
+            <p><?=@$pricelist['content_'.$params['lang']];?></p>
         </div>
     </div>
-    <div class="mainBox">
-        <div class="boxTitle">
-            <h1>Vodic kroz Beograd</h1>
-        </div>
-        <div class="boxContent">
-            <p>
-                Proin congue varius commodo. Aliquam vel luctus tellus. Nunc tempor, lectus eu scelerisque vestibulum, urna leo vehicula justo, vel mollis orci purus sit amet augue. Vestibulum porta malesuada quam. Proin blandit velit sit amet elit euismod pretium. Suspendisse elit elit, consectetur et condimentum a, blandit quis sem. Morbi ut justo tortor. 
-            </p>
-        </div>
-    </div>
+    <!-- Load belgrade guide-->
+    <? include_once VIEW_PATH.'home'.DS.'_static'.DS.'_guide.php'; ?>
 </div>
-<? include_once '_banners.php';?>
+<!-- Load banners -->
+<? include_once VIEW_PATH.'home'.DS.'_static'.DS.'_banners.php'; ?>

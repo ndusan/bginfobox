@@ -32,11 +32,19 @@
             <table cellpadding="0" cellspacing="0">
                 <tbody>
                     <tr>
+                        <td>Link:</td>
+                        <td>
+                            <input type="text" name="carousel[link]" value="<?= @$carousel['link']; ?>" />
+                        </td>
+                    </tr>
+                    <tr>
                         <td>Image:</td>
                         <td>
-                            <input type="file" name="image" value="" class="jr"/>
                             <? if (isset($carousel['id']) && !empty($carousel['image_name'])): ?>
+                                <input type="file" name="image" value=""/>
                                 <a href="<?= DS . 'public' . DS . 'uploads' . DS . 'carousel' . DS . $carousel['image_name']; ?>" target="_blank"><?= $carousel['image_name']; ?></a>
+                            <? else: ?>
+                                <input type="file" name="image" value="" class="jr"/>
                             <? endif; ?>
                         </td>
                     </tr>
