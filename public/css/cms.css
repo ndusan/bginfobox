@@ -36,7 +36,7 @@ h3 {font-size:14px; line-height:20px;}
 
 /*SPRITE*/
 .statsVie, .statsDow, .statsVis {background-image: url(../images/statsIcos.png); background-repeat:no-repeat;}
-.cmsAdd, .cmsEdit1 {padding:0 0 0 25px; background:transparent url(../images/LinkIcos.png) scroll no-repeat 0 0;}
+.cmsAdd, .cmsEdit1 {padding:0 0 0 25px; background:transparent url(../images/linkIcos.png) scroll no-repeat 0 0;}
 .cmsAdd {background-position:0 0;}
 .cmsAdd:hover {background-position:0 -20px;}
 .cmsEdit1 {background-position:0 -40px;}
