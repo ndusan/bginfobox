@@ -44,7 +44,17 @@ class CmsClientsModel extends Model
     public function findNode($id)
     {
         try{
-            $query = sprintf("SELECT `n`.*, `nt`.`ancestor` AS `parent` FROM %s AS `n`
+            $output = array();
+            
+            $query = sprintf("SELECT `n`.*FROM %s AS `n` WHERE `n`.`id`=:id", $this->tableNavigation);
+            $stmt = $this->dbh->prepare($query);
+            
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+
+            $output = $stmt->fetch();
+            
+            $query = sprintf("SELECT `nt`.`ancestor` AS `parent` FROM %s AS `n`
                                 INNER JOIN %s AS `nt` ON `nt`.`descendant`=`n`.`id`
                                 WHERE `n`.`id`=:id AND `nt`.`path_length`='1'", $this->tableNavigation, $this->tableNavigationTree);
             $stmt = $this->dbh->prepare($query);
@@ -52,7 +62,10 @@ class CmsClientsModel extends Model
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
             $stmt->execute();
 
-            return $stmt->fetch();
+            $res =  $stmt->fetch();
+            $output['parent'] = $res['parent'];
+            
+            return $output;
         }catch(Exception $e){
             
             return false;
