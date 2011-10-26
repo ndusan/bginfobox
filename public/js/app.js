@@ -35,10 +35,10 @@ var App = App || {};
         },
         mce: function() {
             tinyMCE.init({
-                    theme : "advanced",
-                    mode : "textareas",
-                    plugins : "fullpage",
-                    theme_advanced_buttons3_add : "fullpage"
+                theme : "advanced",
+                mode : "textareas",
+                plugins : "fullpage",
+                theme_advanced_buttons3_add : "fullpage"
             });
         },
         datepicker: function() {
@@ -55,6 +55,9 @@ var App = App || {};
         thead: function(){
             
             $('.display').thead();
+        },
+        jtooltip: function(){
+            $( ".jtooltip" ).tooltip();
         }
     };
 })(this.jQuery);

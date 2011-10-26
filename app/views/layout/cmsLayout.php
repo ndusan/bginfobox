@@ -13,6 +13,7 @@
         <?= $html->assetsJs('jquery.dataTables.min', ASSETS_JS_PATH); ?>
         <?= $html->assetsJs('jquery-ui-1.8.16.custom.min', ASSETS_JS_PATH); ?>
         <?= $html->assetsJs('jquery.thead-1.1.min', ASSETS_JS_PATH); ?>
+        <?= $html->assetsJs('jtooltip', ASSETS_JS_PATH); ?>
         <?= $html->assetsCss('default', ASSETS_CSS_PATH); ?>
         <?= $html->assetsCss('demo_table', ASSETS_CSS_PATH); ?>
         <?//= $html->assetsCss('jquery-ui-1.8.16.custom', ASSETS_CSS_PATH); ?>

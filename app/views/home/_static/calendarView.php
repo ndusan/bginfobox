@@ -21,10 +21,10 @@
         <? elseif (!empty($calendar)): ?>
             <!-- selected calendar -->
             <div class="calendarOne wys">
-                <h2><?= $calendar['title_' . $params['lang']]; ?></h2>
                 <span class="date"><?= @$html->convertDate($calendar['date_start']); ?></span>
+                <h2><?= $calendar['title_' . $params['lang']]; ?></h2>
                 <? if (!empty($calendar['image_name'])): ?>
-                <img src="<?= DS. 'public' . DS . 'uploads' . DS . 'events' . DS . $calendar['image_name']; ?>" alt="" title="" width="100" height="100" />
+                <img src="<?= DS. 'public' . DS . 'uploads' . DS . 'events' . DS . $calendar['image_name']; ?>" alt="<?= $calendar['title_' . $params['lang']]; ?>" title="<?= $calendar['title_' . $params['lang']]; ?>"/>
                 <? endif; ?>
                 <?= $calendar['content_' . $params['lang']]; ?>
             </div>
