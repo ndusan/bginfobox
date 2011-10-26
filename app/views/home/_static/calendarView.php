@@ -11,7 +11,7 @@
                     <li>
                         <h2><?= $n['title_' . $params['lang']]; ?></h2>
                         <span class="date"><?= @$html->convertDate($n['date_start']); ?></span> 
-                        <a href="<?= DS . $params['lang'] . DS . 'calendar' . DS . $n['date_start'] . DS . $n['id'] . DS . urlencode(str_replace(array('š','đ','č','ć','ž','Š','Đ','Č','Ć','Ž','?','!',',','.'),array('s','d','c','c','z','s','d','c','c','z','','','',''),$n['title_' . $params['lang']])); ?>">
+                        <a href="<?= DS . $params['lang'] . DS . 'calendar' . DS . $n['date_start'] . DS . $n['id'] . DS . urlencode(str_replace(array('š','đ','č','ć','ž','Š','Đ','Č','Ć','Ž','?','!',',','.','&',':','(',')','[',']','%','#','\'','"','=','*'),array('s','d','c','c','z','s','d','c','c','z','','','','','','','','','','','','','','','',''),$n['title_' . $params['lang']])); ?>">
                             <?= $_t['cal.read_more'][$params['lang']]; ?>...
                         </a>
                     </li>
