@@ -294,7 +294,7 @@ class HomeModel extends Model
         
         try{
            
-            $query = sprintf('SELECT * FROM %s WHERE `type`=:type', $this->tblPages);
+            $query = sprintf('SELECT * FROM %s WHERE `type`=:type ORDER BY `position` DESC', $this->tblPages);
             $stmt = $this->dbh->prepare($query);
 
             $type = 'dynamic';
