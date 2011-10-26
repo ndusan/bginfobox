@@ -76,7 +76,7 @@
                                 <?= $_t['menu.contact'][$params['lang']]; ?>
                             </a>
                         </li>
-                        <li class="last">
+                        <li class="last <? if(!empty($slug)):?>active<? endif;?>" >
                             <a href="#" id="bgdguide">
                                 <?= $_t['menu.guide'][$params['lang']]; ?>
                             </a>
@@ -109,9 +109,16 @@
                     <div class="sidebarL">
                         <!-- guide nav -->
 
-                        <ul class="guideNav">
-                            <li><a href="#">&laquo; <?= $_t['menu.back'][$params['lang']]; ?></a></li>
-                            <? if(!empty($bgInfoRootTree)):?>
+                        <ul class="guideNav" <? if(!empty($slug)):?>style="display: block;"<? endif;?>>
+                            <? if(!empty($slug['previous'])):?>
+                            <li><a href="<?=(DS.$params['lang'].DS.'guide'.DS.$slug['previous']);?>">&laquo; <?= $_t['menu.back'][$params['lang']]; ?></a></li>
+                            <? endif; ?>
+                            
+                            <? if(!empty($bgInfoTree)):?>
+                            <? foreach($bgInfoTree as $tg):?>
+                            <li><a href="<?=(DS.$params['lang'].DS.'guide'.DS.$slug['current'].DS.$tg['slug']);?>"><?=($tg['title_'.$params['lang']]);?></a></li>
+                            <? endforeach;?>
+                            <? elseif(!empty($bgInfoRootTree)):?>
                             <? foreach($bgInfoRootTree as $tg):?>
                             <li><a href="<?=(DS.$params['lang'].DS.'guide'.DS.$tg['slug']);?>"><?=($tg['title_'.$params['lang']]);?></a></li>
                             <? endforeach;?>

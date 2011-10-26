@@ -273,7 +273,12 @@ class HomeController extends Controller
         $slugArray = array();
         if(!empty($params['slug'])){
             $slugArray = explode('/', $params['slug']);
+            
+            $this->getBgInfoTree($slugArray);
         }
+        
+        //Get BG INFO tree
+        $this->getBgInfoRootTree();
     }
     
     public function infoAction($params)
@@ -509,14 +514,23 @@ class HomeController extends Controller
     
     private function getBgInfoRootTree()
     {
-
-        parent::set('bgInfoRootTree', $this->db->getRootTree());
+        
+        parent::set('bgInfoRootTree', $this->db->getBgInfoRootTree());
     }
     
-    private function getBgInfoTree($parentId=0)
+    private function getBgInfoTree($slug=array())
     {
-
-        parent::set('bgInfoTree', $this->db->getTree($parentId));
+        $prevSlug = $slug;
+        array_pop($prevSlug);
+        
+        if(!empty($slug) && is_array($slug) && count($slug) > 1){
+            $slugArray = array('previous' => (count($prevSlug)>1?implode('/', $prevSlug):$prevSlug[0]), 'current' => implode('/', $slug));
+        }else{
+            $slugArray = array('previous' => '', 'current' => end($slug));
+        }
+        
+        parent::set('slug', $slugArray);
+        parent::set('bgInfoTree', $this->db->getBgInfoTree(end($slug)));
     }
     
     /** NO PAGE FOUND **/

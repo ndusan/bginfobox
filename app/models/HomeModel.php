@@ -689,12 +689,12 @@ class HomeModel extends Model
     
     
     
-    public function getRootTree()
+    public function getBgInfoRootTree()
     {
         
         try{
            
-            $query = sprintf("SELECT * FROM %s WHERE `is_root`='1' ORDER BY `position` DESC", $this->tblNavigation);
+            $query = sprintf("SELECT * FROM %s WHERE `is_root`='1' AND `type`='info' ORDER BY `position` DESC", $this->tblNavigation);
             $stmt = $this->dbh->prepare($query);
 
             $stmt->execute();
@@ -708,21 +708,20 @@ class HomeModel extends Model
     
     
     
-    public function getTree($parentId)
+    public function getBgInfoTree($slug)
     {
         
         try{
            
-            $query = sprintf("SELECT `n`.`id`, `n`.`title_sr`, `n`.`type`, `n`.`created`,
-                                COUNT(`nt`.`ancestor`)-1 AS `path_length`,
-                                FROM %s AS `nt`
-                                STRAIGHT_JOIN %s AS `n` ON (`n`.`id`=`nt`.`descendant`)
-                                WHERE `n`.`type`='clients' AND `nt`.`descendant`=:parentId
-                                GROUP BY `n`.`id`", $this->tblNavigationTree, $this->tblNavigation);
+            $query = sprintf("SELECT `n`.*
+                                FROM %s AS `n`
+                                INNER JOIN %s AS `nt` ON `nt`.`descendant`=`n`.`id`
+                                WHERE `n`.`type`='info' AND `nt`.`path_length`=1 AND
+                                `nt`.`ancestor`=(SELECT `id` FROM %s WHERE `slug`=:slug)", 
+                                $this->tblNavigation, $this->tblNavigationTree, $this->tblNavigation);
             $stmt = $this->dbh->prepare($query);
-
             
-            $stmt->bindParam(':parentId', $parentId, PDO::PARAM_INT);
+            $stmt->bindParam(':slug', $slug, PDO::PARAM_STR);
             $stmt->execute();
 
             return $stmt->fetchAll();
