@@ -19,12 +19,14 @@ class HomeModel extends Model
     private $tblPagePocketEdition = 'page_pocket_edition';
     private $tblPageEdition = 'page_edition';
     private $tblAboutUs = 'aboutus';
+    private $tblNavigation = 'navigation';
+    private $tblNavigationTree = 'navigation_tree';
     
     
-    public function getFreshNews($params)
+    public function getLattestNews($limit=2)
     {
         try{
-            $query = sprintf('SELECT * FROM %s ORDER BY `id` DESC LIMIT 0, 2', $this->tblNews);
+            $query = sprintf('SELECT * FROM %s ORDER BY `id` DESC LIMIT 0, '.$limit, $this->tblNews);
             $stmt = $this->dbh->prepare($query);
 
             $stmt->execute();
@@ -598,15 +600,6 @@ class HomeModel extends Model
     }
     
     
-    
-    public function getTreeGuide()
-    {
-        
-        
-    }
-    
-    
-    
     public function getDownload($pageId=null)
     {
         
@@ -682,9 +675,54 @@ class HomeModel extends Model
         
         try{
            
-            $query = sprintf('SELECT * FROM %s', $this->tblPages);
+            $query = sprintf('SELECT * FROM %s ORDER BY `position` ASC', $this->tblPages);
             $stmt = $this->dbh->prepare($query);
 
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
+    
+    public function getRootTree()
+    {
+        
+        try{
+           
+            $query = sprintf("SELECT * FROM %s WHERE `is_root`='1' ORDER BY `position` DESC", $this->tblNavigation);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
+    
+    public function getTree($parentId)
+    {
+        
+        try{
+           
+            $query = sprintf("SELECT `n`.`id`, `n`.`title_sr`, `n`.`type`, `n`.`created`,
+                                COUNT(`nt`.`ancestor`)-1 AS `path_length`,
+                                FROM %s AS `nt`
+                                STRAIGHT_JOIN %s AS `n` ON (`n`.`id`=`nt`.`descendant`)
+                                WHERE `n`.`type`='clients' AND `nt`.`descendant`=:parentId
+                                GROUP BY `n`.`id`", $this->tblNavigationTree, $this->tblNavigation);
+            $stmt = $this->dbh->prepare($query);
+
+            
+            $stmt->bindParam(':parentId', $parentId, PDO::PARAM_INT);
             $stmt->execute();
 
             return $stmt->fetchAll();
