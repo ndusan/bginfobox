@@ -15,12 +15,14 @@ var App = App || {};
             App.Common.datepicker();
             App.Common.mce();
             App.Common.tabs();
+            App.Common.jtooltip();
         },
         edit: function() {
             
             App.Common.datepicker();
             App.Common.mce();
             App.Common.tabs();
+            App.Common.jtooltip();
         }
     };
 })(this.jQuery);

@@ -166,7 +166,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>Logo:</td>
+                            <td><span class="jtooltip" title="Image resized to 70x70px">Logo:</span></td>
                             <td>
                                 <input type="file" name="image" value=""/>
                                 <? if (isset($client['id']) && !empty($client['image_name'])): ?>
@@ -176,7 +176,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>Paid Logo:</td>
+                            <td><span class="jtooltip" title="Image resized to 150x150px">IPaid Logo:</span></td>
                             <td>
                                 <input type="file" name="image" value=""/>
                             </td>

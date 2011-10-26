@@ -73,6 +73,10 @@ $translate = array(
     'download.label'=>array('sr'=>'Preuzimanje','en'=>'Download'),
     'download.sublabel'=>array('sr'=>'Preuzmi aktivno izdanje','en'=>'Download current edition'),
     
+    //Archive
+    'archive.label'=>array('sr'=>'Arhiva','en'=>'Archive'),
+    'archive.sublabel'=>array('sr'=>'Pogledaj sva izdanja','en'=>'View recent editions'),
+    
     //Page position
     'page.0.label'=>array('sr'=>'Naslovna strana aktuelnog izdanja','en'=>'Front side of current edition'),
     'page.1.label'=>array('sr'=>'Mapa aktuelnog izdanja','en'=>'Map of current edition'),

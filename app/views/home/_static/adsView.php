@@ -19,9 +19,6 @@
                     </a>
                 </li>
                 <? endif;?>
-                <li class="infoExtra">
-                    <p>dodatne informacije o ovome shto je levod esno</p>
-                </li>
             </ul>
             <div class="adsForm">
                 <form action="<?= DS . $params['lang'] . DS . 'contact'; ?>">

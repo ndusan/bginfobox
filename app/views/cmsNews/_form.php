@@ -57,7 +57,7 @@
             <table cellpadding="0" cellspacing="0">
                 <tbody>
                     <tr>
-                        <td>Image:</td>
+                        <td><span class="jtooltip" title="Maximum image width 530px">Image:</span></td>
                         <td>
                             <input class="jtooltip" title="image max 530px width" type="file" name="image" value=""/>
                             <? if (isset($news['id']) && !empty($news['image_name'])): ?>

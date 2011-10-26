@@ -56,7 +56,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>Image:</td>
+                        <td><span class="jtooltip" title="Maximum image width 530px">Image:</span></td>
                         <td>
                             <input type="file" name="image" value=""/>
                             <? if (isset($event['id']) && !empty($event['image_name'])): ?>

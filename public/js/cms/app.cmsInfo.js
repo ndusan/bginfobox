@@ -14,18 +14,22 @@ var App = App || {};
         add: function(){
             App.Common.tabs();
             App.Common.mce();
+            App.Common.jtooltip();
         }, 
         edit: function(){
             App.Common.tabs();
             App.Common.mce();
+            App.Common.jtooltip();
         },
         addNode: function(){
             App.Common.tabs();
             App.Common.mce();
+            App.Common.jtooltip();
         }, 
         editNode: function(){
             App.Common.tabs();
             App.Common.mce();
+            App.Common.jtooltip();
         }
     };
 })(this.jQuery);
