@@ -59,7 +59,7 @@
                     <tr>
                         <td><span class="jtooltip" title="Maximum image width 530px">Image:</span></td>
                         <td>
-                            <input class="jtooltip" title="image max 530px width" type="file" name="image" value=""/>
+                            <input type="file" name="image" value=""/>
                             <? if (isset($news['id']) && !empty($news['image_name'])): ?>
                                 <a href="<?= DS . 'public' . DS . 'uploads' . DS . 'news' . DS . $news['image_name']; ?>" target="_blank"><?= $news['image_name']; ?></a>
                                 [<a href="/cms/news/delete/image/<?= $news['id']; ?>">Delete</a>]
