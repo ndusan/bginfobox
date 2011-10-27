@@ -35,7 +35,7 @@
                     <tr>
                         <td>Price PDF:</td>
                         <td>
-                            <input type="file" name="image" value=""/>
+                            <input type="file" name="image" value="" />
                             <? if (isset($aboutus['id']) && !empty($aboutus['image_name'])): ?>
                                 <a href="<?= DS . 'public' . DS . 'uploads' . DS . 'aboutus' . DS . $aboutus['image_name']; ?>" target="_blank"><?= $aboutus['image_name']; ?></a>
                                 [<a href="/cms/about-us/delete/image/<?= $aboutus['id']; ?>">Delete</a>]

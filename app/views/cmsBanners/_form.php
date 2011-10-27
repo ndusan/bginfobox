@@ -16,7 +16,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Image:</td>
+                    <td><span class="jtooltip" title="Maximum image width 200px">Image:</span></td>
                     <td>
                         <? if (isset($banner['id']) && !empty($banner['image_name'])): ?>
                             <input type="file" name="image" value=""/>

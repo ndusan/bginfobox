@@ -71,7 +71,7 @@ class CmsBginfoModel extends Model
         try{
             if(!empty($params['id'])){
                 //Update
-                $query = sprintf("UPDATE %s SET `content_sr`=:contentSr, `content_en`=:contentEn WHERE `page_id`=:id", $this->tablePageContent);
+                $query = sprintf("UPDATE %s SET `content_sr`=:contentSr, `content_en`=:contentEn WHERE `id`=:id", $this->tablePageContent);
                 $stmt = $this->dbh->prepare($query);
                 
                 $stmt->bindParam(':contentSr', $params['content_sr'], PDO::PARAM_STR);

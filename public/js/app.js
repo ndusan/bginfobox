@@ -35,10 +35,18 @@ var App = App || {};
         },
         mce: function() {
             tinyMCE.init({
-                    theme : "advanced",
-                    mode : "textareas",
-                    plugins : "fullpage",
-                    theme_advanced_buttons3_add : "fullpage"
+                theme : "advanced",
+                mode : "textareas",
+                plugins : "fullscreen",
+                theme_advanced_buttons3_add : "autolink,lists,spellchecker,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template",
+                // Theme options
+                theme_advanced_buttons1 : "bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,|,styleselect,formatselect,fontselect,fontsizeselect",
+                theme_advanced_buttons2 : "cut,copy,paste,pastetext,pasteword,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,cleanup,help,code,|,insertdate,inserttime,forecolor,backcolor,hr,sub,sup,|,charmap,emotions,iespell,media,advhr,|,print,fullscreen",
+                theme_advanced_buttons3 : "",
+                theme_advanced_toolbar_location : "top",
+                theme_advanced_toolbar_align : "left",
+                theme_advanced_statusbar_location : "bottom",
+                theme_advanced_resizing : true
             });
         },
         datepicker: function() {
@@ -55,6 +63,9 @@ var App = App || {};
         thead: function(){
             
             $('.display').thead();
+        },
+        jtooltip: function(){
+            $( ".jtooltip" ).tooltip();
         }
     };
 })(this.jQuery);

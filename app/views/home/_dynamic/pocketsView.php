@@ -54,7 +54,14 @@
                             </span>
                         <? endif; ?>
                         <span class="icoDis">
-                            <a href="<?= (DS . $params['lang'] . DS . 'pockets' . DS . 'location?id=' . $gc['page_id']) ?>">Spisak distributivnih mesta</a>
+                            <a href="<?= (DS . $params['lang'] . DS . 'pockets' . DS . 'location?id=' . $gc['page_id']) ?>">
+                                Spisak distributivnih mesta
+                            </a>
+                        </span>
+                        <span class="icoArc">
+                            <a href="#">
+                                <?= $_t['archive.label'][$params['lang']]; ?>? 
+                            </a>
                         </span>
                     </li>
                 <? endforeach; ?>

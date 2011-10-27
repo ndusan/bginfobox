@@ -15,19 +15,23 @@ var App = App || {};
             App.CmsClients.checkbox();
             App.CmsClients.paidClients();
             App.Common.datepicker();
+            App.Common.jtooltip();
         },
         edit: function() {
             App.CmsClients.checkbox();
             App.CmsClients.paidClients();
             App.Common.datepicker();
+            App.Common.jtooltip();
         },
         addNode: function() {
             App.Common.tabs();
             App.Common.mce();
+            App.Common.jtooltip();
         }, 
         editNode: function() {
             App.Common.tabs();
             App.Common.mce();
+            App.Common.jtooltip();
         },
         checkbox: function() {
             

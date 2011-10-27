@@ -38,7 +38,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>Image:</td>
+                        <td><span class="jtooltip" title="Image size 770x280px">Image:</span></td>
                         <td>
                             <? if (isset($carousel['id']) && !empty($carousel['image_name'])): ?>
                                 <input type="file" name="image" value=""/>

@@ -19,12 +19,14 @@ class HomeModel extends Model
     private $tblPagePocketEdition = 'page_pocket_edition';
     private $tblPageEdition = 'page_edition';
     private $tblAboutUs = 'aboutus';
+    private $tblNavigation = 'navigation';
+    private $tblNavigationTree = 'navigation_tree';
     
     
-    public function getFreshNews($params)
+    public function getLattestNews($limit=2)
     {
         try{
-            $query = sprintf('SELECT * FROM %s ORDER BY `id` DESC LIMIT 0, 2', $this->tblNews);
+            $query = sprintf('SELECT * FROM %s ORDER BY `id` DESC LIMIT 0, '.$limit, $this->tblNews);
             $stmt = $this->dbh->prepare($query);
 
             $stmt->execute();
@@ -294,7 +296,7 @@ class HomeModel extends Model
         
         try{
            
-            $query = sprintf('SELECT * FROM %s WHERE `type`=:type', $this->tblPages);
+            $query = sprintf('SELECT * FROM %s WHERE `type`=:type ORDER BY `position` DESC', $this->tblPages);
             $stmt = $this->dbh->prepare($query);
 
             $type = 'dynamic';
@@ -598,15 +600,6 @@ class HomeModel extends Model
     }
     
     
-    
-    public function getTreeGuide()
-    {
-        
-        
-    }
-    
-    
-    
     public function getDownload($pageId=null)
     {
         
@@ -682,9 +675,53 @@ class HomeModel extends Model
         
         try{
            
-            $query = sprintf('SELECT * FROM %s', $this->tblPages);
+            $query = sprintf('SELECT * FROM %s ORDER BY `position` ASC', $this->tblPages);
             $stmt = $this->dbh->prepare($query);
 
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
+    
+    public function getBgInfoRootTree()
+    {
+        
+        try{
+           
+            $query = sprintf("SELECT * FROM %s WHERE `is_root`='1' AND `type`='info' ORDER BY `position` DESC", $this->tblNavigation);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
+    
+    public function getBgInfoTree($slug)
+    {
+        
+        try{
+           
+            $query = sprintf("SELECT `n`.*
+                                FROM %s AS `n`
+                                INNER JOIN %s AS `nt` ON `nt`.`descendant`=`n`.`id`
+                                WHERE `n`.`type`='info' AND `nt`.`path_length`=1 AND
+                                `nt`.`ancestor`=(SELECT `id` FROM %s WHERE `slug`=:slug)", 
+                                $this->tblNavigation, $this->tblNavigationTree, $this->tblNavigation);
+            $stmt = $this->dbh->prepare($query);
+            
+            $stmt->bindParam(':slug', $slug, PDO::PARAM_STR);
             $stmt->execute();
 
             return $stmt->fetchAll();

@@ -24,6 +24,12 @@
                         <span><?=$_t['location.sublabel'][$params['lang']];?></span>
                     </a>
                 </li>
+                <li class="icoArc">
+                    <a href="#">
+                        <?=$_t['archive.label'][$params['lang']];?>? 
+                        <span><?=$_t['archive.sublabel'][$params['lang']];?></span>
+                    </a>
+                </li>
                 <? if(!empty($download)):?>
                 <li class="icoDld">
                     <a href="<?=(DS.'public'.DS.'uploads'.DS.'bginfo'.DS.$download['file_name']);?>" target="_blank">

@@ -3,39 +3,375 @@
 class HomeController extends Controller
 {
     
+    const BGINFOBOX = 'bginfo-box';
+    const BGINFOMAP = 'bginfo-map';
+    const BGINFONIGHTMAP = 'bginfo-night-map';
+    const PUTOVANJEZADVOJE = 'putovanje-za-dvoje';
     
-    protected $pages = array('bginfo-box'=>'1','bginfo-map'=>'2','bginfo-night-map'=>'3','putovanje-za-dvoje'=>'4');
+    protected $pages = array(self::BGINFOBOX => '1',
+                             self::BGINFOMAP => '2',
+                             self::BGINFONIGHTMAP => '3',
+                             self::PUTOVANJEZADVOJE => '4');
     
     
+    /**
+     * HOME PAGE
+     * @param type $params 
+     */
     public function indexAction($params)
     {
-     
-        parent::set('freshNews', $this->db->getFreshNews($params));
+        //Lattest news
+        $this->getNews();
+        
+        //Get calendar
         parent::set('calendar', $this->loadCalendarAction($params));
-        parent::set('bannerCollection', $this->db->getAllBanners());
-        parent::set('carouselCollection', $this->db->getAllCarousel());
+        
+        //Get banners
+        $this->getBanners();
+        
+        //Get carousel
+        $this->getCarousel();
 
-        parent::set('activeLangs', $this->db->getActiveLanguages());
+        //Get active language
+        $this->getActiveLanguage();
         
         //Bg Info pages
-        parent::set('lattestStaticEditions', $this->db->getLattestStaticEditions());
+        $this->getBginfoPages();
         
-        parent::set('lattestDynamicEditions', $this->db->getLattestDynamicEditions());
-        parent::set('pocketContent', $this->db->getPocketContent());
+        //Pocket pages
+        $this->getPocketPages();
         
-        parent::set('treeGuide', $this->getTreeGuide());
+        //Pocket page content
+        $this->getPocketPageContent();
+        
+        //Get BG INFO tree
+        $this->getBgInfoRootTree();
         
     }
     
     
-    private function getTreeGuide()
+    /**
+     * Get calendar
+     * @param type $params 
+     */
+    public function loadCalendarAction($params)
+    {   
+        
+        parent::set('eventCollection', $this->db->getEventsByTime(isset($params['year'])?$params['year']:date('Y'), isset($params['month'])?$params['month']:date('m')));
+        parent::set('currTime', isset($params['currTime'])?$params['currTime']: time());
+    }
+    
+    
+    
+    /**
+     * STATIC PAGES
+     * @param type $params 
+     */
+    public function staticPagesAction($params)
+    {
+
+        //Lattest news
+        $this->getNews();
+        
+        //Get banners
+        $this->getBanners();
+        
+        //Get carousel
+        $this->getCarousel();
+
+        //Get active language
+        $this->getActiveLanguage();
+        
+        
+        
+        switch($params['page']){
+            case 'about-us':
+                
+                $this->getPricelist();
+                break;
+            case 'our-clients': 
+                
+                $this->clientsPage($params); 
+                break;
+            case 'archive': 
+                
+                $this->archivePage($params); 
+                break;
+            case 'gallery': 
+                
+                $this->galleryPage($params); 
+                break;
+            case 'ads':
+                
+                $this->adsPage($params);
+                $this->getPricelist();
+                break;
+            case 'contact': 
+                
+                $this->contactPage($params); 
+                break;
+            case 'news':  
+                
+                $this->newsPage($params); 
+                break;
+            case 'calendar': 
+                
+                $this->calendarPage($params); 
+                break;
+            default: //error
+        }
+    }
+    
+    
+    /**
+     * DYNAMIC PAGES
+     * @param type $params 
+     */
+    public function dynamicPagesAction($params)
     {
         
-        return $this->db->getTreeGuide();
+        //Lattest news
+        $this->getNews();
+        
+        //Get banners
+        $this->getBanners();
+        
+        //Get carousel
+        $this->getCarousel();
+
+        //Get active language
+        $this->getActiveLanguage();
+        
+        switch($params['page']){
+            case 'bginfo-box':
+                
+                $this->bginfoPage($params['page']); 
+                $this->bginfoBoxGalleryPage($params['page']);
+                $this->getDownload($this->pages[$params['page']]);
+                break;
+            case 'bginfo-map':
+                
+                $this->bginfoPage($params['page']); 
+                $this->bginfoGalleryPage($params['page'], null);
+                $this->getDownload($this->pages[$params['page']]);
+                break;
+            case 'bginfo-night-map': 
+                
+                $this->bginfoPage($params['page']); 
+                $this->bginfoGalleryPage($params['page'], null);
+                $this->getDownload($this->pages[$params['page']]);
+                break;
+            case 'pockets': 
+                
+                $this->pocketsPage();
+                $this->pocketsInfo();
+                $this->pocketsGalleryPage();
+                break;
+        }
+        
+        $this->getPricelist();
     }
     
     
     
+    public function dynamicGalleryPagesAction($params)
+    {
+
+        //Lattest news
+        $this->getNews();
+        
+        //Get banners
+        $this->getBanners();
+        
+        //Get carousel
+        $this->getCarousel();
+
+        //Get active language
+        $this->getActiveLanguage();
+        
+        $archive = (!empty($params['archive']) ? (int)$params['archive'] : null);
+        
+        switch($params['page']){
+            case 'bginfo-box': $this->bginfoBoxGalleryPage($params['page']); break;
+            case 'bginfo-map': $this->bginfoGalleryPage($params['page'], $archive); break;
+            case 'bginfo-night-map': $this->bginfoGalleryPage($params['page'], $archive); break;
+        }
+    }
+    
+    
+    public function locationAction($params)
+    {
+
+        //Lattest news
+        $this->getNews();
+        
+        //Get banners
+        $this->getBanners();
+        
+        //Get carousel
+        $this->getCarousel();
+
+        //Get active language
+        $this->getActiveLanguage();
+        
+        $id = (!empty($params['id']))?$params['id']:$this->pages[$params['page']];
+        
+        parent::set('locationCollection', $this->db->getLocations($id));
+        
+    }
+    
+    public function archiveAction($params)
+    {
+
+        //Lattest news
+        $this->getNews();
+        
+        //Get banners
+        $this->getBanners();
+        
+        //Get carousel
+        $this->getCarousel();
+
+        //Get active language
+        $this->getActiveLanguage();
+        
+        switch($params['page']){
+            case 'bginfo-map': 
+                
+                $this->getAchiveByName($params['page']); 
+                break;
+            case 'bginfo-night-map': 
+                
+                $this->getAchiveByName($params['page']); 
+                break;
+            case 'putovanje-za-dvoje': 
+                
+                $this->getAchiveByName($params['page']); 
+                break;
+            case 'pockets': 
+                
+                $this->getAchiveByName(); 
+                break;
+        }
+    }
+    
+    public function guideAction($params)
+    {
+        
+        //Lattest news
+        $this->getNews();
+        
+        //Get banners
+        $this->getBanners();
+        
+        //Get carousel
+        $this->getCarousel();
+
+        //Get active language
+        $this->getActiveLanguage();
+        
+        $slugArray = array();
+        if(!empty($params['slug'])){
+            $slugArray = explode('/', $params['slug']);
+            
+            $this->getBgInfoTree($slugArray);
+        }
+        
+        //Get BG INFO tree
+        $this->getBgInfoRootTree();
+    }
+    
+    public function infoAction($params)
+    {
+        
+        //Lattest news
+        $this->getNews();
+        
+        //Get banners
+        $this->getBanners();
+        
+        //Get carousel
+        $this->getCarousel();
+
+        //Get active language
+        $this->getActiveLanguage();
+        
+        $slugArray = array();
+        if(!empty($params['slug'])){
+            $slugArray = explode('/', $params['slug']);
+        }
+    }
+    
+    
+    
+    
+    /*********** PRIVATE FUNCTON ************/
+    
+    /**
+     * Get news
+     */
+    private function getNews()
+    {
+        
+        $numOfNews = 2;
+        parent::set('freshNews', $this->db->getLattestNews($numOfNews));
+    }
+    
+    /**
+     * Get banners
+     */
+    private function getBanners()
+    {
+        
+        parent::set('bannerCollection', $this->db->getAllBanners());
+    }
+    
+    /**
+     * Get carousel
+     */
+    private function getCarousel()
+    {
+        
+        parent::set('carouselCollection', $this->db->getAllCarousel());
+    }
+    
+    /**
+     * Get active language
+     */
+    private function getActiveLanguage()
+    {
+        
+        parent::set('activeLangs', $this->db->getActiveLanguages());
+    }
+    
+    /**
+     * Get BG INFO PAGES
+     */
+    private function getBgInfoPages()
+    {
+        
+        parent::set('lattestStaticEditions', $this->db->getLattestStaticEditions());
+    }
+    
+    /**
+     * GET POCKETS PAGES
+     */
+    private function getPocketPages()
+    {
+        
+        parent::set('lattestDynamicEditions', $this->db->getLattestDynamicEditions());
+    }
+    
+    /**
+     * Get pocket page content
+     */
+    private function getPocketPageContent()
+    {
+        
+        parent::set('pocketContent', $this->db->getPocketContent());
+    }
+
+    /** NEWS PAGE **/
     private function newsPage($params)
     {
         if(isset($params['news_id'])){
@@ -49,7 +385,7 @@ class HomeController extends Controller
         }
     }
     
-    
+    /** CALENDAR PAGE **/
     private function calendarPage($params)
     {
         if(isset($params['calendar_id'])){
@@ -62,54 +398,12 @@ class HomeController extends Controller
         }
     }
     
+    /** GALLERY PAGE **/
     private function galleryPage($params)
     {
         
         parent::set('galleryCollection', $this->db->getAllGallery());
     }
-    
-    
-    
-    public function loadCalendarAction($params)
-    {   
-        
-        parent::set('eventCollection', $this->db->getEventsByTime(isset($params['year'])?$params['year']:date('Y'), isset($params['month'])?$params['month']:date('m')));
-        parent::set('currTime', isset($params['currTime'])?$params['currTime']: time());
-    }
-   
-    
-    /**
-     * STATIC PAGES
-     * @param type $params 
-     */
-    public function staticPagesAction($params)
-    {
-
-        parent::set('freshNews', $this->db->getFreshNews($params));
-        parent::set('bannerCollection', $this->db->getAllBanners());
-        parent::set('carouselCollection', $this->db->getAllCarousel());
-        
-        parent::set('activeLangs', $this->db->getActiveLanguages());
-        
-        switch($params['page']){
-            case 'about-us':
-                $this->getPricelist();
-                break;
-            case 'our-clients': $this->clientsPage($params); break;
-            case 'archive': $this->archivePage($params); break;
-            case 'gallery': $this->galleryPage($params); break;
-            case 'ads': 
-                $this->adsPage($params);
-                $this->getPricelist();
-                break;
-            case 'contact': $this->contactPage($params); break;
-            case 'news':  $this->newsPage($params); break;
-            case 'calendar': $this->calendarPage($params); break;
-            default: //error
-        }
-        
-    }
-    
     
     
     private function getPricelist()
@@ -118,13 +412,13 @@ class HomeController extends Controller
         parent::set('pricelist', $this->db->getAboutUs());
     }
     
-    
+    /** ARCHIVE PAGE **/
     private function archivePage($params)
     {
         parent::set('archiveCollection', $this->db->getAllArchive());
     }
     
-    
+    /** CLIENT PAGE **/
     private function clientsPage($params)
     {
         
@@ -132,7 +426,7 @@ class HomeController extends Controller
         parent::set('clientCollection', $this->db->getAllClients());
     }
     
-    
+    /** CONTACT PAGE **/
     private function contactPage($params)
     {
         
@@ -147,8 +441,7 @@ class HomeController extends Controller
         }
     }
     
-    
-    
+    /** ADS PAGE **/
     private function adsPage($params)
     {
         
@@ -161,56 +454,8 @@ class HomeController extends Controller
                 parent::set('sent', 'error');
             }
         }
-        
         parent::set('pages', $this->db->getPagesForAds());
     }
-   
-    
-    
-    
-    /**
-     * DYNAMIC PAGES
-     * @param type $params 
-     */
-    public function dynamicPagesAction($params)
-    {
-        
-        parent::set('freshNews', $this->db->getFreshNews($params));
-        parent::set('bannerCollection', $this->db->getAllBanners());
-        parent::set('carouselCollection', $this->db->getAllCarousel());
-        
-        parent::set('activeLangs', $this->db->getActiveLanguages());
-        
-        
-        switch($params['page']){
-            case 'bginfo-box': 
-                $this->bginfoPage($params['page']); 
-                $this->bginfoBoxGalleryPage($params['page']);
-                $this->getDownload($this->pages[$params['page']]);
-                break;
-            case 'bginfo-map': 
-                $this->bginfoPage($params['page']); 
-                $this->bginfoGalleryPage($params['page'], null);
-                $this->getDownload($this->pages[$params['page']]);
-                break;
-            case 'bginfo-night-map': 
-                $this->bginfoPage($params['page']); 
-                $this->bginfoGalleryPage($params['page'], null);
-                $this->getDownload($this->pages[$params['page']]);
-                break;
-            case 'pockets': 
-                $this->pocketsPage();
-                $this->pocketsInfo();
-                $this->pocketsGalleryPage();
-                break;
-        }
-        
-        $this->getPricelist();
-    }
-    
-    
-    
-    
     
     private function getDownload($pageId=null)
     {
@@ -218,85 +463,26 @@ class HomeController extends Controller
         parent::set('download', $this->db->getDownload($pageId));
     }
     
-    
-    
-    
-    public function dynamicGalleryPagesAction($params)
-    {
-
-        parent::set('freshNews', $this->db->getFreshNews($params));
-        parent::set('bannerCollection', $this->db->getAllBanners());
-        parent::set('carouselCollection', $this->db->getAllCarousel());
-        
-        parent::set('activeLangs', $this->db->getActiveLanguages());
-        
-        $archive = (!empty($params['archive']) ? (int)$params['archive'] : null);
-        
-        switch($params['page']){
-            case 'bginfo-box': $this->bginfoBoxGalleryPage($params['page']); break;
-            case 'bginfo-map': $this->bginfoGalleryPage($params['page'], $archive); break;
-            case 'bginfo-night-map': $this->bginfoGalleryPage($params['page'], $archive); break;
-        }
-    }
-    
-    
-    
+    /** BGINFO PAGE **/
     private function bginfoPage($pageName)
     {
         
         parent::set('content', $this->db->getBginfo($this->pages[$pageName]));
     }
     
-    
-    
+    /** POCKET PAGE **/
     private function pocketsPage()
     {
         
         parent::set('content', $this->db->getPocketContent());
     }
     
-    
-    
+    /** POCEKET INFO **/
     private function pocketsInfo()
     {
         
         parent::set('info', $this->db->getPocketsInfo());
     }
-    
-    
-    
-    public function locationAction($params)
-    {
-
-        parent::set('freshNews', $this->db->getFreshNews($params));
-        parent::set('bannerCollection', $this->db->getAllBanners());
-        parent::set('carouselCollection', $this->db->getAllCarousel());
-        
-        parent::set('activeLangs', $this->db->getActiveLanguages());
-        
-        $id = (!empty($params['id']))?$params['id']:$this->pages[$params['page']];
-        
-        parent::set('locationCollection', $this->db->getLocations($id));
-        
-    }
-    
-    public function archiveAction($params)
-    {
-
-        parent::set('freshNews', $this->db->getFreshNews($params));
-        parent::set('bannerCollection', $this->db->getAllBanners());
-        parent::set('carouselCollection', $this->db->getAllCarousel());
-        
-        parent::set('activeLangs', $this->db->getActiveLanguages());
-        
-        switch($params['page']){
-            case 'bginfo-map': $this->getAchiveByName($params['page']); break;
-            case 'bginfo-night-map': $this->getAchiveByName($params['page']); break;
-            case 'putovanje-za-dvoje': $this->getAchiveByName($params['page']); break;
-            case 'pockets': $this->getAchiveByName(); break;
-        }
-    }
-    
     
     private function getAchiveByName($name=null)
     {
@@ -304,18 +490,15 @@ class HomeController extends Controller
         parent::set('archiveCollection', $this->db->getArchiveById($id));
         
     }
-    
-    
-    
-    
+
+    /** BGINFO BOX GALLERY PAGE **/
     private function bginfoBoxGalleryPage($pageName)
     {
         
         parent::set('galleryCollection', $this->db->bginfoBoxGallery($this->pages[$pageName]));
     }
     
-    
-    
+    /** BGINFO GALLERY PAGE **/
     private function bginfoGalleryPage($pageName, $archive)
     {
         
@@ -323,61 +506,36 @@ class HomeController extends Controller
         parent::set('galleryCollection', $this->db->bginfoGallery($this->pages[$pageName], $archive));
     }
     
-    
-    
-    
+    /** POCKET GALLERY PAGE **/
     private function pocketsGalleryPage()
     {
         parent::set('galleryCollection', $this->db->getLattestDynamicEditions());
     }
     
+    private function getBgInfoRootTree()
+    {
+        
+        parent::set('bgInfoRootTree', $this->db->getBgInfoRootTree());
+    }
     
+    private function getBgInfoTree($slug=array())
+    {
+        $prevSlug = $slug;
+        array_pop($prevSlug);
+        
+        if(!empty($slug) && is_array($slug) && count($slug) > 1){
+            $slugArray = array('previous' => (count($prevSlug)>1?implode('/', $prevSlug):$prevSlug[0]), 'current' => implode('/', $slug));
+        }else{
+            $slugArray = array('previous' => '', 'current' => end($slug));
+        }
+        
+        parent::set('slug', $slugArray);
+        parent::set('bgInfoTree', $this->db->getBgInfoTree(end($slug)));
+    }
     
+    /** NO PAGE FOUND **/
     public function noPageFoundAction($params)
     {
         
     }
-    
-    
-    
-    public function guideAction($params)
-    {
-        
-        $slugArray = array();
-        if(!empty($params['slug'])){
-            $slugArray = explode('/', $params['slug']);
-        }
-        
-        
-        
-        parent::set('freshNews', $this->db->getFreshNews($params));
-        parent::set('bannerCollection', $this->db->getAllBanners());
-        parent::set('carouselCollection', $this->db->getAllCarousel());
-        
-        parent::set('activeLangs', $this->db->getActiveLanguages());
-    }
-    
-    
-    
-    public function infoAction($params)
-    {
-        
-        $slugArray = array();
-        if(!empty($params['slug'])){
-            $slugArray = explode('/', $params['slug']);
-        }
-        
-        
-        
-        parent::set('freshNews', $this->db->getFreshNews($params));
-        parent::set('bannerCollection', $this->db->getAllBanners());
-        parent::set('carouselCollection', $this->db->getAllCarousel());
-        
-        parent::set('activeLangs', $this->db->getActiveLanguages());
-    }
-    
-    
-    
-    
-    
 }

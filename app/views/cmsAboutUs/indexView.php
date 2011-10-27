@@ -1,6 +1,6 @@
 <? if (empty($aboutusCollection)): ?>
 <ul class="addTop">
-    <li><a class="cmsAdd" href="/cms/about-us/add" >Add new about us</a></li>
+    <li><a class="cmsAdd" href="/cms/about-us/add" >Edit about us</a></li>
 </ul>
 <? endif; ?>
 

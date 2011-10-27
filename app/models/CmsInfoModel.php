@@ -265,6 +265,7 @@ class CmsInfoModel extends Model
             if(!empty($res)){
                 
                 //New name 
+                $newText = '';
                 $newText.= $text.'-'.time();
                 $text = $this->checkSlugInDb($newText);
             }
@@ -283,11 +284,12 @@ class CmsInfoModel extends Model
             
             $query = sprintf("INSERT INTO %s SET `title_sr`=:titleSr, `title_en`=:titleEn, 
                                                  `content_sr`=:contentSr, `content_en`=:contentEn, 
-                                                 `position`=:position, `type`=:type, `slug`=:slug", $this->tableNavigation);
+                                                 `position`=:position, `type`=:type, `slug`=:slug, `is_root`=:isRoot", $this->tableNavigation);
             $stmt = $this->dbh->prepare($query);
             
             $position = time();
             $type = 'info';
+            $isRoot = $params['parent']==0 ? 1 : 0;
             $slug = $this->generateSlug($params['title_sr']);
             $stmt->bindParam(':titleSr', $params['title_sr'], PDO::PARAM_STR);
             $stmt->bindParam(':titleEn', $params['title_en'], PDO::PARAM_STR);
@@ -296,6 +298,7 @@ class CmsInfoModel extends Model
             $stmt->bindParam(':position', $position, PDO::PARAM_INT);
             $stmt->bindParam(':type', $type, PDO::PARAM_STR);
             $stmt->bindParam(':slug', $slug, PDO::PARAM_STR);
+            $stmt->bindParam(':isRoot', $isRoot, PDO::PARAM_INT);
             $stmt->execute();
 
             $id = $this->dbh->lastInsertId();
@@ -318,15 +321,18 @@ class CmsInfoModel extends Model
         
         try{
             $query = sprintf("UPDATE %s SET `title_sr`=:titleSr, `title_en`=:titleEn, 
-                                            `content_sr`=:contentSr, `content_en`=:contentEn, `slug`=:slug WHERE `id`=:id", $this->tableNavigation);
+                                            `content_sr`=:contentSr, `content_en`=:contentEn, `slug`=:slug, `is_root`=:isRoot
+                                            WHERE `id`=:id", $this->tableNavigation);
             $stmt = $this->dbh->prepare($query);
             
+            $isRoot = $params['parent']==0 ? 1 : 0;
             $slug = $this->generateSlug($params['title_sr']);
             $stmt->bindParam(':titleSr', $params['title_sr'], PDO::PARAM_STR);
             $stmt->bindParam(':titleEn', $params['title_en'], PDO::PARAM_STR);
             $stmt->bindParam(':contentSr', $params['content_sr'], PDO::PARAM_STR);
             $stmt->bindParam(':contentEn', $params['content_en'], PDO::PARAM_STR);
             $stmt->bindParam(':slug', $slug, PDO::PARAM_STR);
+            $stmt->bindParam(':isRoot', $isRoot, PDO::PARAM_INT);
             $stmt->bindParam(':id', $params['id'], PDO::PARAM_INT);
             $stmt->execute();
 

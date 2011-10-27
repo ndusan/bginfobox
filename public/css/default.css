@@ -44,17 +44,20 @@ input[type=submit]:hover {color:#f0397b; border-color:#C6C6C6; cursor:pointer;}
 .facebook:hover {background-position: 0 -75px; color:#FFF;}
 .youtube:hover {background-position:0 -25px; color:#FFF;}
 
-.icoMail, .icoPdf, .icoDoc, .icoDld, .icoDis {padding-left:35px !important;}
+.icoMail, .icoPdf, .icoDoc, .icoDld, .icoDis, .icoArc {padding-left:35px !important;}
 .icoMail {background:transparent url(../images/icoMail.png) scroll no-repeat 5px 50%;}
 .icoPdf {background:transparent url(../images/icoPdf.png) scroll no-repeat 5px 50%;}
 .icoDoc {background:transparent url(../images/icoDoc.png) scroll no-repeat 5px 50%;}
 .icoDld {background:transparent url(../images/icoDld.png) scroll no-repeat 5px 50%;}
 .icoDis {background:transparent url(../images/icoDis.png) scroll no-repeat 5px 50%;}
+.icoArc {background:transparent url(../images/icoArc.png) scroll no-repeat 5px 50%;}
 .infoExtra {font-size:11px; line-height:15px !important;}
 .galleryAll .icoDld,.galleryAll .icoDis {padding:5px 0;}
 
 /*WYS RESETING*/
 .wys p {padding:5px 0;}
+.wys ul {list-style:disc outside none !important; padding:5px 0 5px 30px;} 
+
 
 /*BUILD*/
 .topNavW {background-color:#111;}
@@ -102,13 +105,13 @@ ul.mainNav li a:hover, ul.mainNav li a.active {background:#9c1006 url(../images/
 .mainBox .boxTitle h1 {color:#FFF; font-size:20px; text-shadow:0 -1px 1px #69140e;}
 .mainBox .boxTitle h2 {color:#FFF; font-size:16px; text-shadow:0 -1px 1px #69140e;}
 .mainBox .boxTitle1 h2 {color:#FFF; font-size:16px; text-shadow:0 -1px 1px #666;}
-.mainBox .boxContent {padding:15px;}
+.mainBox .boxContent {padding:15px; overflow:hidden;}
 .mainBox .boxIntro {padding:15px; overflow:hidden;}
 .mainBox .boxIntro .img {float:right; margin:0 0 10px 10px;}
 
 ul.boxExtra {float:right; width:200px; font-size:14px; margin:0 0 5px 5px;}
 ul.boxExtra span {font-size:11px; display:block;}
-ul.boxExtra li {line-height:20px; padding:5px 10px; margin:0 0 1px 0; background-color:#CCC;}
+ul.boxExtra > li {line-height:20px; padding:5px 10px; margin:0 0 1px 0; background-color:#CCC;}
 ul.boxExtra li a {color:#333;}
 ul.boxExtra li a:hover {color:#cd090f;}
 
@@ -161,7 +164,7 @@ ul.soc  li {float:left; margin-left:20px;}
 .archiveAll {overflow:hidden; padding:15px 5px;}
 .archiveAll > li {padding:5px 0;}
 .archiveAll ul {overflow:hidden;}
-.archiveAll ul li {float:left; margin:5px 10px;}
+.archiveAll ul li {float:left; margin:5px 10px; width:90px;}
 .archiveAll ul li span {font-size:11px;}
 .archiveAll ul li img {width:90px;}
 .archiveAll ul .last {padding:80px 0 0;}
@@ -171,7 +174,7 @@ ul.soc  li {float:left; margin-left:20px;}
 .galleryAll li span {position:relative; display:block;}
 
 span.info {text-align:center; padding:5px 0; display:block;}
-span.info.moreInfo {width:170px; font-size:13px; color:#FFF; margin:10px 0 0; background:#9a9a9a url(../images/grad1.png) scroll repeat-x 0 0;}
+span.info.moreInfo {font-size:13px; color:#FFF; margin:10px 0 0; background:#9a9a9a url(../images/grad1.png) scroll repeat-x 0 0;}
 
 .zoom {width:33px; height:34px; display:block; position:absolute; bottom:9px; right:9px; background:transparent url(../images/zoom_bg.png) scroll no-repeat 0 0;}
 .zoom:hover {background-position:0 -34px;}

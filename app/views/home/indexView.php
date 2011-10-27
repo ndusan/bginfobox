@@ -29,8 +29,13 @@
             </ul>
         <? endif; ?>
         <div class="boxContent wys">
-            <h2><?= $_t['pockets.label'][$params['lang']]; ?>?</h2>
-            <p><?= $pocketContent['front_content_' . $params['lang']]; ?> <a href="<?= DS . $params['lang'] . DS . 'pockets'; ?>">link</a></p>
+            <p><?= $pocketContent['front_content_' . $params['lang']]; ?></p> 
+            <span class="info moreInfo">
+                <a href="<?= DS . $params['lang'] . DS . 'pockets'; ?>">
+                <?= $_t['pockets.label'][$params['lang']]; ?>?
+                </a>
+            </span>
+
         </div>
     </div>
 
@@ -43,19 +48,31 @@
                 <a href="<?= DS . $params['lang'] . DS . 'archive'; ?>">
                     <img title="" width="170" height="100" src=" <?= IMAGE_PATH . 'arhiva.jpg'; ?>" />
                 </a>
-                <span class="info moreInfo"><b><?= $_t['menu.archive'][$params['lang']]; ?></b></span>
+                <span class="info moreInfo">
+                    <a href="<?= DS . $params['lang'] . DS . 'archive'; ?>">
+                        <b><?= $_t['menu.archive'][$params['lang']]; ?></b>
+                    </a>
+                </span>
             </li>
             <li>
                 <a href="<?= DS . $params['lang'] . DS . 'our-clients'; ?>">
                     <img title="" width="170" height="100" src=" <?= IMAGE_PATH . 'klijenti.jpg'; ?>" /> 
                 </a>
-                <span class="info moreInfo"><b><?= $_t['menu.our-clients'][$params['lang']]; ?></b></span>
+                <span class="info moreInfo">
+                    <a href="<?= DS . $params['lang'] . DS . 'our-clients'; ?>">
+                        <b><?= $_t['menu.our-clients'][$params['lang']]; ?></b>
+                    </a>
+                </span>
             </li>
             <li>
                 <a href="<?= DS . $params['lang'] . DS . 'gallery'; ?>">
                     <img title="" width="170" height="100" src=" <?= IMAGE_PATH . 'galerija.jpg'; ?>" /> 
                 </a>
-                <span class="info moreInfo"><b><?= $_t['menu.gallery'][$params['lang']]; ?></b></span>
+                <span class="info moreInfo"> <a href="<?= DS . $params['lang'] . DS . 'gallery'; ?>">
+
+                        <b><?= $_t['menu.gallery'][$params['lang']]; ?></b>
+                    </a>
+                </span>
             </li>
         </ul>
     </div>

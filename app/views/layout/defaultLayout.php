@@ -76,7 +76,7 @@
                                 <?= $_t['menu.contact'][$params['lang']]; ?>
                             </a>
                         </li>
-                        <li class="last">
+                        <li class="last <? if(!empty($slug)):?>active<? endif;?>" >
                             <a href="#" id="bgdguide">
                                 <?= $_t['menu.guide'][$params['lang']]; ?>
                             </a>
@@ -109,20 +109,20 @@
                     <div class="sidebarL">
                         <!-- guide nav -->
 
-                        <ul class="guideNav">
-                            <li><a href="#">&laquo; <?= $_t['menu.back'][$params['lang']]; ?></a></li>
-                            <? if(!empty($treeGuide)):?>
-                            <? foreach($treeGuide as $tg):?>
+                        <ul class="guideNav" <? if(!empty($slug)):?>style="display: block;"<? endif;?>>
+                            <? if(!empty($slug['previous'])):?>
+                            <li><a href="<?=(DS.$params['lang'].DS.'guide'.DS.$slug['previous']);?>">&laquo; <?= $_t['menu.back'][$params['lang']]; ?></a></li>
+                            <? endif; ?>
+                            
+                            <? if(!empty($bgInfoTree)):?>
+                            <? foreach($bgInfoTree as $tg):?>
+                            <li><a href="<?=(DS.$params['lang'].DS.'guide'.DS.$slug['current'].DS.$tg['slug']);?>"><?=($tg['title_'.$params['lang']]);?></a></li>
+                            <? endforeach;?>
+                            <? elseif(!empty($bgInfoRootTree)):?>
+                            <? foreach($bgInfoRootTree as $tg):?>
                             <li><a href="<?=(DS.$params['lang'].DS.'guide'.DS.$tg['slug']);?>"><?=($tg['title_'.$params['lang']]);?></a></li>
                             <? endforeach;?>
                             <? endif;?>
-                            <li><a href="#">Restorani</a></li>
-                            <li><a href="#">Kultira</a></li>
-                            <li><a href="#">Sport</a></li>
-                            <li><a href="#">Zabava</a></li>
-                            <li><a href="#">Usluge</a></li>
-                            <li><a href="#">Razgledajte</a></li>
-                            <li><a href="#">Begorad Info</a></li>
                         </ul>
 
                         <div class="sidebarBox">
@@ -138,7 +138,7 @@
                                             <li>
                                                 <span><?= @$html->convertDate($n['created']) . ' - ' . $n['title_' . $params['lang']]; ?></span>
                                                 <div><?= $n['heading_' . $params['lang']]; ?></div>
-                                                <a href="<?= DS . $params['lang'] . DS . 'news' . DS . $n['id'] . DS . urlencode(str_replace(array('š', 'đ', 'č', 'ć', 'ž', 'Š', 'Đ', 'Č', 'Ć', 'Ž', '?', '!', ',', '.'), array('s', 'd', 'c', 'c', 'z', 's', 'd', 'c', 'c', 'z', '', '', '', ''), $n['title_' . $params['lang']])); ?>">
+                                                <a href="<?= DS . $params['lang'] . DS . 'news' . DS . $n['id'] . DS . urlencode(str_replace(array('š','đ','č','ć','ž','Š','Đ','Č','Ć','Ž','?','!',',','.','&',':','(',')','[',']','%','#','\'','"','=','*'),array('s','d','c','c','z','s','d','c','c','z','','','','','','','','','','','','','','','',''), $n['title_' . $params['lang']])); ?>">
                                                     <?= $_t['news.read_more'][$params['lang']]; ?>...
                                                 </a>
                                             </li>
@@ -163,7 +163,7 @@
                                 <h2><?= $_t['weather.title'][$params['lang']]; ?></h2>
                             </div>
                             <div class="boxContent">
-                                <?=$html->getWeather('SRXX0005', 1, array('day'=>$_t['weather.day'][$params['lang']], 'evening' => $_t['weather.evening'][$params['lang']]));?>
+                                <?//=$html->getWeather('SRXX0005', 1, array('day'=>$_t['weather.day'][$params['lang']], 'evening' => $_t['weather.evening'][$params['lang']]));?>
                             </div>
                         </div>
                         <div class="sidebarBox">
@@ -173,7 +173,7 @@
                             <div class="boxContent">
                                 <div class="currency">
                                     <table cellpadding="0" cellspacing="0" width="100%">
-                                        <? 
+                                        <? /*
                                           $allCurr = $html->getNBS();
                                           foreach($allCurr as $key=>$val):?>
                                           <tr>
@@ -187,7 +187,7 @@
                                           <?=$val['value'];?>
                                           </td>
                                           </tr>
-                                          <? endforeach;  ?>
+                                          <? endforeach; */ ?>
                                     </table>
                                 </div>
                             </div>
