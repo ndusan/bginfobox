@@ -17,7 +17,7 @@
         <div class="boxIntro wys">
             <span class="img">
                 <? if($intro['image_name']):?>
-                <img src="<?=(DS.'public'.DS.'uploads'.DS.$this->_action.DS.'thumb-'.$intro['image_name']);?>">
+                <img src="<?=(DS.'public'.DS.'uploads'.DS.$this->_action.DS.$intro['image_name']);?>">
                 <? endif; ?>
             </span>
             <!-- tekst kroz editor -->

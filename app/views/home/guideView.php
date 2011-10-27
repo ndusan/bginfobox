@@ -16,7 +16,7 @@
         </div>
         <div class="boxIntro wys">
             <span class="img">
-                <? if($intro['image_name']):?>
+                <? if(!empty($intro['image_name'])):?>
                 <img src="<?=(DS.'public'.DS.'uploads'.DS.'clients'.DS.$intro['image_name']);?>">
                 <? endif; ?>
             </span>
@@ -44,13 +44,13 @@
                             <?=$ap['address'];?>
                         </li>
                         <li>
-                            <? if($ad['phone']):?>
+                            <? if(!empty($ad['phone'])):?>
                             <b>Tel: </b><?=$ad['phone'];?><br>
                             <? endif;?>
-                            <? if($ad['phone']):?>
+                            <? if(!empty($ad['phone'])):?>
                             <b>Email: </b><?=$ad['email'];?><br>
                             <? endif;?>
-                            <? if($ad['phone']):?>
+                            <? if(!empty($ad['phone'])):?>
                             <b>Website: </b><?=$ad['website'];?><br>
                             <? endif;?>
                         </li>
