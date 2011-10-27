@@ -853,11 +853,12 @@ class HomeModel extends Model
         try{
             
             $query = sprintf("SELECT `c`.* FROM %s AS `c` INNER JOIN %s AS `n` ON `n`.`id`=`c`.`navigation_id` 
-                                WHERE `n`.`slug`=:slug AND `c`.`paid`='1' ORDER BY RAND() LIMIT 0, 5", 
+                                WHERE  `c`.`paid`='1' AND :date BETWEEN `date_start` AND `date_end` ORDER BY RAND() LIMIT 0, 5", 
                                     $this->tblClients, $this->tblNavigation);
             $stmt = $this->dbh->prepare($query);
             
-            $stmt->bindParam(':slug', $slug, PDO::PARAM_STR);
+            $date = date('Y-m-d');
+            $stmt->bindParam(':date', $date, PDO::PARAM_STR);
             $stmt->execute();
             
             return $stmt->fetchAll();
