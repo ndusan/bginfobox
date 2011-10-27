@@ -178,7 +178,11 @@
                         <tr>
                             <td><span class="jtooltip" title="Image resized to 150x150px">IPaid Logo:</span></td>
                             <td>
-                                <input type="file" name="image" value=""/>
+                                <input type="file" name="image2" value=""/>
+                                <? if (isset($client['id']) && !empty($client['paid_image_name'])): ?>
+                                    <a href="<?= DS . 'public' . DS . 'uploads' . DS . 'clients' . DS . $client['paid_image_name']; ?>" target="_blank"><?= $client['paid_image_name']; ?></a>
+                                    [<a href="/cms/clients/delete/paid-image/<?= $client['id']; ?>" class='jw'>Delete</a>]
+                                <? endif; ?>
                             </td>
                         </tr>
                         <tr>

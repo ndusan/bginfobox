@@ -27,6 +27,16 @@ class CmsClientsController extends Controller
                     $this->createThumbImage($newImageName, 'clients', 70, 70);
                 }
                 
+                //If image uploaded add it
+                if(0 == $params['image2']['error'] && !empty($id)){
+                    
+                    $newImageName2 = $id.'-paid-'.$params['image2']['name'];
+                    $this->db->setPaidImageName($id, $newImageName2);
+                    $this->uploadImage($newImageName2, $params['image2'], 'clients');
+                    //Create thumb
+                    $this->createThumbImage($newImageName2, 'clients', 150, 150);
+                }
+                
                 parent::redirect ('cms'.DS.'clients', 'success');
             }else{
                 parent::redirect ('cms'.DS.'clients'.DS.'add', 'error');
@@ -62,6 +72,23 @@ class CmsClientsController extends Controller
                     $this->createThumbImage($newImageName, 'clients', 70, 70);
                 }
                 
+                
+                if(0 == $params['image2']['error']){
+                    
+                    $data = $this->db->getPaidImageName($params['client']['id']);
+                    $oldImageName = $data['paid_image_name'];
+                    
+                    $newImageName = $params['client']['id'].'-paid-'.$params['image2']['name'];
+                    $this->db->setPaidImageName($params['client']['id'], $newImageName);
+                    $this->reUploadImage($oldImageName, $newImageName, $params['image2'], 'clients');
+                    
+                    //Delete thumb
+                    $oldThumbImageName = 'thumb-'.$oldImageName;
+                    $this->deleteImage($oldThumbImageName, 'clients');
+                    //Create thumb
+                    $this->createThumbImage($newImageName, 'clients', 70, 70);
+                }
+                
                 parent::redirect ('cms'.DS.'clients', 'success');
             }else{
                 parent::redirect ('cms'.DS.'clients'.DS.'edit'.DS.$params['id'], 'error');
@@ -81,11 +108,22 @@ class CmsClientsController extends Controller
         parent::setRenderHTML(0);
         
         $data = $this->db->getImageName($params['id']);
+        $data2 = $this->db->getPaidImageName($params['id']);
         if($this->db->deleteClient($params)){
             
             //If exist delete
             if(!empty($data)){
                 $oldImageName = $data['image_name'];
+                $this->deleteImage($oldImageName, 'clients');
+                
+                //Delete thumb
+                $oldThumbImageName = 'thumb-'.$oldImageName;
+                $this->deleteImage($oldThumbImageName, 'clients');
+            }
+            
+            //If exist delete
+            if(!empty($data2)){
+                $oldImageName = $data2['paid_image_name'];
                 $this->deleteImage($oldImageName, 'clients');
                 
                 //Delete thumb
@@ -114,6 +152,27 @@ class CmsClientsController extends Controller
             
             //Delete thumb
             $oldThumbImageName = 'thumb-'.$data['image_name'];
+            $this->deleteImage($oldThumbImageName, 'pockets');
+        }
+        parent::redirect ('cms'.DS.'clients'.DS.$params['id'].DS.'edit', 'success');
+    }
+    
+    
+    
+    public function deletePaidImageAction($params)
+    {
+        parent::setRenderHTML(0);
+        
+        $data = $this->db->getPaidImageName($params['id']);
+
+        //If exist delete
+        if(!empty($data)){
+            
+            $this->db->setPaidImageName($params['id'], '');
+            $this->deleteImage($data['paid_image_name'], 'clients');
+            
+            //Delete thumb
+            $oldThumbImageName = 'thumb-'.$data['paid_image_name'];
             $this->deleteImage($oldThumbImageName, 'pockets');
         }
         parent::redirect ('cms'.DS.'clients'.DS.$params['id'].DS.'edit', 'success');

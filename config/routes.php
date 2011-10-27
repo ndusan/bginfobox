@@ -427,6 +427,11 @@ $routes = array(
             'action'     => 'deleteImage', 
             'layout'     => 'empty'
     ),
+    array(  'url'        => '/^cms\/clients\/delete\/paid-image\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsClients', 
+            'action'     => 'deletePaidImage', 
+            'layout'     => 'empty'
+    ),
     array(  'url'        => '/^cms\/clients\/node\/add\/?$/', 
             'controller' => 'cmsClients', 
             'action'     => 'addNode', 

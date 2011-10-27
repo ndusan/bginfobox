@@ -90,6 +90,9 @@ class CmsClientsModel extends Model
             $typeDistributor = !empty($params['purpose']['distributor'])?1:0;
             $paid = !empty($params['paid'])?1:0;
             
+            $datumStart = !empty($params['date_start']) ? $this->convertDate($params['date_start']) : '0000-00-00';
+            $datumEnd = !empty($params['date_end']) ? $this->convertDate($params['date_end']) : '0000-00-00';
+            
             $stmt->bindParam(':title', $params['title'], PDO::PARAM_STR);
             $stmt->bindParam(':address', $params['address'], PDO::PARAM_STR);
             $stmt->bindParam(':phone', $params['phone'], PDO::PARAM_STR);
@@ -101,8 +104,8 @@ class CmsClientsModel extends Model
             $stmt->bindParam(':navigationId', $params['navigation'], PDO::PARAM_INT);
             $stmt->bindParam(':paidInfo', $params['paid_info'], PDO::PARAM_STR);
             $stmt->bindParam(':paid', $paid, PDO::PARAM_INT);
-            $stmt->bindParam(':dateStart', $this->convertDate($params['date_start']));
-            $stmt->bindParam(':dateEnd', $this->convertDate($params['date_end']));
+            $stmt->bindParam(':dateStart', $datumStart);
+            $stmt->bindParam(':dateEnd', $datumEnd);
             $stmt->execute();
             
             $id = $this->dbh->lastInsertId();
@@ -155,6 +158,9 @@ class CmsClientsModel extends Model
             $typeDistributor = !empty($params['purpose']['distributor'])?1:0;
             $paid = !empty($params['paid'])?1:0;
             
+            $datumStart = !empty($params['date_start']) ? $this->convertDate($params['date_start']) : '0000-00-00';
+            $datumEnd = !empty($params['date_end']) ? $this->convertDate($params['date_end']) : '0000-00-00';
+            
             $stmt->bindParam(':title', $params['title'], PDO::PARAM_STR);
             $stmt->bindParam(':address', $params['address'], PDO::PARAM_STR);
             $stmt->bindParam(':phone', $params['phone'], PDO::PARAM_STR);
@@ -166,8 +172,8 @@ class CmsClientsModel extends Model
             $stmt->bindParam(':navigationId', $params['navigation'], PDO::PARAM_INT);
             $stmt->bindParam(':paidInfo', $params['paid_info'], PDO::PARAM_STR);
             $stmt->bindParam(':paid', $paid, PDO::PARAM_INT);
-            $stmt->bindParam(':dateStart', $this->convertDate($params['date_start']));
-            $stmt->bindParam(':dateEnd', $this->convertDate($params['date_end']));
+            $stmt->bindParam(':dateStart', $datumStart);
+            $stmt->bindParam(':dateEnd', $datumEnd);
             $stmt->bindParam(':id', $params['id'], PDO::PARAM_INT);
             $stmt->execute();
 
@@ -330,6 +336,23 @@ class CmsClientsModel extends Model
         }
     }
     
+    public function setPaidImageName($id, $imageName)
+    {
+        try{
+            $query = sprintf("UPDATE %s SET `paid_image_name`=:imageName WHERE `id`=:id", $this->tableClients);
+            $stmt = $this->dbh->prepare($query);
+            
+            $stmt->bindParam(':imageName', $imageName, PDO::PARAM_STR);
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+            
+            return true;
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
     
     public function setNodeImageName($id, $imageName)
     {
@@ -354,6 +377,24 @@ class CmsClientsModel extends Model
         
         try{
             $query = sprintf("SELECT `image_name` FROM %s WHERE `id`=:id", $this->tableClients);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+
+            return $stmt->fetch();
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
+    public function getPaidImageName($id)
+    {
+        
+        try{
+            $query = sprintf("SELECT `paid_image_name` FROM %s WHERE `id`=:id", $this->tableClients);
             $stmt = $this->dbh->prepare($query);
 
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);

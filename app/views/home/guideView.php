@@ -75,7 +75,7 @@
                             <div class="client">
                                 <span class="img">
                                     <? if(!empty($ad['image_name'])):?>
-                                    <img src="<?=(DS.'public'.DS.'uploads'.DS.'guide'.DS.$ad['image_name']);?>">
+                                    <img src="<?=(DS.'public'.DS.'uploads'.DS.'clients'.DS.$ad['image_name']);?>">
                                     <? endif;?>
                                 </span>
                                 <ul class="clientInfo">
