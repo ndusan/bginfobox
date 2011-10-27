@@ -34,7 +34,7 @@
             <li>
                 <span class="img">
                     <? if(!empty($ap['image_name'])):?>
-                    <img src="<?=(DS.'public'.DS.'uploads'.DS.'guide'.DS.$ap['image_name']);?>">
+                    <img src="<?=(DS.'public'.DS.'uploads'.DS.'clients'.DS.$ap['image_name']);?>">
                     <? endif;?>
                 </span>
                 <div class="adsPaidInfo">
