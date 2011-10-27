@@ -118,22 +118,22 @@
                             <? endif; ?>
                             
                             <!--Guide-->
-                            <? if(!empty($bgInfoTree)):?>
+                            <? if(!empty($bgInfoTree) && empty($otherInfoTree)):?>
                             <? foreach($bgInfoTree as $tg):?>
                             <li <?=(!empty($intro) && $intro['slug'] == $tg['slug'] ? 'class="active"':'')?> ><a href="<?=(DS.$params['lang'].DS.'guide'.DS.$slug['current'].DS.$tg['slug']);?>"><?=($tg['title_'.$params['lang']]);?></a></li>
                             <? endforeach;?>
-                            <? elseif(!empty($bgInfoRootTree)):?>
+                            <? elseif(!empty($bgInfoRootTree) && empty($otherInfoTree)):?>
                             <? foreach($bgInfoRootTree as $tg):?>
                             <li <?=(!empty($intro) && $intro['slug'] == $tg['slug'] ? 'class="active"':'')?>><a href="<?=(DS.$params['lang'].DS.'guide'.DS.$tg['slug']);?>"><?=($tg['title_'.$params['lang']]);?></a></li>
                             <? endforeach;?>
                             <? endif;?>
                             
                             <!--Info -->
-                            <? if(!empty($otherInfoTree)):?>
+                            <? if(!empty($otherInfoTree) && empty($bgInfoTree)):?>
                             <? foreach($otherInfoTree as $tg):?>
                             <li <?=(!empty($intro) && $intro['slug'] == $tg['slug'] ? 'class="active"':'')?>><a href="<?=(DS.$params['lang'].DS.'info'.DS.$slug['current'].DS.$tg['slug']);?>"><?=($tg['title_'.$params['lang']]);?></a></li>
                             <? endforeach;?>
-                            <? elseif(!empty($otherInfoRootTree)):?>
+                            <? elseif(!empty($otherInfoRootTree) && empty($bgInfoTree)):?>
                             <? foreach($otherInfoRootTree as $tg):?>
                             <li <?=(!empty($intro) && $intro['slug'] == $tg['slug'] ? 'class="active"':'')?>><a href="<?=(DS.$params['lang'].DS.'info'.DS.$tg['slug']);?>"><?=($tg['title_'.$params['lang']]);?></a></li>
                             <? endforeach;?>
