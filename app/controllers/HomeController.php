@@ -304,18 +304,26 @@ class HomeController extends Controller
         //Get OTHER INFO tree
         $this->getOtherInfoRootTree();
         
+        $adsPaid = '';
+        $ads = '';
+        
         $slugArray = array();
         if(!empty($params['slug'])){
             $slugArray = explode('/', $params['slug']);
             
             $this->getBgInfoTree($slugArray);
+            $ads = $this->db->getAds(end($slugArray));
         }
         //Get BG INFO tree
         $this->getBgInfoRootTree();
+        $adsPaid = $this->db->getAdsPaid(end($slugArray));
+        
+        parent::set('ads', $ads);
+        parent::set('adsPaid', $adsPaid);
         
         parent::set('intro', $this->db->getNavigationIntro(end($slugArray)));
-        
         parent::set('slugCollection', $this->db->getSlugs());
+        
     }
     
     public function infoAction($params)
