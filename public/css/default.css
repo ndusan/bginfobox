@@ -164,10 +164,10 @@ ul.soc  li {float:left; margin-left:20px;}
 .archiveAll {overflow:hidden; padding:15px 5px;}
 .archiveAll > li {padding:5px 0;}
 .archiveAll ul {overflow:hidden;}
-.archiveAll ul li {float:left; margin:5px 10px; width:90px;}
+.archiveAll ul li {float:left; margin:5px 10px; width:90px; height:185px;}
 .archiveAll ul li span {font-size:11px;}
 .archiveAll ul li img {width:90px;}
-.archiveAll ul .last {padding:80px 0 0;}
+.archiveAll ul .last {padding:80px 0 0; width:auto;}
 
 .galleryAll {overflow:hidden; padding:10px;}
 .galleryAll li {float:left; margin:5px; position:relative; width:170px;}
