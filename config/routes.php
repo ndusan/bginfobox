@@ -48,7 +48,7 @@ $routes = array(
             'layout'     => 'default'
     ),
     //Location
-    array(  'url'        => '/^(?P<lang>('.LANG.'))\/(?P<page>(bginfo-night-map|bginfo-map|pockets))\/location\/?$/', 
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/(?P<page>(bginfo-box|bginfo-night-map|bginfo-map|pockets))\/location\/?$/', 
             'controller' => 'home', 
             'action'     => 'location', 
             'layout'     => 'default'
@@ -425,6 +425,11 @@ $routes = array(
     array(  'url'        => '/^cms\/clients\/delete\/image\/(?P<id>\d*)\/?$/', 
             'controller' => 'cmsClients', 
             'action'     => 'deleteImage', 
+            'layout'     => 'empty'
+    ),
+    array(  'url'        => '/^cms\/clients\/delete\/paid-image\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsClients', 
+            'action'     => 'deletePaidImage', 
             'layout'     => 'empty'
     ),
     array(  'url'        => '/^cms\/clients\/node\/add\/?$/', 

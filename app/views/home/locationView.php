@@ -1,7 +1,16 @@
 <div class="mainBig">
     <div class="mainBox">
         <div class="boxTitle">
-            <h1>Distributeri za Bg Info Map</h1>
+            <? $title = '';?>
+            <? if(!empty($locationTitle)):?>
+            <? switch($locationTitle){
+                case 'bginfo-box': $title = "BG Info Box"; break;
+                case 'bginfo-map': $title = "BG Map"; break;
+                case 'bginfo-night-map': $title = "BG Night Map"; break;
+                case 'pockets': $title = "Pocekts"; break;
+            }?>
+            <? endif;?>
+            <h1>Distributeri za <?=$title; ?></h1>
         </div>
         <? if(!empty($locationCollection)):?>
         <table cellpadding="0" cellpadding="0" width="100%">

@@ -21,6 +21,7 @@ class HomeModel extends Model
     private $tblAboutUs = 'aboutus';
     private $tblNavigation = 'navigation';
     private $tblNavigationTree = 'navigation_tree';
+    private $tblInfo = 'info';
     
     
     public function getLattestNews($limit=2)
@@ -411,15 +412,24 @@ class HomeModel extends Model
     
     public function bginfoGallery($pageId, $pageEditionId=null)
     {
+        $output = array();
         
         try{
            
             if(null == $pageEditionId){
-                $query = sprintf('SELECT * FROM %s WHERE `page_id`=:pageId ORDER BY `created` DESC LIMIT 0,3', $this->tblPageEditionImages);
+                $query = sprintf('SELECT * FROM %s WHERE `page_id`=:pageId ORDER BY `id` DESC LIMIT 0,3', $this->tblPageEditionImages);
                 $stmt = $this->dbh->prepare($query);
-
-                $stmt->bindParam(':pageId', $pageId, PDO::PARAM_INT);
                 
+                $stmt->bindParam(':pageId', $pageId, PDO::PARAM_INT);
+                $stmt->execute();
+
+                $res = $stmt->fetchAll();
+                if(!empty($res)){
+                    foreach($res as $r){
+                        $output[$r['position']] = $r;
+                    }
+                }
+                ksort($output);
             }else{
                 
                 $query = sprintf('SELECT * FROM %s WHERE `page_id`=:pageId AND `page_edition_id`=:pageEditionId', $this->tblPageEditionImages);
@@ -427,11 +437,12 @@ class HomeModel extends Model
 
                 $stmt->bindParam(':pageId', $pageId, PDO::PARAM_INT);
                 $stmt->bindParam(':pageEditionId', $pageEditionId, PDO::PARAM_INT);
-            }
-            
                 $stmt->execute();
 
-                return $stmt->fetchAll();
+                $output =  $stmt->fetchAll();
+            }
+                
+            return $output;
         }catch(Exception $e){
             
             return false;
@@ -694,6 +705,52 @@ class HomeModel extends Model
         
         try{
            
+            $query = sprintf("SELECT * FROM %s WHERE `is_root`='1' AND `type`='clients' ORDER BY `position` DESC", $this->tblNavigation);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
+    
+    
+    
+    public function getBgInfoTree($slug)
+    {
+        
+        try{
+           
+            $query = sprintf("SELECT `n`.*
+                                FROM %s AS `n`
+                                INNER JOIN %s AS `nt` ON `nt`.`descendant`=`n`.`id`
+                                WHERE `n`.`type`='clients' AND `nt`.`path_length`=1 AND
+                                `nt`.`ancestor`=(SELECT `id` FROM %s WHERE `slug`=:slug)", 
+                                $this->tblNavigation, $this->tblNavigationTree, $this->tblNavigation);
+            $stmt = $this->dbh->prepare($query);
+            
+            $stmt->bindParam(':slug', $slug, PDO::PARAM_STR);
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
+    
+    public function getOtherInfoRootTree()
+    {
+        
+        try{
+           
             $query = sprintf("SELECT * FROM %s WHERE `is_root`='1' AND `type`='info' ORDER BY `position` DESC", $this->tblNavigation);
             $stmt = $this->dbh->prepare($query);
 
@@ -708,7 +765,7 @@ class HomeModel extends Model
     
     
     
-    public function getBgInfoTree($slug)
+    public function getOtherInfoTree($slug)
     {
         
         try{
@@ -725,6 +782,170 @@ class HomeModel extends Model
             $stmt->execute();
 
             return $stmt->fetchAll();
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
+    
+    public function getNavigationIntro($slug)
+    {
+        
+        try{
+           
+            $query = sprintf("SELECT * FROM %s WHERE `slug`=:slug", $this->tblNavigation);
+            $stmt = $this->dbh->prepare($query);
+            
+            $stmt->bindParam(':slug', $slug, PDO::PARAM_STR);
+            $stmt->execute();
+            
+            return $stmt->fetch();
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
+    public function getSlugs()
+    {
+        
+        try{
+            $output = array();
+            
+            $query = sprintf("SELECT `title_sr`, `title_en`, `slug` FROM %s", $this->tblNavigation);
+            $stmt = $this->dbh->prepare($query);
+            
+            $stmt->bindParam(':slug', $slug, PDO::PARAM_STR);
+            $stmt->execute();
+            
+            $res = $stmt->fetchAll();
+            if(!empty($res)){
+                foreach($res as $r){
+                    
+                    $output[$r['slug']] = $r;
+                }
+            }
+            
+            return $output;
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
+    
+    public function getAds($slug)
+    {
+        try{
+            
+            $query = sprintf("SELECT `c`.* FROM %s AS `c` INNER JOIN %s AS `n` ON `n`.`id`=`c`.`navigation_id` 
+                                    WHERE  `c`.`paid`='1' AND `n`.`slug`=:slug ORDER BY `c`.`title` ASC", 
+                                    $this->tblClients, $this->tblNavigation);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->bindParam(':slug', $slug, PDO::PARAM_STR);
+            $stmt->execute();
+            
+            return $stmt->fetchAll();
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
+    
+    public function getAdsPaid($limit=5)
+    {
+        try{
+            
+            $query = sprintf("SELECT `c`.* FROM %s AS `c` INNER JOIN %s AS `n` ON `n`.`id`=`c`.`navigation_id` 
+                                WHERE  `c`.`paid`='1' AND :date BETWEEN `date_start` AND `date_end` ORDER BY RAND() LIMIT 0, ".$limit, 
+                                    $this->tblClients, $this->tblNavigation);
+            $stmt = $this->dbh->prepare($query);
+            
+            $date = date('Y-m-d');
+            $stmt->bindParam(':date', $date, PDO::PARAM_STR);
+            $stmt->execute();
+            
+            return $stmt->fetchAll();
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
+    public function getSights($slug)
+    {
+        
+        try{
+            
+            $query = sprintf("SELECT `c`.* FROM %s AS `c` INNER JOIN %s AS `n` ON `n`.`id`=`c`.`navigation_id` WHERE `n`.`slug`=:slug ORDER BY RAND() ASC", 
+                                    $this->tblInfo, $this->tblNavigation);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->bindParam(':slug', $slug, PDO::PARAM_STR);
+            $stmt->execute();
+            
+            return $stmt->fetchAll();
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
+    public function getLattestSights()
+    {
+        
+        try{
+            
+            $query = sprintf("SELECT `c`.* FROM %s AS `c` INNER JOIN %s AS `n` ON `n`.`id`=`c`.`navigation_id` ORDER BY RAND() ASC LIMIT 0,1", 
+                                    $this->tblInfo, $this->tblNavigation);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->bindParam(':slug', $slug, PDO::PARAM_STR);
+            $stmt->execute();
+            
+            return $stmt->fetchAll();
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
+    public function getFooter()
+    {
+        $output = array();
+        try{
+            
+            $query = sprintf("SELECT * FROM %s WHERE `is_root`='1' AND `type`='clients'", $this->tblNavigation);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->execute();
+            
+            $res = $stmt->fetchAll();
+            if(!empty($res)){
+                $output['clients'] = $res;
+            }
+            
+            $query = sprintf("SELECT * FROM %s WHERE `is_root`='1' AND `type`='info'", $this->tblNavigation);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->execute();
+            
+            $res = $stmt->fetchAll();
+            if(!empty($res)){
+                $output['info'] = $res;
+            }
+            
+            return $output;
         }catch(Exception $e){
             
             return false;

@@ -47,6 +47,17 @@ class HomeController extends Controller
         //Get BG INFO tree
         $this->getBgInfoRootTree();
         
+        //Get OTHER INFO tree
+        $this->getOtherInfoRootTree();
+        
+        //Lattest Sights
+        $this->getLattestSights();
+        
+        parent::set('lattestAdsPaid', $this->db->getAdsPaid(2));
+        
+        
+        //Footer
+        parent::set('footer', $this->db->getFooter());
     }
     
     
@@ -82,7 +93,14 @@ class HomeController extends Controller
         //Get active language
         $this->getActiveLanguage();
         
+        //Get BG INFO tree
+        $this->getBgInfoRootTree();
         
+        //Get OTHER INFO tree
+        $this->getOtherInfoRootTree();
+        
+        //Footer
+        parent::set('footer', $this->db->getFooter());
         
         switch($params['page']){
             case 'about-us':
@@ -142,6 +160,20 @@ class HomeController extends Controller
         //Get active language
         $this->getActiveLanguage();
         
+        //Get BG INFO tree
+        $this->getBgInfoRootTree();
+        
+        //Get OTHER INFO tree
+        $this->getOtherInfoRootTree();
+        
+        //Lattest Sights
+        $this->getLattestSights();
+        
+        parent::set('lattestAdsPaid', $this->db->getAdsPaid(2));
+        
+        //Footer
+        parent::set('footer', $this->db->getFooter());
+        
         switch($params['page']){
             case 'bginfo-box':
                 
@@ -189,6 +221,20 @@ class HomeController extends Controller
         //Get active language
         $this->getActiveLanguage();
         
+        //Get BG INFO tree
+        $this->getBgInfoRootTree();
+        
+        //Get OTHER INFO tree
+        $this->getOtherInfoRootTree();
+        
+        //Lattest Sights
+        $this->getLattestSights();
+        
+        parent::set('lattestAdsPaid', $this->db->getAdsPaid(2));
+        
+        //Footer
+        parent::set('footer', $this->db->getFooter());
+        
         $archive = (!empty($params['archive']) ? (int)$params['archive'] : null);
         
         switch($params['page']){
@@ -214,8 +260,18 @@ class HomeController extends Controller
         //Get active language
         $this->getActiveLanguage();
         
+        //Get BG INFO tree
+        $this->getBgInfoRootTree();
+        
+        //Get OTHER INFO tree
+        $this->getOtherInfoRootTree();
+        
         $id = (!empty($params['id']))?$params['id']:$this->pages[$params['page']];
         
+        //Footer
+        parent::set('footer', $this->db->getFooter());
+        
+        parent::set('locationTitle', $params['page']);
         parent::set('locationCollection', $this->db->getLocations($id));
         
     }
@@ -234,6 +290,20 @@ class HomeController extends Controller
 
         //Get active language
         $this->getActiveLanguage();
+        
+        //Get BG INFO tree
+        $this->getBgInfoRootTree();
+        
+        //Get OTHER INFO tree
+        $this->getOtherInfoRootTree();
+        
+        //Lattest Sights
+        $this->getLattestSights();
+        
+        //Footer
+        parent::set('footer', $this->db->getFooter());
+        
+        parent::set('lattestAdsPaid', $this->db->getAdsPaid(2));
         
         switch($params['page']){
             case 'bginfo-map': 
@@ -270,15 +340,32 @@ class HomeController extends Controller
         //Get active language
         $this->getActiveLanguage();
         
+        //Get OTHER INFO tree
+        $this->getOtherInfoRootTree();
+        
+        $adsPaid = array();
+        $ads = array();
+        
         $slugArray = array();
         if(!empty($params['slug'])){
             $slugArray = explode('/', $params['slug']);
             
             $this->getBgInfoTree($slugArray);
+            $ads = $this->db->getAds(end($slugArray));
         }
-        
         //Get BG INFO tree
         $this->getBgInfoRootTree();
+        $adsPaid = $this->db->getAdsPaid();
+        
+        //Footer
+        parent::set('footer', $this->db->getFooter());
+        
+        parent::set('ads', $ads);
+        parent::set('adsPaid', $adsPaid);
+        
+        parent::set('intro', $this->db->getNavigationIntro(end($slugArray)));
+        parent::set('slugCollection', $this->db->getSlugs());
+        
     }
     
     public function infoAction($params)
@@ -296,10 +383,27 @@ class HomeController extends Controller
         //Get active language
         $this->getActiveLanguage();
         
+        //Get BG INFO tree
+        $this->getBgInfoRootTree();
+        $sights = array();
+        
         $slugArray = array();
         if(!empty($params['slug'])){
             $slugArray = explode('/', $params['slug']);
+            
+            $this->getOtherInfoTree($slugArray);
+            $sights = $this->db->getSights(end($slugArray));
         }
+        //Get BG INFO tree
+        $this->getOtherInfoRootTree();
+        
+        //Footer
+        parent::set('footer', $this->db->getFooter());
+        
+        parent::set('sights', $sights);
+        parent::set('intro', $this->db->getNavigationIntro(end($slugArray)));
+        
+        parent::set('slugCollection', $this->db->getSlugs());
     }
     
     
@@ -448,7 +552,7 @@ class HomeController extends Controller
         if(isset($params['submit'])){
             
             //Send
-            if(parent::sendEmail(MAIL_TO, 'Contact form', $params['form'], MAIL_FROM)){
+            if(parent::sendEmail(MAIL_TO, 'Ads form', $params['form'], MAIL_FROM)){
                 parent::set('sent', 'success');
             }else{
                 parent::set('sent', 'error');
@@ -518,19 +622,104 @@ class HomeController extends Controller
         parent::set('bgInfoRootTree', $this->db->getBgInfoRootTree());
     }
     
+    
     private function getBgInfoTree($slug=array())
     {
-        $prevSlug = $slug;
-        array_pop($prevSlug);
+        $cnt = count($slug);
+        $cSlug = $pSlug = null;
+        $slugArray = array();
         
-        if(!empty($slug) && is_array($slug) && count($slug) > 1){
-            $slugArray = array('previous' => (count($prevSlug)>1?implode('/', $prevSlug):$prevSlug[0]), 'current' => implode('/', $slug));
-        }else{
-            $slugArray = array('previous' => '', 'current' => end($slug));
+        if($cnt > 1){
+            $pSlug = $slug[$cnt-2];
+            $cSlug = $slug[$cnt-1];
+        }elseif($cnt == 1){
+            $pSlug = $cSlug = $slug[$cnt-1];
         }
         
+        $tree = $this->db->getBgInfoTree($cSlug);
+        $tmp = array();
+        
+        if(empty($tree)){
+            //This node doesn't have any more childern
+            $tree = $this->db->getBgInfoTree($pSlug);
+            for($i=0; $i<$cnt; $i++){
+                if($slug[$i] == $cSlug) break;
+                $tmp[]= $slug[$i];
+            }
+            $slugArray['current'] = implode('/',$tmp);
+            $prev = $tmp;
+        }else{
+            for($i=0; $i<$cnt; $i++){
+                $tmp[]= $slug[$i];
+            }
+            $slugArray['current'] = implode('/', $tmp);
+            $prev = $tmp;
+            array_pop($prev);
+        }
+        
+        $slugArray['previous'] = implode('/', $prev);
+        #path
+        $slugArray['path'] = 'guide';
         parent::set('slug', $slugArray);
-        parent::set('bgInfoTree', $this->db->getBgInfoTree(end($slug)));
+        parent::set('bgInfoTree', $tree);
+    }
+    
+    
+    private function getOtherInfoRootTree()
+    {
+        
+        parent::set('otherInfoRootTree', $this->db->getOtherInfoRootTree());
+    }
+    
+    
+    private function getOtherInfoTree($slug=array())
+    {
+        $cnt = count($slug);
+        $cSlug = $pSlug = null;
+        $slugArray = array();
+        
+        if($cnt > 1){
+            $pSlug = $slug[$cnt-2];
+            $cSlug = $slug[$cnt-1];
+        }elseif($cnt == 1){
+            $pSlug = $cSlug = $slug[$cnt-1];
+        }
+        
+        $tree = $this->db->getOtherInfoTree($cSlug);
+        $tmp = array();
+        
+        if(empty($tree)){
+            //This node doesn't have any more childern
+            $tree = $this->db->getOtherInfoTree($pSlug);
+            for($i=0; $i<$cnt; $i++){
+                if($slug[$i] == $cSlug) break;
+                $tmp[]= $slug[$i];
+            }
+            $slugArray['current'] = implode('/',$tmp);
+            $prev = $tmp;
+        }else{
+            for($i=0; $i<$cnt; $i++){
+                $tmp[]= $slug[$i];
+            }
+            $slugArray['current'] = implode('/', $tmp);
+            $prev = $tmp;
+            array_pop($prev);
+        }
+        
+        $slugArray['previous'] = implode('/', $prev);
+        #path
+        $slugArray['path'] = 'info';
+
+        parent::set('slug', $slugArray);
+        parent::set('otherInfoTree', $tree);
+    }
+    
+    
+    
+    private function getLattestSights()
+    {
+        
+        parent::set('lattestSights', $this->db->getLattestSights());
     }
     
     /** NO PAGE FOUND **/
@@ -538,4 +727,5 @@ class HomeController extends Controller
     {
         
     }
+    
 }

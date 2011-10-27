@@ -113,7 +113,7 @@ class HTML {
         if (null == $link)
             return false;
 
-        return '<div id="fb-root"></div>
+        return '<div class="fb-root"></div>
                     <script>(function(d, s, id) {
                       var js, fjs = d.getElementsByTagName(s)[0];
                       if (d.getElementById(id)) {return;}
@@ -122,6 +122,19 @@ class HTML {
                       fjs.parentNode.insertBefore(js, fjs);
                     }(document, "script", "facebook-jssdk"));</script>
                     <div class="fb-like" data-href="' . $link . '" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false" data-font="arial"></div>';
+    }
+    
+    
+    function twitter($array){
+        
+        if(empty($array)) return false;
+
+        $twitterArray = array('url'=> $array['url'],
+                              'text'=>$array['text'],
+                              'counturl'=>$array['url']);
+        
+        return '<script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
+               <a href="https://twitter.com/share?'.http_build_query($twitterArray).'" class="twitter-share-button" target="_blank">Tweet</a>';
     }
 
     function convertDate($date, $includeTime=false) {

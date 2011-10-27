@@ -37,22 +37,22 @@ $translate = array(
     'client.label'=>array('sr'=>'Klijent', 'en'=>'Client'),
     'client.address.label'=>array('sr'=>'Adresa', 'en'=>'Address'),
     'client.phone.label'=>array('sr'=>'Telefon', 'en'=>'Phone'),
-    'client.email.label'=>array('sr'=>'El.pošta', 'en'=>'E-mail'),
-    'client.website.label'=>array('sr'=>'Internet adresa', 'en'=>'Wesite'),
+    'client.email.label'=>array('sr'=>'El. pošta', 'en'=>'E-mail'),
+    'client.website.label'=>array('sr'=>'Internet adresa', 'en'=>'Website'),
     
     //Index page
     'index.question'=>array('sr'=>'Šta je', 'en'=>'What is'),
-    'pockets.label'=>array('sr'=>'Šta je "In your pocket"', 'en'=>'What is "In your pocket"'),
+    'pockets.label'=>array('sr'=>'Šta su In your pocket vodiči', 'en'=>'What are In your pocket City Guides'),
     'moreInfo.archive'=>array('sr'=>'Arhiva izdanja', 'en'=>'Archive'),
     'moreInfo.clients'=>array('sr'=>'Klijenti', 'en'=>'Clients'),
     'moreInfo.gallery'=>array('sr'=>'Foto galerija', 'en'=>'Photo Gallery'),
     
     //Bginfo
-    'bginfo-box.gallery.label'=>array('sr'=>'Bg Info panoi', 'en'=>'Bg Info pano'),
-    'bginfo-map.gallery.label'=>array('sr'=>'Bg Info mape izdanja', 'en'=>'Bg Info map editions'),
-    'bginfo-night-map.gallery.label'=>array('sr'=>'Bg Info noćne mape', 'en'=>'Bg Info night maps'),
+    'bginfo-box.gallery.label'=>array('sr'=>'Bg Info Pano galerija', 'en'=>'Bg Info Pano gallery'),
+    'bginfo-map.gallery.label'=>array('sr'=>'Bg Info Mape izdanja', 'en'=>'Bg Info Map editions'),
+    'bginfo-night-map.gallery.label'=>array('sr'=>'Bg Info Night Map izdanja', 'en'=>'Bg Info Night Maps editions'),
     'putovanje-za-dvoje.gallery.label'=>array('sr'=>'Putovanje za dvoje', 'en'=>'Travel for two'),
-    'pocket.gallery.label'=>array('sr'=>'In your pocket', 'en'=>'In your pocket'),
+    'pocket.gallery.label'=>array('sr'=>'In your pocket vodiči', 'en'=>'In your pocket city guides'),
     'bginfo-map.current.label'=>array('sr'=>'Aktuelno izdanje Bg Info Mape', 'en'=>'Current Bg Info Map edition'),
     'bginfo-map.last_five_archive.label'=>array('sr'=>'Poslednjih 5 izdanja Bg Info Mape', 'en'=>'Last 5 Bg Info Map editions'),
     'bginfo-night-map.current.label'=>array('sr'=>'Aktuelno izdanje Bg Info Night Mape', 'en'=>'Current Bg Info Night Map edition'),
@@ -61,7 +61,7 @@ $translate = array(
     'putovanje-za-dvoje.last_five_archive.label'=>array('sr'=>'Poslednjih 5 izdanja Putovanje za dvoje', 'en'=>'Last 5 Travel for two editions'),
     
     //Ads
-    'ads.label'=>array('sr'=>'Cenovnik oglašavanja','en'=>'Price list for ads'),
+    'ads.label'=>array('sr'=>'Cenovnik oglašavanja','en'=>'Advertise Price list'),
     'ads-question.label'=>array('sr'=>'Želite da se oglašavate','en'=>'Interested in advertisment'),
     'ads-question.sublabel'=>array('sr'=>'Pošaljite nam vaše zahteve','en'=>'Send us your requests'),
     

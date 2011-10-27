@@ -27,10 +27,6 @@
             <div class="topNavW">
                 <div class="topNav">
                     <ul class="soc">
-                        <li>
-                            <? // FB like button  ?>
-                            <?= $html->fb('http://google.com'); ?>
-                        </li>
                         <li><a href="#" class="facebook">Facebook</a></li>
                         <li><a href="#" class="twitter">Twitter</a></li>
                         <li><a href="#" class="youtube">Youtube</a></li>
@@ -109,18 +105,33 @@
                     <div class="sidebarL">
                         <!-- guide nav -->
 
-                        <ul class="guideNav" <? if(!empty($slug)):?>style="display: block;"<? endif;?>>
+                        <ul class="guideNav" <?=('info' == $this->_action || 'guide' == $this->_action ? 'style="display: block;"' : '');?>>
+                            
                             <? if(!empty($slug['previous'])):?>
-                            <li><a href="<?=(DS.$params['lang'].DS.'guide'.DS.$slug['previous']);?>">&laquo; <?= $_t['menu.back'][$params['lang']]; ?></a></li>
+                            <li><a href="<?=(DS.$params['lang'].DS.$slug['path'].DS.$slug['previous']);?>">&laquo; <?= $_t['menu.back'][$params['lang']]; ?></a></li>
+                            <? elseif(!empty($slug['current'])): ?>
+                            <li><a href="<?=(DS.$params['lang']);?>">&laquo; <?= $_t['menu.back'][$params['lang']]; ?></a></li>
                             <? endif; ?>
                             
-                            <? if(!empty($bgInfoTree)):?>
+                            <!--Guide-->
+                            <? if(!empty($bgInfoTree) && empty($otherInfoTree)):?>
                             <? foreach($bgInfoTree as $tg):?>
-                            <li><a href="<?=(DS.$params['lang'].DS.'guide'.DS.$slug['current'].DS.$tg['slug']);?>"><?=($tg['title_'.$params['lang']]);?></a></li>
+                            <li <?=(!empty($intro) && $intro['slug'] == $tg['slug'] ? 'class="active"':'')?> ><a href="<?=(DS.$params['lang'].DS.'guide'.DS.$slug['current'].DS.$tg['slug']);?>"><?=($tg['title_'.$params['lang']]);?></a></li>
                             <? endforeach;?>
-                            <? elseif(!empty($bgInfoRootTree)):?>
+                            <? elseif(!empty($bgInfoRootTree) && empty($otherInfoTree)):?>
                             <? foreach($bgInfoRootTree as $tg):?>
-                            <li><a href="<?=(DS.$params['lang'].DS.'guide'.DS.$tg['slug']);?>"><?=($tg['title_'.$params['lang']]);?></a></li>
+                            <li <?=(!empty($intro) && $intro['slug'] == $tg['slug'] ? 'class="active"':'')?>><a href="<?=(DS.$params['lang'].DS.'guide'.DS.$tg['slug']);?>"><?=($tg['title_'.$params['lang']]);?></a></li>
+                            <? endforeach;?>
+                            <? endif;?>
+                            
+                            <!--Info -->
+                            <? if(!empty($otherInfoTree) && empty($bgInfoTree)):?>
+                            <? foreach($otherInfoTree as $tg):?>
+                            <li <?=(!empty($intro) && $intro['slug'] == $tg['slug'] ? 'class="active"':'')?>><a href="<?=(DS.$params['lang'].DS.'info'.DS.$slug['current'].DS.$tg['slug']);?>"><?=($tg['title_'.$params['lang']]);?></a></li>
+                            <? endforeach;?>
+                            <? elseif(!empty($otherInfoRootTree) && empty($bgInfoTree)):?>
+                            <? foreach($otherInfoRootTree as $tg):?>
+                            <li <?=(!empty($intro) && $intro['slug'] == $tg['slug'] ? 'class="active"':'')?>><a href="<?=(DS.$params['lang'].DS.'info'.DS.$tg['slug']);?>"><?=($tg['title_'.$params['lang']]);?></a></li>
                             <? endforeach;?>
                             <? endif;?>
                         </ul>
@@ -204,26 +215,29 @@
                 <ul class="bottomLinks">
                     <li><b>Izdanja</b>
                         <ul>
-                            <li><a href="#">Bg Info Map</a></li>
-                            <li><a href="#">Bg Info Night Map</a></li>
+                            <li><a href="<?=(DS.$params['lang'].DS.'bginfo-map');?>">Bg Info Map</a></li>
+                            <li><a href="<?=(DS.$params['lang'].DS.'bginfo-night-map');?>">Bg Info Night Map</a></li>
                             <!-- dinamicki ili samo jedan link? -->
                             <li><a href="#">In Your Pocket Izdanja</a></li>
                         </ul>
                     </li>
                     <li><b>Vodič kroz Beograd</b>
+                        <? if(!empty($footer['clients'])):?>
                         <ul><!-- prvi nivo dinamicki -->
-                            <li><a href="#">Restorani</a></li>
-                            <li><a href="#">Kultura</a></li>
-                            <li><a href="#">Sport</a></li>
-                            <li><a href="#">Bla bla</a></li>
+                            <? foreach($footer['clients'] as $f):?>
+                            <li><a href="<?=(DS.$params['lang'].DS.'guide'.DS.$f['slug']);?>"><?=$f['title_'.$params['lang']];?></a></li>
+                            <? endforeach;?>
                         </ul>
+                        <? endif;?>
                     </li>
                     <li><b>Belgrade Info</b>
+                        <? if(!empty($footer['info'])):?>
                         <ul><!-- prvi nivo dinamicki -->
-                            <li><a href="#">Istiorija Beograda</a></li>
-                            <li><a href="#">Kulturna dešavanja</a></li>
-                            <li><a href="#">Bla bla</a></li>
+                            <? foreach($footer['info'] as $f):?>
+                            <li><a href="<?=(DS.$params['lang'].DS.'info'.DS.$f['slug']);?>"><?=$f['title_'.$params['lang']];?></a></li>
+                            <? endforeach;?>
                         </ul>
+                        <? endif;?>
                     </li>
                     <li><b>TBD</b>
                         <ul>

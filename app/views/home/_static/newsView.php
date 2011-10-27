@@ -28,13 +28,19 @@
         <? elseif (!empty($news)): ?>
             <!-- selected news -->
             <div class="newsOne wys">
-                <h2><?= $news['title_' . $params['lang']]; ?> </h2>
                 <span class="date"><?= @$html->convertDate($news['created']); ?></span>
+                <h2><?= $news['title_' . $params['lang']]; ?> </h2>
                 <p class="highlight"><?= $news['heading_' . $params['lang']]; ?></p>
                 <? if (!empty($news['image_name'])): ?>
                 <img src="<?= DS. 'public' . DS . 'uploads' . DS . 'news' . DS . $news['image_name']; ?>" alt="<?= $news['title_' . $params['lang']]; ?>" title="<?= $news['title_' . $params['lang']]; ?>" />
                 <? endif; ?>
                 <?= $news['content_' . $params['lang']]; ?>
+                <ul class="social">
+                <!--FB button -->
+                <li><?= $html->fb($_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"]); ?></li>
+                <!-- Twitter button -->
+                <li><?= $html->twitter(array('url'=> $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"], 'text'=> $news['title_' . $params['lang']]));?></li>
+                </ul>
             </div>
         <? endif; ?>
     </div>

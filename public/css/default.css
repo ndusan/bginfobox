@@ -126,7 +126,7 @@ ul.newsAll .date {font-size:11px; color:#999;}
 
 .newsOne {overflow:hidden; padding:15px;}
 .newsOne .date {font-size:11px; color:#999; display:block;}
-.newsOne h2 {font-size:14px; margin:0 0 10px;}
+.newsOne h2 {font-size:14px; margin:10px 0;}
 .newsOne .highlight {font-size:14px;}
 .newsOne p {padding:5px 0;}
 
@@ -164,10 +164,10 @@ ul.soc  li {float:left; margin-left:20px;}
 .archiveAll {overflow:hidden; padding:15px 5px;}
 .archiveAll > li {padding:5px 0;}
 .archiveAll ul {overflow:hidden;}
-.archiveAll ul li {float:left; margin:5px 10px; width:90px;}
+.archiveAll ul li {float:left; margin:5px 10px; width:90px; height:185px;}
 .archiveAll ul li span {font-size:11px;}
 .archiveAll ul li img {width:90px;}
-.archiveAll ul .last {padding:80px 0 0;}
+.archiveAll ul .last {padding:80px 0 0; width:auto;}
 
 .galleryAll {overflow:hidden; padding:10px;}
 .galleryAll li {float:left; margin:5px; position:relative; width:170px;}
@@ -212,6 +212,7 @@ span.info.moreInfo {font-size:13px; color:#FFF; margin:10px 0 0; background:#9a9
 .client {overflow:hidden;}
 .client h4 {font-size:14px;}
 .client span.img {float:left; width:70px; height:70px; overflow:hidden; display:block;}
+.client span.img img {width:170px;}
 ul.clientInfo {margin:0 0 0 80px;}
 ul.clientInfo li {width:50%; line-height:20px; float:left;}
 
@@ -219,17 +220,21 @@ ul.guideNav {overflow:hidden; margin-bottom:10px; display: none;}
 ul.guideNav li {display:block; background-color:#999; margin:1px 0 0;}
 ul.guideNav li.last a {line-height:35px;}
 ul.guideNav li a {display:block; font-size:14px; font-weight:bold; line-height:20px; color:#FFF; padding:5px 15px; text-shadow:1px 1px 1px #777;}
-ul.guideNav li a:hover, ul.mainNav li a.active {background:#9c1006 url(../images/grad2.png) scroll repeat-x 0 0;}
+ul.guideNav li a:hover, ul.guideNav li.active a {background:#9c1006 url(../images/grad2.png) scroll repeat-x 0 0;}
 
 .adsRegular table td {padding:5px; background-color:#E6E6E6;}
 
 .breadcrumb {padding:0 0 5px; line-height:20px; font-size:11px;}
 
 .adsPaid {overflow:hidden; padding:5px 5px 0;}
-.adsPaid > li {padding:10px; background-color:#E6E6E6; margin-bottom:5px;}
+.adsPaid > li {padding:10px; background-color:#E6E6E6; margin-bottom:5px; overflow:hidden;}
 .adsPaid h4 {font-size:14px;}
-.adsPaid span.img {float:right; width:150px; overflow:hidden; display:block;}
+.adsPaid span.img {float:right; width:150px; height:150px; overflow:hidden; display:block;}
+.adsPaid span.img img {width:150px;}
 .adsPaidInfo {margin:0 160px 0 0; }
 .adsPaidInfo ul {padding:5px 0; overflow:hidden;}
 .adsPaidInfo ul li {width:50%; line-height:20px; float:left;}
 .adsPaidInfo p {font-size:11px;}
+
+ul.social {overflow:hidden; padding:5px 0; border-top:solid 1px #DFDFDF; border-bottom:solid 1px #DFDFDF;}
+ul.social li {list-style:none; float:left;}
