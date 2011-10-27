@@ -25,7 +25,7 @@
                     </a>
                 </li>
                 <li class="icoArc">
-                    <a href="#">
+                    <a href="<?=(DS.$params['lang'].DS.'archive'.DS.'bginfo-nigth-map');?>">
                         <?=$_t['archive.label'][$params['lang']];?>? 
                         <span><?=$_t['archive.sublabel'][$params['lang']];?></span>
                     </a>
