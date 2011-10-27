@@ -23,7 +23,6 @@
             <!-- tekst kroz editor -->
             <p><?=$intro['content_'.$params['lang']];?></p>
         </div>
-        
         <? if(!empty($adsPaid)):?>
         <div class="boxTitle1">
             <h2>Posebna ponuda Beograda</h2>
