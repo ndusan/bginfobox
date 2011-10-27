@@ -651,18 +651,20 @@ class HomeController extends Controller
                 $tmp[]= $slug[$i];
             }
             $slugArray['current'] = implode('/',$tmp);
+            $prev = $tmp;
         }else{
             for($i=0; $i<$cnt; $i++){
                 $tmp[]= $slug[$i];
             }
             $slugArray['current'] = implode('/', $tmp);
+            $prev = $tmp;
+            array_pop($prev);
         }
-        $prev = $tmp;
-        array_pop($prev);
         
         $slugArray['previous'] = implode('/', $prev);
         #path
         $slugArray['path'] = 'info';
+
         parent::set('slug', $slugArray);
         parent::set('otherInfoTree', $tree);
     }
