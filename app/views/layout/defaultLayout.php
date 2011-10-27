@@ -215,8 +215,8 @@
                 <ul class="bottomLinks">
                     <li><b>Izdanja</b>
                         <ul>
-                            <li><a href="#">Bg Info Map</a></li>
-                            <li><a href="#">Bg Info Night Map</a></li>
+                            <li><a href="<?=(DS.$params['lang'].DS.'bginfo-map');?>">Bg Info Map</a></li>
+                            <li><a href="<?=(DS.$params['lang'].DS.'bginfo-night-map');?>">Bg Info Night Map</a></li>
                             <!-- dinamicki ili samo jedan link? -->
                             <li><a href="#">In Your Pocket Izdanja</a></li>
                         </ul>
