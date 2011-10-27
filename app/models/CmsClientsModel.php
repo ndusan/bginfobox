@@ -81,7 +81,7 @@ class CmsClientsModel extends Model
             
             $query = sprintf("INSERT INTO %s SET `title`=:title, `address`=:address, `phone`=:phone, `website`=:website,
                                     `email`=:email, `all_pockets`=:allPockets, `type_client`=:typeClient, 
-                                    `type_distributor`=:typeDistributor, `navigation_id`=:navigationId, 
+                                    `type_distributor`=:typeDistributor, `navigation_id`=:navigationId, `paid_info`=:paidInfo,
                                     `paid`=:paid, `date_start`=:dateStart, `date_end`=:dateEnd", $this->tableClients);
             $stmt = $this->dbh->prepare($query);
             
@@ -98,7 +98,8 @@ class CmsClientsModel extends Model
             $stmt->bindParam(':allPockets', $allPockets, PDO::PARAM_INT);
             $stmt->bindParam(':typeClient', $typeClient, PDO::PARAM_INT);
             $stmt->bindParam(':typeDistributor', $typeDistributor, PDO::PARAM_INT);
-            $stmt->bindParam(':navigationId', $params['navigation_id'], PDO::PARAM_INT);
+            $stmt->bindParam(':navigationId', $params['navigation'], PDO::PARAM_INT);
+            $stmt->bindParam(':paidInfo', $params['paid_info'], PDO::PARAM_STR);
             $stmt->bindParam(':paid', $paid, PDO::PARAM_INT);
             $stmt->bindParam(':dateStart', $this->convertDate($params['date_start']));
             $stmt->bindParam(':dateEnd', $this->convertDate($params['date_end']));
@@ -145,7 +146,7 @@ class CmsClientsModel extends Model
         try{
             $query = sprintf("UPDATE %s SET `title`=:title, `address`=:address, `phone`=:phone, `website`=:website,
                                     `email`=:email, `all_pockets`=:allPockets, `type_client`=:typeClient, 
-                                    `type_distributor`=:typeDistributor, `navigation_id`=:navigationId,
+                                    `type_distributor`=:typeDistributor, `navigation_id`=:navigationId, `paid_info`=:paidInfo,
                                     `paid`=:paid, `date_start`=:dateStart, `date_end`=:dateEnd WHERE `id`=:id", $this->tableClients);
             $stmt = $this->dbh->prepare($query);
             
@@ -162,7 +163,8 @@ class CmsClientsModel extends Model
             $stmt->bindParam(':allPockets', $allPockets, PDO::PARAM_INT);
             $stmt->bindParam(':typeClient', $typeClient, PDO::PARAM_INT);
             $stmt->bindParam(':typeDistributor', $typeDistributor, PDO::PARAM_INT);
-            $stmt->bindParam(':navigationId', $params['navigation_id'], PDO::PARAM_INT);
+            $stmt->bindParam(':navigationId', $params['navigation'], PDO::PARAM_INT);
+            $stmt->bindParam(':paidInfo', $params['paid_info'], PDO::PARAM_STR);
             $stmt->bindParam(':paid', $paid, PDO::PARAM_INT);
             $stmt->bindParam(':dateStart', $this->convertDate($params['date_start']));
             $stmt->bindParam(':dateEnd', $this->convertDate($params['date_end']));

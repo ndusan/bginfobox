@@ -37,7 +37,7 @@
                         <tr>
                             <td>Paid Info:</td>
                             <td>
-                                <textarea name="" rows="4" cols="20"></textarea>
+                                <textarea name="client[paid_info]" rows="4" cols="20"><?= @$client['paid_info']; ?></textarea>
                             </td>
                         </tr>
                         <tr>

@@ -865,4 +865,24 @@ class HomeModel extends Model
             return false;
         }
     }
+    
+    
+    public function getSights($slug)
+    {
+        
+        try{
+            
+            $query = sprintf("SELECT `c`.* FROM %s AS `c` INNER JOIN %s AS `n` ON `n`.`id`=`c`.`navigation_id` WHERE `n`.`slug`=:slug ORDER BY `c`.`title` ASC", 
+                                    $this->tblClients, $this->tblNavigation);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->bindParam(':slug', $slug, PDO::PARAM_STR);
+            $stmt->execute();
+            
+            return $stmt->fetchAll();
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
 }
