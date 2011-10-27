@@ -48,7 +48,7 @@ $routes = array(
             'layout'     => 'default'
     ),
     //Location
-    array(  'url'        => '/^(?P<lang>('.LANG.'))\/(?P<page>(bginfo-night-map|bginfo-map|pockets))\/location\/?$/', 
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/(?P<page>(bginfo-box|bginfo-night-map|bginfo-map|pockets))\/location\/?$/', 
             'controller' => 'home', 
             'action'     => 'location', 
             'layout'     => 'default'
