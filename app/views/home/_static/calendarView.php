@@ -20,19 +20,22 @@
 
         <? elseif (!empty($calendar)): ?>
             <!-- selected calendar -->
-            <div class="calendarOne wys">
-                <span class="date"><?= @$html->convertDate($calendar['date_start']); ?></span>
-                <h2><?= $calendar['title_' . $params['lang']]; ?></h2>
-                <? if (!empty($calendar['image_name'])): ?>
-                    <img src="<?= DS . 'public' . DS . 'uploads' . DS . 'events' . DS . $calendar['image_name']; ?>" alt="<?= $calendar['title_' . $params['lang']]; ?>" title="<?= $calendar['title_' . $params['lang']]; ?>"/>
-                <? endif; ?>
-                <?= $calendar['content_' . $params['lang']]; ?>
+            <div class="calendarOne">
                 <ul class="social">
                     <!--FB button -->
                     <li><?= $html->fb($_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"]); ?></li>
                     <!-- Twitter button -->
                     <li><?= $html->twitter(array('url' => $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"], 'text' => $calendar['title_' . $params['lang']])); ?></li>
                 </ul>
+                <span class="date"><?= @$html->convertDate($calendar['date_start']); ?></span>
+                <h2><?= $calendar['title_' . $params['lang']]; ?></h2>
+                <? if (!empty($calendar['image_name'])): ?>
+                    <img src="<?= DS . 'public' . DS . 'uploads' . DS . 'events' . DS . $calendar['image_name']; ?>" alt="<?= $calendar['title_' . $params['lang']]; ?>" title="<?= $calendar['title_' . $params['lang']]; ?>"/>
+                <? endif; ?>
+                <div class="wys">
+                    <?= $calendar['content_' . $params['lang']]; ?>
+                </div>
+
             </div>
         <? endif; ?>
     </div>

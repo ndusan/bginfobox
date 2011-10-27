@@ -125,8 +125,8 @@ ul.newsAll h2 {font-size:14px; margin:0 0 10px;}
 ul.newsAll .date {font-size:11px; color:#999;}
 
 .newsOne {overflow:hidden; padding:15px;}
-.newsOne .date {font-size:11px; color:#999; display:block;}
-.newsOne h2 {font-size:14px; margin:10px 0;}
+.newsOne .date {font-size:11px; color:#999; display:block; margin:5px 0 0;}
+.newsOne h2 {font-size:14px; margin:5px 0 10px;}
 .newsOne .highlight {font-size:14px;}
 .newsOne p {padding:5px 0;}
 
@@ -136,8 +136,8 @@ ul.calendarAll h2 {font-size:14px; margin:0 0 10px;}
 ul.calendarAll .date {font-size:11px; color:#999;}
 
 .calendarOne {overflow:hidden; padding:15px;}
-.calendarOne .date {font-size:11px; color:#999; display:block;}
-.calendarOne h2 {font-size:14px; margin:0 0 10px;}
+.calendarOne .date {font-size:11px; color:#999; display:block; margin:5px 0 0;}
+.calendarOne h2 {font-size:14px; margin:5px 0 10px;}
 .calendarOne p {padding:5px 0;}
 
 .bottomW {background-color:#e1e1e1; padding:20px 0; border-top:solid 1px #DDD;}
@@ -236,5 +236,5 @@ ul.guideNav li a:hover, ul.guideNav li.active a {background:#9c1006 url(../image
 .adsPaidInfo ul li {width:50%; line-height:20px; float:left;}
 .adsPaidInfo p {font-size:11px;}
 
-ul.social {overflow:hidden; padding:5px 0; border-top:solid 1px #DFDFDF; border-bottom:solid 1px #DFDFDF;}
+ul.social {overflow:hidden; padding:0 0 5px; border-bottom:solid 1px #DFDFDF;}
 ul.social li {list-style:none; float:left;}
