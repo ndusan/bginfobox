@@ -44,14 +44,14 @@
                             <?=$ap['address'];?>
                         </li>
                         <li>
-                            <? if(!empty($ad['phone'])):?>
-                            <b>Tel: </b><?=$ad['phone'];?><br>
+                            <? if(!empty($ap['phone'])):?>
+                            <b>Tel: </b><?=$ap['phone'];?><br>
                             <? endif;?>
-                            <? if(!empty($ad['phone'])):?>
-                            <b>Email: </b><?=$ad['email'];?><br>
+                            <? if(!empty($ap['email'])):?>
+                            <b>Email: </b><?=$ap['email'];?><br>
                             <? endif;?>
-                            <? if(!empty($ad['phone'])):?>
-                            <b>Website: </b><?=$ad['website'];?><br>
+                            <? if(!empty($ap['website'])):?>
+                            <b>Website: </b><?=$ap['website'];?><br>
                             <? endif;?>
                         </li>
                     </ul>
@@ -87,10 +87,10 @@
                                         <? if($ad['phone']):?>
                                         <b>Tel: </b><?=$ad['phone'];?><br>
                                         <? endif;?>
-                                        <? if($ad['phone']):?>
+                                        <? if($ad['email']):?>
                                         <b>Email: </b><?=$ad['email'];?><br>
                                         <? endif;?>
-                                        <? if($ad['phone']):?>
+                                        <? if($ad['website']):?>
                                         <b>Website: </b><?=$ad['website'];?><br>
                                         <? endif;?>
                                     </li>

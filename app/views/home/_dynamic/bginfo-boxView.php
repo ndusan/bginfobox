@@ -18,6 +18,12 @@
                         <span><?=$_t['ads-question.sublabel'][$params['lang']];?></span>
                     </a>
                 </li>
+                <li class="icoDis">
+                    <a href="<?=(DS.$params['lang'].DS.'bginfo-box'.DS.'location');?>">
+                        <?=$_t['location.label'][$params['lang']];?>? 
+                        <span><?=$_t['location.sublabel'][$params['lang']];?></span>
+                    </a>
+                </li>
             </ul>
             <p><?=$content['content_'.$params['lang']];?></p>
         </div>
