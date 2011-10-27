@@ -241,6 +241,7 @@ class HomeController extends Controller
         
         $id = (!empty($params['id']))?$params['id']:$this->pages[$params['page']];
         
+        parent::set('locationTitle', $params['page']);
         parent::set('locationCollection', $this->db->getLocations($id));
         
     }
