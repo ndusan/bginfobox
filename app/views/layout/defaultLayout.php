@@ -222,19 +222,22 @@
                         </ul>
                     </li>
                     <li><b>Vodič kroz Beograd</b>
+                        <? if(!empty($footer['clients'])):?>
                         <ul><!-- prvi nivo dinamicki -->
-                            <li><a href="#">Restorani</a></li>
-                            <li><a href="#">Kultura</a></li>
-                            <li><a href="#">Sport</a></li>
-                            <li><a href="#">Bla bla</a></li>
+                            <? foreach($footer['clients'] as $f):?>
+                            <li><a href="<?=(DS.$params['lang'].DS.'guide'.DS.$f['slug']);?>"><?=$f['title_'.$params['lang']];?></a></li>
+                            <? endforeach;?>
                         </ul>
+                        <? endif;?>
                     </li>
                     <li><b>Belgrade Info</b>
+                        <? if(!empty($footer['info'])):?>
                         <ul><!-- prvi nivo dinamicki -->
-                            <li><a href="#">Istiorija Beograda</a></li>
-                            <li><a href="#">Kulturna dešavanja</a></li>
-                            <li><a href="#">Bla bla</a></li>
+                            <? foreach($footer['info'] as $f):?>
+                            <li><a href="<?=(DS.$params['lang'].DS.'info'.DS.$f['slug']);?>"><?=$f['title_'.$params['lang']];?></a></li>
+                            <? endforeach;?>
                         </ul>
+                        <? endif;?>
                     </li>
                     <li><b>TBD</b>
                         <ul>

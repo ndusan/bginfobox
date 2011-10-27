@@ -55,6 +55,9 @@ class HomeController extends Controller
         
         parent::set('lattestAdsPaid', $this->db->getAdsPaid(2));
         
+        
+        //Footer
+        parent::set('footer', $this->db->getFooter());
     }
     
     
@@ -95,6 +98,9 @@ class HomeController extends Controller
         
         //Get OTHER INFO tree
         $this->getOtherInfoRootTree();
+        
+        //Footer
+        parent::set('footer', $this->db->getFooter());
         
         switch($params['page']){
             case 'about-us':
@@ -165,6 +171,9 @@ class HomeController extends Controller
         
         parent::set('lattestAdsPaid', $this->db->getAdsPaid(2));
         
+        //Footer
+        parent::set('footer', $this->db->getFooter());
+        
         switch($params['page']){
             case 'bginfo-box':
                 
@@ -223,6 +232,9 @@ class HomeController extends Controller
         
         parent::set('lattestAdsPaid', $this->db->getAdsPaid(2));
         
+        //Footer
+        parent::set('footer', $this->db->getFooter());
+        
         $archive = (!empty($params['archive']) ? (int)$params['archive'] : null);
         
         switch($params['page']){
@@ -256,6 +268,9 @@ class HomeController extends Controller
         
         $id = (!empty($params['id']))?$params['id']:$this->pages[$params['page']];
         
+        //Footer
+        parent::set('footer', $this->db->getFooter());
+        
         parent::set('locationTitle', $params['page']);
         parent::set('locationCollection', $this->db->getLocations($id));
         
@@ -284,6 +299,9 @@ class HomeController extends Controller
         
         //Lattest Sights
         $this->getLattestSights();
+        
+        //Footer
+        parent::set('footer', $this->db->getFooter());
         
         parent::set('lattestAdsPaid', $this->db->getAdsPaid(2));
         
@@ -339,6 +357,9 @@ class HomeController extends Controller
         $this->getBgInfoRootTree();
         $adsPaid = $this->db->getAdsPaid();
         
+        //Footer
+        parent::set('footer', $this->db->getFooter());
+        
         parent::set('ads', $ads);
         parent::set('adsPaid', $adsPaid);
         
@@ -375,6 +396,9 @@ class HomeController extends Controller
         }
         //Get BG INFO tree
         $this->getOtherInfoRootTree();
+        
+        //Footer
+        parent::set('footer', $this->db->getFooter());
         
         parent::set('sights', $sights);
         parent::set('intro', $this->db->getNavigationIntro(end($slugArray)));
