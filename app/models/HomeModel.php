@@ -21,6 +21,7 @@ class HomeModel extends Model
     private $tblAboutUs = 'aboutus';
     private $tblNavigation = 'navigation';
     private $tblNavigationTree = 'navigation_tree';
+    private $tblInfo = 'info';
     
     
     public function getLattestNews($limit=2)
@@ -872,8 +873,8 @@ class HomeModel extends Model
         
         try{
             
-            $query = sprintf("SELECT `c`.* FROM %s AS `c` INNER JOIN %s AS `n` ON `n`.`id`=`c`.`navigation_id` WHERE `n`.`slug`=:slug ORDER BY `c`.`title` ASC", 
-                                    $this->tblClients, $this->tblNavigation);
+            $query = sprintf("SELECT `c`.* FROM %s AS `c` INNER JOIN %s AS `n` ON `n`.`id`=`c`.`navigation_id` WHERE `n`.`slug`=:slug ORDER BY RAND() ASC", 
+                                    $this->tblInfo, $this->tblNavigation);
             $stmt = $this->dbh->prepare($query);
 
             $stmt->bindParam(':slug', $slug, PDO::PARAM_STR);

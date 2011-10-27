@@ -355,7 +355,6 @@ class HomeController extends Controller
         //Get BG INFO tree
         $this->getOtherInfoRootTree();
         
-        
         parent::set('sights', $sights);
         parent::set('intro', $this->db->getNavigationIntro(end($slugArray)));
         
