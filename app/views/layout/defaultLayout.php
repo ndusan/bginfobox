@@ -28,7 +28,6 @@
                 <div class="topNav">
                     <ul class="soc">
                         <li>
-                            <? // FB like button  ?>
                             <?= $html->fb('http://google.com'); ?>
                         </li>
                         <li><a href="#" class="facebook">Facebook</a></li>

@@ -29,6 +29,11 @@
             <!-- selected news -->
             <div class="newsOne wys">
                 <h2><?= $news['title_' . $params['lang']]; ?> </h2>
+                <!--FB button -->
+                <span><?= $html->fb($_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"]); ?></span>
+                <!-- Twitter button -->
+                <?= $html->twitter(array('url'=> $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"], 'text'=> $news['title_' . $params['lang']]));?>
+                
                 <span class="date"><?= @$html->convertDate($news['created']); ?></span>
                 <p class="highlight"><?= $news['heading_' . $params['lang']]; ?></p>
                 <? if (!empty($news['image_name'])): ?>
