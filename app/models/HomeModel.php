@@ -859,12 +859,12 @@ class HomeModel extends Model
     
     
     
-    public function getAdsPaid($slug)
+    public function getAdsPaid($limit=5)
     {
         try{
             
             $query = sprintf("SELECT `c`.* FROM %s AS `c` INNER JOIN %s AS `n` ON `n`.`id`=`c`.`navigation_id` 
-                                WHERE  `c`.`paid`='1' AND :date BETWEEN `date_start` AND `date_end` ORDER BY RAND() LIMIT 0, 5", 
+                                WHERE  `c`.`paid`='1' AND :date BETWEEN `date_start` AND `date_end` ORDER BY RAND() LIMIT 0, ".$limit, 
                                     $this->tblClients, $this->tblNavigation);
             $stmt = $this->dbh->prepare($query);
             
@@ -898,4 +898,26 @@ class HomeModel extends Model
             return false;
         }
     }
+    
+    
+    public function getLattestSights()
+    {
+        
+        try{
+            
+            $query = sprintf("SELECT `c`.* FROM %s AS `c` INNER JOIN %s AS `n` ON `n`.`id`=`c`.`navigation_id` ORDER BY RAND() ASC LIMIT 0,1", 
+                                    $this->tblInfo, $this->tblNavigation);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->bindParam(':slug', $slug, PDO::PARAM_STR);
+            $stmt->execute();
+            
+            return $stmt->fetchAll();
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
 }

@@ -50,6 +50,11 @@ class HomeController extends Controller
         //Get OTHER INFO tree
         $this->getOtherInfoRootTree();
         
+        //Lattest Sights
+        $this->getLattestSights();
+        
+        parent::set('lattestAdsPaid', $this->db->getAdsPaid(2));
+        
     }
     
     
@@ -155,6 +160,11 @@ class HomeController extends Controller
         //Get OTHER INFO tree
         $this->getOtherInfoRootTree();
         
+        //Lattest Sights
+        $this->getLattestSights();
+        
+        parent::set('lattestAdsPaid', $this->db->getAdsPaid(2));
+        
         switch($params['page']){
             case 'bginfo-box':
                 
@@ -207,6 +217,11 @@ class HomeController extends Controller
         
         //Get OTHER INFO tree
         $this->getOtherInfoRootTree();
+        
+        //Lattest Sights
+        $this->getLattestSights();
+        
+        parent::set('lattestAdsPaid', $this->db->getAdsPaid(2));
         
         $archive = (!empty($params['archive']) ? (int)$params['archive'] : null);
         
@@ -267,6 +282,11 @@ class HomeController extends Controller
         //Get OTHER INFO tree
         $this->getOtherInfoRootTree();
         
+        //Lattest Sights
+        $this->getLattestSights();
+        
+        parent::set('lattestAdsPaid', $this->db->getAdsPaid(2));
+        
         switch($params['page']){
             case 'bginfo-map': 
                 
@@ -317,7 +337,7 @@ class HomeController extends Controller
         }
         //Get BG INFO tree
         $this->getBgInfoRootTree();
-        $adsPaid = $this->db->getAdsPaid(end($slugArray));
+        $adsPaid = $this->db->getAdsPaid();
         
         parent::set('ads', $ads);
         parent::set('adsPaid', $adsPaid);
@@ -670,9 +690,18 @@ class HomeController extends Controller
         parent::set('otherInfoTree', $tree);
     }
     
+    
+    
+    private function getLattestSights()
+    {
+        
+        parent::set('lattestSights', $this->db->getLattestSights());
+    }
+    
     /** NO PAGE FOUND **/
     public function noPageFoundAction($params)
     {
         
     }
+    
 }
