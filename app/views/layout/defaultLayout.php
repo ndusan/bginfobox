@@ -27,9 +27,6 @@
             <div class="topNavW">
                 <div class="topNav">
                     <ul class="soc">
-                        <li>
-                            <?= $html->fb('http://google.com'); ?>
-                        </li>
                         <li><a href="#" class="facebook">Facebook</a></li>
                         <li><a href="#" class="twitter">Twitter</a></li>
                         <li><a href="#" class="youtube">Youtube</a></li>
