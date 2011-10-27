@@ -47,6 +47,9 @@ class HomeController extends Controller
         //Get BG INFO tree
         $this->getBgInfoRootTree();
         
+        //Get OTHER INFO tree
+        $this->getOtherInfoRootTree();
+        
     }
     
     
@@ -82,7 +85,11 @@ class HomeController extends Controller
         //Get active language
         $this->getActiveLanguage();
         
+        //Get BG INFO tree
+        $this->getBgInfoRootTree();
         
+        //Get OTHER INFO tree
+        $this->getOtherInfoRootTree();
         
         switch($params['page']){
             case 'about-us':
@@ -142,6 +149,12 @@ class HomeController extends Controller
         //Get active language
         $this->getActiveLanguage();
         
+        //Get BG INFO tree
+        $this->getBgInfoRootTree();
+        
+        //Get OTHER INFO tree
+        $this->getOtherInfoRootTree();
+        
         switch($params['page']){
             case 'bginfo-box':
                 
@@ -189,6 +202,12 @@ class HomeController extends Controller
         //Get active language
         $this->getActiveLanguage();
         
+        //Get BG INFO tree
+        $this->getBgInfoRootTree();
+        
+        //Get OTHER INFO tree
+        $this->getOtherInfoRootTree();
+        
         $archive = (!empty($params['archive']) ? (int)$params['archive'] : null);
         
         switch($params['page']){
@@ -214,6 +233,12 @@ class HomeController extends Controller
         //Get active language
         $this->getActiveLanguage();
         
+        //Get BG INFO tree
+        $this->getBgInfoRootTree();
+        
+        //Get OTHER INFO tree
+        $this->getOtherInfoRootTree();
+        
         $id = (!empty($params['id']))?$params['id']:$this->pages[$params['page']];
         
         parent::set('locationCollection', $this->db->getLocations($id));
@@ -234,6 +259,12 @@ class HomeController extends Controller
 
         //Get active language
         $this->getActiveLanguage();
+        
+        //Get BG INFO tree
+        $this->getBgInfoRootTree();
+        
+        //Get OTHER INFO tree
+        $this->getOtherInfoRootTree();
         
         switch($params['page']){
             case 'bginfo-map': 
@@ -270,15 +301,21 @@ class HomeController extends Controller
         //Get active language
         $this->getActiveLanguage();
         
+        //Get OTHER INFO tree
+        $this->getOtherInfoRootTree();
+        
         $slugArray = array();
         if(!empty($params['slug'])){
             $slugArray = explode('/', $params['slug']);
             
             $this->getBgInfoTree($slugArray);
         }
-        
         //Get BG INFO tree
         $this->getBgInfoRootTree();
+        
+        parent::set('intro', $this->db->getNavigationIntro(end($slugArray)));
+        
+        parent::set('slugCollection', $this->db->getSlugs());
     }
     
     public function infoAction($params)
@@ -296,10 +333,21 @@ class HomeController extends Controller
         //Get active language
         $this->getActiveLanguage();
         
+        //Get BG INFO tree
+        $this->getBgInfoRootTree();
+        
         $slugArray = array();
         if(!empty($params['slug'])){
             $slugArray = explode('/', $params['slug']);
+            
+            $this->getOtherInfoTree($slugArray);
         }
+        //Get BG INFO tree
+        $this->getOtherInfoRootTree();
+        
+        parent::set('intro', $this->db->getNavigationIntro(end($slugArray)));
+        
+        parent::set('slugCollection', $this->db->getSlugs());
     }
     
     
@@ -518,19 +566,94 @@ class HomeController extends Controller
         parent::set('bgInfoRootTree', $this->db->getBgInfoRootTree());
     }
     
+    
     private function getBgInfoTree($slug=array())
     {
-        $prevSlug = $slug;
-        array_pop($prevSlug);
+        $cnt = count($slug);
+        $cSlug = $pSlug = null;
+        $slugArray = array();
         
-        if(!empty($slug) && is_array($slug) && count($slug) > 1){
-            $slugArray = array('previous' => (count($prevSlug)>1?implode('/', $prevSlug):$prevSlug[0]), 'current' => implode('/', $slug));
-        }else{
-            $slugArray = array('previous' => '', 'current' => end($slug));
+        if($cnt > 1){
+            $pSlug = $slug[$cnt-2];
+            $cSlug = $slug[$cnt-1];
+        }elseif($cnt == 1){
+            $pSlug = $cSlug = $slug[$cnt-1];
         }
         
+        $tree = $this->db->getBgInfoTree($cSlug);
+        $tmp = array();
+        
+        if(empty($tree)){
+            //This node doesn't have any more childern
+            $tree = $this->db->getBgInfoTree($pSlug);
+            for($i=0; $i<$cnt; $i++){
+                if($slug[$i] == $cSlug) break;
+                $tmp[]= $slug[$i];
+            }
+            $slugArray['current'] = implode('/',$tmp);
+            $prev = $tmp;
+        }else{
+            for($i=0; $i<$cnt; $i++){
+                $tmp[]= $slug[$i];
+            }
+            $slugArray['current'] = implode('/', $tmp);
+            $prev = $tmp;
+            array_pop($prev);
+        }
+        
+        $slugArray['previous'] = implode('/', $prev);
+        #path
+        $slugArray['path'] = 'guide';
         parent::set('slug', $slugArray);
-        parent::set('bgInfoTree', $this->db->getBgInfoTree(end($slug)));
+        parent::set('bgInfoTree', $tree);
+    }
+    
+    
+    private function getOtherInfoRootTree()
+    {
+        
+        parent::set('otherInfoRootTree', $this->db->getOtherInfoRootTree());
+    }
+    
+    
+    private function getOtherInfoTree($slug=array())
+    {
+        $cnt = count($slug);
+        $cSlug = $pSlug = null;
+        $slugArray = array();
+        
+        if($cnt > 1){
+            $pSlug = $slug[$cnt-2];
+            $cSlug = $slug[$cnt-1];
+        }elseif($cnt == 1){
+            $pSlug = $cSlug = $slug[$cnt-1];
+        }
+        
+        $tree = $this->db->getOtherInfoTree($cSlug);
+        $tmp = '';
+        
+        if(empty($tree)){
+            //This node doesn't have any more childern
+            $tree = $this->db->getOtherInfoTree($pSlug);
+            for($i=0; $i<$cnt; $i++){
+                if($slug[$i] == $cSlug) break;
+                $tmp[]= $slug[$i];
+            }
+            $slugArray['current'] = implode('/',$tmp);
+        }else{
+            for($i=0; $i<$cnt; $i++){
+                $tmp[]= $slug[$i];
+            }
+            $slugArray['current'] = implode('/', $tmp);
+        }
+        $prev = $tmp;
+        array_pop($prev);
+        
+        $slugArray['previous'] = implode('/', $prev);
+        #path
+        $slugArray['path'] = 'info';
+        parent::set('slug', $slugArray);
+        parent::set('otherInfoTree', $tree);
     }
     
     /** NO PAGE FOUND **/

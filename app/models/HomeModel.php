@@ -694,6 +694,52 @@ class HomeModel extends Model
         
         try{
            
+            $query = sprintf("SELECT * FROM %s WHERE `is_root`='1' AND `type`='clients' ORDER BY `position` DESC", $this->tblNavigation);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
+    
+    
+    
+    public function getBgInfoTree($slug)
+    {
+        
+        try{
+           
+            $query = sprintf("SELECT `n`.*
+                                FROM %s AS `n`
+                                INNER JOIN %s AS `nt` ON `nt`.`descendant`=`n`.`id`
+                                WHERE `n`.`type`='clients' AND `nt`.`path_length`=1 AND
+                                `nt`.`ancestor`=(SELECT `id` FROM %s WHERE `slug`=:slug)", 
+                                $this->tblNavigation, $this->tblNavigationTree, $this->tblNavigation);
+            $stmt = $this->dbh->prepare($query);
+            
+            $stmt->bindParam(':slug', $slug, PDO::PARAM_STR);
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
+    
+    public function getOtherInfoRootTree()
+    {
+        
+        try{
+           
             $query = sprintf("SELECT * FROM %s WHERE `is_root`='1' AND `type`='info' ORDER BY `position` DESC", $this->tblNavigation);
             $stmt = $this->dbh->prepare($query);
 
@@ -708,7 +754,7 @@ class HomeModel extends Model
     
     
     
-    public function getBgInfoTree($slug)
+    public function getOtherInfoTree($slug)
     {
         
         try{
@@ -732,4 +778,50 @@ class HomeModel extends Model
     }
     
     
+    
+    public function getNavigationIntro($slug)
+    {
+        
+        try{
+           
+            $query = sprintf("SELECT * FROM %s WHERE `slug`=:slug", $this->tblNavigation);
+            $stmt = $this->dbh->prepare($query);
+            
+            $stmt->bindParam(':slug', $slug, PDO::PARAM_STR);
+            $stmt->execute();
+            
+            return $stmt->fetch();
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
+    public function getSlugs()
+    {
+        
+        try{
+            $output = array();
+            
+            $query = sprintf("SELECT `title_sr`, `title_en`, `slug` FROM %s", $this->tblNavigation);
+            $stmt = $this->dbh->prepare($query);
+            
+            $stmt->bindParam(':slug', $slug, PDO::PARAM_STR);
+            $stmt->execute();
+            
+            $res = $stmt->fetchAll();
+            if(!empty($res)){
+                foreach($res as $r){
+                    
+                    $output[$r['slug']] = $r;
+                }
+            }
+            
+            return $output;
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
 }

@@ -1,20 +1,27 @@
 <div class="main">
     <div class="breadcrumb">
-        <a href="#">asdas</a> / <a href="#">asdas</a> / askldjaskldj
+        <? if(!empty($slug['previous'])):?>
+        <? $split = explode('/', $slug['previous']);?>
+        <? $tmp = array();?>
+        <? foreach($split as $s):?>
+        <? $tmp[]= $s ;?>
+        <a href="<?=(DS.$params['lang'].DS.'guide'.DS.implode('/',$tmp));?>"><?=$slugCollection[$s]['title_'.$params['lang']];?></a> /
+        <? endforeach;?>
+        <? endif;?>
+        <?=$intro['title_'.$params['lang']];?>
     </div>
     <div class="mainBox">
         <div class="boxTitle">
-            <h1>Vodic kroz Beograd</h1>
+            <h1><?=$intro['title_'.$params['lang']];?></h1>
         </div>
         <div class="boxIntro wys">
-            <span class="img"><img src="/public/images/dummy1.jpg"></span>
+            <span class="img">
+                <? if($intro['image_name']):?>
+                <img src="<?=(DS.'public'.DS.'uploads'.DS.$this->_action.DS.'thumb-'.$intro['image_name']);?>">
+                <? endif; ?>
+            </span>
             <!-- tekst kroz editor -->
-            <p>
-                Proin congue varius commodo. Aliquam vel luctus tellus. Nunc tempor, lectus eu scelerisque vestibulum, urna leo vehicula justo, vel mollis orci purus sit amet augue. Vestibulum porta malesuada quam. Proin blandit velit sit amet elit euismod pretium. Suspendisse elit elit, consectetur et condimentum a, blandit quis sem. Morbi ut justo tortor. 
-            </p>
-            <p>
-                Proin congue varius commodo. Aliquam vel luctus tellus. Nunc tempor, lectus eu scelerisque vestibulum, urna leo vehicula justo, vel mollis orci purus sit amet augue. Vestibulum porta malesuada quam. Proin blandit velit sit amet elit euismod pretium. Suspendisse elit elit, consectetur et condimentum a, blandit quis sem. Morbi ut justo tortor. 
-            </p>
+            <p><?=$intro['content_'.$params['lang']];?></p>
         </div>
         <div class="boxTitle1">
             <h2>Posebna ponuda Beograda</h2>

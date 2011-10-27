@@ -109,11 +109,15 @@
                     <div class="sidebarL">
                         <!-- guide nav -->
 
-                        <ul class="guideNav" <? if(!empty($slug)):?>style="display: block;"<? endif;?>>
+                        <ul class="guideNav" <?=('info' == $this->_action || 'guide' == $this->_action ? 'style="display: block;"' : '');?>>
+                            
                             <? if(!empty($slug['previous'])):?>
-                            <li><a href="<?=(DS.$params['lang'].DS.'guide'.DS.$slug['previous']);?>">&laquo; <?= $_t['menu.back'][$params['lang']]; ?></a></li>
+                            <li><a href="<?=(DS.$params['lang'].DS.$slug['path'].DS.$slug['previous']);?>">&laquo; <?= $_t['menu.back'][$params['lang']]; ?></a></li>
+                            <? elseif(!empty($slug['current'])): ?>
+                            <li><a href="<?=(DS.$params['lang']);?>">&laquo; <?= $_t['menu.back'][$params['lang']]; ?></a></li>
                             <? endif; ?>
                             
+                            <!--Guide-->
                             <? if(!empty($bgInfoTree)):?>
                             <? foreach($bgInfoTree as $tg):?>
                             <li><a href="<?=(DS.$params['lang'].DS.'guide'.DS.$slug['current'].DS.$tg['slug']);?>"><?=($tg['title_'.$params['lang']]);?></a></li>
@@ -121,6 +125,17 @@
                             <? elseif(!empty($bgInfoRootTree)):?>
                             <? foreach($bgInfoRootTree as $tg):?>
                             <li><a href="<?=(DS.$params['lang'].DS.'guide'.DS.$tg['slug']);?>"><?=($tg['title_'.$params['lang']]);?></a></li>
+                            <? endforeach;?>
+                            <? endif;?>
+                            
+                            <!--Info -->
+                            <? if(!empty($otherInfoTree)):?>
+                            <? foreach($otherInfoTree as $tg):?>
+                            <li><a href="<?=(DS.$params['lang'].DS.'info'.DS.$slug['current'].DS.$tg['slug']);?>"><?=($tg['title_'.$params['lang']]);?></a></li>
+                            <? endforeach;?>
+                            <? elseif(!empty($otherInfoRootTree)):?>
+                            <? foreach($otherInfoRootTree as $tg):?>
+                            <li><a href="<?=(DS.$params['lang'].DS.'info'.DS.$tg['slug']);?>"><?=($tg['title_'.$params['lang']]);?></a></li>
                             <? endforeach;?>
                             <? endif;?>
                         </ul>
