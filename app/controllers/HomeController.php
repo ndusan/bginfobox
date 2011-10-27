@@ -630,7 +630,7 @@ class HomeController extends Controller
         }
         
         $tree = $this->db->getOtherInfoTree($cSlug);
-        $tmp = '';
+        $tmp = array();
         
         if(empty($tree)){
             //This node doesn't have any more childern

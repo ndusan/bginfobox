@@ -26,9 +26,14 @@
         <div class="boxTitle1">
             <h2>Posebna ponuda Beograda</h2>
         </div>
+        
+        <? if(!empty($adsPaid)):?>
         <ul class="adsPaid">
+            <? foreach($adsPaid as $ap):?>
             <li>
-                <span class="img"><img src="/public/images/dummy1.jpg"></span>
+                <span class="img">
+                    <img src="<?=();?>">
+                </span>
                 <div class="adsPaidInfo">
                     <h4>Hotel Interkontejnertal</h4>
                     <ul>
@@ -45,41 +50,11 @@
                     <p>Proin congue varius commodo. Aliquam vel luctus tellus. Nunc tempor, lectus eu scelerisque vestibulum, urna leo vehicula justo, vel mollis orci purus sit amet augue. Vestibulum porta malesuada quam. Proin blandit velit sit amet elit euismod pretium. Suspendisse elit elit, consectetur et condimentum a, blandit quis sem. Morbi ut justo tortor.</p>
                 </div>
             </li>
-            <li>
-                <span class="img"><img src="/public/images/dummy1.jpg"></span>
-                <div class="adsPaidInfo">
-                    <h4>Hotel Hyatt</h4>
-                    <ul>
-                        <li> 
-                            City Store tehnike - Sarajevska 66, 11000 Beograd
-                        </li>
-                        <li>
-                            <b>Tel :</b> 011 2138391<br>
-                            <b>Email :</b> prodaja@tehnomanija.rs<br>
-                            www.tehnomanija.rs 
-                        </li>
-                    </ul>
-                    <p>Proin congue varius commodo. Aliquam vel luctus tellus. Nunc tempor, lectus eu scelerisque vestibulum, urna leo vehicula justo, vel mollis orci purus sit amet augue. Vestibulum porta malesuada quam. Proin blandit velit sit amet elit euismod pretium. Suspendisse elit elit, consectetur et condimentum a, blandit quis sem. Morbi ut justo tortor.</p>
-                </div>
-            </li>
-            <li>
-                <span class="img"><img src="/public/images/dummy1.jpg"></span>
-                <div class="adsPaidInfo">
-                    <h4>Pekara Pera Zdera</h4>
-                    <ul>
-                        <li> 
-                            City Store tehnike - Sarajevska 66, 11000 Beograd
-                        </li>
-                        <li>
-                            <b>Tel :</b> 011 2138391<br>
-                            <b>Email :</b> prodaja@tehnomanija.rs<br>
-                            www.tehnomanija.rs 
-                        </li>
-                    </ul>
-                    <p>Proin congue varius commodo. Aliquam vel luctus tellus. Nunc tempor, lectus eu scelerisque vestibulum, urna leo vehicula justo, vel mollis orci purus sit amet augue. Vestibulum porta malesuada quam. Proin blandit velit sit amet elit euismod pretium. Suspendisse elit elit, consectetur et condimentum a, blandit quis sem. Morbi ut justo tortor.</p>
-                </div>
-            </li>
+            <? endforeach; ?>
         </ul>
+        <? endif;?>
+        
+        
         <div class="boxTitle1">
             <h2>Spisak hotela</h2>
         </div>
