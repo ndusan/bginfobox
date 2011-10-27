@@ -412,15 +412,24 @@ class HomeModel extends Model
     
     public function bginfoGallery($pageId, $pageEditionId=null)
     {
+        $output = array();
         
         try{
            
             if(null == $pageEditionId){
-                $query = sprintf('SELECT * FROM %s WHERE `page_id`=:pageId ORDER BY `created` DESC LIMIT 0,3', $this->tblPageEditionImages);
+                $query = sprintf('SELECT * FROM %s WHERE `page_id`=:pageId ORDER BY `id` DESC LIMIT 0,3', $this->tblPageEditionImages);
                 $stmt = $this->dbh->prepare($query);
-
-                $stmt->bindParam(':pageId', $pageId, PDO::PARAM_INT);
                 
+                $stmt->bindParam(':pageId', $pageId, PDO::PARAM_INT);
+                $stmt->execute();
+
+                $res = $stmt->fetchAll();
+                if(!empty($res)){
+                    foreach($res as $r){
+                        $output[$r['position']] = $r;
+                    }
+                }
+                ksort($output);
             }else{
                 
                 $query = sprintf('SELECT * FROM %s WHERE `page_id`=:pageId AND `page_edition_id`=:pageEditionId', $this->tblPageEditionImages);
@@ -428,11 +437,12 @@ class HomeModel extends Model
 
                 $stmt->bindParam(':pageId', $pageId, PDO::PARAM_INT);
                 $stmt->bindParam(':pageEditionId', $pageEditionId, PDO::PARAM_INT);
-            }
-            
                 $stmt->execute();
 
-                return $stmt->fetchAll();
+                $output =  $stmt->fetchAll();
+            }
+                
+            return $output;
         }catch(Exception $e){
             
             return false;
@@ -832,7 +842,8 @@ class HomeModel extends Model
     {
         try{
             
-            $query = sprintf("SELECT `c`.* FROM %s AS `c` INNER JOIN %s AS `n` ON `n`.`id`=`c`.`navigation_id` WHERE `n`.`slug`=:slug ORDER BY `c`.`title` ASC", 
+            $query = sprintf("SELECT `c`.* FROM %s AS `c` INNER JOIN %s AS `n` ON `n`.`id`=`c`.`navigation_id` 
+                                    WHERE  `c`.`paid`='1' AND `n`.`slug`=:slug ORDER BY `c`.`title` ASC", 
                                     $this->tblClients, $this->tblNavigation);
             $stmt = $this->dbh->prepare($query);
 
