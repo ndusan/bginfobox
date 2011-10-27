@@ -134,7 +134,7 @@ class HTML {
                               'counturl'=>$array['url']);
         
         return '<script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
-               <a href="https://twitter.com/share?'.http_build_query($twitterArray).'" class="tw" target="_blank"></a>';
+               <a href="https://twitter.com/share?'.http_build_query($twitterArray).'" class="twitter-share-button" target="_blank">Tweet</a>';
     }
 
     function convertDate($date, $includeTime=false) {

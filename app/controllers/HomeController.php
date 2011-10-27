@@ -508,7 +508,7 @@ class HomeController extends Controller
         if(isset($params['submit'])){
             
             //Send
-            if(parent::sendEmail(MAIL_TO, 'Contact form', $params['form'], MAIL_FROM)){
+            if(parent::sendEmail(MAIL_TO, 'Ads form', $params['form'], MAIL_FROM)){
                 parent::set('sent', 'success');
             }else{
                 parent::set('sent', 'error');
