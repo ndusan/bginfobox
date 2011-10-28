@@ -214,16 +214,18 @@
             <div class="bottomW">
                 <ul class="bottomLinks">
                     <li><b>Izdanja</b>
+                        <? if(!empty($footer['editions'])):?>
+                        <? $url = array(1=>'bginfo-box',2=>'bginfo-map',3=>'bginfo-nigth-map',4=>'pockets');?>
                         <ul>
-                            <li><a href="<?=(DS.$params['lang'].DS.'bginfo-map');?>">Bg Info Map</a></li>
-                            <li><a href="<?=(DS.$params['lang'].DS.'bginfo-night-map');?>">Bg Info Night Map</a></li>
-                            <!-- dinamicki ili samo jedan link? -->
-                            <li><a href="#">In Your Pocket Izdanja</a></li>
+                            <? foreach($footer['editions'] as $f):?>
+                            <li><a href="<?=(DS.$params['lang'].DS.$url[$f['id'] > 3 ? 4 : $f['id']]);?>"><?=$f['title'];?></a></li>
+                            <? endforeach;?>
                         </ul>
+                        <? endif;?>
                     </li>
                     <li><b>Vodič kroz Beograd</b>
                         <? if(!empty($footer['clients'])):?>
-                        <ul><!-- prvi nivo dinamicki -->
+                        <ul>
                             <? foreach($footer['clients'] as $f):?>
                             <li><a href="<?=(DS.$params['lang'].DS.'guide'.DS.$f['slug']);?>"><?=$f['title_'.$params['lang']];?></a></li>
                             <? endforeach;?>
@@ -232,7 +234,7 @@
                     </li>
                     <li><b>Belgrade Info</b>
                         <? if(!empty($footer['info'])):?>
-                        <ul><!-- prvi nivo dinamicki -->
+                        <ul>
                             <? foreach($footer['info'] as $f):?>
                             <li><a href="<?=(DS.$params['lang'].DS.'info'.DS.$f['slug']);?>"><?=$f['title_'.$params['lang']];?></a></li>
                             <? endforeach;?>
@@ -241,9 +243,11 @@
                     </li>
                     <li><b>TBD</b>
                         <ul>
-                            <li><a href="#">O nama</a></li>
-                            <li><a href="#">Oglašavanje</a></li>
-                            <li><a href="#">Kontakt</a></li>
+                            <li><a href="<?= DS . $params['lang'] . DS . 'about-us'; ?>"><?= $_t['menu.about-us'][$params['lang']]; ?></a></li>
+                            <li><a href="<?= DS . $params['lang'] . DS . 'our-clients'; ?>"><?= $_t['menu.our-clients'][$params['lang']]; ?></a></li>
+                            <li><a href="<?= DS . $params['lang'] . DS . 'archive'; ?>"><?= $_t['menu.archive'][$params['lang']]; ?></a></li>
+                            <li><a href="<?= DS . $params['lang'] . DS . 'gallery'; ?>"><?= $_t['menu.gallery'][$params['lang']]; ?></a></li>
+                            <li><a href="<?= DS . $params['lang'] . DS . 'ads'; ?>"><?= $_t['menu.ads'][$params['lang']]; ?></a></li>
                         </ul>
                     </li>
                 </ul>
