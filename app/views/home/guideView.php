@@ -5,7 +5,7 @@
         <? $tmp = array();?>
         <? foreach($split as $s):?>
         <? $tmp[]= $s ;?>
-        <a href="<?=(DS.$params['lang'].DS.'guide'.DS.implode('/',$tmp));?>"><?=$slugCollection[$s]['title_'.$params['lang']];?></a> /
+        <a href="<?=(DS.$params['lang'].DS.'guide'.DS.implode('/',$tmp));?>"><?=@$slugCollection[$s]['title_'.$params['lang']];?></a> /
         <? endforeach;?>
         <? endif;?>
         <?=$intro['title_'.$params['lang']];?>
@@ -104,3 +104,5 @@
         <? endif;?>
     </div>
 </div>
+<!-- Load banners -->
+<? include_once VIEW_PATH . 'home' . DS . '_static' . DS . '_banners.php'; ?>
