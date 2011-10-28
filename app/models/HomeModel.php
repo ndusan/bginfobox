@@ -925,6 +925,16 @@ class HomeModel extends Model
         $output = array();
         try{
             
+            $query = sprintf("SELECT * FROM %s ORDER BY `position`", $this->tblPages);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->execute();
+            
+            $res = $stmt->fetchAll();
+            if(!empty($res)){
+                $output['editions'] = $res;
+            }
+            
             $query = sprintf("SELECT * FROM %s WHERE `is_root`='1' AND `type`='clients'", $this->tblNavigation);
             $stmt = $this->dbh->prepare($query);
 
