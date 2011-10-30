@@ -5,7 +5,7 @@
         </div>
         <div class="ads">
             <? if (!empty($sent)): ?>
-                <? if ('success' == $params['sent']): ?>
+                <? if ('success' == $sent): ?>
                     <?=$_t['ads-sent.ok'][$params['lang']];?>
                 <? else: ?>
                     <?=$_t['ads-sent.error'][$params['lang']];?>
