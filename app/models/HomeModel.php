@@ -730,7 +730,7 @@ class HomeModel extends Model
                                 FROM %s AS `n`
                                 INNER JOIN %s AS `nt` ON `nt`.`descendant`=`n`.`id`
                                 WHERE `n`.`type`='clients' AND `nt`.`path_length`=1 AND
-                                `nt`.`ancestor`=(SELECT `id` FROM %s WHERE `slug`=:slug)", 
+                                `nt`.`ancestor`=(SELECT `id` FROM %s WHERE `slug`=:slug) ORDER BY `n`.`position` ASC", 
                                 $this->tblNavigation, $this->tblNavigationTree, $this->tblNavigation);
             $stmt = $this->dbh->prepare($query);
             
@@ -774,7 +774,7 @@ class HomeModel extends Model
                                 FROM %s AS `n`
                                 INNER JOIN %s AS `nt` ON `nt`.`descendant`=`n`.`id`
                                 WHERE `n`.`type`='info' AND `nt`.`path_length`=1 AND
-                                `nt`.`ancestor`=(SELECT `id` FROM %s WHERE `slug`=:slug)", 
+                                `nt`.`ancestor`=(SELECT `id` FROM %s WHERE `slug`=:slug) ORDER BY `n`.`position` ASC", 
                                 $this->tblNavigation, $this->tblNavigationTree, $this->tblNavigation);
             $stmt = $this->dbh->prepare($query);
             
