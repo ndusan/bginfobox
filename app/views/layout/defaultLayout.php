@@ -4,8 +4,8 @@
         <title>BG Info Box</title>
         <link rel="shortcut icon" href="<?= IMAGE_PATH . 'favicon.ico'; ?>" type="image/x-icon" />
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta name="Description" content="" />
-        <meta name="Keywords" content="" />
+        <meta name="Description" content="Vaš vodič kroz Beograd" />
+        <meta name="Keywords" content="beograd, beogradu, vodic, upoznajte, vodič, srbija, hoteli, kultura, turizam, restorani, zabava" />
         <meta http-equiv="X-UA-Compatible" content="IE=7" />
         <!-- Load all assets (js + css) -->
         <?= $html->assetsJs('jquery-1.6.4.min', ASSETS_JS_PATH); ?>
