@@ -57,6 +57,26 @@ var App = App || {};
                    $(this).removeClass('active');
                }
             });
+        },
+        archive: function(){
+            
+            $.fn.equalHeights = function() {
+               var max_height = 0;
+               var currentHeight = 0;
+
+               this.each(function() {
+                   currentHeight = $(this).height();
+                   if(currentHeight > max_height) {
+                       max_height = currentHeight;
+                   }
+               });
+               this.each(function() {
+                   $(this).height(max_height);
+               });
+            };
+            
+             $(".galleryAll li").equalHeights();
+             $(".archiveAll ul li").equalHeights();
         }
 
     };
