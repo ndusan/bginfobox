@@ -227,7 +227,7 @@ class Controller {
     }
 
     public function sendEmail($to, $subject, $message, $from, $files=null) {
-
+        
         //Header
         $headers = 'From:' . $from;
 
@@ -247,15 +247,34 @@ class Controller {
                                     </head>
                                     <body>
                                       <table>';
+            $tArray = array('company'=>'Naziv firme', 
+                            'occupation'=>'Delatnost', 
+                            'contact'=>'Kontakt osoba', 
+                            'email'=>'Email', 
+                            'phone'=>'Telefon', 
+                            'message'=>'Poruka',
+                            'pages'=>'Želim da se reklamiram u',
+                            'title'=>'Naslov poruke',
+                            'name'=>'Ime i prezime');
+            
             foreach ($message as $key => $val) {
-                $messageHtml.= '<tr>
-                                        <th>' . $key . '</th>
-                                        <td>' . $val . '</td>';
+                $messageHtml.= '<tr>';
+                $messageHtml.= '<th>' . $tArray[$key] . '</th>';
+                    if('pages' == $key){
+                        $messageHtml.= '<td>';
+                        foreach ($val as $p){
+                            $messageHtml.= $p . '<br/>';
+                        }
+                        $messageHtml.= '</td>';
+                    }else{
+                        $messageHtml.= '<td>' . $val . '</td>';
+                    }
+                $messageHtml.= '</tr>';
             }
             $messageHtml.= '</body>
                                     </html>';
         }
-
+        
         // multipart boundary 
         $messageCollection = "--{$mime_boundary}\n" . "Content-Type: text/plain; charset=\"utf-8\"\n" .
                 "Content-Transfer-Encoding: 7bit\n\n" . $messageHtml . "\n\n";
@@ -281,7 +300,7 @@ class Controller {
                 return false;
             }
         }
-
+        
         $messageCollection .= "--{$mime_boundary}--";
         $returnpath = "-f" . $to;
 

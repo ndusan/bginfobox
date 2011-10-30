@@ -4,7 +4,7 @@
             <h1><?=$_t['menu.ads'][$params['lang']];?></h1>
         </div>
         <div class="ads">
-            <? if (!empty($params['sent'])): ?>
+            <? if (!empty($sent)): ?>
                 <? if ('success' == $params['sent']): ?>
                     <?=$_t['ads-sent.ok'][$params['lang']];?>
                 <? else: ?>
@@ -21,7 +21,7 @@
                 <? endif;?>
             </ul>
             <div class="adsForm">
-                <form action="<?= DS . $params['lang'] . DS . 'contact'; ?>">
+                <form action="<?= DS . $params['lang'] . DS . 'ads'; ?>" method="post">
                     <table cellpadding="0" cellspacing="0" width="0">
                         <tr>
                             <td align="right">

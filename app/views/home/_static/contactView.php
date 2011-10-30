@@ -28,15 +28,15 @@
                       www.bginfobox.rs<br/><br/>
                   </p>
             </div>
-            <? if(!empty($params['sent'])):?>
-                <? if('success' == $params['sent']):?>
+            <? if(!empty($sent)):?>
+                <? if('success' == $sent):?>
                 <?=$_t['ads-sent.ok'][$params['lang']];?>
                 <? else: ?>
                 <?=$_t['ads-sent.error'][$params['lang']];?>
                 <? endif;?>
             <? endif;?>
             <div class="contactForm">
-                <form action="<?=DS.$params['lang'].DS.'contact';?>">
+                <form action="<?=DS.$params['lang'].DS.'contact';?>" method="post">
                 <table cellpadding="0" cellspacing="0" width="0">
                     <tr>
                         <td align="right">
