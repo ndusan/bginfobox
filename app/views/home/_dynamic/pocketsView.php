@@ -59,7 +59,7 @@
                             </a>
                         </span>
                         <span class="icoArc">
-                            <a href="#">
+                            <a href="<?=(DS.$params['lang'].DS.'archive'.DS.'pockets');?>">
                                 <?= $_t['archive.label'][$params['lang']]; ?>? 
                             </a>
                         </span>

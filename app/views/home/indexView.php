@@ -29,13 +29,12 @@
             </ul>
         <? endif; ?>
         <div class="boxContent wys">
-            <p><?= $pocketContent['front_content_' . $params['lang']]; ?></p> 
             <span class="info moreInfo">
                 <a href="<?= DS . $params['lang'] . DS . 'pockets'; ?>">
-                <?= $_t['pockets.label'][$params['lang']]; ?>?
+                    <?= $_t['pockets.label'][$params['lang']]; ?>?
                 </a>
             </span>
-
+            <p><?= $pocketContent['front_content_' . $params['lang']]; ?></p> 
         </div>
     </div>
 
