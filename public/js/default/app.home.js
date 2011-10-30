@@ -60,7 +60,17 @@ var App = App || {};
         },
         archive: function(){
             
-            $.fn.equalHeights = function() {
+            App.Home.liFix();
+            $(".galleryAll li").equalHeights();
+            $(".archiveAll ul li").equalHeights();
+        },
+        dynamicPages: function(){
+            
+            App.Home.liFix();
+            $(".infoExtra > li").equalHeights();
+        },
+        liFix: function(){
+           $.fn.equalHeights = function() {
                var max_height = 0;
                var currentHeight = 0;
 
@@ -73,11 +83,7 @@ var App = App || {};
                this.each(function() {
                    $(this).height(max_height);
                });
-            };
-            
-             $(".galleryAll li").equalHeights();
-             $(".archiveAll ul li").equalHeights();
-             $(".infoExtra > li").equalHeights();
+            }; 
         }
 
     };
