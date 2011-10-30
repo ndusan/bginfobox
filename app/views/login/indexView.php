@@ -1,6 +1,7 @@
 <div class="headerLogin">
-    <h1><span>Admin panel</span>BG Info Box</h1>
+    <h1><span><img src="<?= IMAGE_PATH . 'Smartfish.png'; ?>" /></span>BG Info Box</h1>
 </div>
+
 <div class="login">
     <form action="<?= DS . 'login'; ?>" method="post">
         <table width="100%" cellpadding="0" cellspacing="0">
