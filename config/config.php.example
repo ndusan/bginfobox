@@ -54,3 +54,8 @@ define('DEFAULT_LANG', 'sr');
 
 //TinyMCE
 define('MCE_PATH', 'public'.DS.'tiny_mce'.DS);
+
+//GAQ
+define('GAQ_USERNAME', '');
+define('GAQ_PASSWORD', '');
+define('GAQ_PROFILE_ID', '');
