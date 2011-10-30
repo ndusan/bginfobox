@@ -14,13 +14,13 @@
                 <? endif;?>
                 <li class="icoMail">
                     <a href="<?=(DS.$params['lang'].DS.'ads');?>">
-                        <?=$_t['ads-question.label'][$params['lang']];?>? 
+                        <?=$_t['ads-question.label'][$params['lang']];?> 
                         <span><?=$_t['ads-question.sublabel'][$params['lang']];?></span>
                     </a>
                 </li>
                 <li class="icoDis">
                     <a href="<?=(DS.$params['lang'].DS.'bginfo-box'.DS.'location');?>">
-                        <?=$_t['location.label'][$params['lang']];?>? 
+                        <?=$_t['location.label'][$params['lang']];?> 
                         <span><?=$_t['location.sublabel'][$params['lang']];?></span>
                     </a>
                 </li>
