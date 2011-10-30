@@ -14,7 +14,7 @@
                 <? endif; ?>
                 <li class="icoMail">
                     <a href="<?= (DS . $params['lang'] . DS . 'ads'); ?>">
-                        <?= $_t['ads-question.label'][$params['lang']]; ?>? 
+                        <?= $_t['ads-question.label'][$params['lang']]; ?> 
                         <span><?= $_t['ads-question.sublabel'][$params['lang']]; ?></span>
                     </a>
                 </li>
@@ -44,6 +44,12 @@
                         <span class="icoArc">
                             <a href="<?= (DS . $params['lang'] . DS . 'archive' . DS . 'pockets'); ?>">
                                 <?= $_t['archive.label'][$params['lang']]; ?>? 
+                                <?= $_t['location.label'][$params['lang']]; ?>
+                            </a>
+                        </span>
+                        <span class="icoArc">
+                            <a href="<?= (DS . $params['lang'] . DS . 'archive' . DS . 'pockets'); ?>">
+                                <?= $_t['archive.label'][$params['lang']]; ?> 
                             </a>
                         </span>
                     </li>
