@@ -9,17 +9,17 @@
         <div class="statistics">
             <ul class="stats">
                 <li>
-                    <span class="statsVis"><?=(empty($visitors['ga:visits'])?0:$visitors['ga:visits']);?></span>
+                    <span class="statsVis"><?= (empty($visitors['ga:visits']) ? 0 : $visitors['ga:visits']); ?></span>
                     total visits in last month
                 </li>
                 <li>
                     <ul>
                         <li>
-                            <span class="statsVis"><?=(empty($visitors['ga:uniquePageviews']) ? 0 : $visitors['ga:uniquePageviews']);?></span>
+                            <span class="statsVis"><?= (empty($visitors['ga:uniquePageviews']) ? 0 : $visitors['ga:uniquePageviews']); ?></span>
                             unique visits
                         </li>
                         <li class="last">
-                            <span class="statsVie"><?=(empty($visitors['ga:uniquePageviews']) ? 0 : $visitors['ga:pageviews']);?></span>
+                            <span class="statsVie"><?= (empty($visitors['ga:uniquePageviews']) ? 0 : $visitors['ga:pageviews']); ?></span>
                             page views
                         </li>
                     </ul>
@@ -27,11 +27,11 @@
                 <li>
                     <ul>
                         <li>
-                            <span class="statsVis"><?=(empty($visitors['ga:bounces']) ? 0 : $visitors['ga:bounces']);?></span>
+                            <span class="statsVis"><?= (empty($visitors['ga:bounces']) ? 0 : $visitors['ga:bounces']); ?></span>
                             bounces
                         </li>
                         <li class="last">
-                            <span class="statsVie"><?=(empty($visitors['ga:newVisits']) ? 0 : $visitors['ga:newVisits']);?></span>
+                            <span class="statsVis"><?= (empty($visitors['ga:newVisits']) ? 0 : $visitors['ga:newVisits']); ?></span>
                             new visitors
                         </li>
                     </ul>
@@ -39,38 +39,30 @@
             </ul>
             <ul class="stats">
                 <li>
-                    <ul>
-                        <li>
-                            <span class="statsVis"><?=(empty($visitorsToday['ga:visits']) ? 0 : $visitorsToday['ga:visits']);?></span>
-                            visits today
-                        </li>
-                        <li class="last">
-                            <span class="statsVie"><?=(empty($visitorsToday['ga:pageviews']) ? 0 : $visitorsToday['ga:pageviews']);?></span>
-                            page views
-                        </li>
-                    </ul>
+                    <span class="statsVis"><?= (empty($visitorsToday['ga:visits']) ? 0 : $visitorsToday['ga:visits']); ?></span>
+                    visits today
                 </li>
                 <li>
                     <ul>
                         <li>
-                            <span class="statsVis"><?=@$visitorsToday['ga:timeOnSite'];?></span>
+                            <span class="statsVie"><?= @$visitorsToday['ga:timeOnSite']; ?></span>
                             time on site
                         </li>
                         <li class="last">
-                            <span class="statsVis"><?=@$visitorsToday['average_time_on_site_formatted'];?></span>
-                            average time on site
+                            <span class="statsVie"><?= @$visitorsToday['average_time_on_site_formatted']; ?></span>
+                            average time
                         </li>
                     </ul>
                 </li>
                 <li>
                     <ul>
                         <li>
-                            <span class="statsVis"><?=@$visitorsToday['pages_per_visit'];?></span>
+                            <span class="statsVie"><?= @$visitorsToday['pages_per_visit']; ?></span>
                             pages per visit
                         </li>
                         <li class="last">
-                            <span class="statsDow">0</span>
-                            download
+                            <span class="statsVie"><?= (empty($visitorsToday['ga:pageviews']) ? 0 : $visitorsToday['ga:pageviews']); ?></span>
+                            page views
                         </li>
                     </ul>
                 </li>
