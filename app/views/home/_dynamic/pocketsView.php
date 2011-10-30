@@ -38,12 +38,6 @@
                         <? endif; ?>
                         <span class="icoDis">
                             <a href="<?= (DS . $params['lang'] . DS . 'pockets' . DS . 'location?id=' . $gc['page_id']) ?>">
-                                <?= $_t['location.label'][$params['lang']]; ?>?
-                            </a>
-                        </span>
-                        <span class="icoArc">
-                            <a href="<?= (DS . $params['lang'] . DS . 'archive' . DS . 'pockets'); ?>">
-                                <?= $_t['archive.label'][$params['lang']]; ?>? 
                                 <?= $_t['location.label'][$params['lang']]; ?>
                             </a>
                         </span>
