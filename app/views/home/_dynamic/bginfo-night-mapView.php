@@ -14,26 +14,26 @@
                 <? endif;?>
                 <li class="icoMail">
                     <a href="<?=(DS.$params['lang'].DS.'ads');?>">
-                        <?=$_t['ads-question.label'][$params['lang']];?>? 
+                        <?=$_t['ads-question.label'][$params['lang']];?> 
                         <span><?=$_t['ads-question.sublabel'][$params['lang']];?></span>
                     </a>
                 </li>
                 <li class="icoDis">
                     <a href="<?=(DS.$params['lang'].DS.'bginfo-map'.DS.'location');?>">
-                        <?=$_t['location.label'][$params['lang']];?>? 
+                        <?=$_t['location.label'][$params['lang']];?> 
                         <span><?=$_t['location.sublabel'][$params['lang']];?></span>
                     </a>
                 </li>
                 <li class="icoArc">
                     <a href="<?=(DS.$params['lang'].DS.'archive'.DS.'bginfo-night-map');?>">
-                        <?=$_t['archive.label'][$params['lang']];?>? 
+                        <?=$_t['archive.label'][$params['lang']];?> 
                         <span><?=$_t['archive.sublabel'][$params['lang']];?></span>
                     </a>
                 </li>
                 <? if(!empty($download['file_name'])):?>
                 <li class="icoDld">
                     <a href="<?=(DS.'public'.DS.'uploads'.DS.'bginfo'.DS.$download['file_name']);?>" target="_blank">
-                        <?=$_t['download.label'][$params['lang']];?>? 
+                        <?=$_t['download.label'][$params['lang']];?> 
                         <span><?=$_t['download.sublabel'][$params['lang']];?></span>
                     </a>
                 </li>
