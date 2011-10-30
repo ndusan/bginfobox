@@ -91,9 +91,9 @@ class Controller {
      * @param String $url
      * @return void
      */
-    public function redirect($url, $msg) {
+    public function redirect($url, $msg, $fragment=null) {
 
-        $url = "Location: " . BASE_PATH . (empty($url) ? '' : $url . DS) . (isset($msg) && !empty($msg) ? '?q=' . $msg : "");
+        $url = "Location: " . BASE_PATH . (empty($url) ? '' : $url . DS) . (isset($msg) && !empty($msg) ? '?q=' . $msg : "") . (null != $fragment ? $fragment : '');
         header($url);
         exit;
     }

@@ -37,9 +37,9 @@ class CmsClientsController extends Controller
                     $this->createThumbImage($newImageName2, 'clients', 150, 150);
                 }
                 
-                parent::redirect ('cms'.DS.'clients', 'success');
+                parent::redirect ('cms'.DS.'clients', 'success', '#fragment-2');
             }else{
-                parent::redirect ('cms'.DS.'clients'.DS.'add', 'error');
+                parent::redirect ('cms'.DS.'clients'.DS.'add', 'error', '#fragment-2');
             }
         }
         
@@ -89,9 +89,9 @@ class CmsClientsController extends Controller
                     $this->createThumbImage($newImageName, 'clients', 70, 70);
                 }
                 
-                parent::redirect ('cms'.DS.'clients', 'success');
+                parent::redirect ('cms'.DS.'clients', 'success', '#fragment-2');
             }else{
-                parent::redirect ('cms'.DS.'clients'.DS.'edit'.DS.$params['id'], 'error');
+                parent::redirect ('cms'.DS.'clients'.DS.'edit'.DS.$params['id'], 'error', '#fragment-2');
             }
         }
         
@@ -130,9 +130,9 @@ class CmsClientsController extends Controller
                 $oldThumbImageName = 'thumb-'.$oldImageName;
                 $this->deleteImage($oldThumbImageName, 'clients');
             }
-            parent::redirect ('cms'.DS.'clients', 'success');
+            parent::redirect ('cms'.DS.'clients', 'success', '#fragment-2');
         }else{
-            parent::redirect ('cms'.DS.'clients', 'error');
+            parent::redirect ('cms'.DS.'clients', 'error', '#fragment-2');
         }
     }
     
@@ -154,7 +154,7 @@ class CmsClientsController extends Controller
             $oldThumbImageName = 'thumb-'.$data['image_name'];
             $this->deleteImage($oldThumbImageName, 'pockets');
         }
-        parent::redirect ('cms'.DS.'clients'.DS.$params['id'].DS.'edit', 'success');
+        parent::redirect ('cms'.DS.'clients'.DS.$params['id'].DS.'edit', 'success', '#fragment-2');
     }
     
     

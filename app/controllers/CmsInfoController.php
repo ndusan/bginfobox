@@ -24,9 +24,9 @@ class CmsInfoController extends Controller
                     $this->uploadImage($newImageName, $params['image'], 'info');
                 }
                 
-                parent::redirect ('cms'.DS.'info', 'success');
+                parent::redirect ('cms'.DS.'info', 'success', '#fragment-2');
             }else{
-                parent::redirect ('cms'.DS.'info'.DS.'add', 'error');
+                parent::redirect ('cms'.DS.'info'.DS.'add', 'error', '#fragment-2');
             }
         }
         
@@ -51,9 +51,9 @@ class CmsInfoController extends Controller
                     $this->reUploadImage($oldImageName, $newImageName, $params['image'], 'info');
                 }
                 
-                parent::redirect ('cms'.DS.'info', 'success');
+                parent::redirect ('cms'.DS.'info', 'success', '#fragment-2');
             }else{
-                parent::redirect ('cms'.DS.'info'.DS.'edit'.DS.$params['id'], 'error');
+                parent::redirect ('cms'.DS.'info'.DS.'edit'.DS.$params['id'], 'error', '#fragment-2');
             }
         }
         
@@ -75,9 +75,9 @@ class CmsInfoController extends Controller
                 $oldImageName = $data['image_name'];
                 $this->deleteImage($oldImageName, 'info');
             }
-            parent::redirect ('cms'.DS.'info', 'success');
+            parent::redirect ('cms'.DS.'info', 'success', '#fragment-2');
         }else{
-            parent::redirect ('cms'.DS.'info', 'error');
+            parent::redirect ('cms'.DS.'info', 'error', '#fragment-2');
         }
     }
     
@@ -95,7 +95,7 @@ class CmsInfoController extends Controller
             $this->db->setImageName($params['id'], '');
             $this->deleteImage($data['image_name'], 'info');
         }
-        parent::redirect ('cms'.DS.'info'.DS.$params['id'].DS.'edit', 'success');
+        parent::redirect ('cms'.DS.'info'.DS.$params['id'].DS.'edit', 'success', '#fragment-2');
     }
     
     
