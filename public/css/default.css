@@ -51,8 +51,10 @@ input[type=submit]:hover {color:#f0397b; border-color:#C6C6C6; cursor:pointer;}
 .icoDld {background:transparent url(../images/icoDld.png) scroll no-repeat 5px 50%;}
 .icoDis {background:transparent url(../images/icoDis.png) scroll no-repeat 5px 50%;}
 .icoArc {background:transparent url(../images/icoArc.png) scroll no-repeat 5px 50%;}
-.infoExtra {font-size:11px; line-height:15px !important;}
-.galleryAll .icoDld,.galleryAll .icoDis {padding:5px 0;}
+.galleryAll .icoDld,.galleryAll .icoDis {padding:10px 0;}
+
+.infoExtra {font-size:11px; line-height:15px; overflow:hidden;}
+.infoExtra > li {float:left; width:240px; padding:10px 20px; background-color:#d2e9f4;}
 
 /*WYS RESETING*/
 .wys p {padding:5px 0;}
@@ -111,7 +113,7 @@ ul.mainNav li a:hover, ul.mainNav li a.active {background:#9c1006 url(../images/
 
 ul.boxExtra {float:right; width:200px; font-size:14px; margin:0 0 5px 5px;}
 ul.boxExtra span {font-size:11px; display:block;}
-ul.boxExtra > li {line-height:20px; padding:5px 10px; margin:0 0 1px 0; background-color:#CCC;}
+ul.boxExtra > li {line-height:20px; padding:0 10px; margin:0 0 1px 0; background-color:#CCC;}
 ul.boxExtra li a {color:#333;}
 ul.boxExtra li a:hover {color:#cd090f;}
 

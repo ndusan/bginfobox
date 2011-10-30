@@ -77,6 +77,7 @@ var App = App || {};
             
              $(".galleryAll li").equalHeights();
              $(".archiveAll ul li").equalHeights();
+             $(".infoExtra > li").equalHeights();
         }
 
     };

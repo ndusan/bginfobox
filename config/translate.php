@@ -65,7 +65,7 @@ $translate = array(
     
     //Ads
     'ads.label'=>array('sr'=>'Cenovnik oglašavanja','en'=>'Advertise Price list'),
-    'ads-question.label'=>array('sr'=>'Želite da se oglašavate','en'=>'Interested in advertisment'),
+    'ads-question.label'=>array('sr'=>'Želite da se oglašavate?','en'=>'Interested in advertisment?'),
     'ads-question.sublabel'=>array('sr'=>'Pošaljite nam vaše zahteve','en'=>'Send us your requests'),
     'ads-sent.ok'=>array('sr'=>'Zahtev je uspešno poslat!','en'=>'The request was sent successfully!'),
     'ads-sent.error'=>array('sr'=>'Zahtev nije uspešno poslat, pokušajte ponovo!','en'=>'The request is not sent successfully, please try again!'),
