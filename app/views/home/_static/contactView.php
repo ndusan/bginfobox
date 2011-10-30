@@ -30,9 +30,9 @@
             </div>
             <? if(!empty($params['sent'])):?>
                 <? if('success' == $params['sent']):?>
-                Sent ok!
+                <?=$_t['ads-sent.ok'][$params['lang']];?>
                 <? else: ?>
-                Error in sending
+                <?=$_t['ads-sent.error'][$params['lang']];?>
                 <? endif;?>
             <? endif;?>
             <div class="contactForm">

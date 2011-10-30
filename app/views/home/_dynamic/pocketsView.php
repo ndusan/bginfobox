@@ -49,13 +49,13 @@
                         <? if (!empty($gc['file_name'])): ?>
                             <span class="icoDld">
                                 <a href="<?= (DS . 'public' . DS . 'uploads' . DS . 'pockets' . DS . $gc['file_name']); ?>" target="_blank">
-                                    Preuzmi aktuelno izdanje Nis In Your Pocket vodica
+                                    <?=$_t['download.label'][$params['lang']];?>
                                 </a>
                             </span>
                         <? endif; ?>
                         <span class="icoDis">
                             <a href="<?= (DS . $params['lang'] . DS . 'pockets' . DS . 'location?id=' . $gc['page_id']) ?>">
-                                Spisak distributivnih mesta
+                               <?=$_t['location.label'][$params['lang']];?>?
                             </a>
                         </span>
                         <span class="icoArc">

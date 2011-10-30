@@ -3,7 +3,7 @@
         <? if (!empty($newsCollection)): ?>
             <!-- All news -->
             <div class="boxTitle">
-                <h2>Sve vesti</h2>
+                <h2><?=$_t['news.all_news'][$params['lang']];?></h2>
             </div>
             <? if($newsCollectionPerMonth):?>
             <ul class="boxExtra">
