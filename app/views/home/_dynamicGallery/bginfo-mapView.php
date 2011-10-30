@@ -33,7 +33,7 @@
                 </span>
                 <span class="icoArc">
                     <a href="<?=(DS.$params['lang'].DS.'archive'.DS.'bginfo-map');?>">
-                        <?= $_t['archive.label'][$params['lang']]; ?>? 
+                        <?= $_t['archive.label'][$params['lang']]; ?> 
                     </a>
                 </span>
             </p>
