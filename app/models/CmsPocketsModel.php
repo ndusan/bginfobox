@@ -423,13 +423,21 @@ class CmsPocketsModel extends Model
         }
     }
     
-    public function getAllEdition()
+    public function getAllEdition($pageId=0)
     {
         try{
-            $query = sprintf("SELECT * FROM %s", $this->tablePageEdition);
-            $stmt = $this->dbh->prepare($query);
-            
-            $stmt->execute();
+            if(0 != $pageId){
+                $query = sprintf("SELECT * FROM %s WHERE `page_id`=:pageId", $this->tablePageEdition);
+                $stmt = $this->dbh->prepare($query);
+
+                $stmt->bindParam(':pageId', $pageId, PDO::PARAM_INT);
+                $stmt->execute();
+            }else{
+                $query = sprintf("SELECT * FROM %s", $this->tablePageEdition);
+                $stmt = $this->dbh->prepare($query);
+
+                $stmt->execute();
+            }
 
             return $stmt->fetchAll();
         }catch(Exception $e){
