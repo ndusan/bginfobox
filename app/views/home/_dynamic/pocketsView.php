@@ -18,26 +18,9 @@
                         <span><?= $_t['ads-question.sublabel'][$params['lang']]; ?></span>
                     </a>
                 </li>
-                <!--Pocket info -->
-                <? if (!empty($info)): ?>
-                    <? foreach ($info as $i): ?>
-                        <li class="infoExtra">
-                            <!-- Title-->
-                            <?= $i['title_' . $params['lang']]; ?>
-
-                            <!--Content-->
-                            <?= $i['content_' . $params['lang']]; ?>
-                        </li>
-                    <? endforeach; ?>
-                <? endif; ?>
             </ul>
             <?= $content['content_' . $params['lang']]; ?>
         </div>
-        <div style="clear:both"></div>
-
-
-
-        <div style="clear:both"></div>
         <? if (!empty($galleryCollection)): ?>
             <ul class="galleryAll">
                 <? foreach ($galleryCollection as $gc): ?>
@@ -49,17 +32,17 @@
                         <? if (!empty($gc['file_name'])): ?>
                             <span class="icoDld">
                                 <a href="<?= (DS . 'public' . DS . 'uploads' . DS . 'pockets' . DS . $gc['file_name']); ?>" target="_blank">
-                                    <?=$_t['download.label'][$params['lang']];?>
+                                    <?= $_t['download.label'][$params['lang']]; ?>
                                 </a>
                             </span>
                         <? endif; ?>
                         <span class="icoDis">
                             <a href="<?= (DS . $params['lang'] . DS . 'pockets' . DS . 'location?id=' . $gc['page_id']) ?>">
-                               <?=$_t['location.label'][$params['lang']];?>?
+                                <?= $_t['location.label'][$params['lang']]; ?>?
                             </a>
                         </span>
                         <span class="icoArc">
-                            <a href="<?=(DS.$params['lang'].DS.'archive'.DS.'pockets');?>">
+                            <a href="<?= (DS . $params['lang'] . DS . 'archive' . DS . 'pockets'); ?>">
                                 <?= $_t['archive.label'][$params['lang']]; ?>? 
                             </a>
                         </span>
@@ -67,6 +50,20 @@
                 <? endforeach; ?>
             </ul>
         <? endif; ?>
+        <!--Pocket info -->
+        <ul class="infoExtra">
+            <? if (!empty($info)): ?>
+                <? foreach ($info as $i): ?>
+                    <li class="wys">
+                        <!-- Title-->
+                        <?= $i['title_' . $params['lang']]; ?>
+
+                        <!--Content-->
+                        <?= $i['content_' . $params['lang']]; ?>
+                    </li>
+                <? endforeach; ?>
+            <? endif; ?>
+        </ul>
     </div>
     <!-- Load belgrade guide-->
     <? include_once VIEW_PATH . 'home' . DS . '_static' . DS . '_guide.php'; ?>

@@ -29,11 +29,8 @@
             </ul>
             <p>
                 <span class="info">
-                    <?= $_t['bginfo-map.last_five_archive.label'][$params['lang']]; ?>
-                </span>
-                <span class="icoArc">
-                    <a href="<?=(DS.$params['lang'].DS.'archive'.DS.'bginfo-map');?>">
-                        <?= $_t['archive.label'][$params['lang']]; ?>? 
+                    <?= $_t['bginfo-map.last_five_archive.label'][$params['lang']]; ?>, <a href="<?=(DS.$params['lang'].DS.'archive'.DS.'bginfo-map');?>">
+                        <?=$_t['complete-archive.label'][$params['lang']];?>
                     </a>
                 </span>
             </p>
