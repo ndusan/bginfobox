@@ -75,7 +75,7 @@ class CmsPocketsController extends Controller
     public function deleteCityAction($params)
     {
         
-        $allEdition = $this->db->getAllEdition();
+        $allEdition = $this->db->getAllEdition($params['id']);
         foreach($allEdition as $ae){
             $this->deleteEditionAction($ae, false);
         }

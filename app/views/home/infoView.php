@@ -42,3 +42,5 @@
         <? endif;?>
     </div>
 </div>
+<!-- Load banners -->
+<? include_once VIEW_PATH . 'home' . DS . '_static' . DS . '_banners.php'; ?>

@@ -647,7 +647,7 @@ class HomeModel extends Model
             $query = sprintf('SELECT * FROM %s AS `c`
                                 INNER JOIN %s AS `cp` ON `cp`.`client_id`=`c`.`id`
                                 WHERE `cp`.`page_id`=:pageId 
-                                ORDER BY `id`', $this->tblClients, $this->tblClientPages);
+                                ORDER BY `slug` ASC', $this->tblClients, $this->tblClientPages);
             $stmt = $this->dbh->prepare($query);
 
             $stmt->bindParam(':pageId', $pageId, PDO::PARAM_INT);
@@ -705,7 +705,7 @@ class HomeModel extends Model
         
         try{
            
-            $query = sprintf("SELECT * FROM %s WHERE `is_root`='1' AND `type`='clients' ORDER BY `position` DESC", $this->tblNavigation);
+            $query = sprintf("SELECT * FROM %s WHERE `is_root`='1' AND `type`='clients' ORDER BY `position` ASC", $this->tblNavigation);
             $stmt = $this->dbh->prepare($query);
 
             $stmt->execute();
@@ -751,7 +751,7 @@ class HomeModel extends Model
         
         try{
            
-            $query = sprintf("SELECT * FROM %s WHERE `is_root`='1' AND `type`='info' ORDER BY `position` DESC", $this->tblNavigation);
+            $query = sprintf("SELECT * FROM %s WHERE `is_root`='1' AND `type`='info' ORDER BY `position` ASC", $this->tblNavigation);
             $stmt = $this->dbh->prepare($query);
 
             $stmt->execute();

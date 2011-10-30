@@ -236,5 +236,5 @@ ul.guideNav li a:hover, ul.guideNav li.active a {background:#9c1006 url(../image
 .adsPaidInfo ul li {width:50%; line-height:20px; float:left;}
 .adsPaidInfo p {font-size:11px;}
 
-ul.social {overflow:hidden; padding:0 0 5px; border-bottom:solid 1px #DFDFDF;}
+ul.social {height:25px; padding:0 0 5px; border-bottom:solid 1px #DFDFDF;}
 ul.social li {list-style:none; float:left;}

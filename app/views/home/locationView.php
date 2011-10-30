@@ -5,12 +5,12 @@
             <? if(!empty($locationTitle)):?>
             <? switch($locationTitle){
                 case 'bginfo-box': $title = "BG Info Box"; break;
-                case 'bginfo-map': $title = "BG Map"; break;
-                case 'bginfo-night-map': $title = "BG Night Map"; break;
+                case 'bginfo-map': $title = "BG Info Map"; break;
+                case 'bginfo-night-map': $title = "BG Info Night Map"; break;
                 case 'pockets': $title = "Pocekts"; break;
             }?>
             <? endif;?>
-            <h1>Distributeri za <?=$title; ?></h1>
+            <h1><?= $_t['location.distributors'][$params['lang']]; ?> <?=$title; ?></h1>
         </div>
         <? if(!empty($locationCollection)):?>
         <table cellpadding="0" cellpadding="0" width="100%">

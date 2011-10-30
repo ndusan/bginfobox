@@ -1,7 +1,7 @@
 <div class="main">
     <div class="mainBox">
         <div class="boxTitle">
-            <h1><?=$_t['bginfo-map.gallery.label'][$params['lang']];?></h1>
+            <h1><?=$_t['bginfo-map.current.label'][$params['lang']];?></h1>
         </div>
         <div class="boxContent">
             <ul class="boxExtra">

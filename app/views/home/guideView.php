@@ -25,7 +25,7 @@
         </div>
         <? if(!empty($adsPaid)):?>
         <div class="boxTitle1">
-            <h2>Posebna ponuda Beograda</h2>
+            <h2><?= $_t['guide-highlights.label'][$params['lang']]; ?></h2>
         </div>
         
         <ul class="adsPaid">
@@ -104,3 +104,5 @@
         <? endif;?>
     </div>
 </div>
+<!-- Load banners -->
+<? include_once VIEW_PATH . 'home' . DS . '_static' . DS . '_banners.php'; ?>

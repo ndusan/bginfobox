@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en-US" xml:lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <title>BGInfoBox</title>
+        <title>BG Info Box</title>
         <link rel="shortcut icon" href="<?= IMAGE_PATH . 'favicon.ico'; ?>" type="image/x-icon" />
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="Description" content="" />
@@ -23,7 +23,6 @@
         <?= $html->css('default', CSS_PATH); ?>
     </head>
     <body data-controller="<?= $this->_controller; ?>" data-method="<?= $this->_action; ?>">
-        <body>
             <div class="topNavW">
                 <div class="topNav">
                     <ul class="soc">
@@ -213,7 +212,7 @@
             </div>
             <div class="bottomW">
                 <ul class="bottomLinks">
-                    <li><b>Izdanja</b>
+                    <li><b><?= $_t['footer-editions.label'][$params['lang']]; ?></b>
                         <? if(!empty($footer['editions'])):?>
                         <? $url = array(1=>'bginfo-box',2=>'bginfo-map',3=>'bginfo-nigth-map',4=>'pockets');?>
                         <ul>
@@ -223,7 +222,7 @@
                         </ul>
                         <? endif;?>
                     </li>
-                    <li><b>Vodič kroz Beograd</b>
+                    <li><b><?= $_t['guide.label'][$params['lang']]; ?></b>
                         <? if(!empty($footer['clients'])):?>
                         <ul>
                             <? foreach($footer['clients'] as $f):?>
@@ -232,7 +231,7 @@
                         </ul>
                         <? endif;?>
                     </li>
-                    <li><b>Belgrade Info</b>
+                    <li><b><?= $_t['footer-info.label'][$params['lang']]; ?></b>
                         <? if(!empty($footer['info'])):?>
                         <ul>
                             <? foreach($footer['info'] as $f):?>
@@ -241,7 +240,7 @@
                         </ul>
                         <? endif;?>
                     </li>
-                    <li><b>TBD</b>
+                    <li><b>BG Info Box</b>
                         <ul>
                             <li><a href="<?= DS . $params['lang'] . DS . 'about-us'; ?>"><?= $_t['menu.about-us'][$params['lang']]; ?></a></li>
                             <li><a href="<?= DS . $params['lang'] . DS . 'our-clients'; ?>"><?= $_t['menu.our-clients'][$params['lang']]; ?></a></li>
@@ -258,7 +257,18 @@
             <script type="text/javascript">
                 var lang = '<?= $params['lang']; ?>';
             </script>
-        </body>
+            <script type="text/javascript">
 
+              var _gaq = _gaq || [];
+              _gaq.push(['_setAccount', 'UA-26505741-1']);
+              _gaq.push(['_trackPageview']);
+
+              (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+              })();
+
+            </script>
     </body>
 </html>

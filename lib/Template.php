@@ -69,13 +69,13 @@ class Template
         function render($renderHTML = 0) 
         {
 
-            if(file_exists('lib'.DS.'Html.php')){
+            if(is_file('lib'.DS.'Html.php')){
                 require_once 'lib'.DS.'Html.php';
                 $html = new HTML;
             }
             extract($this->variables);
             
-            if(file_exists(LAYOUT_PATH.$this->_layout.'Layout.php') && $renderHTML){
+            if(is_file(LAYOUT_PATH.$this->_layout.'Layout.php') && $renderHTML){
                 @include (LAYOUT_PATH.$this->_layout.'Layout.php');
             }else{
                 @include (LAYOUT_PATH.'emptyLayout.php');

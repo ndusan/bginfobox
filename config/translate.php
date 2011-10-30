@@ -42,20 +42,23 @@ $translate = array(
     
     //Index page
     'index.question'=>array('sr'=>'Šta je', 'en'=>'What is'),
+    'index.image.text'=>array('sr'=>'Više detalja o poslednjem izdanju', 'en'=>'More details about the latest Edition of'),
+    'index.image-iyp.text'=>array('sr'=>' - saznajte više na www.inyourpocket.com', 'en'=>' - find out more on www.inyourpocket.com'),
     'pockets.label'=>array('sr'=>'Šta su In your pocket vodiči', 'en'=>'What are In your pocket City Guides'),
     'moreInfo.archive'=>array('sr'=>'Arhiva izdanja', 'en'=>'Archive'),
     'moreInfo.clients'=>array('sr'=>'Klijenti', 'en'=>'Clients'),
     'moreInfo.gallery'=>array('sr'=>'Foto galerija', 'en'=>'Photo Gallery'),
+   
     
     //Bginfo
-    'bginfo-box.gallery.label'=>array('sr'=>'Bg Info Pano galerija', 'en'=>'Bg Info Pano gallery'),
-    'bginfo-map.gallery.label'=>array('sr'=>'Bg Info Mape izdanja', 'en'=>'Bg Info Map editions'),
-    'bginfo-night-map.gallery.label'=>array('sr'=>'Bg Info Night Map izdanja', 'en'=>'Bg Info Night Maps editions'),
-    'putovanje-za-dvoje.gallery.label'=>array('sr'=>'Putovanje za dvoje', 'en'=>'Travel for two'),
-    'pocket.gallery.label'=>array('sr'=>'In your pocket vodiči', 'en'=>'In your pocket city guides'),
-    'bginfo-map.current.label'=>array('sr'=>'Aktuelno izdanje Bg Info Mape', 'en'=>'Current Bg Info Map edition'),
+    'bginfo-box.gallery.label'=>array('sr'=>'Bg Info Pano galerija', 'en'=>'Bg Info Pano Gallery'),
+    'bginfo-map.gallery.label'=>array('sr'=>'Bg Info Mape izdanja', 'en'=>'Bg Info Map Editions'),
+    'bginfo-night-map.gallery.label'=>array('sr'=>'Bg Info Night Map izdanja', 'en'=>'Bg Info Night Maps Editions'),
+    'putovanje-za-dvoje.gallery.label'=>array('sr'=>'Putovanja za dvoje', 'en'=>'Travels for two'),
+    'pocket.gallery.label'=>array('sr'=>'In your pocket vodiči', 'en'=>'In Your Pocket City Guides'),
+    'bginfo-map.current.label'=>array('sr'=>'Aktuelno izdanje Bg Info Mape', 'en'=>'Current Bg Info Map Edition'),
     'bginfo-map.last_five_archive.label'=>array('sr'=>'Poslednjih 5 izdanja Bg Info Mape', 'en'=>'Last 5 Bg Info Map editions'),
-    'bginfo-night-map.current.label'=>array('sr'=>'Aktuelno izdanje Bg Info Night Mape', 'en'=>'Current Bg Info Night Map edition'),
+    'bginfo-night-map.current.label'=>array('sr'=>'Aktuelno izdanje Bg Info Night Mape', 'en'=>'Current Bg Info Night Map Edition'),
     'bginfo-night-map.last_five_archive.label'=>array('sr'=>'Poslednjih 5 izdanja Bg Info Night Mape', 'en'=>'Last 5 Bg Info Night Map editions'),
     'putovanje-za-dvoje.current.label'=>array('sr'=>'Aktuelno izdanje Putovanje za dvoje', 'en'=>'Current Travel for two edition'),
     'putovanje-za-dvoje.last_five_archive.label'=>array('sr'=>'Poslednjih 5 izdanja Putovanje za dvoje', 'en'=>'Last 5 Travel for two editions'),
@@ -64,18 +67,20 @@ $translate = array(
     'ads.label'=>array('sr'=>'Cenovnik oglašavanja','en'=>'Advertise Price list'),
     'ads-question.label'=>array('sr'=>'Želite da se oglašavate','en'=>'Interested in advertisment'),
     'ads-question.sublabel'=>array('sr'=>'Pošaljite nam vaše zahteve','en'=>'Send us your requests'),
+    'ads-sent.ok'=>array('sr'=>'Zahtev je uspešno poslat!','en'=>'The request was sent successfully!'),
+    'ads-sent.error'=>array('sr'=>'Zahtev nije uspešno poslat, pokušajte ponovo!','en'=>'The request is not sent successfully, please try again!'),
     
     //Location
     'location.label'=>array('sr'=>'Lokacije','en'=>'Locations'),
     'location.sublabel'=>array('sr'=>'Spisak distributivnih mesta','en'=>'List of distributors'),
-    
+    'location.distributors'=>array('sr'=>'Distributeri - ','en'=>'Distributors - '),
     //Download
     'download.label'=>array('sr'=>'Preuzimanje','en'=>'Download'),
     'download.sublabel'=>array('sr'=>'Preuzmi aktivno izdanje','en'=>'Download current edition'),
     
     //Archive
     'archive.label'=>array('sr'=>'Arhiva','en'=>'Archive'),
-    'archive.sublabel'=>array('sr'=>'Pogledaj sva izdanja','en'=>'View recent editions'),
+    'archive.sublabel'=>array('sr'=>'Pogledaj sva izdanja','en'=>'View all editions'),
     
     //Page position
     'page.0.label'=>array('sr'=>'Naslovna strana aktuelnog izdanja','en'=>'Front side of current edition'),
@@ -83,8 +88,8 @@ $translate = array(
     'page.2.label'=>array('sr'=>'Poleđina aktuelnog izdanja','en'=>'Backside of current edition'),
     
     //Guide
-    'guide.label'=>array('sr'=>'Vodič kroz Beograd', 'en'=>'Belgrade Guide'),
-    'guide-highlights.label'=>array('sr'=>'Izdvajamo', 'en'=>'Highlights'),
+    'guide.label'=>array('sr'=>'Vodič kroz Beograd - izdvajamo', 'en'=>'Belgrade Guide - Highlights'),
+    'guide-highlights.label'=>array('sr'=>'Preporučujemo', 'en'=>'We recommened'),
     //Archive
     'complete-archive.label'=>array('sr'=>'Kompletna arhiva', 'en'=>'Complete archive'),
     'archive-bginfomap.label'=>array('sr'=>'BG Info Map arhiva', 'en'=>'BG Info Map Archive'),
@@ -106,5 +111,12 @@ $translate = array(
     'contact.email'=>array('sr'=>'Kontakt email', 'en'=>'Contact email'),
     'contact.phone'=>array('sr'=>'Telefon', 'en'=>'Phone'),
     'contact.message'=>array('sr'=>'Poruka', 'en'=>'Message'),
-    
+    //Footer
+    'footer-editions.label'=>array('sr'=>'Izdanja', 'en'=>'Editions'),
+    'footer-info.label'=>array('sr'=>'Beograd Info', 'en'=>'Belgrade Info'),
+    //Events
+    'events.all'=>array('sr'=>'Događaji u Beogradu', 'en'=>'Belgrade Events'),
+   //404
+    '404.no_page'=>array('sr'=>'Hmm... stranica koju tražite ne postoji', 'en'=>'Hmm ... The page you are looking for does not exist'),
+    '404.homepage'=>array('sr'=>'Vratite se na početnu stranu', 'en'=>'Go to home page'),
 );

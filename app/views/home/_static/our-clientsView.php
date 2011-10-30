@@ -12,7 +12,7 @@
                         <? if($p['id'] == 1 || $p['id'] == 4) continue;?>
                             <th width="49"><?= $p['title']; ?></th>
                         <? endforeach; ?>
-                        <th width="49">Pocket izdanja</th>
+                        <th width="49">In Your Pocket</th>
                     </tr>
                 </thead>
                 <tbody>

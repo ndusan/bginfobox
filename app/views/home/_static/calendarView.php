@@ -3,7 +3,7 @@
         <? if (!empty($calendarCollection)): ?>
             <!-- All calendar -->
             <div class="boxTitle">
-                <h2>Sva desavanja</h2>
+                <h2><?= $_t['events.all'][$params['lang']]; ?></h2>
             </div>
 
             <ul class="calendarAll">

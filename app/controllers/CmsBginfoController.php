@@ -28,9 +28,9 @@ class CmsBginfoController extends Controller
             if($this->db->updateBginfo($params['static'])){
                 
                 
-                parent::redirect ('cms'.DS.'bginfo', 'success');
+                parent::redirect ('cms'.DS.'bginfo', 'success', '#fragment-'.$params['page_id']);
             }else{
-                parent::redirect ('cms'.DS.'bginfo'.DS.'edit'.DS.$params['page_id'].DS.'static', 'error');
+                parent::redirect ('cms'.DS.'bginfo'.DS.'edit'.DS.$params['page_id'].DS.'static', 'error', '#fragment-'.$params['page_id']);
             }
         }
         
@@ -76,7 +76,7 @@ class CmsBginfoController extends Controller
                             $this->createThumbImage($newImageName, 'bginfo', 170, 240);
                         }
                     }else{
-                        parent::redirect ('cms'.DS.'bginfo'.DS.'add'.DS.$params['page_id'].DS.'edition', 'error');
+                        parent::redirect ('cms'.DS.'bginfo'.DS.'add'.DS.$params['page_id'].DS.'edition', 'error', '#fragment-'.$params['page_id']);
                     }
                 }
                 
@@ -89,7 +89,7 @@ class CmsBginfoController extends Controller
                 }
             }
             
-            parent::redirect ('cms'.DS.'bginfo', 'success');
+            parent::redirect ('cms'.DS.'bginfo', 'success', '#fragment-'.$params['page_id']);
         }
         
         parent::set('settings', $this->db->getCurrentStaticPage($params['page_id']));
@@ -144,7 +144,7 @@ class CmsBginfoController extends Controller
                 $this->reUploadImage($oldImageName, $newImageName, $params['download'], 'bginfo');
             }
             
-            parent::redirect ('cms'.DS.'bginfo', 'success');
+            parent::redirect ('cms'.DS.'bginfo', 'success', '#fragment-'.$params['page_id']);
         }
         
         parent::set('download', $this->db->getDownload($params['id']));
@@ -183,9 +183,9 @@ class CmsBginfoController extends Controller
                 $this->deleteImage($oldFileName, 'bginfo');
             }
             
-            parent::redirect ('cms'.DS.'bginfo', 'success');
+            parent::redirect ('cms'.DS.'bginfo', 'success', '#fragment-'.$params['page_id']);
         }else{
-            parent::redirect ('cms'.DS.'bginfo', 'error');
+            parent::redirect ('cms'.DS.'bginfo', 'error', '#fragment-'.$params['page_id']);
         }        
     }
     
