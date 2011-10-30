@@ -236,7 +236,7 @@ class Controller {
         $mime_boundary = "==Multipart_Boundary_x{$semi_rand}x";
 
         // headers for attachment 
-        $headers .= "\nMIME-Version: 1.0\n" . "Content-Type: multipart/mixed;\n" . " boundary=\"{$mime_boundary}\"";
+        $headers .= "\nMIME-Version: 1.0\r\n" . "Content-Type: multipart/mixed;\n" . " boundary=\"{$mime_boundary}\"";
 
         //Build html for message
         $messageHtml = '';
@@ -276,9 +276,9 @@ class Controller {
         }
         
         // multipart boundary 
-        $messageCollection = "--{$mime_boundary}\n" . "Content-Type: text/plain; charset=\"utf-8\"\n" .
+        $messageCollection = "--{$mime_boundary}\n" . "Content-Type: text/html; charset=utf-8\r\n" .
                 "Content-Transfer-Encoding: 7bit\n\n" . $messageHtml . "\n\n";
-
+        
         // preparing attachments
         if (!empty($files)) {
             try {
