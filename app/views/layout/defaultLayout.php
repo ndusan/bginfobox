@@ -26,9 +26,9 @@
             <div class="topNavW">
                 <div class="topNav">
                     <ul class="soc">
-                        <li><a href="#" class="facebook">Facebook</a></li>
-                        <li><a href="#" class="twitter">Twitter</a></li>
-                        <li><a href="#" class="youtube">Youtube</a></li>
+                        <li><a href="http://www.facebook.com/profile.php?id=100003034498674" target="_blank" class="facebook">Facebook</a></li>
+                        <li><a href="https://twitter.com/#!/BGinfoBox" target="_blank" class="twitter">Twitter</a></li>
+                        <!--<li><a href="#" class="youtube">Youtube</a></li> -->
                     </ul>
                     <ul class="lang">
                         <? foreach ($activeLangs as $key => $val): ?>
