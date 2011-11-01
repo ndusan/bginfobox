@@ -217,6 +217,7 @@
                         <? $url = array(1=>'bginfo-box',2=>'bginfo-map',3=>'bginfo-nigth-map',4=>'pockets');?>
                         <ul>
                             <? foreach($footer['editions'] as $f):?>
+                            <? if($f['id']==4) continue; ?>
                             <li><a href="<?=(DS.$params['lang'].DS.$url[$f['id'] > 3 ? 4 : $f['id']]);?>"><?=$f['title'];?></a></li>
                             <? endforeach;?>
                         </ul>
