@@ -69,7 +69,7 @@
                 <li>info@net-svet.com<br /><br /></li>
                             
             </ul>
-            <p><a href="../../../public/cms-smartfish-manual.pdf" >CMS user manual download</a></p>
+            <p><a href="<?=DS.'public'.DS.'cms-smartfish-manual.pdf';?>" target="_blank">CMS user manual download</a></p>
             
             
         </div>
