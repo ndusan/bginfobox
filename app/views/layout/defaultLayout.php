@@ -4,8 +4,8 @@
         <title>BG Info Box</title>
         <link rel="shortcut icon" href="<?= IMAGE_PATH . 'favicon.ico'; ?>" type="image/x-icon" />
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta name="Description" content="" />
-        <meta name="Keywords" content="" />
+        <meta name="Description" content="Vaš vodič kroz Beograd" />
+        <meta name="Keywords" content="beograd, beogradu, vodic, upoznajte, vodič, srbija, hoteli, kultura, turizam, restorani, zabava" />
         <meta http-equiv="X-UA-Compatible" content="IE=7" />
         <!-- Load all assets (js + css) -->
         <?= $html->assetsJs('jquery-1.6.4.min', ASSETS_JS_PATH); ?>
@@ -26,9 +26,9 @@
             <div class="topNavW">
                 <div class="topNav">
                     <ul class="soc">
-                        <li><a href="#" class="facebook">Facebook</a></li>
-                        <li><a href="#" class="twitter">Twitter</a></li>
-                        <li><a href="#" class="youtube">Youtube</a></li>
+                        <li><a href="http://www.facebook.com/profile.php?id=100003034498674" target="_blank" class="facebook">Facebook</a></li>
+                        <li><a href="https://twitter.com/#!/BGinfoBox" target="_blank" class="twitter">Twitter</a></li>
+                        <!--<li><a href="#" class="youtube">Youtube</a></li> -->
                     </ul>
                     <ul class="lang">
                         <? foreach ($activeLangs as $key => $val): ?>
@@ -217,6 +217,7 @@
                         <? $url = array(1=>'bginfo-box',2=>'bginfo-map',3=>'bginfo-nigth-map',4=>'pockets');?>
                         <ul>
                             <? foreach($footer['editions'] as $f):?>
+                            <? if($f['id']==4) continue; ?>
                             <li><a href="<?=(DS.$params['lang'].DS.$url[$f['id'] > 3 ? 4 : $f['id']]);?>"><?=$f['title'];?></a></li>
                             <? endforeach;?>
                         </ul>

@@ -74,6 +74,7 @@ input[type=submit]:hover {cursor:pointer; background-image:-moz-linear-gradient(
 .wrapper {padding:0 50px 50px 0; overflow:hidden;}
 .sidebar {width:200px; float:left; padding:60px 0 0;}
 .content {background-color:#FFF; margin:0 0 0 200px; border:solid 1px #bad4e3; border-top:none; min-width:780px; min-height:500px; position:relative; box-shadow:0 0 5px #CCC;}
+.footer {margin:0 0 0 200px;  min-width:780px; text-align:center; padding:20px 0 0;}
 
 ul.mainNav {overflow:hidden; border-top:solid 1px #bad4e3;}
 ul.mainNav li {border-bottom:solid 1px #bad4e3; text-align:right;}

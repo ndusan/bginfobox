@@ -58,6 +58,9 @@
                 <?php if (file_exists(VIEW_PATH . $this->_controller . DS . $this->_action . 'View.php'))
                     include (VIEW_PATH . $this->_controller . DS . $this->_action . 'View.php'); ?>
             </div>
+            <div class="footer">
+                <img src="<?= IMAGE_PATH . 'Smartfish1.png'; ?>" />
+            </div>
 
 
             <? if (isset($_GET['q'])): ?>

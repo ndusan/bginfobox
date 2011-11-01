@@ -55,7 +55,23 @@
             </table>
         </div>
         <div id="fragment-2" class="addContent">
-            Welcome to CMS
+            <p>Welcome to Smartfish CMS<br /><br /></p>
+            
+            <ul>
+                
+                <li>CMS and website created by:<br /><br /></li>
+                <li>Dušan Novaković</li>
+                <li>Emil Ajduk</li>
+                <li>Katarina Đurić Jovanović<br /><br /></li>
+            </ul>
+            <ul>
+                <li>Net Svet, Belgrade</li>
+                <li>info@net-svet.com<br /><br /></li>
+                            
+            </ul>
+            <p><a href="<?=DS.'public'.DS.'cms-smartfish-manual.pdf';?>" target="_blank">CMS user manual download</a></p>
+            
+            
         </div>
     </form>
 </div>
