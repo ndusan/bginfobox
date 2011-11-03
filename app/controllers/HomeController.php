@@ -308,19 +308,19 @@ class HomeController extends Controller
         switch($params['page']){
             case 'bginfo-map': 
                 
-                $this->getAchiveByName($params['page']); 
+                $this->getAchiveByName($params); 
                 break;
             case 'bginfo-night-map': 
                 
-                $this->getAchiveByName($params['page']); 
+                $this->getAchiveByName($params); 
                 break;
             case 'putovanje-za-dvoje': 
                 
-                $this->getAchiveByName($params['page']); 
+                $this->getAchiveByName($params); 
                 break;
             case 'pockets': 
                 
-                $this->getAchiveByName(); 
+                $this->getAchiveByName($params); 
                 break;
         }
     }
@@ -588,9 +588,18 @@ class HomeController extends Controller
         parent::set('info', $this->db->getPocketsInfo());
     }
     
-    private function getAchiveByName($name=null)
+    private function getAchiveByName($params)
     {
-        $id = null == $name ? null : $this->pages[$name];
+        $id = null;
+        if(!array_key_exists($params['page'], $this->pages)){
+            if(null != $params['id']){
+                $id = $params['id'];
+            }
+        }else{
+            $id = $this->pages[$params['page']];
+        }
+        
+        parent::set('pageTitle', $this->db->getPageTitle($id));
         parent::set('archiveCollection', $this->db->getArchiveById($id));
         
     }

@@ -1,7 +1,7 @@
 <div class="main">
     <div class="mainBox">
         <div class="boxTitle">
-            <h1><?= $_t['archive-bginfomap.label'][$params['lang']]; ?></h1>
+            <h1><?=$_t['menu.archive'][$params['lang']];?> - <?=$pageTitle['title'];?></h1>
         </div>
         <? if(!empty($archiveCollection)):?>
         <ul class="archiveAll">

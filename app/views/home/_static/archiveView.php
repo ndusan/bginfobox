@@ -10,11 +10,10 @@
             <li>
                 <ul>
                     <? if(!empty($ac['edition_images'])):?>
-                    <? $tmp = ($ac['id'] > 4 ? 'pockets' : $array[$ac['id']]); ?>
                     <? $tmpFolder = ($ac['id'] > 4 ? 'pockets' : 'bginfo'); ?>
                     <? foreach($ac['edition_images'] as $e):?>
                     <li>
-                        <a href="<?=(DS . $params['lang'] . DS . 'archive' . DS.  $tmp); ?>">
+                        <a href="<?=(DS . $params['lang'] . DS . 'archive' . DS.  ($ac['id'] > 4 ? 'pockets?id='.$ac['id'] : $array[$ac['id']])); ?>">
                             <img src="<?=(DS.'public'.DS.'uploads'.DS.$tmpFolder.DS.'thumb-'.$e['image_name']); ?>" />
                         </a>
                     </li>
