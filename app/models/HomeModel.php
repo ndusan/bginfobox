@@ -572,6 +572,22 @@ class HomeModel extends Model
     }
     
     
+    public function getPageTitle($id){
+        
+        try{
+            $query = sprintf("SELECT * FROM %s WHERE `id`=:id", $this->tblPages);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+
+            return $stmt->fetch();
+        }catch(Exception $e){
+
+            return false;
+        }
+    }
+    
     
     public function getBginfo($pageId){
         

@@ -60,8 +60,8 @@ $translate = array(
     'bginfo-map.last_five_archive.label'=>array('sr'=>'Poslednjih 5 izdanja Bg Info Mape', 'en'=>'Last 5 Bg Info Map editions'),
     'bginfo-night-map.current.label'=>array('sr'=>'Aktuelno izdanje Bg Info Night Mape', 'en'=>'Current Bg Info Night Map Edition'),
     'bginfo-night-map.last_five_archive.label'=>array('sr'=>'Poslednjih 5 izdanja Bg Info Night Mape', 'en'=>'Last 5 Bg Info Night Map editions'),
-    'putovanje-za-dvoje.current.label'=>array('sr'=>'Aktuelno izdanje Putovanje za dvoje', 'en'=>'Current Travel for two edition'),
-    'putovanje-za-dvoje.last_five_archive.label'=>array('sr'=>'Poslednjih 5 izdanja Putovanje za dvoje', 'en'=>'Last 5 Travel for two editions'),
+    'putovanje-za-dvoje.current.label'=>array('sr'=>'Aktuelno izdanje Putovanja za dvoje', 'en'=>'Current Travels for two edition'),
+    'putovanje-za-dvoje.last_five_archive.label'=>array('sr'=>'Poslednjih 5 izdanja Putovanja za dvoje', 'en'=>'Last 5 Travels for two editions'),
     
     //Ads
     'ads.label'=>array('sr'=>'Cenovnik oglašavanja','en'=>'Advertise Price list'),
@@ -88,11 +88,11 @@ $translate = array(
     'page.2.label'=>array('sr'=>'Poleđina aktuelnog izdanja','en'=>'Backside of current edition'),
     
     //Guide
-    'guide.label'=>array('sr'=>'Vodič kroz Beograd - izdvajamo', 'en'=>'Belgrade Guide - Highlights'),
-    'guide-highlights.label'=>array('sr'=>'Preporučujemo', 'en'=>'We recommened'),
+    'guide.label'=>array('sr'=>'Vodič kroz Beograd', 'en'=>'Belgrade Guide'),
+    'guide-highlights.label'=>array('sr'=>'Izdvajamo', 'en'=>'Highlights'),
     //Archive
     'complete-archive.label'=>array('sr'=>'Kompletna arhiva', 'en'=>'Complete archive'),
-    'archive-bginfomap.label'=>array('sr'=>'BG Info Map arhiva', 'en'=>'BG Info Map Archive'),
+    
     //Advertising
     'advertising.company'=>array('sr'=>'Naziv firme', 'en'=>'Company'),
     'advertising.activity'=>array('sr'=>'Delatnost', 'en'=>'Activity'),
@@ -116,7 +116,5 @@ $translate = array(
     'footer-info.label'=>array('sr'=>'Beograd Info', 'en'=>'Belgrade Info'),
     //Events
     'events.all'=>array('sr'=>'Događaji u Beogradu', 'en'=>'Belgrade Events'),
-   //404
-    '404.no_page'=>array('sr'=>'Hmm... stranica koju tražite ne postoji', 'en'=>'Hmm ... The page you are looking for does not exist'),
-    '404.homepage'=>array('sr'=>'Vratite se na početnu stranu', 'en'=>'Go to home page'),
+   
 );
