@@ -533,11 +533,13 @@ class HomeModel extends Model
         try{
             $output = array();
             
-            if(null == $pageId){
+            
+            if($pageId>4){
                 //Pockets
-                $query = sprintf("SELECT * FROM %s WHERE `page_id`>4", $this->tblPagePocketEditionImages);
+                $query = sprintf("SELECT * FROM %s WHERE `page_id`=:pageId", $this->tblPagePocketEditionImages);
                 $stmt = $this->dbh->prepare($query);
-
+                
+                $stmt->bindParam(':pageId', $pageId, PDO::PARAM_INT);
                 $stmt->execute();
 
                 $results = $stmt->fetchAll();
