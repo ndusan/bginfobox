@@ -21,7 +21,7 @@
                     <? endif;?>
                     <li class="last">
                         <p><b><?=$ac['title'];?></b></p>
-                        <a href="<?=(DS . $params['lang'] . DS . 'archive' . DS.  $tmp); ?>"><?=$_t['complete-archive.label'][$params['lang']];?></a>
+                        <a href="<?=(DS . $params['lang'] . DS . 'archive' . DS.  ($ac['id'] > 4 ? 'pockets?id='.$ac['id'] : $array[$ac['id']])); ?>"><?=$_t['complete-archive.label'][$params['lang']];?></a>
                     </li>
                 </ul>
             </li>
@@ -29,8 +29,6 @@
         </ul>
         <? endif;?>
     </div>
-    <!-- Load belgrade guide-->
-    <? include_once VIEW_PATH.'home'.DS.'_static'.DS.'_guide.php'; ?>
 </div>
 <!-- Load banners -->
 <? include_once VIEW_PATH.'home'.DS.'_static'.DS.'_banners.php'; ?>

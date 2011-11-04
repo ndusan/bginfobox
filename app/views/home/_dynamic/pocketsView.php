@@ -42,7 +42,7 @@
                             </a>
                         </span>
                         <span class="icoArc">
-                            <a href="<?= (DS . $params['lang'] . DS . 'archive' . DS . 'pockets'); ?>">
+                            <a href="<?= (DS . $params['lang'] . DS . 'archive' . DS . 'pockets?id=' . $gc['page_id']); ?>">
                                 <?= $_t['archive.label'][$params['lang']]; ?> 
                             </a>
                         </span>
