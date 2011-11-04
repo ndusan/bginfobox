@@ -164,52 +164,67 @@ class HTML {
       
         $response = '';
         if (isset($city_id) && !empty($city_id)) {
-            $requestAddress = $city_id;
+            try{
+                $requestAddress = $city_id;
 
-            $xml_str = file_get_contents("http://xoap.weather.com/weather/local/" . $requestAddress . "?cc=*&dayf=5&link=xoap&prod=xoap&par=1225844858&key=e874d961c427e609", 0);
-            // Parses XML
-            $xml = new SimplexmlElement($xml_str);
-            //print_r($xml);
-            // Name
-            $response.= '<table class="widgWeather" cellspacing="0" cellpading="0" width="100%"><tbody>';
-            //Set date
-            $date = substr($xml->dayf->lsup, 0, 8);
-            $date = explode("/", $date);
-            $day = 0;
-            $countDays = $showDays;
-            foreach ($xml->dayf->day as $item) {
-                if ($item->hi != 'N/A') {
-                    $day++;
-                    $response.= '<tr><td width="50%" align="center">';
-                    $max = round((5 / 9) * ($item->low - 32));
-                    $response .= 'min temp: ' . $max . '&deg';
-                    $min = round((5 / 9) * ($item->hi - 32));
-                    $response.= '</td><td align="center">';
-                    $response .= 'max temp: ' . $min . '&deg';
-                    $response.= '</tr>';
-                    $first = true;
-                    $response.= '<tr>';
-                    foreach ($item->part as $new) {
-                        //Image
-                        $response .= '<td align="center">';
-                        $response .= '<img src="http://s.imwx.com/v.20100415.153311/img/wxicon/45/' . $new->icon . '.png"/>';
-                        $response .= '<label>' . ($first ? $langs['day'] : $langs['evening']) . '</label>';
-                        $response.= '</td>';
-                        $first = false;
+                //$xml_str = file_get_contents("http://xoap.weather.com/weather/local/" . $requestAddress . "?cc=*&dayf=5&link=xoap&prod=xoap&par=1225844858&key=e874d961c427e609", 0);
+
+                $ch = curl_init();
+
+                curl_setopt($ch, CURLOPT_HEADER, 0);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); //Set curl to return the data instead of printing it to the browser.
+                curl_setopt($ch, CURLOPT_URL, "http://xoap.weather.com/weather/local/" . $requestAddress . "?cc=*&dayf=5&link=xoap&prod=xoap&par=1225844858&key=e874d961c427e609");
+
+                $xml_str = curl_exec($ch);
+                curl_close($ch);
+
+                // Parses XML
+                $xml = new SimplexmlElement($xml_str);
+                //print_r($xml);
+                // Name
+                $response.= '<table class="widgWeather" cellspacing="0" cellpading="0" width="100%"><tbody>';
+                //Set date
+                $date = substr($xml->dayf->lsup, 0, 8);
+                $date = explode("/", $date);
+                $day = 0;
+                $countDays = $showDays;
+                foreach ($xml->dayf->day as $item) {
+                    if ($item->hi != 'N/A') {
+                        $day++;
+                        $response.= '<tr><td width="50%" align="center">';
+                        $max = round((5 / 9) * ($item->low - 32));
+                        $response .= 'min temp: ' . $max . '&deg';
+                        $min = round((5 / 9) * ($item->hi - 32));
+                        $response.= '</td><td align="center">';
+                        $response .= 'max temp: ' . $min . '&deg';
+                        $response.= '</tr>';
+                        $first = true;
+                        $response.= '<tr>';
+                        foreach ($item->part as $new) {
+                            //Image
+                            $response .= '<td align="center">';
+                            $response .= '<img src="http://s.imwx.com/v.20100415.153311/img/wxicon/45/' . $new->icon . '.png"/>';
+                            $response .= '<label>' . ($first ? $langs['day'] : $langs['evening']) . '</label>';
+                            $response.= '</td>';
+                            $first = false;
+                        }
+                        $response .= '</tr>';
+                        --$countDays;
+
+                        if ($countDays <= 0)
+                            break;
                     }
-                    $response .= '</tr>';
-                    --$countDays;
-
-                    if ($countDays <= 0)
-                        break;
                 }
-            }
-            $response.= '</tbody>
-                                </table>';
+                $response.= '</tbody>
+                                    </table>';
 
-            Cache::set(array('key' => 'weather'.date('Y-m-d'), 'data' => $response));
-            
-            return $response;
+                Cache::set(array('key' => 'weather'.date('Y-m-d'), 'data' => $response));
+
+                return $response;
+            }catch(Exception $e){
+                
+                return 'Error while loading data';
+            }
         }
     }
 
@@ -225,9 +240,17 @@ class HTML {
 
             //Url
             $part1 = 'http://www.nbs.rs/kursnaListaModul/zaDevize.faces?lang=lat';
-            $part2 = file_get_contents($part1);
-            $address = $part2;
+            $ch = curl_init();
+ 
+            curl_setopt($ch, CURLOPT_HEADER, 0);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); //Set curl to return the data instead of printing it to the browser.
+            curl_setopt($ch, CURLOPT_URL, $part1);
 
+            $part2 = curl_exec($ch);
+            curl_close($ch);
+            //$part2 = file_get_contents($part1);
+            $address = $part2;
+            
             $output = array();
 
             if (!$part2) {
