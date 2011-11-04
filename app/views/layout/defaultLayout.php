@@ -214,7 +214,7 @@
                 <ul class="bottomLinks">
                     <li><b><?= $_t['footer-editions.label'][$params['lang']]; ?></b>
                         <? if(!empty($footer['editions'])):?>
-                        <? $url = array(1=>'bginfo-box',2=>'bginfo-map',3=>'bginfo-nigth-map',4=>'pockets');?>
+                        <? $url = array(1=>'bginfo-box',2=>'bginfo-map',3=>'bginfo-night-map',4=>'pockets');?>
                         <ul>
                             <? foreach($footer['editions'] as $f):?>
                             <? if($f['id']==4) continue; ?>

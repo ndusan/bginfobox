@@ -240,7 +240,7 @@ class HTML {
                 $value = strpos($address, $valuta);
 
                 $EUR = '';
-                for ($i = $value + 220; $i <= $value + 225; $i++)
+                for ($i = $value + 221; $i <= $value + 226; $i++)
                     $EUR .= $address{$i};
                 $tmp = str_replace('<td class="tableCell" style="text-align:center;">', "", str_replace("</td>", "", $valuta));
                 $output[$tmp] = array(
