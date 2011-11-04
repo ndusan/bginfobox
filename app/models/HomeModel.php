@@ -665,9 +665,9 @@ class HomeModel extends Model
             $query = sprintf('SELECT * FROM %s AS `c`
                                 INNER JOIN %s AS `cp` ON `cp`.`client_id`=`c`.`id`
                                 WHERE `cp`.`page_id`=:pageId 
-                                ORDER BY `slug` ASC', $this->tblClients, $this->tblClientPages);
+                                ORDER BY `title` ASC', $this->tblClients, $this->tblClientPages);
             $stmt = $this->dbh->prepare($query);
-
+            
             $stmt->bindParam(':pageId', $pageId, PDO::PARAM_INT);
             $stmt->execute();
 
