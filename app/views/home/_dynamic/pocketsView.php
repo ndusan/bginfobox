@@ -42,7 +42,7 @@
                             </a>
                         </span>
                         <span class="icoArc">
-                            <a href="<?= (DS . $params['lang'] . DS . 'archive' . DS . 'pockets?id=' . $gc['page_id']); ?>">
+                            <a href="<?= (DS . 'public' . DS . 'uploads' . DS . 'pockets' . DS . $gc['file_name']); ?>" target="_blank">
                                 <?= $_t['archive.label'][$params['lang']]; ?> 
                             </a>
                         </span>

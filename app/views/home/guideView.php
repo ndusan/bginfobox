@@ -17,7 +17,9 @@
         <div class="boxIntro wys">
             <span class="img">
                 <? if(!empty($intro['image_name'])):?>
-                <img src="<?=(DS.'public'.DS.'uploads'.DS.'clients'.DS.$intro['image_name']);?>">
+                <img src="<?=(DS.'public'.DS.'uploads'.DS.'clients'.DS.$intro['image_name']);?>" />
+                <? else: ?>
+                <img src="<?=(DS.'public'.DS.'images'.DS.'noLogo.jpg');?>" />
                 <? endif; ?>
             </span>
             <!-- tekst kroz editor -->
@@ -32,8 +34,10 @@
             <? foreach($adsPaid as $ap):?>
             <li>
                 <span class="img">
-                    <? if(!empty($ap['image_name'])):?>
-                    <img src="<?=(DS.'public'.DS.'uploads'.DS.'clients'.DS.$ap['image_name']);?>">
+                    <? if(!empty($ap['paid_image_name'])):?>
+                    <img src="<?=DS.'public'.DS.'uploads'.DS.'clients'.DS.$ap['paid_image_name'];?>" />
+                    <? else: ?>
+                    <img src="<?=DS.'public'.DS.'images'.DS.'noLogo.jpg';?>" />
                     <? endif;?>
                 </span>
                 <div class="adsPaidInfo">
@@ -63,7 +67,7 @@
         
         <? if(!empty($ads)):?>
         <div class="boxTitle1">
-            <h2>Spisak hotela</h2>
+            <h2><?= $_t['list.label'][$params['lang']]; ?> - <?=$intro['title_'.$params['lang']];?></h2>
         </div>
         <div class="adsRegular">
             <table width="100%" cellpadding="0">
@@ -74,7 +78,9 @@
                             <div class="client">
                                 <span class="img">
                                     <? if(!empty($ad['image_name'])):?>
-                                    <img src="<?=(DS.'public'.DS.'uploads'.DS.'clients'.DS.$ad['image_name']);?>">
+                                    <img src="<?=(DS.'public'.DS.'uploads'.DS.'clients'.DS.$ad['image_name']);?>" />
+                                    <? else: ?>
+                                    <img src="<?=DS.'public'.DS.'images'.DS.'noLogo.jpg';?>" />
                                     <? endif;?>
                                 </span>
                                 <ul class="clientInfo">

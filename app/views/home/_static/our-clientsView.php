@@ -20,7 +20,13 @@
                         <tr>
                             <td>
                                 <div class="client">
-                                    <span class="img"><img src="<?=(DS.'public'.DS.'uploads'.DS.'clients'.DS.'thumb-'.$c['image_name']); ?>" /></span>
+                                    <span class="img">
+                                        <? if(!empty($c['image_name'])):?>
+                                        <img src="<?=(DS.'public'.DS.'uploads'.DS.'clients'.DS.'thumb-'.$c['image_name']); ?>" />
+                                        <? else: ?>
+                                        <img src="<?=(DS.'public'.DS.'images'.DS.'noLogo.jpg'); ?>" />
+                                        <? endif;?>
+                                    </span>
                                     <ul class="clientInfo">
                                         <li>
                                             <h4><?= $c['title']; ?></h4>

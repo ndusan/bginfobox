@@ -53,7 +53,7 @@ class HomeController extends Controller
         //Lattest Sights
         $this->getLattestSights();
         
-        parent::set('lattestAdsPaid', $this->db->getAdsPaid(2));
+        parent::set('lattestAdsPaid', $this->db->getAdsPaid(null, 2));
         
         
         //Footer
@@ -169,7 +169,7 @@ class HomeController extends Controller
         //Lattest Sights
         $this->getLattestSights();
         
-        parent::set('lattestAdsPaid', $this->db->getAdsPaid(2));
+        parent::set('lattestAdsPaid', $this->db->getAdsPaid(null, 2));
         
         //Footer
         parent::set('footer', $this->db->getFooter());
@@ -230,7 +230,7 @@ class HomeController extends Controller
         //Lattest Sights
         $this->getLattestSights();
         
-        parent::set('lattestAdsPaid', $this->db->getAdsPaid(2));
+        parent::set('lattestAdsPaid', $this->db->getAdsPaid(null, 2));
         
         //Footer
         parent::set('footer', $this->db->getFooter());
@@ -303,7 +303,7 @@ class HomeController extends Controller
         //Footer
         parent::set('footer', $this->db->getFooter());
         
-        parent::set('lattestAdsPaid', $this->db->getAdsPaid(2));
+        parent::set('lattestAdsPaid', $this->db->getAdsPaid(null, 2));
         
         switch($params['page']){
             case 'bginfo-map': 
@@ -345,7 +345,6 @@ class HomeController extends Controller
         
         $adsPaid = array();
         $ads = array();
-        
         $slugArray = array();
         if(!empty($params['slug'])){
             $slugArray = explode('/', $params['slug']);
@@ -355,7 +354,7 @@ class HomeController extends Controller
         }
         //Get BG INFO tree
         $this->getBgInfoRootTree();
-        $adsPaid = $this->db->getAdsPaid();
+        $adsPaid = $this->db->getAdsPaid(end($slugArray));
         
         //Footer
         parent::set('footer', $this->db->getFooter());

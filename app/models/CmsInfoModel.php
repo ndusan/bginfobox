@@ -113,7 +113,7 @@ class CmsInfoModel extends Model
             $stmt->bindParam(':titleEn', $params['title_en'], PDO::PARAM_STR);
             $stmt->bindParam(':contentSr', $params['content_sr'], PDO::PARAM_STR);
             $stmt->bindParam(':contentEn', $params['content_en'], PDO::PARAM_STR);
-            $stmt->bindParam(':navigationId', $params['navigation_id'], PDO::PARAM_INT);
+            $stmt->bindParam(':navigationId', $params['navigation'], PDO::PARAM_INT);
             $stmt->bindParam(':id', $params['id'], PDO::PARAM_INT);
             $stmt->execute();
 

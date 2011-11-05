@@ -95,7 +95,7 @@ class CmsInfoController extends Controller
             $this->db->setImageName($params['id'], '');
             $this->deleteImage($data['image_name'], 'info');
         }
-        parent::redirect ('cms'.DS.'info'.DS.$params['id'].DS.'edit', 'success', '#fragment-2');
+        parent::redirect ('cms'.DS.'info'.DS.$params['id'].DS.'edit', 'success');
     }
     
     
