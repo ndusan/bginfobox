@@ -116,5 +116,7 @@ $translate = array(
     'footer-info.label'=>array('sr'=>'Beograd Info', 'en'=>'Belgrade Info'),
     //Events
     'events.all'=>array('sr'=>'Događaji u Beogradu', 'en'=>'Belgrade Events'),
+    //list
+    'list.label'=>array('sr'=>'Izdvajamo', 'en'=>'Hightlights'),
    
 );

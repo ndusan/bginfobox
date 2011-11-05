@@ -9,8 +9,10 @@
         <? foreach($lattestAdsPaid as $ap):?>
         <li>
             <span class="img">
-                <? if(!empty($ap['image_name'])):?>
-                <img src="<?=(DS.'public'.DS.'uploads'.DS.'clients'.DS.$ap['image_name']);?>">
+                <? if(!empty($ap['paid_image_name'])):?>
+                <img src="<?=(DS.'public'.DS.'uploads'.DS.'clients'.DS.$ap['paid_image_name']);?>" />
+                <? else: ?>
+                <img src="<?=(DS.'public'.DS.'images'.DS.'noLogo.jpg');?>" />
                 <? endif;?>
             </span>
             <div class="adsPaidInfo">

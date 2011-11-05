@@ -97,8 +97,6 @@
             <iframe width="530" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps/ms?vpsrc=0&amp;ctz=-120&amp;ie=UTF8&amp;msa=0&amp;msid=211964069630820333911.0004aff7d06b0026b0210&amp;t=h&amp;ll=44.794353,20.534091&amp;spn=0.002665,0.005686&amp;z=17&amp;output=embed"></iframe><br /><small>View <a href="http://maps.google.com/maps/ms?vpsrc=0&amp;ctz=-120&amp;ie=UTF8&amp;msa=0&amp;msid=211964069630820333911.0004aff7d06b0026b0210&amp;t=h&amp;ll=44.794353,20.534091&amp;spn=0.002665,0.005686&amp;z=17&amp;source=embed" style="color:#0000FF;text-align:left">BG Info Box </a> in a larger map</small>
         </div>
     </div>
-    <!-- Load belgrade guide-->
-    <? include_once VIEW_PATH.'home'.DS.'_static'.DS.'_guide.php'; ?>
 </div>
 <!-- Load banners -->
 <? include_once VIEW_PATH.'home'.DS.'_static'.DS.'_banners.php'; ?>

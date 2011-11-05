@@ -20,7 +20,7 @@
                     <td>
                         <div class="client">
                             <span class="img">
-                                <img src="<?=(DS.'public'.DS.'uploads'.DS.'clients'.DS.'thumb-'.$lc['image_name']);?>" />
+                                <img src="<?=(!empty($lc['image_name'])? DS.'public'.DS.'uploads'.DS.'clients'.DS.'thumb-'.$lc['image_name'] : DS.'public'.DS.'images'.DS.'noLogo.jpg');?>" />
                             </span>
                             <ul class="clientInfo">
                                 <li>

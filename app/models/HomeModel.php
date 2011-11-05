@@ -351,11 +351,10 @@ class HomeModel extends Model
         
         foreach ($dynamicPages as $d){
             
-            $query = sprintf("SELECT `a`.`title`, `a`.`has_link`, `a`.`link`, `b`.`file_name`, `c`.* FROM %s AS `a`
-                                LEFT JOIN %s AS `b` ON `b`.`page_id`=`a`.`id`
-                                INNER JOIN %s AS `c` ON `c`.`page_id`=`a`.`id`
-                                WHERE `a`.`id`=:id AND `c`.`position`='0' 
-                                ORDER BY `c`.`created` DESC LIMIT 0, 1", $this->tblPages, $this->tblPagePocketEdition, $this->tblPagePocketEditionImages); 
+            $query = sprintf("SELECT `b`.`file_name`, `c`.* FROM %s AS `b`
+                                INNER JOIN %s AS `c` ON `c`.`page_edition_id`=`b`.`id`
+                                WHERE `b`.`page_id`=:id AND `c`.`position`='0' 
+                                ORDER BY `c`.`created` DESC LIMIT 0, 1", $this->tblPagePocketEdition, $this->tblPagePocketEditionImages); 
                 
             $stmt = $this->dbh->prepare($query);
             
@@ -858,13 +857,14 @@ class HomeModel extends Model
     
     public function getAds($slug)
     {
+        
         try{
             
             $query = sprintf("SELECT `c`.* FROM %s AS `c` INNER JOIN %s AS `n` ON `n`.`id`=`c`.`navigation_id` 
-                                    WHERE  `c`.`paid`='1' AND `n`.`slug`=:slug ORDER BY `c`.`title` ASC", 
+                                    WHERE `n`.`slug`=:slug ORDER BY `c`.`title` ASC", 
                                     $this->tblClients, $this->tblNavigation);
             $stmt = $this->dbh->prepare($query);
-
+            
             $stmt->bindParam(':slug', $slug, PDO::PARAM_STR);
             $stmt->execute();
             
@@ -877,20 +877,33 @@ class HomeModel extends Model
     
     
     
-    public function getAdsPaid($limit=5)
+    public function getAdsPaid($slug, $limit=5)
     {
         try{
-            
-            $query = sprintf("SELECT `c`.* FROM %s AS `c` INNER JOIN %s AS `n` ON `n`.`id`=`c`.`navigation_id` 
-                                WHERE  `c`.`paid`='1' AND :date BETWEEN `date_start` AND `date_end` ORDER BY RAND() LIMIT 0, ".$limit, 
-                                    $this->tblClients, $this->tblNavigation);
-            $stmt = $this->dbh->prepare($query);
-            
-            $date = date('Y-m-d');
-            $stmt->bindParam(':date', $date, PDO::PARAM_STR);
-            $stmt->execute();
-            
-            return $stmt->fetchAll();
+            if(null != $slug){
+                $query = sprintf("SELECT `c`.* FROM %s AS `c` INNER JOIN %s AS `n` ON `n`.`id`=`c`.`navigation_id` 
+                                    WHERE  `n`.`slug`=:slug AND `c`.`paid`='1' AND :date BETWEEN `date_start` AND `date_end` ORDER BY RAND() LIMIT 0, ".$limit, 
+                                        $this->tblClients, $this->tblNavigation);
+                $stmt = $this->dbh->prepare($query);
+
+                $date = date('Y-m-d');
+                $stmt->bindParam(':slug', $slug, PDO::PARAM_STR);
+                $stmt->bindParam(':date', $date, PDO::PARAM_STR);
+                $stmt->execute();
+
+                return $stmt->fetchAll();
+            }else{
+                $query = sprintf("SELECT `c`.* FROM %s AS `c` INNER JOIN %s AS `n` ON `n`.`id`=`c`.`navigation_id` 
+                                    WHERE  `c`.`paid`='1' AND :date BETWEEN `date_start` AND `date_end` ORDER BY RAND() LIMIT 0, ".$limit, 
+                                        $this->tblClients, $this->tblNavigation);
+                $stmt = $this->dbh->prepare($query);
+
+                $date = date('Y-m-d');
+                $stmt->bindParam(':date', $date, PDO::PARAM_STR);
+                $stmt->execute();
+
+                return $stmt->fetchAll();
+            }
         }catch(Exception $e){
             
             return false;
@@ -903,7 +916,7 @@ class HomeModel extends Model
         
         try{
             
-            $query = sprintf("SELECT `c`.* FROM %s AS `c` INNER JOIN %s AS `n` ON `n`.`id`=`c`.`navigation_id` WHERE `n`.`slug`=:slug ORDER BY RAND() ASC", 
+            $query = sprintf("SELECT `c`.* FROM %s AS `c` INNER JOIN %s AS `n` ON `n`.`id`=`c`.`navigation_id` WHERE `n`.`slug`=:slug ORDER BY `c`.`id` ASC", 
                                     $this->tblInfo, $this->tblNavigation);
             $stmt = $this->dbh->prepare($query);
 
