@@ -535,7 +535,9 @@ class HomeModel extends Model
             
             if($pageId>4){
                 //Pockets
-                $query = sprintf("SELECT * FROM %s WHERE `page_id`=:pageId", $this->tblPagePocketEditionImages);
+                $query = sprintf("SELECT `pei`.*, `pe`.`file_name` FROM %s AS `pei` 
+                                    LEFT JOIN %s AS `pe` ON `pe`.`id`=`pei`.`page_edition_id`
+                                    WHERE `pei`.`page_id`=:pageId", $this->tblPagePocketEditionImages, $this->tblPagePocketEdition);
                 $stmt = $this->dbh->prepare($query);
                 
                 $stmt->bindParam(':pageId', $pageId, PDO::PARAM_INT);
@@ -550,7 +552,9 @@ class HomeModel extends Model
 
             }else{
                 //Rest
-                $query = sprintf("SELECT * FROM %s WHERE `page_id`=:pageId", $this->tblPageEditionImages);
+                $query = sprintf("SELECT `pei`.*, `pe`.`file_name` FROM %s AS `pei` 
+                                    LEFT JOIN %s AS `pe` ON `pe`.`id`=`pei`.`page_edition_id`
+                                    WHERE `pei`.`page_id`=:pageId", $this->tblPageEditionImages, $this->tblPageEdition);
                 $stmt = $this->dbh->prepare($query);
 
                 $stmt->bindParam(':pageId', $pageId, PDO::PARAM_INT);
@@ -671,6 +675,25 @@ class HomeModel extends Model
             $stmt->execute();
 
             return $stmt->fetchAll();
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
+    public function getLocationTitle($pageId)
+    {
+     
+        try{
+           
+            $query = sprintf('SELECT * FROM %s WHERE `id`=:pageId', $this->tblPages);
+            $stmt = $this->dbh->prepare($query);
+            
+            $stmt->bindParam(':pageId', $pageId, PDO::PARAM_INT);
+            $stmt->execute();
+
+            return $stmt->fetch();
         }catch(Exception $e){
             
             return false;

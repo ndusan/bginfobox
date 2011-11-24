@@ -30,7 +30,7 @@
         <? endif; ?>
         <div class="boxContent wys">
             <span class="info moreInfo">
-                <a href="<?= DS . $params['lang'] . DS . 'pockets'; ?>">
+                <a href="<?= DS . $params['lang'] . DS . 'in-your-pocket-city-guides'; ?>">
                     <?= $_t['pockets.label'][$params['lang']]; ?>?
                 </a>
             </span>

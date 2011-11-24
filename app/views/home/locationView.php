@@ -3,12 +3,7 @@
         <div class="boxTitle">
             <? $title = '';?>
             <? if(!empty($locationTitle)):?>
-            <? switch($locationTitle){
-                case 'bginfo-box': $title = "BG Info Box"; break;
-                case 'bginfo-map': $title = "BG Info Map"; break;
-                case 'bginfo-night-map': $title = "BG Info Night Map"; break;
-                case 'pockets': $title = "Pocekts"; break;
-            }?>
+            <? $title = $locationTitle['title'];?>
             <? endif;?>
             <h1><?= $_t['location.distributors'][$params['lang']]; ?> <?=$title; ?></h1>
         </div>

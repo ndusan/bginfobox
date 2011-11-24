@@ -9,6 +9,7 @@
                 <ul>
                     <? foreach($archiveCollection as $ac):?>
                     <li>
+                        <? $showFile = true; ?>
                         <? foreach($ac as $image):?>
                         <a class="lightbox" href="<?=(DS.'public'.DS.'uploads'.DS.($image['page_id']>4?'pockets':'bginfo').DS.$image['image_name']);?>">
                             <img <?=($image['position']?'style="display:none;"':'')?> src="<?=(DS.'public'.DS.'uploads'.DS.($image['page_id']>4?'pockets':'bginfo').DS.'thumb-'.$image['image_name']);?>" />
@@ -17,6 +18,14 @@
                             <?=$image['title_'.$params['lang']];?>
                             <br/><?=$html->convertDate($image['created']);?>
                         </span>
+                        <? if (!empty($image['file_name']) && $showFile): ?>
+                            <span class="icoDld" style="display: block; height: 20px;">
+                                <a href="<?= (DS . 'public' . DS . 'uploads' . DS . ($image['page_id']>4?'pockets':'bginfo') . DS . $image['file_name']); ?>" target="_blank">
+                                    <?= $_t['download.label'][$params['lang']]; ?>
+                                </a>
+                            </span>
+                        <? $showFile = false;?>
+                        <? endif; ?>
                         <? endforeach;?>
                     </li>
                     <? endforeach;?>

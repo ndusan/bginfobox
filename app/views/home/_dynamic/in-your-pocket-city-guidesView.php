@@ -37,12 +37,12 @@
                             </span>
                         <? endif; ?>
                         <span class="icoDis">
-                            <a href="<?= (DS . $params['lang'] . DS . 'pockets' . DS . 'location?id=' . $gc['page_id']) ?>">
+                            <a href="<?= (DS . $params['lang'] . DS . 'in-your-pocket-city-guides' . DS . 'location?id=' . $gc['page_id']) ?>">
                                 <?= $_t['location.label'][$params['lang']]; ?>
                             </a>
                         </span>
                         <span class="icoArc">
-                            <a href="<?= (DS . 'public' . DS . 'uploads' . DS . 'pockets' . DS . $gc['file_name']); ?>" target="_blank">
+                            <a href="<?= (DS . $params['lang'] . DS . 'archive'. DS . 'in-your-pocket-city-guides?id=' . $gc['page_id']); ?>">
                                 <?= $_t['archive.label'][$params['lang']]; ?> 
                             </a>
                         </span>
