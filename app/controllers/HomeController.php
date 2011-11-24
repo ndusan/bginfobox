@@ -193,7 +193,7 @@ class HomeController extends Controller
                 $this->bginfoGalleryPage($params['page'], null);
                 $this->getDownload($this->pages[$params['page']]);
                 break;
-            case 'pockets': 
+            case 'in-your-pocket-city-guides': 
                 
                 $this->pocketsPage();
                 $this->pocketsInfo();
@@ -271,7 +271,7 @@ class HomeController extends Controller
         //Footer
         parent::set('footer', $this->db->getFooter());
         
-        parent::set('locationTitle', $params['page']);
+        parent::set('locationTitle', $this->db->getLocationTitle($id));
         parent::set('locationCollection', $this->db->getLocations($id));
         
     }
@@ -318,7 +318,7 @@ class HomeController extends Controller
                 
                 $this->getAchiveByName($params); 
                 break;
-            case 'pockets': 
+            case 'in-your-pocket-city-guides': 
                 
                 $this->getAchiveByName($params); 
                 break;
