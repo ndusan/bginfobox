@@ -8,7 +8,7 @@
             <? if($newsCollectionPerMonth):?>
             <ul class="boxExtra">
                 <? foreach ($newsCollectionPerMonth as $key=>$date):?>
-                <li><a href="<?=DS.$params['lang'].DS.'news?date='.$key;?>"><?=$_t['months'][$params['lang']][$date['month']].' '.$date['year'];?></a></li>
+                <li><a href="<?=DS.$params['lang'].DS.'vesti?date='.$key;?>"><?=$_t['months'][$params['lang']][$date['month']].' '.$date['year'];?></a></li>
                 <? endforeach; ?>
             </ul>
             <? endif;?>
@@ -18,7 +18,7 @@
                         <h2><?= $n['title_' . $params['lang']]; ?></h2>
                         <span class="date"><?= @$html->convertDate($n['created']); ?></span> 
                         <p>Heading: <?= $n['heading_' . $params['lang']]; ?></p>
-                        <a href="<?= DS . $params['lang'] . DS . 'news' . DS . $n['id'] . DS . urlencode(str_replace(array('š','đ','č','ć','ž','Š','Đ','Č','Ć','Ž','?','!',',','.','&',':','(',')','[',']','%','#','\'','"','=','*'),array('s','d','c','c','z','s','d','c','c','z','','','','','','','','','','','','','','','',''),$n['title_' . $params['lang']])); ?>">
+                        <a href="<?= DS . $params['lang'] . DS . 'vesti' . DS . $n['id'] . DS . urlencode(str_replace(array('š','đ','č','ć','ž','Š','Đ','Č','Ć','Ž','?','!',',','.','&',':','(',')','[',']','%','#','\'','"','=','*'),array('s','d','c','c','z','s','d','c','c','z','','','','','','','','','','','','','','','',''),$n['title_' . $params['lang']])); ?>">
                             <?= $_t['news.read_more'][$params['lang']]; ?>...
                         </a>
                     </li>

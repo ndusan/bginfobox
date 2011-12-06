@@ -36,7 +36,7 @@
                 <? endif;?>
             <? endif;?>
             <div class="contactForm">
-                <form action="<?=DS.$params['lang'].DS.'contact';?>" method="post">
+                <form action="<?=DS.$params['lang'].DS.'kontakt';?>" method="post">
                 <table cellpadding="0" cellspacing="0" width="0">
                     <tr>
                         <td align="right">

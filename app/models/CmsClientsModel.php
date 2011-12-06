@@ -124,12 +124,12 @@ class CmsClientsModel extends Model
             
             //Add pages
             if(!empty($params['dynamic'])){
-                foreach($params['dynamic'] as $s){
+                foreach($params['dynamic'] as $d){
                     $query = sprintf("INSERT INTO %s SET `client_id`=:clientId, `page_id`=:pageId", $this->tableClientPages);
                     $stmt = $this->dbh->prepare($query);
 
                     $stmt->bindParam(':clientId', $id, PDO::PARAM_INT);
-                    $stmt->bindParam(':pageId', $s, PDO::PARAM_INT);
+                    $stmt->bindParam(':pageId', $d, PDO::PARAM_INT);
                     $stmt->execute();
                 }
             }
@@ -194,12 +194,12 @@ class CmsClientsModel extends Model
             
             //Add pages
             if(!empty($params['dynamic'])){
-                foreach($params['dynamic'] as $s){
+                foreach($params['dynamic'] as $d){
                     $query = sprintf("INSERT INTO %s SET `client_id`=:clientId, `page_id`=:pageId", $this->tableClientPages);
                     $stmt = $this->dbh->prepare($query);
 
                     $stmt->bindParam(':clientId', $params['id'], PDO::PARAM_INT);
-                    $stmt->bindParam(':pageId', $s, PDO::PARAM_INT);
+                    $stmt->bindParam(':pageId', $d, PDO::PARAM_INT);
                     $stmt->execute();
                 }
             }

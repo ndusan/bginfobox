@@ -199,7 +199,6 @@ function imagineLoader($class) {
 }
 
 /** Get Required Files **/
-
 gzipOutput() || ob_start("ob_gzhandler");
 
 //Call functions 

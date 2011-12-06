@@ -13,7 +13,7 @@
                 </li>
                 <? endif;?>
                 <li class="icoMail">
-                    <a href="<?=(DS.$params['lang'].DS.'ads');?>">
+                    <a href="<?=(DS.$params['lang'].DS.'oglasavanje');?>">
                         <?=$_t['ads-question.label'][$params['lang']];?> 
                         <span><?=$_t['ads-question.sublabel'][$params['lang']];?></span>
                     </a>
@@ -25,7 +25,7 @@
                     </a>
                 </li>
                 <li class="icoArc">
-                    <a href="<?=(DS.$params['lang'].DS.'archive'.DS.'bginfo-night-map');?>">
+                    <a href="<?=(DS.$params['lang'].DS.'arhiva'.DS.'bginfo-night-map');?>">
                         <?=$_t['archive.label'][$params['lang']];?> 
                         <span><?=$_t['archive.sublabel'][$params['lang']];?></span>
                     </a>
