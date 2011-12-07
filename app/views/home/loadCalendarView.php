@@ -87,7 +87,7 @@ for($i=0; $i<$total_rows; $i++){
                 else $cal .= " class='eventDay'>";
 
                 //adding the eventTitle and eventContent wrapped with <span> and <li> to <ul>
-                $cal .= "<a href='".DS.$params['lang'].DS."calendar".DS.date('Y-m').'-'.($day<10?'0'.$day:$day)."' >";
+                $cal .= "<a href='".DS.$params['lang'].DS."calendar".DS.date('Y').'-'.date($current_month).'-'.($day<10?'0'.$day:$day)."' >";
                 $cal .= $day;
                 $cal .= "</a>";
             }else{
