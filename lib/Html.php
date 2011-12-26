@@ -190,7 +190,7 @@ class HTML {
             $response .= '</td></tr><td  width="50%" align="center">';
             $response .= $xml->weather->current_conditions->condition['data'];
             $response .= '</td><td>';
-            $img = 'http://img0.gmodules.com/' . $xml->weather->current_conditions->icon['data'];
+            $img = 'http://google.com' . $xml->weather->current_conditions->icon['data'];
             $response .= '<img src="'.$img.'"/>';
             $response .= '</td></tr>';
             $response .= '</tbody></table>';
