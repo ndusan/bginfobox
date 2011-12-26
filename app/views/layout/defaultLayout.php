@@ -8,6 +8,7 @@
         <meta name="Description" content="Vaš vodič kroz Beograd" />
         <meta name="Keywords" content="beograd, beogradu, vodic, upoznajte, vodič, srbija, hoteli, kultura, turizam, restorani, zabava" />
         <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta name="google-site-verification" content="DpmN6XDjaQM4wictltXaHGnj0GdQAPeOOHFLfbDsEdE" />
         <!-- Load all assets (js + css) -->
         <?= $html->assetsJs('jquery-1.6.4.min', ASSETS_JS_PATH); ?>
         <?= $html->assetsJs('slides.min.jquery', ASSETS_JS_PATH); ?>
@@ -215,7 +216,7 @@
                 <ul class="bottomLinks">
                     <li><b><?= $_t['footer-editions.label'][$params['lang']]; ?></b>
                         <? if(!empty($footer['editions'])):?>
-                        <? $url = array(1=>'bginfo-box',2=>'bginfo-map',3=>'bginfo-night-map',4=>'pockets');?>
+                        <? $url = array(1=>'bginfo-box',2=>'bginfo-map',3=>'bginfo-night-map',4=>'in-your-pocket-city-guides');?>
                         <ul>
                             <? foreach($footer['editions'] as $f):?>
                             <? if($f['id']==4) continue; ?>
@@ -258,6 +259,7 @@
             </div>
             <script type="text/javascript">
                 var lang = '<?= $params['lang']; ?>';
+                
             </script>
             <script type="text/javascript">
 
@@ -272,5 +274,6 @@
               })();
 
             </script>
+        
     </body>
 </html>
