@@ -1,12 +1,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en-US" xml:lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <title>BG Info Box</title>
+        <? $titleArray = array('o-nama'=>'about-us', 'nasi-klijenti'=>'our-clients', 'arhiva'=>'archive', 'galerija'=>'gallery', 'oglasavanje'=>'ads', 'kontakt'=>'contact');?>
+        <title>BG Info Box <?=(array_key_exists($params['page'], $titleArray) ? ' - '.$_t['menu.'.$titleArray[$params['page']]][$params['lang']] : '');?></title>
         <link rel="shortcut icon" href="<?= IMAGE_PATH . 'favicon.ico'; ?>" type="image/x-icon" />
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="Description" content="Vaš vodič kroz Beograd" />
         <meta name="Keywords" content="beograd, beogradu, vodic, upoznajte, vodič, srbija, hoteli, kultura, turizam, restorani, zabava" />
         <meta http-equiv="X-UA-Compatible" content="IE=7" />
+        <meta name="google-site-verification" content="DpmN6XDjaQM4wictltXaHGnj0GdQAPeOOHFLfbDsEdE" />
         <!-- Load all assets (js + css) -->
         <?= $html->assetsJs('jquery-1.6.4.min', ASSETS_JS_PATH); ?>
         <?= $html->assetsJs('slides.min.jquery', ASSETS_JS_PATH); ?>
@@ -42,32 +44,32 @@
 
                     <ul class="mainNav">
                         <li>
-                            <a href="<?= DS . $params['lang'] . DS . 'about-us'; ?>" <?= (isset($params['page']) && 'about-us' == $params['page'] ? 'class="active"' : ''); ?>>
+                            <a href="<?= DS . $params['lang'] . DS . 'o-nama'; ?>" <?= (isset($params['page']) && 'o-nama' == $params['page'] ? 'class="active"' : ''); ?>>
                                 <?= $_t['menu.about-us'][$params['lang']]; ?>
                             </a>
                         </li>
                         <li>
-                            <a href="<?= DS . $params['lang'] . DS . 'our-clients'; ?>" <?= (isset($params['page']) && 'our-clients' == $params['page'] ? 'class="active"' : ''); ?>>
+                            <a href="<?= DS . $params['lang'] . DS . 'nasi-klijenti'; ?>" <?= (isset($params['page']) && 'nasi-klijenti' == $params['page'] ? 'class="active"' : ''); ?>>
                                 <?= $_t['menu.our-clients'][$params['lang']]; ?>
                             </a>
                         </li>
                         <li>
-                            <a href="<?= DS . $params['lang'] . DS . 'archive'; ?>" <?= (isset($params['page']) && 'archive' == $params['page'] ? 'class="active"' : ''); ?>>
+                            <a href="<?= DS . $params['lang'] . DS . 'arhiva'; ?>" <?= (isset($params['page']) && 'arhiva' == $params['page'] ? 'class="active"' : ''); ?>>
                                 <?= $_t['menu.archive'][$params['lang']]; ?>
                             </a>
                         </li>
                         <li>
-                            <a href="<?= DS . $params['lang'] . DS . 'gallery'; ?>" <?= (isset($params['page']) && 'gallery' == $params['page'] ? 'class="active"' : ''); ?>>
+                            <a href="<?= DS . $params['lang'] . DS . 'galerija'; ?>" <?= (isset($params['page']) && 'galerija' == $params['page'] ? 'class="active"' : ''); ?>>
                                 <?= $_t['menu.gallery'][$params['lang']]; ?>
                             </a>
                         </li>
                         <li>
-                            <a href="<?= DS . $params['lang'] . DS . 'ads'; ?>" <?= (isset($params['page']) && 'ads' == $params['page'] ? 'class="active"' : ''); ?>>
+                            <a href="<?= DS . $params['lang'] . DS . 'oglasavanje'; ?>" <?= (isset($params['page']) && 'oglasavanje' == $params['page'] ? 'class="active"' : ''); ?>>
                                 <?= $_t['menu.ads'][$params['lang']]; ?>
                             </a>
                         </li>
                         <li>
-                            <a href="<?= DS . $params['lang'] . DS . 'contact'; ?>" <?= (isset($params['page']) && 'contact' == $params['page'] ? 'class="active"' : ''); ?>>
+                            <a href="<?= DS . $params['lang'] . DS . 'kontakt'; ?>" <?= (isset($params['page']) && 'kontakt' == $params['page'] ? 'class="active"' : ''); ?>>
                                 <?= $_t['menu.contact'][$params['lang']]; ?>
                             </a>
                         </li>
@@ -115,11 +117,11 @@
                             <!--Guide-->
                             <? if(!empty($bgInfoTree) && empty($otherInfoTree)):?>
                             <? foreach($bgInfoTree as $tg):?>
-                            <li <?=(!empty($intro) && $intro['slug'] == $tg['slug'] ? 'class="active"':'')?> ><a href="<?=(DS.$params['lang'].DS.'guide'.DS.$slug['current'].DS.$tg['slug']);?>"><?=($tg['title_'.$params['lang']]);?></a></li>
+                            <li <?=(!empty($intro) && $intro['slug'] == $tg['slug'] ? 'class="active"':'')?> ><a href="<?=(DS.$params['lang'].DS.'vodic'.DS.$slug['current'].DS.$tg['slug']);?>"><?=($tg['title_'.$params['lang']]);?></a></li>
                             <? endforeach;?>
                             <? elseif(!empty($bgInfoRootTree) && empty($otherInfoTree)):?>
                             <? foreach($bgInfoRootTree as $tg):?>
-                            <li <?=(!empty($intro) && $intro['slug'] == $tg['slug'] ? 'class="active"':'')?>><a href="<?=(DS.$params['lang'].DS.'guide'.DS.$tg['slug']);?>"><?=($tg['title_'.$params['lang']]);?></a></li>
+                            <li <?=(!empty($intro) && $intro['slug'] == $tg['slug'] ? 'class="active"':'')?>><a href="<?=(DS.$params['lang'].DS.'vodic'.DS.$tg['slug']);?>"><?=($tg['title_'.$params['lang']]);?></a></li>
                             <? endforeach;?>
                             <? endif;?>
                             
@@ -148,7 +150,7 @@
                                             <li>
                                                 <span><?= @$html->convertDate($n['created']) . ' - ' . $n['title_' . $params['lang']]; ?></span>
                                                 <div><?= $n['heading_' . $params['lang']]; ?></div>
-                                                <a href="<?= DS . $params['lang'] . DS . 'news' . DS . $n['id'] . DS . urlencode(str_replace(array('š','đ','č','ć','ž','Š','Đ','Č','Ć','Ž','?','!',',','.','&',':','(',')','[',']','%','#','\'','"','=','*'),array('s','d','c','c','z','s','d','c','c','z','','','','','','','','','','','','','','','',''), $n['title_' . $params['lang']])); ?>">
+                                                <a href="<?= DS . $params['lang'] . DS . 'vesti' . DS . $n['id'] . DS . urlencode(str_replace(array('š','đ','č','ć','ž','Š','Đ','Č','Ć','Ž','?','!',',','.','&',':','(',')','[',']','%','#','\'','"','=','*'),array('s','d','c','c','z','s','d','c','c','z','','','','','','','','','','','','','','','',''), $n['title_' . $params['lang']])); ?>">
                                                     <?= $_t['news.read_more'][$params['lang']]; ?>...
                                                 </a>
                                             </li>
@@ -157,7 +159,7 @@
                                 </ul>
                             </div>
                             <div class="boxFooter">
-                                <a href="<?= DS . $params['lang'] . DS . 'news'; ?>"><?= $_t['news.all_news'][$params['lang']]; ?> &raquo;</a>
+                                <a href="<?= DS . $params['lang'] . DS . 'vesti'; ?>"><?= $_t['news.all_news'][$params['lang']]; ?> &raquo;</a>
                             </div>
                         </div>
                         <div class="sidebarBox">
@@ -214,7 +216,7 @@
                 <ul class="bottomLinks">
                     <li><b><?= $_t['footer-editions.label'][$params['lang']]; ?></b>
                         <? if(!empty($footer['editions'])):?>
-                        <? $url = array(1=>'bginfo-box',2=>'bginfo-map',3=>'bginfo-night-map',4=>'pockets');?>
+                        <? $url = array(1=>'bginfo-box',2=>'bginfo-map',3=>'bginfo-night-map',4=>'in-your-pocket-city-guides');?>
                         <ul>
                             <? foreach($footer['editions'] as $f):?>
                             <? if($f['id']==4) continue; ?>
@@ -227,7 +229,7 @@
                         <? if(!empty($footer['clients'])):?>
                         <ul>
                             <? foreach($footer['clients'] as $f):?>
-                            <li><a href="<?=(DS.$params['lang'].DS.'guide'.DS.$f['slug']);?>"><?=$f['title_'.$params['lang']];?></a></li>
+                            <li><a href="<?=(DS.$params['lang'].DS.'vodic'.DS.$f['slug']);?>"><?=$f['title_'.$params['lang']];?></a></li>
                             <? endforeach;?>
                         </ul>
                         <? endif;?>
@@ -243,11 +245,11 @@
                     </li>
                     <li><b>BG Info Box</b>
                         <ul>
-                            <li><a href="<?= DS . $params['lang'] . DS . 'about-us'; ?>"><?= $_t['menu.about-us'][$params['lang']]; ?></a></li>
-                            <li><a href="<?= DS . $params['lang'] . DS . 'our-clients'; ?>"><?= $_t['menu.our-clients'][$params['lang']]; ?></a></li>
-                            <li><a href="<?= DS . $params['lang'] . DS . 'archive'; ?>"><?= $_t['menu.archive'][$params['lang']]; ?></a></li>
-                            <li><a href="<?= DS . $params['lang'] . DS . 'gallery'; ?>"><?= $_t['menu.gallery'][$params['lang']]; ?></a></li>
-                            <li><a href="<?= DS . $params['lang'] . DS . 'ads'; ?>"><?= $_t['menu.ads'][$params['lang']]; ?></a></li>
+                            <li><a href="<?= DS . $params['lang'] . DS . 'o-nama'; ?>"><?= $_t['menu.about-us'][$params['lang']]; ?></a></li>
+                            <li><a href="<?= DS . $params['lang'] . DS . 'nasi-klijenti'; ?>"><?= $_t['menu.our-clients'][$params['lang']]; ?></a></li>
+                            <li><a href="<?= DS . $params['lang'] . DS . 'arhiva'; ?>"><?= $_t['menu.archive'][$params['lang']]; ?></a></li>
+                            <li><a href="<?= DS . $params['lang'] . DS . 'galerija'; ?>"><?= $_t['menu.gallery'][$params['lang']]; ?></a></li>
+                            <li><a href="<?= DS . $params['lang'] . DS . 'oglasavanje'; ?>"><?= $_t['menu.ads'][$params['lang']]; ?></a></li>
                         </ul>
                     </li>
                 </ul>
@@ -257,6 +259,7 @@
             </div>
             <script type="text/javascript">
                 var lang = '<?= $params['lang']; ?>';
+                
             </script>
             <script type="text/javascript">
 
@@ -271,5 +274,6 @@
               })();
 
             </script>
+        
     </body>
 </html>

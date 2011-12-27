@@ -103,32 +103,32 @@ class HomeController extends Controller
         parent::set('footer', $this->db->getFooter());
         
         switch($params['page']){
-            case 'about-us':
+            case 'o-nama':
                 
                 $this->getPricelist();
                 break;
-            case 'our-clients': 
+            case 'nasi-klijenti': 
                 
                 $this->clientsPage($params); 
                 break;
-            case 'archive': 
+            case 'arhiva': 
                 
                 $this->archivePage($params); 
                 break;
-            case 'gallery': 
+            case 'galerija': 
                 
                 $this->galleryPage($params); 
                 break;
-            case 'ads':
+            case 'oglasavanje':
                 
                 $this->adsPage($params);
                 $this->getPricelist();
                 break;
-            case 'contact': 
+            case 'kontakt': 
                 
                 $this->contactPage($params); 
                 break;
-            case 'news':  
+            case 'vesti':  
                 
                 $this->newsPage($params); 
                 break;
@@ -491,6 +491,7 @@ class HomeController extends Controller
     /** CALENDAR PAGE **/
     private function calendarPage($params)
     {
+        
         if(isset($params['calendar_id'])){
             //Get only one news
             
@@ -532,7 +533,6 @@ class HomeController extends Controller
     /** CONTACT PAGE **/
     private function contactPage($params)
     {
-        
         if(isset($params['submit'])){
             
             //Send

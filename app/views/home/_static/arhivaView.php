@@ -13,7 +13,7 @@
                     <? $tmpFolder = ($ac['id'] > 4 ? 'pockets' : 'bginfo'); ?>
                     <? foreach($ac['edition_images'] as $e):?>
                     <li>
-                        <a href="<?=(DS . $params['lang'] . DS . 'archive' . DS.  ($ac['id'] > 4 ? 'in-your-pocket-city-guides?id='.$ac['id'] : $array[$ac['id']])); ?>">
+                        <a href="<?=(DS . $params['lang'] . DS . 'arhiva' . DS.  ($ac['id'] > 4 ? 'in-your-pocket-city-guides?id='.$ac['id'] : $array[$ac['id']])); ?>">
                             <img src="<?=(DS.'public'.DS.'uploads'.DS.$tmpFolder.DS.'thumb-'.$e['image_name']); ?>" />
                         </a>
                     </li>
@@ -21,7 +21,7 @@
                     <? endif;?>
                     <li class="last">
                         <p><b><?=$ac['title'];?></b></p>
-                        <a href="<?=(DS . $params['lang'] . DS . 'archive' . DS.  ($ac['id'] > 4 ? 'in-your-pocket-city-guides?id='.$ac['id'] : $array[$ac['id']])); ?>"><?=$_t['complete-archive.label'][$params['lang']];?></a>
+                        <a href="<?=(DS . $params['lang'] . DS . 'arhiva' . DS.  ($ac['id'] > 4 ? 'in-your-pocket-city-guides?id='.$ac['id'] : $array[$ac['id']])); ?>"><?=$_t['complete-archive.label'][$params['lang']];?></a>
                     </li>
                 </ul>
             </li>

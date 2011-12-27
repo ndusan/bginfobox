@@ -21,7 +21,7 @@
                 <? endif;?>
             </ul>
             <div class="adsForm">
-                <form action="<?= DS . $params['lang'] . DS . 'ads'; ?>" method="post">
+                <form action="<?= DS . $params['lang'] . DS . 'oglasavanje'; ?>" method="post">
                     <table cellpadding="0" cellspacing="0" width="0">
                         <tr>
                             <td align="right">

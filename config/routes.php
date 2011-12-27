@@ -13,7 +13,7 @@ $routes = array(
             'layout'     => '404'
     ),
     //Static pages
-    array(  'url'        => '/^(?P<lang>('.LANG.'))\/(?P<page>(about-us|our-clients|archive|gallery|ads|contact))\/?$/', 
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/(?P<page>(o-nama|nasi-klijenti|arhiva|galerija|oglasavanje|kontakt))\/?$/', 
             'controller' => 'home', 
             'action'     => 'staticPages', 
             'layout'     => 'default'
@@ -24,13 +24,13 @@ $routes = array(
             'action'     => 'loadCalendar', 
             'layout'     => 'ajax'
     ),
-    array(  'url'        => '/^(?P<lang>('.LANG.'))\/(?P<page>(calendar))\/?(?P<start_date>([0-9-]+)\/?)*((?P<calendar_id>\d+)(\/[a-zA-Z0-9\/#&@\-+_?%]+))*?$/', 
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/(?P<page>(calendar))\/?(?P<start_date>([0-9-]+)*\/?)((?P<calendar_id>\d+)(\/[a-zA-Z0-9\/#&@\-+_?%]+))*?$/', 
             'controller' => 'home', 
             'action'     => 'staticPages', 
             'layout'     => 'default'
     ),
     //Static page - news
-    array(  'url'        => '/^(?P<lang>('.LANG.'))\/(?P<page>(news))\/?((?P<news_id>\d+)*(\/[a-zA-Z0-9\/#&@\-+_?%]+))*$/', 
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/(?P<page>(vesti))\/?((?P<news_id>\d+)*(\/[a-zA-Z0-9\/#&@\-+_?%]+))*$/', 
             'controller' => 'home', 
             'action'     => 'staticPages', 
             'layout'     => 'default'
@@ -54,13 +54,13 @@ $routes = array(
             'layout'     => 'default'
     ),
     //Archive
-    array(  'url'        => '/^(?P<lang>('.LANG.'))\/archive\/(?P<page>(bginfo-night-map|bginfo-map|in-your-pocket-city-guides|putovanje-za-dvoje))\/?$/', 
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/arhiva\/(?P<page>(bginfo-night-map|bginfo-map|in-your-pocket-city-guides|putovanje-za-dvoje))\/?$/', 
             'controller' => 'home', 
             'action'     => 'archive', 
             'layout'     => 'default'
     ),
     //BGINFO guide
-    array(  'url'        => '/^(?P<lang>('.LANG.'))\/guide\/(?P<slug>([a-zA-Z0-9\/\-+_]+))\/?$/', 
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/vodic\/(?P<slug>([a-zA-Z0-9\/\-+_]+))\/?$/', 
             'controller' => 'home', 
             'action'     => 'guide', 
             'layout'     => 'default'

@@ -12,7 +12,7 @@
                     </a>
                 </li>
                 <? endif;?>
-                <li class="icoMail"><a href="<?=(DS.$params['lang'].DS.'ads');?>"><?=$_t['ads-question.label'][$params['lang']];?>? <span><?=$_t['ads-question.sublabel'][$params['lang']];?></span></a></li>
+                <li class="icoMail"><a href="<?=(DS.$params['lang'].DS.'oglasavanje');?>"><?=$_t['ads-question.label'][$params['lang']];?>? <span><?=$_t['ads-question.sublabel'][$params['lang']];?></span></a></li>
             </ul>
             <p><?=@$pricelist['content_'.$params['lang']];?></p>
         </div>

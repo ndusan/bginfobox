@@ -162,70 +162,40 @@ class HTML {
 
     function getWeather($city_id = 0, $showDays=1, $langs) {
       
-        $response = '';
-        if (isset($city_id) && !empty($city_id)) {
-            try{
-                $requestAddress = $city_id;
+            $response = '';
+        
+            $placename = 'belgrade'; // city where you want local weather
+            $place=urlencode($placename);
+            $place = utf8_encode($place);
+            $url = 'http://www.google.com/ig/api?weather='.$place.',$&hl='.$lang.'';
+            $ch = curl_init();
+            curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt ($ch, CURLOPT_URL, $url);
+            curl_setopt ($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+            curl_setopt ($ch, CURLOPT_TIMEOUT, 60);
+            curl_setopt ($ch, CURLOPT_FOLLOWLOCATION, 0);
+            $raw_data = curl_exec ($ch);
+            curl_close ($ch);
 
-                //$xml_str = file_get_contents("http://xoap.weather.com/weather/local/" . $requestAddress . "?cc=*&dayf=5&link=xoap&prod=xoap&par=1225844858&key=e874d961c427e609", 0);
+            $xml = simplexml_load_string($raw_data);
+            $condition = $xml->weather->current_conditions->condition['data'];
+            $temp_c = $xml->weather->current_conditions->temp_c['data'];
+            $humidity = $xml->weather->current_conditions->humidity['data'];
+            $icon = $xml->weather->current_conditions->icon['data'];
 
-                $ch = curl_init();
-
-                curl_setopt($ch, CURLOPT_HEADER, 0);
-                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); //Set curl to return the data instead of printing it to the browser.
-                curl_setopt($ch, CURLOPT_URL, "http://xoap.weather.com/weather/local/" . $requestAddress . "?cc=*&dayf=5&link=xoap&prod=xoap&par=1225844858&key=e874d961c427e609");
-
-                $xml_str = curl_exec($ch);
-                curl_close($ch);
-
-                // Parses XML
-                $xml = new SimplexmlElement($xml_str);
-                //print_r($xml);
-                // Name
-                $response.= '<table class="widgWeather" cellspacing="0" cellpading="0" width="100%"><tbody>';
-                //Set date
-                $date = substr($xml->dayf->lsup, 0, 8);
-                $date = explode("/", $date);
-                $day = 0;
-                $countDays = $showDays;
-                foreach ($xml->dayf->day as $item) {
-                    if ($item->hi != 'N/A') {
-                        $day++;
-                        $response.= '<tr><td width="50%" align="center">';
-                        $max = round((5 / 9) * ($item->low - 32));
-                        $response .= 'min temp: ' . $max . '&deg';
-                        $min = round((5 / 9) * ($item->hi - 32));
-                        $response.= '</td><td align="center">';
-                        $response .= 'max temp: ' . $min . '&deg';
-                        $response.= '</tr>';
-                        $first = true;
-                        $response.= '<tr>';
-                        foreach ($item->part as $new) {
-                            //Image
-                            $response .= '<td align="center">';
-                            $response .= '<img src="http://s.imwx.com/v.20100415.153311/img/wxicon/45/' . $new->icon . '.png"/>';
-                            $response .= '<label>' . ($first ? $langs['day'] : $langs['evening']) . '</label>';
-                            $response.= '</td>';
-                            $first = false;
-                        }
-                        $response .= '</tr>';
-                        --$countDays;
-
-                        if ($countDays <= 0)
-                            break;
-                    }
-                }
-                $response.= '</tbody>
-                                    </table>';
-
-                Cache::set(array('key' => 'weather'.date('Y-m-d'), 'data' => $response));
-
-                return $response;
-            }catch(Exception $e){
-                
-                return 'Error while loading data';
-            }
-        }
+            
+            $response .= '<table class="widgWeather" cellspacing="0" cellpading="0" width="100%"><tbody>';
+            $response .= '<tr><td align="center">';
+            $response .= '<strong>Temp:</strong> '.$xml->weather->current_conditions->temp_c['data'].'&deg;C';
+            $response .= '</td></tr><td align="center">';
+            $response .= $xml->weather->current_conditions->condition['data'];
+            $response .= '</td></tr><tr><td align="center">';
+            $img = 'http://google.com' . $xml->weather->current_conditions->icon['data'];
+            $response .= '<img src="'.$img.'"/>';
+            $response .= '</td></tr>';
+            $response .= '</tbody></table>';
+            
+            return $response;
     }
 
     function getNBS() {

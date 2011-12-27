@@ -1,3 +1,7 @@
 RewriteEngine On
 RewriteBase /
 RewriteRule !^(\.gif|\.png|\.jpe?g|\.css|\.js|\.php|^public/.*)$ index.php [nocase,last]
+
+php_value upload_max_filesize 10M
+php_value post_max_size 10M
+php_value max_execution_time 800

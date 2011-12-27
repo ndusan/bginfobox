@@ -44,30 +44,30 @@
     <div class="mainBox">
         <ul class="galleryAll">
             <li>
-                <a href="<?= DS . $params['lang'] . DS . 'archive'; ?>">
+                <a href="<?= DS . $params['lang'] . DS . 'arhiva'; ?>">
                     <img title="" width="170" height="100" src=" <?= IMAGE_PATH . 'arhiva.jpg'; ?>" />
                 </a>
                 <span class="info moreInfo">
-                    <a href="<?= DS . $params['lang'] . DS . 'archive'; ?>">
+                    <a href="<?= DS . $params['lang'] . DS . 'arhiva'; ?>">
                         <b><?= $_t['menu.archive'][$params['lang']]; ?></b>
                     </a>
                 </span>
             </li>
             <li>
-                <a href="<?= DS . $params['lang'] . DS . 'our-clients'; ?>">
+                <a href="<?= DS . $params['lang'] . DS . 'nasi-klijenti'; ?>">
                     <img title="" width="170" height="100" src=" <?= IMAGE_PATH . 'klijenti.jpg'; ?>" /> 
                 </a>
                 <span class="info moreInfo">
-                    <a href="<?= DS . $params['lang'] . DS . 'our-clients'; ?>">
+                    <a href="<?= DS . $params['lang'] . DS . 'nasi-klijenti'; ?>">
                         <b><?= $_t['menu.our-clients'][$params['lang']]; ?></b>
                     </a>
                 </span>
             </li>
             <li>
-                <a href="<?= DS . $params['lang'] . DS . 'gallery'; ?>">
+                <a href="<?= DS . $params['lang'] . DS . 'galerija'; ?>">
                     <img title="" width="170" height="100" src=" <?= IMAGE_PATH . 'galerija.jpg'; ?>" /> 
                 </a>
-                <span class="info moreInfo"> <a href="<?= DS . $params['lang'] . DS . 'gallery'; ?>">
+                <span class="info moreInfo"> <a href="<?= DS . $params['lang'] . DS . 'galerija'; ?>">
 
                         <b><?= $_t['menu.gallery'][$params['lang']]; ?></b>
                     </a>

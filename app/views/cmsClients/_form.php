@@ -76,7 +76,7 @@
                                                     <? if ($static['id'] > 1 && $static['id'] < 4): ?>
                                                         <tr>
                                                             <td>
-                                                                <input class="jstatic" id="client_static_<?= $static['id']; ?>" type="checkbox" name="client[static][<?= $static['id']; ?>]" <?= (!empty($static['client_id']) && $static['client_id'] == $client['id'] ? 'checked="checked"' : '') ?> value="<?= $static['id']; ?>" />
+                                                                <input class="jstatic" id="client_static_<?= $static['id']; ?>" type="checkbox" name="client[static][<?= $static['id']; ?>]" <?= (!empty($static['client_id']) && $static['client_id'] == $client['id'] && $client['type_client'] ? 'checked="checked"' : '') ?> value="<?= $static['id']; ?>" />
                                                             </td>
                                                             <td>
                                                                 <label for="client_static_<?= $static['id']; ?>"><?= $static['title']; ?></label>
@@ -111,7 +111,7 @@
                                                     <? if ($static['id'] < 4): ?>
                                                         <tr>
                                                             <td>
-                                                                <input class="jdynamic" id="client_dynamic_<?= $static['id']; ?>" type="checkbox" name="client[dynamic][<?= $static['id']; ?>]" <?= (!empty($static['client_id']) && $static['client_id'] == $client['id'] ? 'checked="checked"' : '') ?> value="<?= $static['id']; ?>" />
+                                                                <input class="jdynamic" id="client_dynamic_<?= $static['id']; ?>" type="checkbox" name="client[dynamic][<?= $static['id']; ?>]" <?= (!empty($static['client_id']) && $static['client_id'] == $client['id'] && $client['type_distributor'] ? 'checked="checked"' : '') ?> value="<?= $static['id']; ?>" />
                                                             </td>
                                                             <td>
                                                                 <label for="client_dynamic_<?= $static['id']; ?>"><?= $static['title']; ?></label>
@@ -124,7 +124,7 @@
                                                 <? foreach ($dynamicCollection as $dynamic): ?>
                                                     <tr>
                                                         <td>
-                                                            <input class="jdynamic" type="checkbox" id="client_dynamic_<?= $dynamic['id']; ?>" name="client[dynamic][<?= $dynamic['id']; ?>]" <?= (!empty($dynamic['client_id']) && $dynamic['client_id'] == $client['id'] ? 'checked="checked"' : '') ?> value="<?= $dynamic['id']; ?>" />
+                                                            <input class="jdynamic" type="checkbox" id="client_dynamic_<?= $dynamic['id']; ?>" name="client[dynamic][<?= $dynamic['id']; ?>]" <?= (!empty($dynamic['client_id']) && $dynamic['client_id'] == $client['id'] && $client['type_distributor'] ? 'checked="checked"' : '') ?> value="<?= $dynamic['id']; ?>" />
                                                         </td>
                                                         <td>
                                                             <label for="client_dynamic_<?= $dynamic['id']; ?>"><?= $dynamic['title']; ?></label>
