@@ -185,11 +185,11 @@ class HTML {
 
             
             $response .= '<table class="widgWeather" cellspacing="0" cellpading="0" width="100%"><tbody>';
-            $response .= '<tr><td colspan="2">';
-            $response .= 'temp: '.$xml->weather->current_conditions->temp_c['data'];
-            $response .= '</td></tr><td  width="50%" align="center">';
+            $response .= '<tr><td align="center">';
+            $response .= '<strong>Temp:</strong> '.$xml->weather->current_conditions->temp_c['data'];
+            $response .= '</td></tr><td align="center">';
             $response .= $xml->weather->current_conditions->condition['data'];
-            $response .= '</td><td>';
+            $response .= '</td></tr><tr><td align="center">';
             $img = 'http://google.com' . $xml->weather->current_conditions->icon['data'];
             $response .= '<img src="'.$img.'"/>';
             $response .= '</td></tr>';
