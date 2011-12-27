@@ -186,7 +186,7 @@ class HTML {
             
             $response .= '<table class="widgWeather" cellspacing="0" cellpading="0" width="100%"><tbody>';
             $response .= '<tr><td align="center">';
-            $response .= '<strong>Temp:</strong> '.$xml->weather->current_conditions->temp_c['data'];
+            $response .= '<strong>Temp:</strong> '.$xml->weather->current_conditions->temp_c['data'].'&deg;C';
             $response .= '</td></tr><td align="center">';
             $response .= $xml->weather->current_conditions->condition['data'];
             $response .= '</td></tr><tr><td align="center">';
