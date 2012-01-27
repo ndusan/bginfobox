@@ -581,10 +581,15 @@ class HomeController extends Controller
     {
         
         if(isset($params['submit'])){
-            
-            //Send
-            if(parent::sendEmail(MAIL_TO, 'Ads form', $params['form'], MAIL_FROM)){
-                parent::set('sent', 'success');
+            if(!empty($params['form']['spam']) && $params['form']['spam'] == $_SESSION['anti-spam']){
+
+                unset($params['form']['spam']);
+                //Send
+                if(parent::sendEmail(MAIL_TO, 'Ads form', $params['form'], MAIL_FROM)){
+                    parent::set('sent', 'success');
+                }else{
+                    parent::set('sent', 'error');
+                }
             }else{
                 parent::set('sent', 'error');
             }

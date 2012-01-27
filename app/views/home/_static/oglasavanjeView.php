@@ -89,6 +89,25 @@
                             </td>
                         </tr>
                         <tr align="right">
+                        <td id="antiSpam"></td>
+                        <td>
+                           <input type="text" name="form[spam]" id="form_spam" class="jr" value="" /> 
+                        </td>
+                        <script type="text/javascript">
+                            $(document).ready(function(){
+                                $.ajax({url: '/anti-spam',
+                                        type: 'GET',
+                                        dataType: 'html',
+                                        success: function(data){
+                                            if(data){
+                                                $('#antiSpam').html('<img src="/anti-spam" />');
+                                            }
+                                        }
+                                });
+                            });
+                        </script>
+                        </tr>
+                        <tr align="right">
                             <td colspan="2"><input type="submit" name="submit" value="posalji" /></td>
                         </tr>
                     </table>
