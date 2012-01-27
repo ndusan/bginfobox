@@ -141,6 +141,32 @@ class HomeController extends Controller
     }
     
     
+    public function antiSpamAction()
+    {
+        $lenght=6;
+        $number = ""; 
+        for ($i = 1; $i <= $lenght; $i++) 
+        { 
+             $number .= rand(0,9).""; 
+        } 
+        $width = 11*$lenght; 
+        $height = 30; 
+
+        $img = ImageCreate($width, $height); 
+        $background = imagecolorallocate($img,255,255,255); 
+        $color_black = imagecolorallocate($img,0,0,0); 
+        $color_grey = imagecolorallocate($img,169,169,169); 
+        imagerectangle($img,0, 0,$width-1,$height-1,$color_grey); 
+        imagestring($img, 5, $lenght, 7, $number, $color_black); 
+        $_SESSION['anti-spam'] = $number;
+        //////// VERY IMPORTANT 
+        header('Content-Type: image/png'); 
+        //////// VERY IMPORTANT 
+        imagepng($img); 
+        imagedestroy($img);
+    }
+    
+    
     /**
      * DYNAMIC PAGES
      * @param type $params 
@@ -533,11 +559,17 @@ class HomeController extends Controller
     /** CONTACT PAGE **/
     private function contactPage($params)
     {
+        
         if(isset($params['submit'])){
-            
-            //Send
-            if(parent::sendEmail(MAIL_TO, 'Contact form', $params['form'], MAIL_FROM)){
-                parent::set('sent', 'success');
+            if(!empty($params['form']['spam']) && $params['form']['spam'] == $_SESSION['anti-spam']){
+                
+                unset($params['form']['spam']);
+                //Send
+                if(parent::sendEmail(MAIL_TO, 'Contact form', $params['form'], MAIL_FROM)){
+                    parent::set('sent', 'success');
+                }else{
+                    parent::set('sent', 'error');
+                }
             }else{
                 parent::set('sent', 'error');
             }
@@ -667,7 +699,7 @@ class HomeController extends Controller
         
         $slugArray['previous'] = implode('/', $prev);
         #path
-        $slugArray['path'] = 'guide';
+        $slugArray['path'] = 'vodic';
         parent::set('slug', $slugArray);
         parent::set('bgInfoTree', $tree);
     }

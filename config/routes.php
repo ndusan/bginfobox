@@ -18,6 +18,12 @@ $routes = array(
             'action'     => 'staticPages', 
             'layout'     => 'default'
     ),
+    array(  'url'        => '/^anti-spam\/?$/', 
+            'controller' => 'home', 
+            'action'     => 'antiSpam', 
+            'layout'     => 'empty'
+    ),
+    
     //Static page - calendar
     array(  'url'        => '/^load-calendar\/?$/', 
             'controller' => 'home', 
