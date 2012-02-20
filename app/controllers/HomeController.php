@@ -561,7 +561,7 @@ class HomeController extends Controller
     {
         
         if(isset($params['submit'])){
-            if(!empty($params['form']['spam']) && $params['form']['spam'] == $_SESSION['anti-spam']){
+            if(!empty($params['form']['spam']) && !empty($_SESSION['anti-spam']) && $params['form']['spam'] == $_SESSION['anti-spam']){
                 
                 unset($params['form']['spam']);
                 //Send
@@ -581,7 +581,7 @@ class HomeController extends Controller
     {
         
         if(isset($params['submit'])){
-            if(!empty($params['form']['spam']) && $params['form']['spam'] == $_SESSION['anti-spam']){
+            if(!empty($params['form']['spam']) && !empty($_SESSION['anti-spam']) && $params['form']['spam'] == $_SESSION['anti-spam']){
 
                 unset($params['form']['spam']);
                 //Send
