@@ -51,6 +51,9 @@
                     <a class="zoom lightbox" title="<?=$gc['title_'.$params['lang']];?>" href="<?=(DS.'public'.DS.'uploads'.DS.'bginfo'.DS.$gc['image_name']);?>"></a>
                 </span>
                 <span class="info"><?=$_t['page.'.$gc['position'].'.label'][$params['lang']];?></span>
+                <span class="icoDld">
+                    <a target="_blank" href="<?=DS.'public'.DS.'uploads'.DS.'bginfo'.DS.$gc['image_name'];?>">preuzmi</a>
+                </span>
             </li>
             <? endforeach;?>
         </ul>

@@ -959,11 +959,9 @@ class HomeModel extends Model
         
         try{
             
-            $query = sprintf("SELECT `c`.* FROM %s AS `c` INNER JOIN %s AS `n` ON `n`.`id`=`c`.`navigation_id` ORDER BY RAND() ASC LIMIT 0,1", 
+            $query = sprintf("SELECT `c`.*, `n`.`slug` FROM %s AS `c` INNER JOIN %s AS `n` ON `n`.`id`=`c`.`navigation_id` ORDER BY RAND() ASC LIMIT 0,1", 
                                     $this->tblInfo, $this->tblNavigation);
             $stmt = $this->dbh->prepare($query);
-
-            $stmt->bindParam(':slug', $slug, PDO::PARAM_STR);
             $stmt->execute();
             
             return $stmt->fetchAll();
