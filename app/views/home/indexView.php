@@ -2,6 +2,7 @@
     <div class="mainBox">
         <? if (!empty($lattestStaticEditions)): ?>
             <? $tmp = array('1' => 'bginfo-box', '2' => 'bginfo-map', '3' => 'bginfo-night-map'); ?>
+            <? $desc = array('1'=>'','2'=>'','3'=>'');?>
             <ul class="galleryAll">
                 <? foreach ($lattestStaticEditions as $lse): ?>
                     <li>
@@ -10,6 +11,8 @@
                         </a>
                         <span class="info moreInfo">
                             <a href="<?= (DS . $params['lang'] . DS . $tmp[$lse['page_id']]); ?>"><?= $_t['index.question'][$params['lang']] ?> <?= $lse['title']; ?>?</a>
+                            <!-- ovde ide tekst -->
+                            <?=$desc[$lse['page_id']];?> 
                         </span>
                     </li>
                 <? endforeach; ?>
