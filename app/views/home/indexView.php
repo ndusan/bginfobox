@@ -2,7 +2,7 @@
     <div class="mainBox">
         <? if (!empty($lattestStaticEditions)): ?>
             <? $tmp = array('1' => 'bginfo-box', '2' => 'bginfo-map', '3' => 'bginfo-night-map'); ?>
-            <? $desc = array('1'=>'213123','2'=>'1231231','3'=>'123123');?>
+            <? $desc = array('1'=>'Distributivni panoi sa besplatnim informacijama o gradu.','2'=>' Besplatna mapa sa ucrtanim znamenitostima Beograda.','3'=>'Besplatna mapa sa preporukama za nocne izlaske.');?>
             <ul class="galleryAll">
                 <? foreach ($lattestStaticEditions as $lse): ?>
                     <li>
