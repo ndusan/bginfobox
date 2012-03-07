@@ -24,20 +24,20 @@ class HomeModel extends Model
     private $tblInfo = 'info';
     
     
-    public function getLattestNews($limit=2)
-    {
-        try{
-            $query = sprintf('SELECT * FROM %s ORDER BY `id` DESC LIMIT 0, '.$limit, $this->tblNews);
-            $stmt = $this->dbh->prepare($query);
-
-            $stmt->execute();
-
-            return $stmt->fetchAll();
-        }catch(Exception $e){
-            
-            return false;
-        }
-    }
+//    public function getLattestNews($limit=2)
+//    {
+//        try{
+//            $query = sprintf('SELECT * FROM %s ORDER BY `id` DESC LIMIT 0, '.$limit, $this->tblNews);
+//            $stmt = $this->dbh->prepare($query);
+//
+//            $stmt->execute();
+//
+//            return $stmt->fetchAll();
+//        }catch(Exception $e){
+//            
+//            return false;
+//        }
+//    }
     
     public function getAllNews($date=null)
     {
@@ -179,20 +179,20 @@ class HomeModel extends Model
     
     
     
-    public function getAllBanners()
-    {
-        try{
-            $query = sprintf('SELECT * FROM %s ORDER BY `id` DESC', $this->tblBanners);
-            $stmt = $this->dbh->prepare($query);
-
-            $stmt->execute();
-
-            return $stmt->fetchAll();
-        }catch(Exception $e){
-            
-            return false;
-        }
-    }
+//    public function getAllBanners()
+//    {
+//        try{
+//            $query = sprintf('SELECT * FROM %s ORDER BY `id` DESC', $this->tblBanners);
+//            $stmt = $this->dbh->prepare($query);
+//
+//            $stmt->execute();
+//
+//            return $stmt->fetchAll();
+//        }catch(Exception $e){
+//            
+//            return false;
+//        }
+//    }
     
     
     public function getAllGallery()
@@ -212,21 +212,21 @@ class HomeModel extends Model
     }
     
     
-    public function getAllCarousel()
-    {
-        
-        try{
-            $query = sprintf('SELECT * FROM %s ORDER BY `id` DESC', $this->tblCarousel);
-            $stmt = $this->dbh->prepare($query);
-
-            $stmt->execute();
-
-            return $stmt->fetchAll();
-        }catch(Exception $e){
-            
-            return false;
-        }
-    }
+//    public function getAllCarousel()
+//    {
+//        
+//        try{
+//            $query = sprintf('SELECT * FROM %s ORDER BY `id` DESC', $this->tblCarousel);
+//            $stmt = $this->dbh->prepare($query);
+//
+//            $stmt->execute();
+//
+//            return $stmt->fetchAll();
+//        }catch(Exception $e){
+//            
+//            return false;
+//        }
+//    }
     
     public function getActiveLanguages()
     {
@@ -972,47 +972,47 @@ class HomeModel extends Model
     }
     
     
-    public function getFooter()
-    {
-        $output = array();
-        try{
-            
-            $query = sprintf("SELECT * FROM %s ORDER BY `position`", $this->tblPages);
-            $stmt = $this->dbh->prepare($query);
-
-            $stmt->execute();
-            
-            $res = $stmt->fetchAll();
-            if(!empty($res)){
-                $output['editions'] = $res;
-            }
-            
-            $query = sprintf("SELECT * FROM %s WHERE `is_root`='1' AND `type`='clients'", $this->tblNavigation);
-            $stmt = $this->dbh->prepare($query);
-
-            $stmt->execute();
-            
-            $res = $stmt->fetchAll();
-            if(!empty($res)){
-                $output['clients'] = $res;
-            }
-            
-            $query = sprintf("SELECT * FROM %s WHERE `is_root`='1' AND `type`='info'", $this->tblNavigation);
-            $stmt = $this->dbh->prepare($query);
-
-            $stmt->execute();
-            
-            $res = $stmt->fetchAll();
-            if(!empty($res)){
-                $output['info'] = $res;
-            }
-            
-            return $output;
-        }catch(Exception $e){
-            
-            return false;
-        }
-    }
+//    public function getFooter()
+//    {
+//        $output = array();
+//        try{
+//            
+//            $query = sprintf("SELECT * FROM %s ORDER BY `position`", $this->tblPages);
+//            $stmt = $this->dbh->prepare($query);
+//
+//            $stmt->execute();
+//            
+//            $res = $stmt->fetchAll();
+//            if(!empty($res)){
+//                $output['editions'] = $res;
+//            }
+//            
+//            $query = sprintf("SELECT * FROM %s WHERE `is_root`='1' AND `type`='clients'", $this->tblNavigation);
+//            $stmt = $this->dbh->prepare($query);
+//
+//            $stmt->execute();
+//            
+//            $res = $stmt->fetchAll();
+//            if(!empty($res)){
+//                $output['clients'] = $res;
+//            }
+//            
+//            $query = sprintf("SELECT * FROM %s WHERE `is_root`='1' AND `type`='info'", $this->tblNavigation);
+//            $stmt = $this->dbh->prepare($query);
+//
+//            $stmt->execute();
+//            
+//            $res = $stmt->fetchAll();
+//            if(!empty($res)){
+//                $output['info'] = $res;
+//            }
+//            
+//            return $output;
+//        }catch(Exception $e){
+//            
+//            return false;
+//        }
+//    }
     
     
 }

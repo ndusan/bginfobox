@@ -60,7 +60,6 @@
                         </td>
                     </tr>
                     
-                    <? if(!empty($settings['has_file_name'])):?>
                     <tr>
                         <td>Download main file:</td>
                         <td>
@@ -70,8 +69,6 @@
                             <? endif;?>
                         </td>
                     </tr>
-                    <? endif;?>
-                    <? if(!empty($settings['has_file_name'])):?>
                     <tr>
                         <td>Download alt.top file:</td>
                         <td>
@@ -81,8 +78,6 @@
                             <? endif;?>
                         </td>
                     </tr>
-                    <? endif;?>
-                    <? if(!empty($settings['has_file_name'])):?>
                     <tr>
                         <td>Download alt.bottom file:</td>
                         <td>
@@ -92,7 +87,7 @@
                             <? endif;?>
                         </td>
                     </tr>
-                    <? endif;?>
+
                     <tr>
                         <td colspan="2" align="center">
                             <input type="hidden" name="edition[id]" value="<?= @$params['id']; ?>" />
