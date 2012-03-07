@@ -45,12 +45,12 @@
         <? if(!empty($galleryCollection)):?>
         <ul class="galleryAll">
             <? foreach($galleryCollection as $gc):?>
-            <li>
+            <li class="first">
+                <span class="info"><?=$_t['page.'.$gc['position'].'.label'][$params['lang']];?></span>
                 <span>
                     <img width="170" height="240" title="<?=$gc['title_'.$params['lang']];?>" alt="<?=$gc['title_'.$params['lang']];?>" width="170" height="240" src="<?=(DS.'public'.DS.'uploads'.DS.'bginfo'.DS.'thumb-'.$gc['image_name']);?>" />
                     <a class="zoom lightbox" title="<?=$gc['title_'.$params['lang']];?>" href="<?=(DS.'public'.DS.'uploads'.DS.'bginfo'.DS.$gc['image_name']);?>"></a>
                 </span>
-                <span class="info"><?=$_t['page.'.$gc['position'].'.label'][$params['lang']];?></span>
                 <? if (!empty($gc['dimage_name'])):?>
                 <span class="icoDld">
                     <a target="_blank" href="<?=DS.'public'.DS.'uploads'.DS.'bginfo'.DS.$gc['dimage_name'];?>"><?=$_t['download.label'][$params['lang']];?></a>
