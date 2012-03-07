@@ -100,7 +100,7 @@ class CmsBginfoController extends Controller
     {
         
         if(!empty($params['submit']) && !empty($params['edition'])){
-
+            
             //Add new page_edition_images
             foreach($params['edition']['title_sr'] as $key=>$val){
                 $this->db->updateBginfoEditionImage(array('title_sr'=>$val,
@@ -109,8 +109,8 @@ class CmsBginfoController extends Controller
                                                           'position'=>$key));
 
                 //If image uploaded add it
-                if(0 == $params['image']['error'][$key] && !empty($params['edition']['page_edition_id'][$key])){
-
+                if(isset($params['image']) && 0 == $params['image']['error'][$key] && !empty($params['edition']['page_edition_id'][$key])){
+                    
                     $data = $this->db->getImageName($params['edition']['page_edition_id'][$key]);
                     $oldImageName = $data['image_name'];
                     
@@ -126,10 +126,27 @@ class CmsBginfoController extends Controller
                                    'tmp_name'=>$params['image']['tmp_name'][$key],
                                    'error'   =>$params['image']['error'][$key],
                                    'size'   =>$params['image']['size'][$key]);
-
+                    
                     $this->reUploadImage($oldImageName, $newImageName, $image, 'bginfo');
                     //Create thumb
                     $this->createThumbImage($newImageName, 'bginfo', 170, 240);
+                }
+                
+                if(isset($params['dimage']) && 0 == $params['dimage']['error'][$key] && !empty($params['edition']['page_edition_id'][$key])){
+                    
+                    $data = $this->db->getDDownload($params['edition']['page_edition_id'][$key]);
+                    $oldImageName = $data['dimage_name'];
+                    
+                    $newImageName = $params['edition']['page_edition_id'][$key].'-'.$params['id'].'-d'.$params['dimage']['name'][$key];
+                    $this->db->setDDownload($params['edition']['page_edition_id'][$key], $newImageName);
+
+                    $image = array('name'    =>$params['dimage']['name'][$key],
+                                   'type'    =>$params['dimage']['type'][$key],
+                                   'tmp_name'=>$params['dimage']['tmp_name'][$key],
+                                   'error'   =>$params['dimage']['error'][$key],
+                                   'size'    =>$params['dimage']['size'][$key]);
+                    
+                    $this->reUploadImage($oldImageName, $newImageName, $image, 'bginfo');
                 }
             }
             
@@ -162,6 +179,7 @@ class CmsBginfoController extends Controller
         
         $dataImageArray = $this->db->getImageNameArray($params['id']);
         $dataDownload = $this->db->getDownload($params['id']);
+        $dataDownloadArray = $this->db->getDDownload($params['id']);
 
         if($this->db->deleteBginfoEdition($params)){
             
@@ -181,6 +199,14 @@ class CmsBginfoController extends Controller
                 $oldFileName = $dataDownload['file_name'];
 
                 $this->deleteImage($oldFileName, 'bginfo');
+            }
+            
+            if(!empty($dataDownloadArray)){
+                foreach($dataDownloadArray as $dia){
+                    $oldImageName = $dia['dimage_name'];
+
+                    $this->deleteImage($oldImageName, 'bginfo');
+                }
             }
             
             parent::redirect ('cms'.DS.'bginfo', 'success', '#fragment-'.$params['page_id']);

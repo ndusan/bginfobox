@@ -2,7 +2,6 @@
     <div class="mainBox">
         <? if (!empty($lattestStaticEditions)): ?>
             <? $tmp = array('1' => 'bginfo-box', '2' => 'bginfo-map', '3' => 'bginfo-night-map'); ?>
-            <? $desc = array('1'=>'Distributivni panoi sa besplatnim informacijama o gradu.','2'=>' Besplatna mapa sa ucrtanim znamenitostima Beograda.','3'=>'Besplatna mapa sa preporukama za nocne izlaske.');?>
             <ul class="galleryAll">
                 <? foreach ($lattestStaticEditions as $lse): ?>
                     <li>
@@ -13,7 +12,7 @@
                             <a href="<?= (DS . $params['lang'] . DS . $tmp[$lse['page_id']]); ?>"><?= $_t['index.question'][$params['lang']] ?> <?= $lse['title']; ?>?</a>
                             <!-- ovde ide tekst -->
                         </span>
-                        <p style="padding:5px 0 0"><?=$desc[$lse['page_id']];?></p> 
+                        <p style="padding:5px 0 0"><?=$_t['home.'.$tmp[$lse['page_id']].'.subtitle'][$params['lang']];?></p> 
                     </li>
                 <? endforeach; ?>
             </ul>

@@ -55,7 +55,7 @@
             <h4><?= $s['title_' . $params['lang']]; ?></h4>
             <p><?= $s['content_' . $params['lang']]; ?></p>
             <!-- link -->
-            <a href="<?=DS.$params['lang'].DS.'info'.DS.$s['slug'];?>">more...</a>
+            <a href="<?=DS.$params['lang'].DS.'info'.DS.$s['slug'];?>"><?= $_t['news.read_more'][$params['lang']]; ?>...</a>
         </div>
     </div>
     <? endforeach; ?>

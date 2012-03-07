@@ -14,6 +14,12 @@
                         </td>
                     </tr>
                     <tr>
+                        <td>Heading:</td>
+                        <td>
+                            <input type="text" name="event[heading_sr]" value="<?= @$event['heading_sr']; ?>"/>
+                        </td>
+                    </tr>
+                    <tr>
                         <td>Content:</td>
                         <td>
                             <textarea name="event[content_sr]" class="jr"><?= @$event['content_sr']; ?></textarea>
@@ -29,6 +35,12 @@
                         <td>Title:</td>
                         <td>
                             <input type="text" name="event[title_en]" value="<?= @$event['title_en']; ?>"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Heading:</td>
+                        <td>
+                            <input type="text" name="event[heading_en]" value="<?= @$event['heading_en']; ?>" />
                         </td>
                     </tr>
                     <tr>

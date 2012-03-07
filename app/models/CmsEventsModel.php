@@ -42,15 +42,17 @@ class CmsEventsModel extends Model
     {
         
         try{
-            $query = sprintf("UPDATE %s SET `title_sr`=:titleSr, `content_sr`=:contentSr, 
-                                            `title_en`=:titleEn, `content_en`=:contentEn,
+            $query = sprintf("UPDATE %s SET `title_sr`=:titleSr, `heading_sr`=:headingSr, `content_sr`=:contentSr, 
+                                            `title_en`=:titleEn, `heading_en`=:headingEn, `content_en`=:contentEn,
                                             `date_start`=:dateStart, `date_end`=:dateEnd
                                             WHERE `id`=:id", $this->tableEvents);
             $stmt = $this->dbh->prepare($query);
             
             $stmt->bindParam(':titleSr', $params['title_sr'], PDO::PARAM_STR);
+            $stmt->bindParam(':headingSr', $params['heading_sr'], PDO::PARAM_STR);
             $stmt->bindParam(':contentSr', $params['content_sr'], PDO::PARAM_STR);
             $stmt->bindParam(':titleEn', $params['title_en'], PDO::PARAM_STR);
+            $stmt->bindParam(':headingEn', $params['heading_en'], PDO::PARAM_STR);
             $stmt->bindParam(':contentEn', $params['content_en'], PDO::PARAM_STR);
             $stmt->bindParam(':dateStart', $this->convertDate($params['date_start']));
             $stmt->bindParam(':dateEnd', $this->convertDate($params['date_end']));
@@ -71,14 +73,16 @@ class CmsEventsModel extends Model
         
         try{
             
-            $query = sprintf("INSERT INTO %s SET `title_sr`=:titleSr, `content_sr`=:contentSr, 
-                                                 `title_en`=:titleEn, `content_en`=:contentEn, 
+            $query = sprintf("INSERT INTO %s SET `title_sr`=:titleSr, `heading_sr`=:headingSr, `content_sr`=:contentSr, 
+                                                 `title_en`=:titleEn, `heading_en`=:headingEn, `content_en`=:contentEn, 
                                                  `date_start`=:dateStart, `date_end`=:dateEnd", $this->tableEvents);
             $stmt = $this->dbh->prepare($query);
             
             $stmt->bindParam(':titleSr', $params['title_sr'], PDO::PARAM_STR);
+            $stmt->bindParam(':headingSr', $params['heading_sr'], PDO::PARAM_STR);
             $stmt->bindParam(':contentSr', $params['content_sr'], PDO::PARAM_STR);
             $stmt->bindParam(':titleEn', $params['title_en'], PDO::PARAM_STR);
+            $stmt->bindParam(':headingEn', $params['heading_en'], PDO::PARAM_STR);
             $stmt->bindParam(':contentEn', $params['content_en'], PDO::PARAM_STR);
             $stmt->bindParam(':dateStart', $this->convertDate($params['date_start']));
             $stmt->bindParam(':dateEnd', $this->convertDate($params['date_end']));

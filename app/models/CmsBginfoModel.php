@@ -235,6 +235,41 @@ class CmsBginfoModel extends Model
         }
     }
     
+    public function getDDownload($id)
+    {
+        
+        try{
+            $query = sprintf("SELECT `dimage_name` FROM %s WHERE `id`=:id", $this->tablePageEditionImages);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+
+            return $stmt->fetch();
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
+    public function setDDownload($id, $imageName)
+    {
+        try{
+            $query = sprintf("UPDATE %s SET `dimage_name`=:imageName WHERE `id`=:id", $this->tablePageEditionImages);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->bindParam(':imageName', $imageName, PDO::PARAM_STR);
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            
+            $stmt->execute();
+
+            return true;
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
     
     
     public function getImageNameArray($pageEditionId)

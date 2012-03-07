@@ -51,9 +51,11 @@
                     <a class="zoom lightbox" title="<?=$gc['title_'.$params['lang']];?>" href="<?=(DS.'public'.DS.'uploads'.DS.'bginfo'.DS.$gc['image_name']);?>"></a>
                 </span>
                 <span class="info"><?=$_t['page.'.$gc['position'].'.label'][$params['lang']];?></span>
+                <? if (!empty($gc['dimage_name'])):?>
                 <span class="icoDld">
-                    <a target="_blank" href="<?=DS.'public'.DS.'uploads'.DS.'bginfo'.DS.$gc['image_name'];?>">preuzmi</a>
+                    <a target="_blank" href="<?=DS.'public'.DS.'uploads'.DS.'bginfo'.DS.$gc['dimage_name'];?>"><?=$_t['download.label'][$params['lang']];?></a>
                 </span>
+                <? endif;?>
             </li>
             <? endforeach;?>
         </ul>

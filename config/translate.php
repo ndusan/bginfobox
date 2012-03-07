@@ -119,4 +119,8 @@ $translate = array(
     //list
     'list.label'=>array('sr'=>'Izdvajamo', 'en'=>'Hightlights'),
    
+    //subtitle
+    'home.bginfo-box.subtitle'=>array('sr'=>'Distributivni panoi sa besplatnim informacijama o gradu.','en'=>'Distribution boards with free information about city.'),
+    'home.bginfo-map.subtitle'=>array('sr'=>'Besplatna mapa sa ucrtanim znamenitostima Beograda.','en'=>'Free map with indicated landmarks of Belgrade.'),
+    'home.bginfo-night-map.subtitle'=>array('sr'=>'Besplatna mapa sa preporukama za nocne izlaske.','en'=>'Free map with recommendations for nightlife.'),
 );

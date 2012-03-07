@@ -1,14 +1,5 @@
 nbproject/
 config/config.php.dist
 config/config.php
-public/uploads/news/*
-public/uploads/events/*
-public/uploads/banners/*
-public/uploads/gallery/*
-public/uploads/carousel/*
-public/uploads/bginfo/*
-public/uploads/pockets/*
-public/uploads/clients/*
-public/uploads/info/*
-public/uploads/aboutus/*
+public/uploads/*
 tmp/*

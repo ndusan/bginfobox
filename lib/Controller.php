@@ -164,10 +164,10 @@ class Controller {
 
     public function reUploadImage($oldImage, $newImage, $image, $folder) {
         if (file_exists(UPLOAD_PATH . $folder . DS . $oldImage)) {
-
+            
             $this->deleteImage($oldImage, $folder);
         }
-
+        
         if (move_uploaded_file($image['tmp_name'], UPLOAD_PATH . $folder . DS . $newImage)) {
             list($width, $height) = getimagesize(UPLOAD_PATH . $folder . DS . $newImage);
             $size = filesize(UPLOAD_PATH . $folder . DS . $newImage);

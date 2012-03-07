@@ -53,6 +53,17 @@
                             <? endif;?>
                         </td>
                     </tr>
+                    
+                    <!-- File -->
+                    <tr>
+                        <td>Download file (<?=$imageNames[$i];?>):</td>
+                        <td>
+                            <input type="file" name="dimage[<?=$i;?>]" value=""/>
+                            <? if(!empty($edition[$i]['dimage_name'])):?>
+                            <a href="<?= DS . 'public' . DS . 'uploads' . DS . 'bginfo' . DS . $edition[$i]['dimage_name']; ?>" target="_blank"><?= $edition[$i]['dimage_name']; ?></a>
+                            <? endif;?>
+                        </td>
+                    </tr>
                     <? endfor; ?>
                     <? endif;?>
                     

@@ -11,6 +11,7 @@
                     <li>
                         <h2><?= $n['title_' . $params['lang']]; ?></h2>
                         <span class="date"><?= @$html->convertDate($n['date_start']); ?></span> 
+                        <p><?= $n['heading_' . $params['lang']]; ?></p>
                         <a href="<?= DS . $params['lang'] . DS . 'calendar' . DS . $n['date_start'] . DS . $n['id'] . DS . urlencode(str_replace(array('š', 'đ', 'č', 'ć', 'ž', 'Š', 'Đ', 'Č', 'Ć', 'Ž', '?', '!', ',', '.', '&', ':', '(', ')', '[', ']', '%', '#', '\'', '"', '=', '*'), array('s', 'd', 'c', 'c', 'z', 's', 'd', 'c', 'c', 'z', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''), $n['title_' . $params['lang']])); ?>">
                             <?= $_t['cal.read_more'][$params['lang']]; ?>...
                         </a>
@@ -29,6 +30,7 @@
                 </ul>
                 <span class="date"><?= @$html->convertDate($calendar['date_start']); ?></span>
                 <h2><?= $calendar['title_' . $params['lang']]; ?></h2>
+                <p class="highlight"><?= $calendar['heading_' . $params['lang']]; ?></p>
                 <? if (!empty($calendar['image_name'])): ?>
                     <img src="<?= DS . 'public' . DS . 'uploads' . DS . 'events' . DS . $calendar['image_name']; ?>" alt="<?= $calendar['title_' . $params['lang']]; ?>" title="<?= $calendar['title_' . $params['lang']]; ?>"/>
                 <? endif; ?>

@@ -53,6 +53,17 @@ $routes = array(
             'action'     => 'dynamicPages', 
             'layout'     => 'default'
     ),
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/projekat\/(?P<id>\d+)*\/?$/', 
+            'controller' => 'projects', 
+            'action'     => 'index', 
+            'layout'     => 'default'
+    ),
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/projekat\/(?P<id>\d+)*\/gallery\/?$/', 
+            'controller' => 'projects', 
+            'action'     => 'gallery', 
+            'layout'     => 'default'
+    ),
+    
     //Location
     array(  'url'        => '/^(?P<lang>('.LANG.'))\/(?P<page>(bginfo-box|bginfo-night-map|bginfo-map|in-your-pocket-city-guides))\/location\/?$/', 
             'controller' => 'home', 
@@ -459,5 +470,40 @@ $routes = array(
             'layout'     => 'empty'
     ),
     
-    
+    //CMS monthly edition page
+    array(  'url'        => '/^cms\/projects\/?$/', 
+            'controller' => 'cmsProjects', 
+            'action'     => 'index', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/project\/add\/?$/', 
+            'controller' => 'cmsProjects', 
+            'action'     => 'addProject', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/project\/edit\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsProjects', 
+            'action'     => 'editProject', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/project\/delete\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsProjects', 
+            'action'     => 'deleteProject', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/project\/(?P<project_id>\d*)\/edition\/add\/?$/', 
+            'controller' => 'cmsProjects', 
+            'action'     => 'addEdition', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/project\/(?P<project_id>\d*)\/edition\/edit\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsProjects', 
+            'action'     => 'editEdition', 
+            'layout'     => 'cms'
+    ),
+    array(  'url'        => '/^cms\/project\/(?P<project_id>\d*)\/edition\/delete\/(?P<id>\d*)\/?$/', 
+            'controller' => 'cmsProjects', 
+            'action'     => 'deleteEdition', 
+            'layout'     => 'empty'
+    ),
 );

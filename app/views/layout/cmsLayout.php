@@ -51,6 +51,7 @@
                     <li><a <?= $this->_controller=='cmsPockets'?'class="active"':''; ?> href="<?= DS . 'cms' . DS . 'pockets'; ?>">Pockets pages</a></li>
                     <li><a <?= $this->_controller=='cmsInfo'?'class="active"':''; ?> href="<?= DS . 'cms' . DS . 'info'; ?>">Bg Info</a></li>
                     <li><a <?= $this->_controller=='cmsClients'?'class="active"':''; ?> href="<?= DS . 'cms' . DS . 'clients'; ?>">Clients</a></li>
+                    <li><a <?= $this->_controller=='cmsProjects'?'class="active"':''; ?> href="<?= DS . 'cms' . DS . 'projects'; ?>">Projects</a></li>
                 </ul>
             </div>
             <div class="content">
