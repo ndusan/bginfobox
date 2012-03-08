@@ -22,6 +22,7 @@ class HomeModel extends Model
     private $tblNavigation = 'navigation';
     private $tblNavigationTree = 'navigation_tree';
     private $tblInfo = 'info';
+    private $tblProjects = 'projects';
     
     
 //    public function getLattestNews($limit=2)
@@ -740,22 +741,22 @@ class HomeModel extends Model
     
     
     
-    public function getBgInfoRootTree()
-    {
-        
-        try{
-           
-            $query = sprintf("SELECT * FROM %s WHERE `is_root`='1' AND `type`='clients' ORDER BY `position` ASC", $this->tblNavigation);
-            $stmt = $this->dbh->prepare($query);
-
-            $stmt->execute();
-
-            return $stmt->fetchAll();
-        }catch(Exception $e){
-            
-            return false;
-        }
-    }
+//    public function getBgInfoRootTree()
+//    {
+//        
+//        try{
+//           
+//            $query = sprintf("SELECT * FROM %s WHERE `is_root`='1' AND `type`='clients' ORDER BY `position` ASC", $this->tblNavigation);
+//            $stmt = $this->dbh->prepare($query);
+//
+//            $stmt->execute();
+//
+//            return $stmt->fetchAll();
+//        }catch(Exception $e){
+//            
+//            return false;
+//        }
+//    }
     
     
     
@@ -786,22 +787,22 @@ class HomeModel extends Model
     
     
     
-    public function getOtherInfoRootTree()
-    {
-        
-        try{
-           
-            $query = sprintf("SELECT * FROM %s WHERE `is_root`='1' AND `type`='info' ORDER BY `position` ASC", $this->tblNavigation);
-            $stmt = $this->dbh->prepare($query);
-
-            $stmt->execute();
-
-            return $stmt->fetchAll();
-        }catch(Exception $e){
-            
-            return false;
-        }
-    }
+//    public function getOtherInfoRootTree()
+//    {
+//        
+//        try{
+//           
+//            $query = sprintf("SELECT * FROM %s WHERE `is_root`='1' AND `type`='info' ORDER BY `position` ASC", $this->tblNavigation);
+//            $stmt = $this->dbh->prepare($query);
+//
+//            $stmt->execute();
+//
+//            return $stmt->fetchAll();
+//        }catch(Exception $e){
+//            
+//            return false;
+//        }
+//    }
     
     
     
@@ -1014,5 +1015,20 @@ class HomeModel extends Model
 //        }
 //    }
     
+    
+    public function getProjects()
+    {
+        try {
+            $query = sprintf("SELECT * FROM %s ORDER BY `id` ASC", $this->tblProjects);
+            $stmt = $this->dbh->prepare($query);
+            
+            $stmt->execute();
+            
+            return $stmt->fetchAll();
+        } catch (\PDOException $e) {
+            
+            return false;
+        }
+    }
     
 }

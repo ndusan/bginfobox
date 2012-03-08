@@ -258,4 +258,39 @@ class Model
             return false;
         }
     }
+    
+    public function getBgInfoRootTree()
+    {
+        
+        try{
+           
+            $query = sprintf("SELECT * FROM %s WHERE `is_root`='1' AND `type`='clients' ORDER BY `position` ASC", $this->tblNavigation);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
+    
+    
+    public function getOtherInfoRootTree()
+    {
+        
+        try{
+           
+            $query = sprintf("SELECT * FROM %s WHERE `is_root`='1' AND `type`='info' ORDER BY `position` ASC", $this->tblNavigation);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+        }catch(Exception $e){
+            
+            return false;
+        }
+    }
 }

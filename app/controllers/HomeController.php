@@ -55,6 +55,8 @@ class HomeController extends Controller
         
         parent::set('lattestAdsPaid', $this->db->getAdsPaid(null, 2));
         
+        parent::set('projects', $this->db->getProjects());
+        
         
         //Footer
         parent::set('footer', $this->db->getFooter());

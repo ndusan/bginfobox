@@ -5,7 +5,6 @@ class ProjectsController extends Controller
     
     public function init($params)
     {
-        
         //Lattest news
         $this->getNews();
         
@@ -21,6 +20,12 @@ class ProjectsController extends Controller
         //Get active language
         $this->getActiveLanguage();
         
+        //Get BG INFO tree
+        $this->getBgInfoRootTree();
+        
+        //Get OTHER INFO tree
+        $this->getOtherInfoRootTree();
+        
         //Footer
         parent::set('footer', $this->db->getFooter());
     }
@@ -29,6 +34,8 @@ class ProjectsController extends Controller
     {
         
         $this->init($params);
+        
+        
     }
     
     
@@ -89,5 +96,17 @@ class ProjectsController extends Controller
     {
         
         parent::set('activeLangs', $this->db->getActiveLanguages());
+    }
+    
+    private function getBgInfoRootTree()
+    {
+        
+        parent::set('bgInfoRootTree', $this->db->getBgInfoRootTree());
+    }
+    
+    private function getOtherInfoRootTree()
+    {
+        
+        parent::set('otherInfoRootTree', $this->db->getOtherInfoRootTree());
     }
 }

@@ -40,6 +40,33 @@
         </ul>
         <? endif;?>
     </div>
+    
+    
+    <!-- List projects START -->
+    <? if(!empty($projects)):?>
+    <? foreach($projects as $project):?>
+    <div >
+        <div>
+            <!-- Title -->
+            <?= $project['title_'.$params['lang']];?>
+        </div>
+        <div>
+            
+            <div>
+                <!-- Main image -->    
+                <img src="<?=(DS.'public'.DS.'uploads'.DS.'project'.DS.$project['main_image']);?>" />
+                <a href="<?=(DS.$params['lang'].DS.'projekat'.DS.$project['id']);?>" >dalje</a>
+            </div>
+            <div>
+                <!-- Description -->
+                <?= $project['desc_'.$params['lang']];?>
+            </div>
+        </div>
+    </div>
+    <? endforeach; ?>
+    <? endif;?>
+    <!-- List projects END -->
+    
     <div class="boxTitle1">
         <h2><?= $_t['guide-highlights.label'][$params['lang']]; ?></h2>
     </div>
