@@ -1,12 +1,11 @@
 <div class="tabs">
     <ul>
-        <li><a href="#fragment-1">All projects</a></li>
-        <? $i=2;?>
+        <li><a href="#fragment-0">All projects</a></li>
         <? foreach($projects as $tab):?> 
-        <li><a href="#fragment-<?=$i++;?>"><?=$tab['title_sr'];?></a></li>
+        <li><a href="#fragment-<?=$tab['id'];?>"><?=$tab['title_sr'];?></a></li>
         <? endforeach; ?>
     </ul>
-    <div id="fragment-1" class="addContent1">
+    <div id="fragment-0" class="addContent1">
         <ul class="addTop">
             <li><a class="cmsAdd" href="/cms/project/add" >Add new project</a></li>
         </ul>
@@ -47,9 +46,8 @@
         </div>
         <? endif; ?>
     </div>
-    <? $i=2;?>
     <? foreach($projects as $tab):?>
-    <div id="fragment-<?=$i;?>" class="addContent1">
+    <div id="fragment-<?=$tab['id'];?>" class="addContent1">
         <ul class="addTop">
             <li><a class="cmsAdd" href="/cms/project/<?=$tab['id'];?>/edition/add" >New edition</a></li>
         </ul>
@@ -59,24 +57,27 @@
             <thead> 
                 <tr> 
                     <th>Title</th>
+                    <th>Created</th>
                     <th width="100px">Action</th>
               </tr> 
             </thead> 
             <tbody> 
                 <? foreach ($editionCollection[$tab['id']] as $e): ?>
                     <tr> 
-                        <td><?=$e['title'];?></td>
+                        <td><?=$e['desc_sr'];?></td>
+                        <td><?=$html->convertDate($e['created'],true);?></td>
                         <td align="center" valign="top">
                             <!--Edit-->
-                            <a class="cmsEdit" title="Edit" href="/cms/monthly/edit/<?=$e['id'];?>/<?= $e['page_id']; ?>/edition"></a>
+                            <a class="cmsEdit" title="Edit" href="/cms/project/<?=$e['project_id'];?>/edition/edit/<?= $e['id']; ?>"></a>
                             <!--Delete-->
-                            <a class="jw cmsDelete" title="Delete" href="/cms/monthly/delete/<?=$e['id'];?>/<?= $e['page_id']; ?>/edition" ></a>
+                            <a class="jw cmsDelete" title="Delete" href="/cms/project/<?=$e['project_id'];?>/edition/delete/<?= $e['id']; ?>" ></a>
                         </td> 
               </tr> 
                 <? endforeach; ?>
             <tfoot> 
                 <tr> 
                     <th>Title</th>
+                    <th>Created</th>
                     <th>Action</th> 
                 </tr> 
             </tfoot> 
