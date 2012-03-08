@@ -241,3 +241,7 @@ ul.guideNav li a:hover, ul.guideNav li.active a {background:#9c1006 url(../image
 
 ul.social {height:25px; padding:0 0 5px; border-bottom:solid 1px #DFDFDF;}
 ul.social li {list-style:none; float:left;}
+
+.newProject {overflow:hidden;}
+.newProject img {float:left; padding:10px 0 0;}
+.newProject .newProShort {margin:5px 0 0 185px;}

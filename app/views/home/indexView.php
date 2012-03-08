@@ -12,7 +12,7 @@
                             <a href="<?= (DS . $params['lang'] . DS . $tmp[$lse['page_id']]); ?>"><?= $_t['index.question'][$params['lang']] ?> <?= $lse['title']; ?>?</a>
                             <!-- ovde ide tekst -->
                         </span>
-                        <p style="padding:5px 0 0"><?=$_t['home.'.$tmp[$lse['page_id']].'.subtitle'][$params['lang']];?></p> 
+                        <p style="padding:5px 0 0"><?= $_t['home.' . $tmp[$lse['page_id']] . '.subtitle'][$params['lang']]; ?></p> 
                     </li>
                 <? endforeach; ?>
             </ul>
@@ -37,6 +37,19 @@
                 </a>
             </span>
             <p><?= $pocketContent['front_content_' . $params['lang']]; ?></p> 
+
+            <div class="newProject">
+                <span class="info moreInfo">
+                    <a href="#">
+                        Sta je This Month in Belgrade
+                    </a>
+                </span>
+                <img title="" width="170" height="240" src=" <?= IMAGE_PATH . 'arhiva.jpg'; ?>" />
+                <div class="newProShort">
+                    <p>Preduzeće BGinfo Box je u januaru 2008. godine dobilo licencu za izdavanje jednog od najvećih evropskih vodiča - In Your Pocket City Guide. Ovi vodiči postoje od 1992. godine i publikuju se u više od 150 evropskih gradova iz 25 zemalja.</p>
+                    <p>Sadrže objektivne autorske tekstove koji obiluju tačnim i proverenim informacijama. Sve informacije iz štampanog izdanja vodiča su dostupne i na web portalu <a href="http://www.inyourpocket.com">www.inyourpocket.com</a>, koji beleži 3.000.000 poseta na mesečnom nivou. Ljudi iz celog sveta mogu da, pre posete nekom od ovih gradova, u pdf formatu preuzmu čitave vodiče (zajedno sa reklamnim i informativnim sadržajem).</p>
+                </div>
+            </div>
         </div>
     </div>
 
