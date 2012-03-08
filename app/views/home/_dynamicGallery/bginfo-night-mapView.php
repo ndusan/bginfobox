@@ -6,7 +6,7 @@
         <? if (!empty($galleryCollection)): ?>
             <ul class="galleryAll">
                 <? foreach ($galleryCollection as $gc): ?>
-                    <li>
+                    <li class="first">
                         <span>
                             <img title="<?= $gc['title_' . $params['lang']]; ?>" alt="<?= $gc['title_' . $params['lang']]; ?>" width="170" height="240" src="<?= (DS . 'public' . DS . 'uploads' . DS . 'bginfo' . DS . 'thumb-' . $gc['image_name']); ?>" />
                             <a class="zoom lightbox" title="<?= $gc['title_' . $params['lang']]; ?>" href="<?= (DS . 'public' . DS . 'uploads' . DS . 'bginfo' . DS . $gc['image_name']); ?>"></a>
@@ -30,9 +30,9 @@
             <p>
                 <span class="info">
                     <?= $_t['bginfo-night-map.last_five_archive.label'][$params['lang']]; ?>, 
-                    <a href="<?=(DS.$params['lang'].DS.'arhiva'.DS.'bginfo-nigth-map');?>">
-                        <?=$_t['complete-archive.label'][$params['lang']];?>
-                   </a>
+                    <a href="<?= (DS . $params['lang'] . DS . 'arhiva' . DS . 'bginfo-nigth-map'); ?>">
+                        <?= $_t['complete-archive.label'][$params['lang']]; ?>
+                    </a>
                 </span>
             </p>
         <? endif; ?>

@@ -172,8 +172,9 @@ ul.soc  li {float:left; margin-left:20px;}
 .archiveAll ul .last {padding:80px 0 0; width:auto;}
 
 .galleryAll {overflow:hidden; padding:10px;}
-.galleryAll li {float:left; margin:5px; position:relative; width:170px;}
-.galleryAll li span {position:relative; display:block;}
+.galleryAll > li {float:left; margin:5px; position:relative;}
+.galleryAll > li.first {width:170px;}
+.galleryAll > li span {position:relative; display:block;}
 
 span.info {text-align:center; padding:5px 0; display:block;}
 span.info.moreInfo {font-size:13px; color:#FFF; margin:10px 0 0; background:#9a9a9a url(../images/grad1.png) scroll repeat-x 0 0;}
