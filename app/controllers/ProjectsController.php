@@ -28,6 +28,8 @@ class ProjectsController extends Controller
         
         //Footer
         parent::set('footer', $this->db->getFooter());
+        
+        $this->getLattestSights();
     }
     
     public function indexAction($params)
@@ -35,7 +37,11 @@ class ProjectsController extends Controller
         
         $this->init($params);
         
+        $this->set('project', $this->db->getProject($params['id']));
+        $edition = $this->db->getEditions($params['id']);
+        $edition = $edition[0];
         
+        $this->set('edition', $edition);
     }
     
     
@@ -44,6 +50,16 @@ class ProjectsController extends Controller
     {
         
         $this->init($params);
+        $cid = isset($params['cid']) ? $params['cid'] : null;
+        $this->set('project', $this->db->getProject($params['id']));
+        $edition = $this->db->getEditions($params['id'], 1, $cid);
+        $edition = $edition[0];
+        
+        $this->set('edition', $edition);
+        
+        
+        $olderEditions = $this->db->getEditions($params['id'], 5);
+        $this->set('olderEditions', $olderEditions);
     }
     
     
@@ -108,5 +124,11 @@ class ProjectsController extends Controller
     {
         
         parent::set('otherInfoRootTree', $this->db->getOtherInfoRootTree());
+    }
+    
+    private function getLattestSights()
+    {
+        
+        parent::set('lattestSights', $this->db->getLattestSights());
     }
 }

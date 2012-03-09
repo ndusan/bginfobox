@@ -23,6 +23,7 @@ class HomeModel extends Model
     private $tblNavigationTree = 'navigation_tree';
     private $tblInfo = 'info';
     private $tblProjects = 'projects';
+    private $tblProjectEdition = 'project_edition';
     
     
 //    public function getLattestNews($limit=2)
@@ -955,22 +956,22 @@ class HomeModel extends Model
     }
     
     
-    public function getLattestSights()
-    {
-        
-        try{
-            
-            $query = sprintf("SELECT `c`.*, `n`.`slug` FROM %s AS `c` INNER JOIN %s AS `n` ON `n`.`id`=`c`.`navigation_id` ORDER BY RAND() ASC LIMIT 0,1", 
-                                    $this->tblInfo, $this->tblNavigation);
-            $stmt = $this->dbh->prepare($query);
-            $stmt->execute();
-            
-            return $stmt->fetchAll();
-        }catch(Exception $e){
-            
-            return false;
-        }
-    }
+//    public function getLattestSights()
+//    {
+//        
+//        try{
+//            
+//            $query = sprintf("SELECT `c`.*, `n`.`slug` FROM %s AS `c` INNER JOIN %s AS `n` ON `n`.`id`=`c`.`navigation_id` ORDER BY RAND() ASC LIMIT 0,1", 
+//                                    $this->tblInfo, $this->tblNavigation);
+//            $stmt = $this->dbh->prepare($query);
+//            $stmt->execute();
+//            
+//            return $stmt->fetchAll();
+//        }catch(Exception $e){
+//            
+//            return false;
+//        }
+//    }
     
     
 //    public function getFooter()
@@ -1023,8 +1024,24 @@ class HomeModel extends Model
             $stmt = $this->dbh->prepare($query);
             
             $stmt->execute();
+            $results = $stmt->fetchAll();
             
-            return $stmt->fetchAll();
+            $output = array();
+            
+            if(!empty($results)){
+                foreach($results as $r){
+                    $query = sprintf("SELECT * FROM %s WHERE `project_id`=:projectId ORDER BY `id` DESC LIMIT 0,1", $this->tblProjectEdition);
+                    $stmt = $this->dbh->prepare($query);
+
+                    $stmt->bindParam(':projectId', $r['id'], PDO::PARAM_INT);
+                    $stmt->execute();
+                    $r['edition'] = $stmt->fetch();
+                    
+                    $output[] = $r;
+                }
+            }
+            
+            return $output;
         } catch (\PDOException $e) {
             
             return false;

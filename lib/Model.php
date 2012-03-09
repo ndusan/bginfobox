@@ -110,6 +110,7 @@ class Model
     private $tblEvents = 'events';
     private $tblPages = 'pages';
     private $tblNavigation = 'navigation';
+    private $tblInfo = 'info';
         
         
     public function getLattestNews($limit=2)
@@ -270,7 +271,7 @@ class Model
             $stmt->execute();
 
             return $stmt->fetchAll();
-        }catch(Exception $e){
+        }catch(\PDOException $e){
             
             return false;
         }
@@ -288,7 +289,24 @@ class Model
             $stmt->execute();
 
             return $stmt->fetchAll();
-        }catch(Exception $e){
+        }catch(\PDOException $e){
+            
+            return false;
+        }
+    }
+    
+    public function getLattestSights()
+    {
+        
+        try{
+            
+            $query = sprintf("SELECT `c`.*, `n`.`slug` FROM %s AS `c` INNER JOIN %s AS `n` ON `n`.`id`=`c`.`navigation_id` ORDER BY RAND() ASC LIMIT 0,1", 
+                                    $this->tblInfo, $this->tblNavigation);
+            $stmt = $this->dbh->prepare($query);
+            $stmt->execute();
+            
+            return $stmt->fetchAll();
+        }catch(\PDOException $e){
             
             return false;
         }

@@ -115,6 +115,12 @@ class CmsProjectsController extends Controller
 
             $this->reUploadImage($oldImageName, $imageName, $params['main_image'], 'project');
             $this->db->setProjectImage($params['id'], $imageName, 'main_image');
+            //Delete thumb
+            $oldThumbImageName = 'thumb-'.$oldImageName;
+
+            $this->deleteImage($oldThumbImageName, 'project');
+            //Create thumb
+            $this->createThumbImage($imageName, 'project', 170, 240);
         }
         if (isset($params['top_image']) && 0 == $params['top_image']['error']) {
 
@@ -124,6 +130,12 @@ class CmsProjectsController extends Controller
 
             $this->reUploadImage($oldImageName, $imageName, $params['top_image'], 'project');
             $this->db->setProjectImage($params['id'], $imageName, 'top_image');
+            //Delete thumb
+            $oldThumbImageName = 'thumb-'.$oldImageName;
+
+            $this->deleteImage($oldThumbImageName, 'project');
+            //Create thumb
+            $this->createThumbImage($imageName, 'project', 350, 110);
         }
         if (isset($params['bottom_image']) && 0 == $params['bottom_image']['error']) {
 
@@ -133,6 +145,12 @@ class CmsProjectsController extends Controller
 
             $this->reUploadImage($oldImageName, $imageName, $params['bottom_image'], 'project');
             $this->db->setProjectImage($params['id'], $imageName, 'bottom_image');
+            //Delete thumb
+            $oldThumbImageName = 'thumb-'.$oldImageName;
+
+            $this->deleteImage($oldThumbImageName, 'project');
+            //Create thumb
+            $this->createThumbImage($imageName, 'project', 350, 110);
         }
         
         
