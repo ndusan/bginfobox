@@ -4,7 +4,7 @@
             <? $tmp = array('1' => 'bginfo-box', '2' => 'bginfo-map', '3' => 'bginfo-night-map'); ?>
             <ul class="galleryAll">
                 <? foreach ($lattestStaticEditions as $lse): ?>
-                    <li>
+                    <li class="first">
                         <a href="<?= (DS . $params['lang'] . DS . $tmp[$lse['page_id']] . DS . 'gallery'); ?>" >
                             <img title="<?= $_t['index.image.text'][$params['lang']] ?> <?= $lse['title']; ?>" alt="<?= $_t['index.image.text'][$params['lang']] ?> <?= $lse['title']; ?>" width="170" height="240" src="<?= (DS . 'public' . DS . 'uploads' . DS . 'bginfo' . DS . 'thumb-' . $lse['image_name']); ?>" />
                         </a>
@@ -22,7 +22,7 @@
         <? if (!empty($lattestDynamicEditions)): ?>
             <ul class="galleryAll">
                 <? foreach ($lattestDynamicEditions as $lde): ?>
-                    <li>
+                    <li class="first">
                         <a href="<?= ($lde['has_link'] ? $lde['link'] : '#'); ?>" target="_blank">
                             <img title="<?= $lde['title']; ?> <?= $_t['index.image-iyp.text'][$params['lang']] ?>" alt="<?= $lde['title']; ?> <?= $_t['index.image-iyp.text'][$params['lang']] ?>" width="170" height="240" src="<?= (DS . 'public' . DS . 'uploads' . DS . 'pockets' . DS . 'thumb-' . $lde['image_name']); ?>" />
                         </a>
