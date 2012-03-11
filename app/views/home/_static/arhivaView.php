@@ -26,6 +26,28 @@
                 </ul>
             </li>
             <? endforeach;?>
+            
+            <? if(!empty($projectArchive)):?>
+            <? foreach ($projectArchive as $pa):?>
+            <li>
+                <ul>
+                    <? if(!empty($pa['editions'])):?>
+                    <? foreach ($pa['editions'] as $e):?>
+                    <li>
+                       <a href="<?=DS . $params['lang'] . DS . 'projekat' . DS .'arhiva?id='.$e['id']  ?>">
+                            <img src="<?=(DS.'public'.DS.'uploads'.DS.'project'.DS.'thumb-'.$e['main_image']); ?>" />
+                        </a> 
+                    </li>
+                    <? endforeach; ?>
+                    <? endif;?>
+                    <li class="last">
+                        <p><b><?=$pa['title_'.$params['lang']];?></b></p>
+                        <a href="<?=DS . $params['lang'] . DS . 'projekat' . DS.  'arhiva'; ?>"><?=$_t['complete-archive.label'][$params['lang']];?></a>
+                    </li>
+                </ul>
+            </li>
+            <? endforeach; ?>
+            <? endif; ?>
         </ul>
         <? endif;?>
     </div>
