@@ -116,6 +116,9 @@ class HomeController extends Controller
             case 'arhiva': 
                 
                 $this->archivePage($params); 
+                
+                parent::set('projectArchive', $this->db->getProjectArchives());
+                
                 break;
             case 'galerija': 
                 
@@ -306,7 +309,7 @@ class HomeController extends Controller
     
     public function archiveAction($params)
     {
-
+        
         //Lattest news
         $this->getNews();
         
@@ -351,6 +354,8 @@ class HomeController extends Controller
                 $this->getAchiveByName($params); 
                 break;
         }
+        
+        //parent::set('projectArchive', $this->db->getProjectArchive());
     }
     
     public function guideAction($params)
@@ -547,6 +552,7 @@ class HomeController extends Controller
     /** ARCHIVE PAGE **/
     private function archivePage($params)
     {
+        
         parent::set('archiveCollection', $this->db->getAllArchive());
     }
     

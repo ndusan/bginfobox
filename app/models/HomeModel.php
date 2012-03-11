@@ -1048,4 +1048,35 @@ class HomeModel extends Model
         }
     }
     
+    
+    public function getProjectArchives()
+    {
+        try {
+            $query = sprintf("SELECT * FROM %s ORDER BY `id` DESC", $this->tblProjects);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->execute();
+            
+            
+            $output = array();
+            $results = $stmt->fetchAll();
+            if (!empty($results)) {
+                foreach ($results as $r) {
+                    $query = sprintf("SELECT * FROM %s WHERE `project_id`=:projectId ORDER BY `id` DESC LIMIT 0, 3", $this->tblProjectEdition);
+                    $stmt = $this->dbh->prepare($query);
+                    
+                    $stmt->bindParam(':projectId', $r['id'], PDO::PARAM_INT);
+                    $stmt->execute();
+                    $r['editions'] = $stmt->fetchAll();
+                    
+                    $output[] = $r;
+                }
+            }
+            
+            return $output;
+        } catch (\PDOException $e) {
+            
+            return false;
+        }
+    }
 }
