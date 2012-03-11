@@ -22,7 +22,7 @@
                     <li>
                         <? if (!empty($edition['top_image'])): ?>
                             <span>
-                                <img width="350" height="110" src="<?= DS . 'public' . DS . 'uploads' . DS . 'project' . DS . 'thumb-' . $edition['top_image']; ?>" />
+                                <img width="350" height="120" src="<?= DS . 'public' . DS . 'uploads' . DS . 'project' . DS . 'thumb-' . $edition['top_image']; ?>" />
                                 <a class="zoom lightbox" title="<?= $gc['title_' . $params['lang']]; ?>" href="<?= DS . 'public' . DS . 'uploads' . DS . 'project' . DS . $edition['top_image']; ?>"></a>
                             </span>
                             <? if (!empty($edition['top_file'])): ?>
@@ -35,7 +35,7 @@
                     <li>
                         <? if (!empty($edition['bottom_image'])): ?>
                             <span>
-                                <img width="350" height="110" src="<?= DS . 'public' . DS . 'uploads' . DS . 'project' . DS . 'thumb-' . $edition['bottom_image']; ?>" />
+                                <img width="350" height="120" src="<?= DS . 'public' . DS . 'uploads' . DS . 'project' . DS . 'thumb-' . $edition['bottom_image']; ?>" />
                                 <a class="zoom lightbox" title="<?= $gc['title_' . $params['lang']]; ?>" href="<?= DS . 'public' . DS . 'uploads' . DS . 'project' . DS . $edition['bottom_image']; ?>"></a>
                             </span>
                             <? if (!empty($edition['bottom_file'])): ?>
