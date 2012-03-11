@@ -57,7 +57,7 @@
                         <? foreach ($olderEditions as $oe): ?>
                             <li>
                                 <a href="<?= (DS . $params['lang'] . DS . 'projekat' . DS . $oe['project_id'] . DS . 'gallery?cid=' . $oe['id']); ?>">
-                                    <img width="100" height="100" src="<?= DS . 'public' . DS . 'uploads' . DS . 'project' . DS . 'thumb-' . $oe['main_image']; ?>" />
+                                    <img width="90" height="134" src="<?= DS . 'public' . DS . 'uploads' . DS . 'project' . DS . 'thumb-' . $oe['main_image']; ?>" />
                                 </a>
                             </li>
                         <? endforeach; ?>
