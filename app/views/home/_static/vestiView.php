@@ -37,10 +37,10 @@
                 <span class="date"><?= @$html->convertDate($news['created']); ?></span>
                 <h2><?= $news['title_' . $params['lang']]; ?> </h2>
                 <p class="highlight"><?= $news['heading_' . $params['lang']]; ?></p>
+                <div class="wys">
                 <? if (!empty($news['image_name'])): ?>
                 <img src="<?= DS. 'public' . DS . 'uploads' . DS . 'news' . DS . $news['image_name']; ?>" alt="<?= $news['title_' . $params['lang']]; ?>" title="<?= $news['title_' . $params['lang']]; ?>" />
                 <? endif; ?>
-                <div class="wys">
                 <?= $news['content_' . $params['lang']]; ?>
                 </div>
             </div>
