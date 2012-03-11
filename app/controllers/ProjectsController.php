@@ -63,6 +63,13 @@ class ProjectsController extends Controller
     }
     
     
+    public function archiveAction($params)
+    {
+        $this->init($params);
+        
+        
+    }
+    
     
     /**
      * Get calendar

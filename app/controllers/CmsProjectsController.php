@@ -135,7 +135,7 @@ class CmsProjectsController extends Controller
 
             $this->deleteImage($oldThumbImageName, 'project');
             //Create thumb
-            $this->createThumbImage($imageName, 'project', 350, 110);
+            $this->createThumbImage($imageName, 'project', 350, 120);
         }
         if (isset($params['bottom_image']) && 0 == $params['bottom_image']['error']) {
 
@@ -150,7 +150,7 @@ class CmsProjectsController extends Controller
 
             $this->deleteImage($oldThumbImageName, 'project');
             //Create thumb
-            $this->createThumbImage($imageName, 'project', 350, 110);
+            $this->createThumbImage($imageName, 'project', 350, 120);
         }
         
         

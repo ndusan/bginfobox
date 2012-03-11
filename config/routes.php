@@ -63,6 +63,11 @@ $routes = array(
             'action'     => 'gallery', 
             'layout'     => 'default'
     ),
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/projekat\/arhiva\/?$/', 
+            'controller' => 'projects', 
+            'action'     => 'archive', 
+            'layout'     => 'default'
+    ),
     
     //Location
     array(  'url'        => '/^(?P<lang>('.LANG.'))\/(?P<page>(bginfo-box|bginfo-night-map|bginfo-map|in-your-pocket-city-guides))\/location\/?$/', 
