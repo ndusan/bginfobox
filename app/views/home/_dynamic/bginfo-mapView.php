@@ -30,14 +30,6 @@
                         <span><?=$_t['archive.sublabel'][$params['lang']];?></span>
                     </a>
                 </li>
-                <? if(!empty($download['file_name'])):?>
-                <li class="icoDld">
-                    <a href="<?=(DS.'public'.DS.'uploads'.DS.'bginfo'.DS.$download['file_name']);?>" target="_blank">
-                        <?=$_t['download.label'][$params['lang']];?> 
-                        <span><?=$_t['download.sublabel'][$params['lang']];?></span>
-                    </a>
-                </li>
-                <? endif;?>
             </ul>
             <p><?=$content['content_'.$params['lang']];?></p>
         </div>
