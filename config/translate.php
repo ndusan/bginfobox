@@ -129,5 +129,5 @@ $translate = array(
    'this-month-events.label'=>array('sr'=>'Događaji u izdanju','en'=>'Events in edition'),   
    'this-month-maps.label'=>array('sr'=>'Mapa izdanja','en'=>'Maps of edition'), 
     'projects.current.label'=>array('sr'=>'Aktuelno izdanje','en'=>'Current edition'), 
-    'this.monts-last-five'=>array('sr'=>'Poslednjih 5 izdanja This Month in Belgrade', 'en'=>'Last five This Month in Belgrade editions'),
+    'this.monts-last-five'=>array('sr'=>'Poslednjih 5 izdanja ', 'en'=>'Last five editions of'),
     );
