@@ -34,7 +34,7 @@
         <ul class="galleryAll">
             <li class="first">
                 <? if(!empty($edition['main_image'])):?>
-                <span class="info">Naslovna strana izdanja <?= $project['title_' . $params['lang']]; ?></span>
+                <span class="info"> <?=$_t['this-month-frontpage.label'][$params['lang']];?> <?= $project['title_' . $params['lang']]; ?></span>
                 <span>
                     <img width="170" height="240" title="" alt="" src="<?= DS . 'public' . DS . 'uploads' . DS . 'project' . DS . 'thumb-'.$edition['main_image']; ?>" />
                     <a class="zoom lightbox" title="<?= $gc['title_' . $params['lang']]; ?>" href="<?= DS . 'public' . DS . 'uploads' . DS . 'project' . DS . $edition['main_image']; ?>"></a>
@@ -50,7 +50,7 @@
                 <ul>
                     <li>
                         <? if(!empty($edition['top_image'])):?>
-                        <span class="info">Dogadjaji iz izdanja <?= $project['title_' . $params['lang']]; ?></span>
+                        <span class="info"><?=$_t['this-month-events.label'][$params['lang']];?> <?= $project['title_' . $params['lang']]; ?></span>
                         <span>
                             <img width="350" height="120" src="<?= DS . 'public' . DS . 'uploads' . DS . 'project' . DS . 'thumb-'.$edition['top_image']; ?>" />
                             <a class="zoom lightbox" title="<?= $gc['title_' . $params['lang']]; ?>" href="<?= DS . 'public' . DS . 'uploads' . DS . 'project' . DS . $edition['top_image']; ?>"></a>
@@ -64,7 +64,7 @@
                     </li>
                     <li>
                         <? if(!empty($edition['bottom_image'])):?>
-                        <span class="info">Mapa izdanja <?= $project['title_' . $params['lang']]; ?></span>
+                        <span class="info"><?=$_t['this-month-maps.label'][$params['lang']];?> <?= $project['title_' . $params['lang']]; ?></span>
                         <span>
                             <img width="350" height="120" src="<?= DS . 'public' . DS . 'uploads' . DS . 'project' . DS . 'thumb-'.$edition['bottom_image']; ?>" />
                             <a class="zoom lightbox" title="<?= $gc['title_' . $params['lang']]; ?>" href="<?= DS . 'public' . DS . 'uploads' . DS . 'project' . DS . $edition['bottom_image']; ?>"></a>

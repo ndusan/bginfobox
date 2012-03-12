@@ -123,4 +123,11 @@ $translate = array(
     'home.bginfo-box.subtitle'=>array('sr'=>'Distributivni panoi sa besplatnim informacijama o gradu.','en'=>'Distribution boards with free information about city.'),
     'home.bginfo-map.subtitle'=>array('sr'=>'Besplatna mapa sa ucrtanim znamenitostima Beograda.','en'=>'Free map with indicated landmarks of Belgrade.'),
     'home.bginfo-night-map.subtitle'=>array('sr'=>'Besplatna mapa sa preporukama za nocne izlaske.','en'=>'Free map with recommendations for nightlife.'),
-);
+    
+    //projects
+   'this-month-frontpage.label'=>array('sr'=>'Naslovna strana izdanja','en'=>'Front side of current edition'),
+   'this-month-events.label'=>array('sr'=>'Događaji u izdanju','en'=>'Events in edition'),   
+   'this-month-maps.label'=>array('sr'=>'Mapa izdanja','en'=>'Maps of edition'), 
+    'projects.current.label'=>array('sr'=>'Aktuelno izdanje','en'=>'Current edition'), 
+    'this.monts-last-five'=>array('sr'=>'Poslednjih 5 izdanja This Month in Belgrade', 'en'=>'Last five This Month in Belgrade editions'),
+    );

@@ -48,7 +48,7 @@
                 </ul>
             </li>
         </ul>
-        <p><span class="info">Aktuelni broj izdanja <?= $project['title_' . $params['lang']]; ?></span></p>
+        <p><span class="info"><?= $_t['projects.current.label'][$params['lang']]; ?><?= $project['title_' . $params['lang']]; ?></span></p>
         <!-- Older editions -->
         <? if (!empty($olderEditions)): ?>
             <ul class="archiveAll">
@@ -66,7 +66,7 @@
             </ul>
             <p>
                 <span class="info">
-                   Poslednjih 5 brojeva izdanja <?= $project['title_' . $params['lang']]; ?>, <a href="<?= (DS . $params['lang'] . DS . 'projekat' . DS . 'arhiva' . DS . $project['id']); ?>">
+                   <?= $_t['this.monts-last-five'][$params['lang']]; ?><?= $project['title_' . $params['lang']]; ?>, <a href="<?= (DS . $params['lang'] . DS . 'projekat' . DS . 'arhiva' . DS . $project['id']); ?>">
                     <?= $_t['complete-archive.label'][$params['lang']]; ?>
                     </a>
                 </span>
