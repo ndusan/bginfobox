@@ -46,4 +46,32 @@ class ProjectsModel extends Model
         }
         
     }
+    
+    public function getProjects($id)
+    {
+        try {
+            $output = array();
+            
+            $query = sprintf("SELECT * FROM %s WHERE `id`=:id", $this->tableProjects);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+
+            $results = $stmt->fetch();
+            
+            $query = sprintf("SELECT * FROM %s WHERE `project_id`=:projectId GROUP BY `main_image`", $this->tableProjectEdition);
+            $stmt = $this->dbh->prepare($query);
+
+            $stmt->bindParam(':projectId', $results['id'], PDO::PARAM_INT);
+            $stmt->execute();
+
+            $results['editions'] = $stmt->fetchAll();
+
+            return $results;
+        } catch (\PDOException $e) {
+            
+            return false;
+        }
+    }
 }

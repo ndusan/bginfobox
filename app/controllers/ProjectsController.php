@@ -66,11 +66,7 @@ class ProjectsController extends Controller
     {
         $this->init($params);
         
-        $this->set('project', $this->db->getProject($params['id']));
-        
-        
-        $olderEditions = $this->db->getEditions($params['id'], 5);
-        $this->set('olderEditions', $olderEditions);
+        $this->set('projects', $this->db->getProjects($params['id']));
     }
     
     

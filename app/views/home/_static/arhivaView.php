@@ -34,7 +34,7 @@
                     <? if(!empty($pa['editions'])):?>
                     <? foreach ($pa['editions'] as $e):?>
                     <li>
-                       <a href="<?=DS . $params['lang'] . DS . 'projekat' . DS .'arhiva'.DS.$pa['id'].'?cid='.$e['id']  ?>">
+                       <a href="<?=DS . $params['lang'] . DS . 'projekat'.DS.$pa['id'].DS.'gallery?cid='.$e['id']  ?>">
                             <img src="<?=(DS.'public'.DS.'uploads'.DS.'project'.DS.'thumb-'.$e['main_image']); ?>" />
                         </a> 
                     </li>

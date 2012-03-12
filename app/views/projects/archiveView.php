@@ -2,18 +2,22 @@
     
     <div class="mainBox">
         <div class="boxTitle">
-            <h1><?= $project['title_' . $params['lang']]; ?></h1>
+            <h1><?= $projects['title_' . $params['lang']]; ?></h1>
         </div>
         <!-- Older editions -->
-        <? if (!empty($olderEditions)): ?>
+        <? if (!empty($projects['editions'])): ?>
             <ul class="archiveAll">
                 <li>
                     <ul>
-                        <? foreach ($olderEditions as $oe): ?>
+                        <? foreach ($projects['editions'] as $oe): ?>
                             <li>
-                                <a href="<?= (DS . $params['lang'] . DS . 'projekat' . DS.'arhiva' .DS . $oe['project_id'] .'?cid=' . $oe['id']); ?>">
+                                <a href="<?= (DS . $params['lang'] . DS . 'projekat' .DS . $oe['project_id'] .DS.'gallery?cid=' . $oe['id']); ?>">
                                     <img width="90" height="134" src="<?= DS . 'public' . DS . 'uploads' . DS . 'project' . DS . 'thumb-' . $oe['main_image']; ?>" />
                                 </a>
+                                <span class="icoDld">
+                                    <a href=""></a>
+                                </span>
+                                
                             </li>
                         <? endforeach; ?>
                     </ul>

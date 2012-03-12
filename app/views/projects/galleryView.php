@@ -38,11 +38,6 @@
                                 <img width="350" height="120" src="<?= DS . 'public' . DS . 'uploads' . DS . 'project' . DS . 'thumb-' . $edition['bottom_image']; ?>" />
                                 <a class="zoom lightbox" title="<?= $gc['title_' . $params['lang']]; ?>" href="<?= DS . 'public' . DS . 'uploads' . DS . 'project' . DS . $edition['bottom_image']; ?>"></a>
                             </span>
-                            <? if (!empty($edition['bottom_file'])): ?>
-                                <span class="icoDld">
-                                    <a target="_blank" href="<?= DS . 'public' . DS . 'uploads' . DS . 'project' . DS . $edition['bottom_file']; ?>">preuzmi</a>
-                                </span>
-                            <? endif; ?>
                         <? endif; ?>
                     </li>
                 </ul>
@@ -66,7 +61,7 @@
             </ul>
             <p>
                 <span class="info">
-                    <?= $_t['bginfo-map.last_five_archive.label'][$params['lang']]; ?>, <a href="<?= (DS . $params['lang'] . DS . 'projekat'.DS.'arhiva'); ?>">
+                    <?= $_t['bginfo-map.last_five_archive.label'][$params['lang']]; ?>, <a href="<?= (DS . $params['lang'] . DS . 'projekat'.DS.'arhiva'.DS.$project['id']); ?>">
                     <?= $_t['complete-archive.label'][$params['lang']]; ?>
                     </a>
                 </span>
