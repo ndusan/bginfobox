@@ -34,7 +34,7 @@
                     <? if(!empty($pa['editions'])):?>
                     <? foreach ($pa['editions'] as $e):?>
                     <li>
-                       <a href="<?=DS . $params['lang'] . DS . 'projekat' . DS .'arhiva?id='.$e['id']  ?>">
+                       <a href="<?=DS . $params['lang'] . DS . 'projekat' . DS .'arhiva'.DS.$pa['id'].'?cid='.$e['id']  ?>">
                             <img src="<?=(DS.'public'.DS.'uploads'.DS.'project'.DS.'thumb-'.$e['main_image']); ?>" />
                         </a> 
                     </li>
@@ -42,7 +42,7 @@
                     <? endif;?>
                     <li class="last">
                         <p><b><?=$pa['title_'.$params['lang']];?></b></p>
-                        <a href="<?=DS . $params['lang'] . DS . 'projekat' . DS.  'arhiva'; ?>"><?=$_t['complete-archive.label'][$params['lang']];?></a>
+                        <a href="<?=DS . $params['lang'] . DS . 'projekat' . DS.  'arhiva'.DS.$pa['id']; ?>"><?=$_t['complete-archive.label'][$params['lang']];?></a>
                     </li>
                 </ul>
             </li>

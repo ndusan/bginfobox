@@ -63,7 +63,7 @@ $routes = array(
             'action'     => 'gallery', 
             'layout'     => 'default'
     ),
-    array(  'url'        => '/^(?P<lang>('.LANG.'))\/projekat\/arhiva\/?$/', 
+    array(  'url'        => '/^(?P<lang>('.LANG.'))\/projekat\/arhiva\/(?P<id>\d+)*\/?$/', 
             'controller' => 'projects', 
             'action'     => 'archive', 
             'layout'     => 'default'
