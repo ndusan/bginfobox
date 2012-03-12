@@ -44,7 +44,7 @@
                     <a class="zoom lightbox" title="<?=$gc['title_'.$params['lang']];?>" href="<?=(DS.'public'.DS.'uploads'.DS.'bginfo'.DS.$gc['image_name']);?>"></a>
                 </span>
                 <span class="icoDld">
-                    <a target="_blank" href="<?=DS.'public'.DS.'uploads'.DS.'bginfo'.DS.$gc['image_name'];?>">preuzmi</a>
+                    <a target="_blank" href="<?=DS.'public'.DS.'uploads'.DS.'bginfo'.DS.$gc['image_name'];?>"><?= $_t['download.label'][$params['lang']]; ?></a>
                 </span>
             </li>
             <? endforeach;?>
