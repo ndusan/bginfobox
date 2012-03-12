@@ -33,7 +33,7 @@
             <p>
                 <span class="info">
                     <?= $_t['bginfo-night-map.last_five_archive.label'][$params['lang']]; ?>, 
-                    <a href="<?= (DS . $params['lang'] . DS . 'arhiva' . DS . 'bginfo-nigth-map'); ?>">
+                    <a href="<?= (DS . $params['lang'] . DS . 'arhiva' . DS . 'bginfo-night-map'); ?>">
                         <?= $_t['complete-archive.label'][$params['lang']]; ?>
                     </a>
                 </span>
