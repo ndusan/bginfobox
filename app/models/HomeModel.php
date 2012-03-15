@@ -364,7 +364,12 @@ class HomeModel extends Model
             $stmt->execute();
             
             $result = $stmt->fetch();
-            if(!empty($result)) $output[] = $result;
+            
+            if (!empty($result)) {
+                $result['has_link'] = $d['has_link'];
+                $result['link'] = $d['link'];
+                $output[] = $result;
+            }
         }
         
         return $output;
