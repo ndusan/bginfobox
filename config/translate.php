@@ -43,7 +43,7 @@ $translate = array(
     //Index page
     'index.question'=>array('sr'=>'Šta je', 'en'=>'What is'),
     'index.image.text'=>array('sr'=>'Više detalja o poslednjem izdanju', 'en'=>'More details about the latest Edition of'),
-    'index.image-iyp.text'=>array('sr'=>' - saznajte više na www.inyourpocket.com', 'en'=>' - find out more on www.inyourpocket.com'),
+    'index.image-iyp.text'=>array('sr'=>' Saznajte više na ', 'en'=>' Find out more on '),
     'pockets.label'=>array('sr'=>'Šta su In your pocket vodiči', 'en'=>'What are In your pocket City Guides'),
     'moreInfo.archive'=>array('sr'=>'Arhiva izdanja', 'en'=>'Archive'),
     'moreInfo.clients'=>array('sr'=>'Klijenti', 'en'=>'Clients'),
