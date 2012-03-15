@@ -25,10 +25,10 @@
                     <li class="first">
                         <? if ($lde['has_link']):?>
                         <a href="<?= $lde['link']; ?>" target="_blank">
-                            <img title="<?= $lde['title']; ?> <?= $_t['index.image-iyp.text'][$params['lang']] ?>" alt="<?= $lde['title']; ?> <?= $_t['index.image-iyp.text'][$params['lang']] ?>" width="170" height="240" src="<?= (DS . 'public' . DS . 'uploads' . DS . 'pockets' . DS . 'thumb-' . $lde['image_name']); ?>" />
+                            <img title="<?= $_t['index.image-iyp.text'][$params['lang']] ?> <?= $lde['link']; ?>" alt="<?= $_t['index.image-iyp.text'][$params['lang']] ?> <?= $lde['link']; ?>" width="170" height="240" src="<?= (DS . 'public' . DS . 'uploads' . DS . 'pockets' . DS . 'thumb-' . $lde['image_name']); ?>" />
                         </a>
                         <? else: ?>
-                        <img title="<?= $lde['title']; ?> <?= $_t['index.image-iyp.text'][$params['lang']] ?>" alt="<?= $lde['title']; ?> <?= $_t['index.image-iyp.text'][$params['lang']] ?>" width="170" height="240" src="<?= (DS . 'public' . DS . 'uploads' . DS . 'pockets' . DS . 'thumb-' . $lde['image_name']); ?>" />
+                        <img title="<?= $_t['index.image-iyp.text'][$params['lang']] ?> <?= $lde['link']; ?>" alt="<?= $_t['index.image-iyp.text'][$params['lang']] ?> <?= $lde['link']; ?>" width="170" height="240" src="<?= (DS . 'public' . DS . 'uploads' . DS . 'pockets' . DS . 'thumb-' . $lde['image_name']); ?>" />
                         <? endif;?>
                     </li>
                 <? endforeach; ?>
